@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+/* * The body style is just for the
+ * background color of the codepen.
+ * Do not include in your code.
+ */
+ body {
+ 	background-color: #111;
+ 	color: #fff;
+ }
+/*
+ * Styles essential to the sample
+ * are below
+ */
+
+ /* Set the size of the container for the video player and tabbed playlist */
+ .container {
+ 	width: 1100px;
+ 	height: 400px;
+ }
+
+ /* Style the tabbed menu */
+ #menu {
+ 	float: right;
+ 	padding: 0;
+ 	padding-right: 85px;
+ 	margin: 0;
+ 	color: #fff;
+ 	font-family: arial, helvetica, sans-serif;
+ 	white-space: nowrap;
+ 	list-style-type: none;
+ }
+
+ #menu li {
+ 	display: inline;
+ }
+
+ #menu li input {
+ 	min-width: 50px;
+ 	height: 30px;
+ 	padding: 0.2em 1em;
+ 	background: #0000cc;
+ 	color: #fff;
+ 	text-decoration: none;
+ 	float: left;
+ 	border: 1px solid #fff;
+ 	border-top-left-radius: 1em;
+ 	border-top-right-radius: 1em;
+ }
+
+ .button {
+ 	background: #0000cc;
+ }
+
+ #menu li input:hover {
+ 	background: #08c;
+ 	color: #fff;
+ }
+
+ /* Set the size and location of the player */
+ .video-js {
+ 	width: 650px !important;
+ 	height: 360px !important;
+ 	float: left;
+ }
+ .myplayer {
+ 	clear: both;
+ 	width: 100%;
+ 	height: 100%;
+ 	position: relative;
+ }
+
+ /* Set the size of the tabbed playlist */
+ .vjs-playlist {
+ 	width: 365px;
+ 	height: 360px;
+ }	
+</style>
+</head>
+
+
+
+<body>
+	
+	<div class="container">
+		<div>
+			<ul id="menu">
+				<li>
+					<input id="tab0" type="button" class="button" onclick="processTab(0);" value="Playlist 1"></input>
+				</li>
+				<li>
+					<input id="tab1" type="button" class="button" onclick="processTab(1);" value="Playlist 2">
+				</li>
+				<li>
+					<input id="tab2" type="button" class="button" onclick="processTab(2);" value="Playlist 3">
+				</li>
+				<li><input id="tab3" type="button" class="button" onclick="processTab(3);" value="Playlist 4"></li>
+			</ul>
+		</div>
+
+    <div class="myplayer">
+     <video id="myPlayerID"
+     data-account="1244689453"
+     data-player="BJCNoiuRW"
+     data-embed="default"
+     data-application-id
+     class="video-js"
+     controls muted
+     width="450"
+     height="253.13"></video>
+     <script src="//players.brightcove.net/1244689453/BJCNoiuRW_default/index.min.js"></script>
+     <ol class="vjs-playlist"></ol>
+   </div>
+ </div>
+
+ <script>
+  var myPlayer,
+  // Define an array of playlist Ids
+  playlistIds = ["3884644778001", "1564607361", "1564556238", "25342473001"],
+  // Get the playlist array length
+  playlistIdsLength = playlistIds.length,
+  // Get a reference to the playlist tabs
+  tabs = document.getElementsByClassName("button"),
+  url, tabID, item,
+  playlistNames = [];
+
+
+  videojs("myPlayerID").ready(function() {
+    /* Get a reference to the player when it is ready */
+    myPlayer = this;
+    tabID = getParameter('tabID');
+    item = getParameter('item');    
+    /*console.log('GET tabID: ' + tabID);
+    console.log('GET item: ' + item);*/
+
+    if (tabID) {
+      processTab(tabID);
+    }
+    else{
+      processTab(0);
+      item=0;
+    }
+
+
+    myPlayer.on('loadstart',function(){
+      myPlayer.one('playlistitem',function(){
+         item = myPlayer.playlist.currentItem();
+         /*console.log('item: ' + item);*/
+      });
+
+      url = location.protocol + '//' + location.host + location.pathname + "?playlistVideoId=" + myPlayer.mediainfo.id + "&tabID=" + tabID + "&item=" + item;
+
+      console.log("url: " + url);
+
+      var options = {
+        "url": url,
+        "deeplinking": false,
+        "services": {
+          "facebook": true,
+          "google": true,
+          "twitter": true,
+          "tumblr": true,
+          "pinterest": true,
+          "linkedin": true
+        }
+      };
+      myPlayer.social(options);
+    })
+  });
+
+// +++ Set selected tab and load video +++
+function processTab(index) {
+
+  window.tabID=index;
+
+  /*console.log('tabID: ' + tabID);*/
+  // Reset the tabs so that none of them are selected/highlighted
+  resetTabs();
+
+  // Highlight the selected tab in the navigation
+  document.getElementById("tab" + index).setAttribute("style", "background:#08c;color: #00FFFF; border-bottom: 1px solid #00FFFF;");
+  // Load the selected tab's playlist into the player
+  loadPlaylist(playlistIds[index]);
+};
+
+// +++ Load selected playlist and first video +++
+function loadPlaylist(currentId) {
+
+  // Get the playlist object for the currently selected tab
+  myPlayer.catalog.getPlaylist(currentId, function(error, playlist) {
+   /*console.log('currentID:' + currentId);*/
+    // Load the playlist into the player
+    myPlayer.catalog.load(playlist);
+    // Load the first video in the playlist into the player
+
+/*console.log(">>>item: " + item);*/
+
+    myPlayer.playlist.currentItem(Number(item));
+  });
+};
+
+// +++ reset all tabs +++
+function resetTabs() {
+  // Turn highlighting off for all of the tabs
+  var i,
+  iMax = tabs.length;
+  for (i = 0; i < iMax; i++) {
+  	tabs[i].setAttribute("style", "background: #0000cc;color: #fff;")
+  }
+}
+
+// +++ get parameter from URL +++
+function getParameter(theParameter) { 
+  var params = window.location.search.substr(1).split('&');
+
+  for (var i = 0; i < params.length; i++) {
+    var p=params[i].split('=');
+    if (p[0] == theParameter) {
+      return decodeURIComponent(p[1]);
+    }
+  }
+  return false;
+}
+
+
+</script>
+
+</body>
+</html>
+<!--
+	https://support.brightcove.com/social-media-plugin#Custom_services
+  https://www.sitepoint.com/get-url-parameters-with-javascript/
+	-->

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On play</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>IMA3 - Request Ads: On play (Using code)</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5515555595001" 
+				data-account="5480141310001" 
+				data-player="ryaegMMwZ" 
+				data-embed="Skl4WdCvUZ" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+			</div>
+		</div>
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+		<script type="text/javascript">
+			var myPlayer;
+			/* Brightcove Player initialisation */ 
+			var player = bc('myPlayerID');
+			/* IMA3 Plugin initialisation */ 
+			player.ima3({
+				adTechOrder: ['html5', 'flash'],
+				debug: true,
+				serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=3x3&iu=/8422/dorkly.com/extention/BrightCove&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url={document.referrer}&cmsid=4627&vid={mediainfo.id}&language=en&description_url={document.referrer}&correlator={timestamp}&cust_params=width%3D685%26height%3D385',		
+				requestMode: 'onplay', 
+				timeout: 6000, 
+				hardTimeouts: false,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				}
+			});
+		</script>
+		<ul>
+			<li>Player v6.5.2</li>
+			<li>IMA3 Plugin v2.19.4</li>
+			<li><a href="https://support.brightcove.com/advertising-ima3-plugin" target="_blank">Advertising with the IMA3 Plugin</a></li>							
+			<li><a href="https://support.brightcove.com/learning-guide-video-advertising" target="_blank">Learning Guide: Video Advertising</a></li>	
+			<li><a href="https://support.brightcove.com/configuring-player-advertising" target="_blank">Configuring Player Advertising</a></li>	
+			<li><a href="https://support.brightcove.com/advertising-sdks" target="_blank">Advertising with the SDKs</a></li>	
+		</ul>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	  	
+</body>
+</html>

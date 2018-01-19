@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Events v6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">   
+</head>
+<body>
+    <div class="container">
+        <h1>Player Events v6</h1>
+        <div style="position: relative; display: block; max-width: 100%;">
+            <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayerID"
+                data-video-id="5575865276001" 
+                data-account="5458602755001" 
+                data-player="SyZOU3FDW" 
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls muted
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+                <script src="//players.brightcove.net/5458602755001/SyZOU3FDW_default/index.min.js"></script>
+            </div>
+        </div>
+    <ul>
+        <li><a href="https://support.brightcove.com/player-events" target="_blank">Player Events</a></li>
+        <li><a href="https://html.spec.whatwg.org/multipage/media.html#mediaevents" target="_blank">Event summary</a></li>    
+    </ul>
+
+
+        <button onclick="clearConsole()">Clear Console</button>
+
+        <p style="font-family: courier;font-size:11px;"><b><u>MESSAGE LOG:</u></b></p>
+        <p style="font-family: courier;font-size:11px;" id="message"></p>
+
+
+
+        <script type="text/JavaScript">
+            var myPlayer;
+
+
+            function clearConsole(){
+              message.innerHTML = "";      
+          }
+
+
+          /* loadstart: Dispatched when the player is initialized, and if it’s re-initialized in the case of giving it a new source to play */
+          videojs('myPlayerID').on('loadstart',function(){
+            message.innerHTML += "*** loadstart triggered<br>";
+        });
+
+          videojs("myPlayerID").ready(function() { 
+            var myPlayer = this;
+
+            /* progres: The user agent is fetching media data. */
+            myPlayer.on("progress", function() { 
+                message.innerHTML += "*** progress triggered<br>";
+            });
+
+            /* suspend: The user agent is intentionally not currently fetching media data. */
+            myPlayer.on("suspend", function() { 
+                message.innerHTML += "*** suspend triggered<br>";
+            });
+
+            /* abort: The user agent stops fetching the media data before it is completely downloaded, but not due to an error. */
+            myPlayer.on("abort", function() { 
+                message.innerHTML += "*** abort triggered<br>";
+            });
+
+            /* error: An error occurs while fetching the media data or the type of the resource is not supported media format. */
+            myPlayer.on("error", function() { 
+                message.innerHTML += "*** error triggered<br>";
+            });
+
+            /* emptied: A media element whose networkState was previously not in the NETWORK_EMPTY state has just switched to that state (either because of a fatal error during load that's about to be reported, or because the load() method was invoked while the resource selection algorithm was already running). */
+            myPlayer.on("emptied", function() { 
+                message.innerHTML += "*** emptied triggered<br>";
+            });
+
+            /* stalled: The user agent is trying to fetch media data, but data is unexpectedly not forthcoming. */
+            myPlayer.on("stalled", function() { 
+                message.innerHTML += "*** stalled triggered<br>";
+            });
+
+            /* loadedmetadata: Dispatched when the player has initial duration and dimension information, in other words, when the first segment is downloaded. For live videos the loadedmetadata event won't be dispatched until the user clicks play. This is because live videos don't start downloading segments until the user clicks play. */
+            myPlayer.on("loadedmetadata", function() { 
+                message.innerHTML += "*** loadedmetadata triggered<br>";
+            });
+
+            /* loadeddata: Dispatched when the player has downloaded data at the current playback position */
+            myPlayer.on("loadeddata", function() { 
+                message.innerHTML += "*** loadeddata triggered<br>";
+            });        
+
+            /* The user agent can resume playback of the media data, but estimates that if playback were to be started now, the media resource could not be rendered at the current playback rate up to its end without having to stop for further buffering of content. */
+            myPlayer.on("canplay", function() { 
+                message.innerHTML += "*** canplay triggered<br>";
+            });
+
+            /* The user agent estimates that if playback were to be started now, the media resource could be rendered at the current playback rate all the way to its end without having to stop for further buffering */
+            myPlayer.on("canplaythrough", function() { 
+                message.innerHTML += "*** canplaythrough triggered<br>";
+            });
+
+            /* Playback is ready to start after having been paused or delayed due to lack of media data. */
+            myPlayer.on("playing", function() { 
+                message.innerHTML += "*** playing triggered<br>";
+            });  
+
+            /* Playback has stopped because the next frame is not available, but the user agent expects that frame to become available in due course. */
+            myPlayer.on("waiting", function() { 
+                message.innerHTML += "*** waiting triggered<br>";
+            });  
+
+            /* The seeking IDL attribute changed to true, and the user agent has started seeking to a new position. */
+            myPlayer.on("seeking", function() { 
+                message.innerHTML += "*** seeking triggered<br>";
+            });
+
+            /* The seeking IDL attribute changed to false after the current playback position was changed. */
+            myPlayer.on("seeked", function() { 
+                message.innerHTML += "*** seeked triggered<br>";
+            });
+
+            /* Playback has stopped because the end of the media resource was reached. */
+            myPlayer.on("ended", function() { 
+                message.innerHTML += "*** ended triggered<br>";
+            }); 
+
+            /* The duration attribute has just been updated. */
+            myPlayer.on("durationchange", function() { 
+                message.innerHTML += "*** durationchange triggered<br>";
+            }); 
+
+            /* The current playback position changed as part of normal playback or in an especially interesting way, for example discontinuously. */ 
+            myPlayer.on("timeupdate", function() { 
+                message.innerHTML += "*** timeupdate triggered<br>";
+            }); 
+
+            /* The element is no longer paused. Fired after the play() method has returned, or when the autoplay attribute has caused playback to begin. */
+            myPlayer.on("play", function() { 
+                message.innerHTML += "*** play triggered<br>";
+            });
+
+            /* The element has been paused. Fired after the pause() method has returned. */
+            myPlayer.on("pause", function() { 
+                message.innerHTML += "*** pause triggered<br>";
+            });        
+
+            /* Either the defaultPlaybackRate or the playbackRate attribute has just been updated. */
+            myPlayer.on("ratechange", function() { 
+                message.innerHTML += "*** ratechange triggered<br>";
+            }); 
+
+            /* One or both of the videoWidth and videoHeight attributes have just been updated. */
+            /* Add an event to signal that the player was resized using the API e.g. player.dimensions() #4629 /*
+            /* https://github.com/videojs/video.js/issues/4629 */
+            myPlayer.on("resize", function() { 
+                message.innerHTML += "*** resize triggered<br>";
+            });
+
+            /* Either the volume attribute or the muted attribute has changed. Fired after the relevant attribute's setter has returned. */
+            myPlayer.on("volumechange", function() { 
+                message.innerHTML += "*** volumechange triggered<br>";
+            });   
+
+            myPlayer.on('fullscreenchange', function() {
+                if (myPlayer.isFullscreen()) {
+                    message.innerHTML += "*** fullscreen triggered at " + myPlayer.currentTime() + ' seconds<br>';
+                } else {
+                    message.innerHTML += "*** fullscreen off at " + myPlayer.currentTime() + ' seconds<br>';
+                }
+            });
+
+        });
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>    
+</body>
+</html>

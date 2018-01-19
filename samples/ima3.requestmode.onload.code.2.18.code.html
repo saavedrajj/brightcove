@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On load</title>
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>IMA3 - Request Ads: On load (Using code)</h1>
+	<video 
+	id="player"
+	data-video-id="5480141310001" 
+	data-account="5458602755001" 
+	data-player="Skl4WdCvUZ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<script type="text/javascript">
+/*
+		videojs('myPlayerID').ready(function(){
+			var myPlayer = this,
+			options = {
+				debug: true,
+				requestMode: 'onload',
+				serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinearvpaid2js&correlator="
+			};
+			myPlayer.ima3(options);
+		});
+*/
+	</script>
+
+<script>
+/*
+    var myPlayer;
+
+    var player = bc('myPlayerID');
+    player.ima3({
+      serverUrl: 'http://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml'
+    });
+
+    player.ready(function() {
+      myPlayer = this;
+
+    });
+ */   
+  </script>
+
+
+
+	<script type="text/JavaScript">
+		// Initialise player
+		var brightcovePlayer = videojs(document.querySelector('.video-js'));
+		// Set up advertising ASAP
+		// We're using a blank serverURL here because we want metadata from the video
+		brightcovePlayer.ima3({
+			serverUrl: "",
+			requestMode: "onplay",
+			debug: true
+		});
+		// When the player's ready, let's get started
+		videojs('player').ready(function(){
+			brightcovePlayer = this;
+			// Do stuff here!
+			brightcovePlayer.one("loadedmetadata", function(){
+				// Now we have metadata, we can set up the ad with macros
+				brightcovePlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator={timestamp}&title={mediainfo.name}&ID={mediainfo.id}&refID={mediainfo.reference_id}";
+			})
+		});
+	</script>
+
+	<ul>
+		<li>Player v.6.5.0</li>
+		<li><a href="https://support.brightcove.com/advertising-ima3-plugin" target="_blank">Advertising with the IMA3 Plugin</a></li>	
+	</ul>
+	  	<span id="disclaimer">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</span>
+</body>
+</html>

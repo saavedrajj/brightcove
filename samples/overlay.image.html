@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Default Test Page</title>
+    
+  
+    <link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">
+
+
+    <style>
+
+    /* overlay position */
+    .video-js .vjs-overlay {
+      top:0;
+      left:0;
+      padding: 0;
+    }
+
+  </style>
+    
+</head>
+
+<body>
+
+<video data-video-id="4940866152001"
+id="myPlayerID"
+data-account="4755935480001" 
+data-player="default" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls
+playsinline
+width="640" 
+height="360"></video>
+
+<br>
+<button onclick="causeErrorOne();">Custom Error 1</button>
+<button onclick="causeErrorTwo();">Custom Error 2</button>
+<button onclick="clearErrors();">Clear</button>
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
+
+<script src="//players.brightcove.net/4755935480001/default_default/index.min.js"></script>
+<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+
+<script type="text/javascript">
+    var myPlayer;
+    
+    videojs('myPlayerID').ready(function(){
+        myPlayer = this;
+        
+        myPlayer.overlay({
+            overlays: [{
+              "start": "customErrorOne",
+              "end": "clearCustomError",
+              "content": "<img src='http://cs1.brightcodes.net/mglanzer/img/ErrorMsg1.jpg'>"
+            },
+            {
+              "start": "customErrorTwo",
+              "end": "clearCustomError",
+              "content": "<img src='http://cs1.brightcodes.net/mglanzer/img/ErrorMsg2.jpg'>"
+            }]
+        });
+    });
+
+    function causeErrorOne() {
+        myPlayer.trigger('customErrorOne');
+        myPlayer.pause();
+    }
+    
+    function causeErrorTwo() {
+        myPlayer.trigger('customErrorTwo');
+        myPlayer.pause();
+    }
+    
+    function clearErrors() {
+        myPlayer.trigger('clearCustomError');
+        myPlayer.play();
+    }
+</script>
+</body>
+</html>

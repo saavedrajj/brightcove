@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+
+  <title>Album example for Bootstrap</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.0/examples/album/album.css" rel="stylesheet">
+  <!--
+        Things need to do for background playback.
+        1) Hide the followings:
+            - Control bar (by CSS)
+            - Big play button (by CSS)
+            - Dock text (by CSS)
+            - Loading spinner (by CSS)
+            - Poster image (by <video>'s 'poster' attribute)
+              - If you hide the poster, you might be black screen until the video is loaded into the player.
+                It might be good to set the first frame of the video as the poster to mitigate this issue.
+        2) Set the pointer to none (disable click), by default it is the hand-pointer. (by CSS)
+        3) Set to autostart (by <video>'s 'autostart' attribute)
+        4) Mute the sound (by Javascript)
+        5) Make the player responsive (by surrounding the <video> with <div>s and setting <video>'s "style" attribute)
+        6) Loop the playback (by Javascript)
+
+        Note: Since there is no control bar, you would need to do the following to control the playback during the test.
+            - Show the control bar
+            - Set the point to default
+          -->
+          <!-- Brightcove CSS -->
+          <style type="text/css">
+           .video-js {
+            /*th: 640px;
+            height: 360px;*/
+          }
+          /* Hide control bar */
+          .video-js .vjs-control-bar {
+            display: none;
+          }
+          /* Hide big play button */
+          .video-js .vjs-big-play-button {
+            display: none;            
+          }
+          /* Hide cock text */
+          .video-js .vjs-dock-text {
+            display: none;            
+          }
+          /* Hide loading spinner */
+          .video-js .vjs-loading-spinner {
+            display: none;                        
+          }
+          /* Hide poster image */
+          .video-js .vjs-poster {
+            display: none;                                    
+          }
+          /* Disable click */
+          .video-js {
+            pointer-events: none;
+          }
+        </style>
+
+
+
+
+      </head>
+
+      <body>
+
+        <div class="collapse bg-inverse" id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 py-4">
+                <h4 class="text-white">About</h4>
+                <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+              </div>
+              <div class="col-sm-4 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                  <li><a href="#" class="text-white">Like on Facebook</a></li>
+                  <li><a href="#" class="text-white">Email me</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-inverse bg-inverse">
+          <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand">Menu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+
+        <section class="jumbotron text-center">
+          <div class="container">
+
+            <div style="position: relative; display: block; max-width: 100%;">
+              <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayer"
+                data-video-id="5471773367001" 
+                data-account="54034667001" 
+                data-player="76692d2a-f9b0-477e-9369-b7d62bf3e45b" 
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls 
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+                <script src="https://players.brightcove.net/54034667001/76692d2a-f9b0-477e-9369-b7d62bf3e45b_default/index.min.js"></script>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              videojs("myPlayer").ready(function() {
+                var myPlayer = this;
+            // Myute the audio
+            myPlayer.muted(true);
+            // Looop the video
+            /*
+            myPlayer.on("ended", function() {
+              myPlayer.currentTime(0);
+              setTimeout(function() {
+                myPlayer.play();
+              }, 1); 
+            })*/
+            myPlayer.play();
+          });
+        </script>
+
+
+
+      </div>
+    </section>
+
+    <div class="album text-muted">
+      <div class="container">
+
+        <div class="row">
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card">
+            <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://v4-alpha.getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+    <script>
+      $(function () {
+        Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+      });
+    </script>
+    <script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+  </html>

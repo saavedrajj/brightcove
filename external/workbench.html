@@ -1,0 +1,673 @@
+
+<!--
+Last Updated on 1/16/2016
+
+Archived Version available here:
+http://cs1.brightcodes.net/pdias/samples/workbench-v3-archived.html?bc-mr=0
+
+Changelog 0:
+
+* Changed from onclick to href for Player URLs.
+* Added in v5.0.3 and v.5.0.5 players
+* Update the debugger script to include some new events
+* Add in .bcplayer-dimensions because of early versions of the v2 players
+* Update workbench console logging
+* Fix IMA plugin notation
+
+Changelog 1:
+
+* Rebuilt buildPlayer and initPlayer functions. You no longer have to update the check when add in new players.
+
+To add in a player:
+- Include it in the list within buildPlayer
+- Add it to the playerobj
+- Add it to the radios with the correct input ID
+
+* Changed initPlayer to prepPlayer as most of the functions were either brought back into buildPlayer or pushed over to configPlayer.
+* playerobj, pluginobj and imaobj are now global although variables used in these objects are not. These are still passed throughout the functions.
+* Some script callbacks such as prepIMA() were added. Unfotunately, setTimeout is still used in several areas. I haven't found a good way to determine when the scripts register. I do NOT want to use a module loader like RequireJS.
+* Add in adSWF into configIMA as the v2 plugin doesn't actually update the underlying SWF which is likely becaue you can still use the v1 plugin with vjs 5.0 players.
+* Fixed some notation with vjs 5.0 players. Notably w/ Compt Script as all vjs 5.0 players should have this. We would need to create new player for non compt script testing.
+* Add user agent section at botton of the page
+* Removed Non-MSE V2 Players and refactors objs
+
+Changelog 2:
+
+* Rapid MR releases are not included. Latest version is 5.0.9
+* Allow for MP4 input.
+* Fix load stream error.
+* Improve error messaging.
+* Add try / catch logic for changing tech Order issue
+* Update setTimeout with try/catch due to v5.0.8
+* Hide player and plugins after build
+* Fixed Flash Tech Order Issue
+* pluginHOlder is being populated
+
+Changelog 3:
+* Reduce player and IMA3 versions
+
+To do: Update with latest configs
+
+Work in Progress Version available here:
+http://cs1.brightcodes.net/pdias/samples/workbench-v4.html?bc-mr=0
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Workbench</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>  document.createElement('video');document.createElement('tracks');document.createElement('source');</script>
+<link rel="shortcut icon" href="//cs1.brightcodes.net/pdias/samples/favicon-64.png" type="image/png">
+<link rel="icon" href="//cs1.brightcodes.net/pdias/samples/favicon-64.png" type="image/png">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="//cs1.brightcodes.net/pdias/2015/Buttons/css/buttons.css">
+<script type="text/javascript" src="//cs1.brightcodes.net/pdias/2015/Buttons/js/buttons.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+    .bcplayer-dimensions{
+        width: 480px;
+        height: 270px;
+    }
+    .alert{
+        margin-bottom: 0px;
+    }
+    h2{
+        margin-top: 0px;
+    }
+    .ad-settings{
+        width: 40%;
+    }
+</style>
+</head>
+<body>
+<div id="bcbutton" class="container-fluid">
+<h5>Note: All video.js 5 players have the compatibility script as it adds a compatibility layer for video.js 4 that re-introduces a number of properties and methods that were deprecated or removed in video.js 5. This is the default unless otherwise specified when creating the player.</h5>
+<div class="row">
+
+<div class="col-md-9">
+<h2>Current Brightcove Player</h2>
+  <form role="form">
+    <div class="radio">
+      <label><input id="player16" type="radio" value="player19" name="playerradio">Current Production Player (Default)</label>
+    </div>
+</div>
+
+<div class="col-md-4">
+  <h2>Brightcove vjs5 Players</h2>
+  <form role="form">
+    <div class="radio">
+      <label><input id="player1" type="radio" value="player1" name="playerradio">Version 5 (Latest) Luna</label>
+    </div>
+  </form>
+</div>
+
+<div class="col-md-4">
+  <h2>Brightcove v1 Players</h2>
+  <form role="form">
+    <div class="radio">
+      <label><input id="player0" type="radio" value="player0" name="playerradio">v1.14.32</label>
+    </div>
+  </form>
+</div>
+
+</div>
+</div>
+
+<div id="bcbutton1" class="container-fluid">
+<div class="row">
+ <div class="col-md-4">
+  <h2>IMA3 v2 Plugins</h2>
+  <form role="form">
+    <div class="radio">
+      <label><input id="plugin0" type="radio" value="plugin0" name="ima3radio" onclick="ima3()">Current v2</label>
+    </div>
+  </form>
+</div>
+<div class="col-md-4">
+  <h2>IMA3 v1 Plugins</h2>
+  <form role="form">
+    <div class="radio">
+      <label><input id="plugin1" type="radio" value="plugin1" name="ima3radio" onclick="ima3()">Current v1</label>
+    </div>
+    </div>
+  </form>
+</div>
+<div class="row">
+<div class="col-xs-6 col-md-8">
+<div class="form-group">
+    <label id="ima3server" for="ima3adServerURL">IMA3 Ad Server URL</label>
+    <input type="text" class="form-control" id="adsURL" value="http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&iu=%2F6062%2Fiab_vast_samples&ciu_szs=300x250%2C728x90&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cust_params=iab_vast_samples%3Dlinear" placeholder="http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&iu=%2F6062%2Fiab_vast_samples&ciu_szs=300x250%2C728x90&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cust_params=iab_vast_samples%3Dlinear">
+  </div>
+</div>
+<div class="col-xs-6 col-md-8">
+  <form role="form">
+    <div class="radio-inline">
+      <label><input id="ima0" type="radio" value="ima0" name="techradio" checked>Default - Flash, HTML5</label>
+    </div>
+    <div class="radio-inline">
+      <label><input id="ima1" type="radio" value="ima1" name="techradio">HTML5, Flash</label>
+    </div>
+    <div class="radio-inline">
+      <label><input id="ima2" type="radio" value="ima2" name="techradio">HTML5</label>
+    </div>
+    <div class="radio-inline">
+      <label><input id="ima3" type="radio" value="ima3" name="techradio">Flash</label>
+    </div>
+</form>
+</div>
+<div class="col-xs-6 col-md-6">
+<div class="form-group ad-settings">
+    <label for="prerollTime">Preroll Timeout</label>
+    <input type="text" class="form-control" id="preroll" value="5000" placeholder="5000">
+  </div>
+    <div class="form-group ad-settings">
+    <label for="postrollTime">Postroll Timeout</label>
+    <input type="text" class="form-control" id="postroll" value="5000" placeholder=5000>
+  </div>
+    <div class="form-group ad-settings">
+    <label for="timeoutTime">IMA3 Timeout</label>
+    <input type="text" class="form-control" id="timeout" value="5000" placeholder="5000">
+  </div>
+        <div class="form-group ad-settings">
+    <label for="loadingspin">Loading Spinner</label>
+    <input type="text" class="form-control" id="loadingspinner" value="true" placeholder="true">
+  </div>
+    </div>
+    </div>
+</div>
+</div>
+<div class="row container-fluid">
+<div class="col-xs-6 col-md-4">
+<button id="bcplayerbuild" type="button" onclick="buildPlayer()" class="btn btn-success">BUILD PLAYER</button>
+</div>
+</div>
+<div class="row container-fluid">
+    <div class="col-xs-6 col-md-4">
+<div id="message" class="alert alert-info" role="alert">
+<strong>BUILD PENDING</strong>
+</div>
+</div>
+</div>
+
+<div class="container-fluid">
+
+<div class="row">
+<div class="col-xs-6 col-md-6">
+<div id="versionHolder"></div>
+<div id="pluginHolder"></div>
+<div id="playerHolder"></div>
+<div id="embedHolder"></div>
+<div id="error"></div>
+</div>
+</div>
+</div>
+
+<div class="row container-fluid">
+<div class="col-xs-6 col-md-8">
+<form class="form-inline">
+<div class="form-group col-md-8">
+    <label for="contentURL">HLS URL</label>
+    <input type="text" class="form-control" id="formValueId1" name="valueId1" value="http://c.brightcove.com/services/mobile/streaming/index/master.m3u8?videoId=4360283683001&pubId=4360108595001">
+<button type="button" id="theButton1" onclick="loadURL(document.getElementById('formValueId1').value,1)" class="btn btn-default">Load HLS Stream</button>
+  </div>
+<div class="form-group col-md-8">
+    <label for="contentURL">MP4 URL</label>
+    <input type="text" class="form-control" id="formValueId2" name="valueId2" value="http://brightcove.vo.llnwd.net/e1/uds/pd/4360108595001/4360108595001_4360341691001_4360283683001.mp4">
+<button type="button" id="theButton2" onclick="loadURL(document.getElementById('formValueId2').value,2)" class="btn btn-default">Load MP4 Stream</button>
+  </div>
+</form>
+</div>
+</div>
+<div class="row container-fluid">
+<div class="col-xs-6 col-md-8">
+<form class="form-inline">
+<div class="form-group col-md-8">
+    <label for="contentURL">Video ID</label>
+    <input type="text" class="form-control" id="formValueId3" name="valueId3" value="4360283683001">
+<button type="button" id="theButton3" onclick="loadVideo(document.getElementById('formValueId3').value)" class="btn btn-default">Load Video ID</button>
+  </div>
+</form>
+</div>
+</div>
+<div class="row container-fluid">
+<div class="col-md-12">
+    <ul>
+    <li>Big Buck Bunny - 4360283683001</li>
+    <li>Big Buck Bunny 60FPS - 4536364104001</li>
+    <li>Clownfish - 4524585416001</li>
+    <li>Helicopter - 4524585406001</li>
+    <li>Simpsons - 4360283679001</li>
+    <li>TCT Live - 4672823874001</li>
+    <li>MP4 Only - 4618154181001</li>
+    </ul>
+<h5>Device Info:</h5>
+<div id="ua"></div>
+<div id="browser"></div>
+</div>
+</div>
+
+<script type="text/JavaScript">
+
+// clean up the page a bit after loads
+
+$(document).ready(function() {
+$("html,body").animate({scrollTop: 0}, "fast");
+});
+
+var UA = navigator.userAgent;
+document.getElementById("ua").innerHTML = "User Agent String: " + UA;
+
+// Functions:
+// buildPlayer() creates the outline of the configs on user interaction.
+// prepPlayer() preps the player to be configured
+// configPlayer() constructs and applies the bc and ima3 scripts
+// setPlayer() initializes the player in DOM
+// prepIMA() is a callback for when the IMA script has been loaded (not registered)
+// configIMA() initializes the IMA3 config
+// loadURL() passes in the video source URL into the player
+// loadVideo() makes a call to the catalog to return the request video
+// createDebugger creates the player debugger
+
+function buildPlayer(){
+var player1_14_32 = "r1vt2paq";
+var player5_latest = "Bkpw92kG";
+
+playersobj = {
+player0: {name: "Version 1.14.32", id: player1_14_32},
+player1: {name: "Version 5 (Latest) Luna", id: player5_latest},
+}
+console.log(playersobj);
+
+var plugin0 = "2";
+var plugin1 = "1";
+
+pluginobj = {
+  plugin0: {name: "Current Version 2", id: plugin0},
+  plugin1: {name: "Current Version 1", id: plugin1},
+}
+
+var ima0 = "default";
+var ima1 = "html5first";
+var ima2 = "html5";
+var ima3 = "flash";
+
+imaobj = {
+  ima0: {name: "Default Tech Order", id: ima0},
+  ima1: {name: "HTML5, Flash Tech Order", id: ima1},
+  ima2: {name: "HTML5 Tech Order", id: ima2},
+  ima3: {name: "Flash Tech Order", id: ima3},
+}
+
+console.log(pluginobj);
+console.log(imaobj);
+
+var build,playerscript,pluginversion,ads;
+
+for(x = 0; x < Object.keys(playersobj).length; x++){
+build = "player"+x;
+if(document.getElementById(build).checked){
+playerscript = "player"+x;
+console.log("WORKBENCH " + playerscript);
+}
+}
+
+for(x = 0; x < Object.keys(pluginobj).length; x++){
+build = "plugin"+x;
+if(document.getElementById(build).checked){
+pluginversion = "plugin"+x;
+console.log("WORKBENCH " + pluginversion);
+}
+}
+
+for(x = 0; x < Object.keys(imaobj).length; x++){
+ads = "ima"+x;
+if(document.getElementById(ads) && document.getElementById(ads).checked){
+adsscript = "ima"+x;
+console.log("WORKBENCH " + ads);
+break;
+}
+else{
+adsscript = "ima0";
+}
+}
+
+prepPlayer(playerscript,pluginversion,adsscript);
+
+}
+
+function prepPlayer(playerscript,pluginversion,adsscript){
+
+if(playerscript){
+var player = playersobj[playerscript].id;
+}
+else{
+// Make sure current production player does not have ID append.
+playerscript = "player19";
+var player = playersobj[playerscript].id;
+}
+
+configPlayer(player,pluginversion,adsscript);
+   var versionDomElement = document.createElement('a');
+   versionDomElement.setAttribute("href", "//players.brightcove.net/4360108595001/" + playersobj[playerscript].id + "_default/config.json");
+       versionDomElement.setAttribute("target","_blank");
+    versionDomElement.innerHTML = "Player: " + playersobj[playerscript].name;
+if(pluginversion){
+    document.getElementById('pluginHolder').innerHTML = "IMA3 Plugin: " + pluginobj[pluginversion].name + " - " + imaobj[adsscript].name;
+}
+   var v = document.getElementById('versionHolder');
+   v.appendChild(versionDomElement);
+   var playerjson = "//players.brightcove.net/4360108595001/" + playersobj[playerscript].id + "_default/config.json";
+
+   var embedDomElement = document.createElement('a');
+   embedDomElement.setAttribute("href", "//players.brightcove.net/4360108595001/" + playersobj[playerscript].id + "_default/in_page.embed");
+   embedDomElement.setAttribute("target","_blank");
+    embedDomElement.innerHTML = "Player Embed: //players.brightcove.net/4360108595001/" + playersobj[playerscript].id + "_default/in_page.embed";
+   var v = document.getElementById('embedHolder');
+   v.appendChild(embedDomElement);
+   var playerembed = "//players.brightcove.net/4360108595001/" + playersobj[playerscript].id + "_default/in_page.embed";
+
+}
+
+function configPlayer(player,pluginversion,adsscript){
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.id = 'bcscript';
+    newScript.type = 'text/javascript';
+    var playerscript = "//players.brightcove.net/4360108595001/" + player + "_default/index.min.js";
+    newScript.src = playerscript;
+    headID.appendChild(newScript);
+    newScript.onload = setPlayer(player,pluginversion,adsscript);
+}
+
+function setPlayer(player,pluginversion,adsscript){
+  var videoDomElement = document.createElement('video');
+  videoDomElement.setAttribute('id', 'bcplayer');
+  videoDomElement.setAttribute('width', '480px');
+  videoDomElement.setAttribute('height', '270px');
+  videoDomElement.setAttribute('data-embed', 'default');
+  videoDomElement.setAttribute('class', 'video-js');
+  videoDomElement.setAttribute('controls', '');
+  videoDomElement.setAttribute('data-account', '4360108595001');
+  videoDomElement.setAttribute('data-player', player);
+  document.querySelector('#playerHolder').appendChild(videoDomElement);
+  setTimeout(function(){
+              try {
+                  bcplayer = videojs('bcplayer');
+              }
+                catch(err) {
+                setTimeout(function(){
+                    bcplayer = videojs('bcplayer');
+                },500);
+              }
+  createDebugger();
+  },1000);
+  document.getElementById('bcplayerbuild').classList.add("hidden");
+        document.getElementById('bcbutton').classList.add("hidden");
+    document.getElementById('bcbutton1').classList.add("hidden");
+  document.getElementById('message').classList.remove("alert-info");
+  document.getElementById('message').innerHTML = "<strong>BUILD SUCCESSFUL</strong>";
+  document.getElementById('message').classList.add("alert-success");
+
+if(pluginversion){
+if(pluginobj[pluginversion].id == 2){
+   setTimeout(function(){
+    var ima3script = "//players.brightcove.net/videojs-ima3/" + pluginobj[pluginversion].id + "/videojs.ima3.min.js";
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.id = 'bcima';
+    newScript.type = 'text/javascript';
+    newScript.src = ima3script;
+    headID.appendChild(newScript);
+    newScript.onload = prepIMA(imaobj[adsscript].id, pluginobj[pluginversion].id);
+    var ima3css = "//players.brightcove.net/videojs-ima3/" + pluginobj[pluginversion].id + "/videojs.ima3.min.css";
+    var newCSS = document.createElement('link');
+    newCSS.id = 'imacss';
+    newCSS.type = 'text/css';
+    newCSS.rel = 'stylesheet';
+    newCSS.href = ima3css;
+    headID.appendChild(newCSS);
+   }, 1000);
+}
+else if(pluginobj[pluginversion].id != 1){
+       setTimeout(function(){
+    var ima3script = "//players.brightcove.net/videojs-ima3/" + pluginobj[pluginversion].id + "/videojs.ima3.min.js";
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.id = 'bcima';
+    newScript.type = 'text/javascript';
+    newScript.src = ima3script;
+    headID.appendChild(newScript);
+    newScript.onload = prepIMA(imaobj[adsscript].id,pluginobj[pluginversion].id);
+    var ima3css = "//players.brightcove.net/videojs-ima3/" + pluginobj[pluginversion].id + "/videojs.ima3.min.css";
+    var newCSS = document.createElement('link');
+    newCSS.id = 'imacss';
+    newCSS.type = 'text/css';
+    newCSS.rel = 'stylesheet';
+    newCSS.href = ima3css;
+    headID.appendChild(newCSS);
+       }, 1000);
+}
+else{
+       setTimeout(function(){
+    var ima3script = "//players.brightcove.net/videojs-ima3/videojs.ima3.min.js";
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.id = 'bcima';
+    newScript.type = 'text/javascript';
+    newScript.src = ima3script;
+    headID.appendChild(newScript);
+    newScript.onload = prepIMA(imaobj[adsscript].id,pluginobj[pluginversion].id);
+    var ima3css = "//players.brightcove.net/videojs-ima3/videojs.ima3.min.css";
+    var newCSS = document.createElement('link');
+    newCSS.id = 'imacss';
+    newCSS.type = 'text/css';
+    newCSS.rel = 'stylesheet';
+    newCSS.href = ima3css;
+    headID.appendChild(newCSS);
+       }, 1000);
+}
+}
+}
+
+function prepIMA(tech,adSWF){
+configIMA(tech,adSWF);
+}
+
+function createDebugger(){
+    var debugscript = "//cs1.brightcodes.net/pdias/samples/BCPlayerDebuggerLogger-vWorkbench.js";
+    var headID = document.getElementsByTagName("head")[0];
+    var newScript = document.createElement('script');
+    newScript.id = 'bcima';
+    newScript.type = 'text/javascript';
+    newScript.src = debugscript;
+    headID.appendChild(newScript);
+    var debugcss = "//cs1.brightcodes.net/marguin/bcplayer/plugins/BCPlayerDebugLogger.css";
+    var newCSS = document.createElement('link');
+    newCSS.id = 'imacss';
+    newCSS.type = 'text/css';
+    newCSS.rel = 'stylesheet';
+    newCSS.href = debugcss;
+    headID.appendChild(newCSS);
+    var options = {"debugAds":true, "logClasses": true, "showPlayerClasses": true };
+    setTimeout(function(){
+    bcplayer.BCPlayerDebugLogger(options);
+    }, 1000);
+
+ $('html, body').animate({
+scrollTop: $("#pluginHolder").offset().top
+}, 500);
+
+}
+
+function loadURL(value,stream){
+          $('html, body').animate({
+           scrollTop: $("#message").offset().top
+       }, 500);
+if(stream == 1){
+            try {
+      bcplayer.src({ type: "application/x-mpegURL", src: value});
+        }
+        catch(err) {
+          bcplayer.src({ type: "application/x-mpegURL", src: value});
+        }
+
+    bcplayer.on('loadedmetadata',function(){
+  if(bcplayer.error() == null){
+    bcplayer.poster('http://www.clipartbest.com/cliparts/RcG/bLM/RcGbLM7cL.svg');
+    document.getElementById('error').innerHTML = "<strong>Content Loaded</strong>";
+    document.getElementById('error').setAttribute("class", "alert alert-success");
+  }
+})
+bcplayer.one('error',function(){
+if(bcplayer.error() != null){
+     bcplayer.poster('http://www.clker.com/cliparts/7/h/y/H/m/Y/red-thumbs-down-hi.png');
+    document.getElementById('error').innerHTML = "<strong>Try again</strong>";
+    document.getElementById('error').setAttribute("class", "alert alert-danger");
+  }
+})
+}
+else{
+           $('html, body').animate({
+           scrollTop: $("#message").offset().top
+       }, 500);
+                try {
+      bcplayer.src({ type: "video/mp4", src: value});
+        }
+        catch(err) {
+          bcplayer.src({ type: "video/mp4", src: value});
+        }
+    bcplayer.on('loadedmetadata',function(){
+  if(bcplayer.error() == null){
+    bcplayer.poster('http://www.clipartbest.com/cliparts/RcG/bLM/RcGbLM7cL.svg');
+    document.getElementById('error').innerHTML = "<strong>Content Loaded</strong>";
+    document.getElementById('error').setAttribute("class", "alert alert-success");
+  }
+})
+bcplayer.one('error',function(){
+if(bcplayer.error() != null){
+    bcplayer.poster('http://www.clker.com/cliparts/7/h/y/H/m/Y/red-thumbs-down-hi.png');
+    document.getElementById('error').innerHTML = "<strong>Try again</strong>";
+    document.getElementById('error').setAttribute("class", "alert alert-danger");
+  }
+})
+}
+
+}
+
+function loadVideo(id){
+       $('html, body').animate({
+           scrollTop: $("#message").offset().top
+       }, 'slow');
+    bcplayer.catalog.getVideo(id, function(error, video) {
+if(error){
+    bcplayer.poster('http://www.clker.com/cliparts/7/h/y/H/m/Y/red-thumbs-down-hi.png');
+    document.getElementById('error').innerHTML = "<strong>Try again - Invalid ID</strong>";
+    document.getElementById('error').setAttribute("class", "alert alert-danger");
+}
+    else{
+        try {
+       bcplayer.catalog.load(video);
+        }
+        catch(err) {
+       bcplayer.catalog.load(video);
+        }
+       console.log(video);
+       document.getElementById('error').innerHTML = "<strong>Content Loaded</strong>";
+       document.getElementById('error').setAttribute("class", "alert alert-success");
+    }
+});
+}
+
+function ima3(){
+$('html, body').animate({
+scrollTop: $("#ima3").offset().top
+}, 400);
+}
+
+function configIMA(tech,adSWF){
+// adTech is used so that we can config the IMA3 SWF version for now
+
+if(!document.getElementById('adsURL').value){
+var adURL = document.getElementById('adsURL').placeholder;
+}
+else{
+var adURL = document.getElementById('adsURL').value;
+}
+
+if(!document.getElementById('preroll').value){
+var pre = document.getElementById('preroll').placeholder;
+}
+else{
+var pre = document.getElementById('preroll').value;
+}
+
+if(!document.getElementById('postroll').value){
+var post = document.getElementById('postroll').placeholder;
+}
+else{
+var post = document.getElementById('postroll').value;
+}
+
+if(!document.getElementById('timeout').value){
+var timeout = document.getElementById('timeout').placeholder;
+}
+else{
+var timeout = document.getElementById('timeout').value;
+}
+
+if(!document.getElementById('loadingspinner').value){
+var spinner = document.getElementById('loadingspinner').placeholder;
+}
+else{
+var spinner = document.getElementById('loadingspinner').value;
+}
+
+
+if(tech == "default"){
+tech = ["flash","html5"];
+}
+else if(tech == "html5first"){
+tech = ["html5","flash"];
+}
+else{
+tech = [tech];
+}
+
+// added in so that v2 of the Flash SWF is implemented. Should be fixed soon.
+if(adSWF == "2" || adSWF > "2"){
+adSWF = "//players.brightcove.net/videojs-ima3/2/videojs.ima3.swf";
+}
+else{
+adSWF = "//players.brightcove.net/videojs-ima3/videojs.ima3.swf";
+}
+
+setTimeout(function(){
+bcplayer.ima3({
+serverUrl: adURL,
+prerollTimeout: pre,
+postrollTimeout: post,
+requestMode: "onload",
+timeout: timeout,
+debug: "true",
+loadingSpinner: spinner,
+adTechOrder: tech,
+adSwf: adSWF
+});
+}, 3000);
+}
+
+function events(e){
+console.log(e.type);
+}
+
+function eventsReady(e){
+console.log(bcplayer.ima3.settings);
+}
+</script>
+</body>
+</html>

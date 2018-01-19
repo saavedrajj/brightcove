@@ -1,0 +1,60 @@
+/********************
+ * Custom Playlist  *
+ ********************/
+/*style for the div that wraps the playlist*/
+div.bcls-playlist-wrapper {
+    background-color: #141B17;
+    width: 640px;
+    max-height: 95px;
+    min-height: 82px;
+    line-height: 76px;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: absolute;
+    top: 360px;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+}
+/*style for the divs that make up the playlist items*/
+.bcls-playlist-item {
+    display: inline-block;
+    border: 2px solid #141B17;
+    padding: 0;
+    margin: 0;
+    height: 74px;
+    width: 124px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+/*style for the divs that make up the playlist item inner div */
+.bcls-item-inner-div {
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    vertical-align: middle;
+}
+/* mouse over style for items */
+.bcls-playlist-item:hover {
+    border-color: #FF0000;
+}
+/*style for the thumbnail images*/
+.bcls-title {
+    /*background-color: #141B17;*/
+    color: #fff;
+    z-index: 9999;
+    /*opacity: .8;*/
+    font-size: .7em;
+    font-family: sans-serif;
+    font-weight: bold;
+    max-width: 124px;
+    width: 124px;
+    height: 66px;
+    margin-top: 30%;
+    text-align: center;
+    cursor: pointer;
+}

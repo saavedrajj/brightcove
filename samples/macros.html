@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brightcove Player - IMA3 Advertising</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/simon/brightcodes.css" type="text/css" media="screen" charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+<span class="meta">Brightcove Player</span>&nbsp;<span class="meta">Advertising</span>&nbsp;
+  <h1>Brightcove Player - IMA3 Advertising</h1>
+	<video
+	  id="bcplayer"
+    width="720"
+    height="405"
+		data-account="2602624528001"
+		data-player="B1WxIPFU"
+		data-embed="default"
+		data-playlist-id="4133241483001"
+		class="video-js" controls></video>
+	<script src="//players.brightcove.net/2602624528001/B1WxIPFU_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script type="text/JavaScript">
+	var brightcovePlayer = videojs('bcplayer');
+	brightcovePlayer.ready(function(){
+        
+        
+//        
+  var options = {};
+  options.timeout = 15000;
+  options.hardTimeouts = true;
+  options.requestMode = "onplay";
+        
+  options.serverUrl = "http://pubads.g.doubleclick.net/gampad/ads?sz=3x3&iu=/4011/{site}/tv/sf&ciu_szs&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&player=bc&pos=pre&player_width=720&player_height=405&vd={mediainfo.duration}&vt={mediainfo.name}&vc=Entertainment&clip={clip}&url=[referrer_url]&correlator={timestamp}&cust_params=pos=pre&player=bc&at=&sz=3x3&tile=13&vc={vc}&clip={clip}&player_width=720&player_height=405&cateory={category}";
+        
+  options.adTechOrder = ["html5","flash"];
+  options.vpaidMode = "INSECURE";
+  options.contribAdsPostrollTimeout = 500;
+  options.postrollTimeout = 500;
+  options.debug = true;
+  brightcovePlayer.ima3(options);
+
+  brightcovePlayer.ima3.adMacroReplacement = function(url){
+    var parameters = {
+      '{mediainfo.name}': brightcovePlayer.mediainfo.name,
+      '{site}': 'trb.latimes/ent',
+      '{vc}': 'Entertainment',
+      '{clip}': '91228791'
+    };
+
+    for (var i in parameters) {
+      url = url.split(i).join(encodeURIComponent(parameters[i]));
+    }
+    return url;
+  }
+/*        var initAds = false;
+        brightcovePlayer.on(['contentupdate','adsready'],function(event){
+        if(initAds == false){
+          brightcovePlayer.play();
+          initAds = true;
+        }
+        });
+        brightcovePlayer.on('contentended',function(){
+          initAds = false;
+        }); */
+});
+	</script>
+  </body>
+</html>

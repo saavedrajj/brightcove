@@ -1,0 +1,146 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Responsive Player Test</title>
+  <style type="text/css">
+  body {
+    font-family: Arial,Helvetica,sans-serif;
+  }
+
+ .BCLcontainingBlock {
+    width: 50%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+  }
+
+  .BCLvideoWrapper {
+    position: relative;
+    padding-top: 1px;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+
+
+  * html .BCLvideoWrapper {
+    margin-bottom: 45px;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .BCLvideoWrapper div,
+  .BCLvideoWrapper embed,
+  .BCLvideoWrapper object,
+  .BrightcoveExperience {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  pre {
+    font-size: 14px;
+  }
+
+  .BCLbutton {
+    background-color: #ffffff;
+    background-image: -webkit-gradient(radial, 50% 50%,0,50% 50%,200, from(#dddddd), to(#ffffff));
+    background-image: -webkit-radial-gradient(50% 50%, #ffffff, #dddddd);
+    background-image: -moz-radial-gradient(50% 50%, #ffffff, #dddddd);
+    background-image: -o-radial-gradient(50% 50%, #ffffff, #dddddd);
+    background-image: -ms-radial-gradient(50% 50%, #ffffff, #dddddd);
+    background-image: radial-gradient(50% 50%, #ffffff, #dddddd);
+    border: #999999 1px solid;
+    border-radius: 10px;
+    font-size: .7em;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
+  <h1>Responsive Player Test - Make the Player below responsive !</h1>
+  <h3><i>(Something is not right with this page, player disappears after you try to re-size browser manually. 
+    Can you figure out what could be the problem?)</i></h3>
+
+    <div class="BCLcontainingBlock">
+     <div  class="BCLvideoWrapper">
+
+      <!-- Start of Brightcove Player -->
+      <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+      <object id="myExperience1195045806001" class="BrightcoveExperience">
+       <param name="bgcolor" value="#FFFFFF" />
+       <param name="width" value="100%" />
+       <param name="height" value="100%" />
+       <param name="playerID" value="1655292658001" />
+       <param name="playerKey" value="AQ~~,AAAADXdqFgE~,aEKmio9UXai4AfuyXjS4fpJNnDLOcLqh" />
+       <param name="isVid" value="true" />
+       <param name="isUI" value="true" />
+       <param name="dynamicStreaming" value="true" />
+       <param name="@videoPlayer" value="1807962446001" />
+
+       <param name="htmlFallback" value="true" />
+       <param name="autoStart" value="false"/>
+       <param name="includeAPI" value="true" />
+       <param name="templateLoadHandler" value="onTemplateLoaded" />
+       <param name="templateReadyHandler" value="onTemplateReady" />
+     </object>
+     <script type="text/javascript">brightcove.createExperiences();</script>
+
+
+     <script type="text/javascript" src="http://cs1.brightcodes.net/vineet/HTML_files/jQuery1.9_local.min.js"></script>
+
+     <script type="text/javascript">
+     
+     var BCL = {};
+     BCL.currentPlayerWidth = .5;
+     var $BCLbodyContent = $('#BCLbodyContent');
+     var $BCLvideoWrapper = $('.BCLvideoWrapper');
+     var $BCLcontainingBlock = $('.BCLcontainingBlock');
+
+     var onTemplateLoaded = function (experienceID) {
+
+      BCL.player = brightcove.api.getExperience(experienceID);
+    }
+    var onTemplateReady = function(evtObj) {
+
+      BCL.experienceModule = BCL.player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
+    }
+
+    $(window).on('resize',function() {
+      BCL.log("window resize");
+      BCL.resizePlayer(BCL.currentPlayerWidth);
+    });
+
+
+    BCL.resizePlayer = function(newWidth) {
+      BCL.log(newWidth);
+
+        BCL.log(newWidth);
+        /*$BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);*/
+        BCL.experienceModule.setSize($BCLcontainingBlock.width(),$BCLcontainingBlock.height());
+        BCL.currentPlayerWidth = newWidth;     
+      }
+
+
+      BCL.log = function(message) {
+        if (window["console"] && console["log"]) {
+          var d = new Date();
+          console.log(d + ": ");
+          console.log(message);
+        }
+      }
+
+
+    </script>
+    <!-- End of BrBCLbodyContentightcove Player -->
+
+  </div>       
+</div>
+
+</body>
+</html>

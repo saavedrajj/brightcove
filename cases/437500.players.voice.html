@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Plugin Code Example</title>
+	<style>
+	.video-js {
+		height: 344px;
+		width: 610px;
+	}
+</style>
+</head>
+
+<body>
+	<video id="myPlayerID"
+	data-video-id="5601324075001"
+	data-account="5479232927001"
+	data-player="HyqHcph2b"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<script src="//players.brightcove.net/5479232927001/HyqHcph2b_default/index.min.js"></script>
+
+	<script>
+		var myPlayer = videojs('myPlayerID');
+
+		myPlayer.on('ready', function(){
+			myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpremidpost&cmsid=496&vid=short_onecue&correlator=";
+		});
+	</script>
+</body>
+</html>

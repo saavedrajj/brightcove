@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brightcove Player</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/simon/brightcodes.css" type="text/css" media="screen" charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+	<span class="meta">Brightcove Player</span>&nbsp;
+	<h1>Brightcove Player</h1>
+	<video
+	id="bcplayer"
+	width="640"
+	height="360"
+	data-account="3906942835001"
+	data-player="SyZJZFrhb"
+	data-embed="default"
+	data-video-id="3907921808001" 
+	class="video-js" controls></video>
+	<ol class="vjs-playlist"></ol>
+	<script src="//players.brightcove.net/3906942835001/SyZJZFrhb_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-social/3/videojs-social.js"></script>
+	<link href="//players.brightcove.net/videojs-social/3/videojs-social.css" rel="stylesheet">
+	<script type="text/JavaScript">
+		var brightcovePlayer = videojs('bcplayer');
+		brightcovePlayer.ready(function(){
+			brightcovePlayer.on('loadstart',function(){
+				var options = {
+					"title": brightcovePlayer.mediainfo.name,
+					"description": brightcovePlayer.mediainfo.description,
+					"url": "https://www.statictesturl.com?videoId=" + brightcovePlayer.mediainfo.id,
+					"deeplinking": true,
+					"offset": "00:00:00",
+					"services": {
+						"facebook": true,
+						"google": true,
+						"twitter": true,
+						"tumblr": true,
+						"pinterest": true,
+						"linkedin": true
+					}
+				};
+
+
+				
+				brightcovePlayer.social(options);
+			});
+		});
+	</script>
+</body>
+</html>

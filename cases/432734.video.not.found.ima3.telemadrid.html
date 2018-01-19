@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Video Not Found Test-video 5488961850001 Mensaje error-Cuenta TM</title>
+</head>
+
+<body>
+
+  <video 
+  id="myPlayerId" 
+  data-video-id="5488961850001" 
+  data-account="104403117001" 
+  data-player="default" 
+  data-embed="default" 
+  data-application-id 
+  class="video-js" 
+  controls 
+  width="800" height="600"></video>
+  <script src="//players.brightcove.net/104403117001/default_default/index.min.js"></script>
+
+  <script type="text/javascript">
+    videojs('myPlayerId').one('bc-catalog-error', function(){
+      var myPlayer = this;
+      var specificError;
+
+      if (myPlayer.catalog.error !== undefined) {
+        specificError = myPlayer.catalog.error.data[0];
+        if (specificError !== 'undefined' & specificError.error_code == "VIDEO_NOT_PLAYABLE") {
+            // Hides the error message.
+            myPlayer.error(null);
+            // Hide the big play button.
+            document.getElementsByClassName("vjs-big-play-button")[0].style.display = "none";
+            // Set the poster image (You may change the image url to show your own image)
+            myPlayer.poster("http://lacaixavod.cellnextelecom.net/warning1.jpg");
+          }
+        }
+      });
+
+    videojs('myPlayerId').ready(function() {
+        /*var myPlayer = this;
+
+        // Having the code inside the ready's callback is not recommended.
+        // See: http://docs.brightcove.com/en/player/brightcove-player/guides/player-catalog.html#catalog-error
+
+        // if (myPlayer.catalog.error !== undefined) {
+        //   specificError = myPlayer.catalog.error.data[0];
+        //   if (specificError !== 'undefined' & specificError.error_code == "VIDEO_NOT_PLAYABLE") {
+        //     myPlayer.error(null);
+        //     myPlayer.poster("http://lacaixavod.cellnextelecom.net/warning1.jpg");
+        //     document.getElementsByClassName("vjs-big-play-button")[0].style.display = "none";
+        //   }
+        // }
+      });
+    </script>
+
+
+  </body>
+
+  </html>

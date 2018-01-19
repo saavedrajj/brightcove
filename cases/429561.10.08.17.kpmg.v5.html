@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled Document</title>
+  <style>
+    .video-js {
+      height: 344px;
+      width: 610px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="myPlayerID"
+    data-video-id="5526397478001"
+    data-account="3755095886001"
+    data-player="BkVkkZTKwZ"
+    data-embed="default"
+    class="video-js"
+    controls></video>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+  <script>
+    require.config({
+      'paths': {
+        'bc': '//players.brightcove.net/3755095886001/BkVkkZTKwZ_default/index.min'
+      },
+      timeout: 30
+    });
+
+    require(['bc'], function() {
+      var myPlayer = videojs.getPlayers().myPlayerID;
+      myPlayer.on('loadstart', function(){
+        myPlayer.play();
+      })
+    });
+  </script>
+
+</body>
+
+</html>

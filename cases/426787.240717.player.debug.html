@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.video-js {
+			width: 640px; 
+			height: 360px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Sample player</h1>
+	<video 
+	id="myPlayerID"
+    data-video-id="5127802639001"
+    data-account="4649896682001"
+    data-player="default"
+    data-embed="default"
+    class="video-js" controls></video>
+    <script src="//players.brightcove.net/1752604059001/default_default/index.min.js"></script><script>
+        videojs('myPlayerID').ready(function() {
+            var myPlayer = this;
+            console.log('EVENT: Player ready');
+            myPlayer.on('loadedmetadata', function(evt) {
+                console.log('EVENT: Metadata loaded');
+            });
+        });
+    </script>
+
+</body>
+</html>

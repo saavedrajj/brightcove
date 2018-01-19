@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/CRTV.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Cherry Red TV : homepage</title>
+<!-- InstanceEndEditable -->
+<link href="crtv.css" rel="stylesheet" type="text/css" />
+<link href="html5.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link rel="icon" href="favicon.ico" type="image/png">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+
+</head>
+<body onload="MM_preloadImages('images/links_over_02.jpg','images/links_over_06.jpg','images/links_over_03.jpg')" topmargin="10">
+
+<a name="top"></a>
+<table width="980" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td width="384" bgcolor="#EE1515"><a href="index.php"><img src="images/header_text.jpg" alt="home" width="384" height="59" /></a></td>
+<td width="584" valign="top" bgcolor="#EE1515">
+<table border="0" align="right" cellpadding="0" cellspacing="0" bordercolor="#FF0000">
+<tr>
+<td bgcolor="#EE1515"><a href="interviews.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/links_over_02.jpg',1)"><img src="images/links_02.jpg" alt="interviews" name="Image1" width="93" height="30" border="0" id="Image1" /></a></td>
+<td bgcolor="#EE1515"><img src="images/bar.jpg" alt="bar" width="12" height="28" /></td>
+<td bgcolor="#EE1515"><a href="programme.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','images/links_over_03.jpg',1)"><img src="images/links_03.jpg" alt="programme directory" name="Image22" width="195" height="30" border="0" id="Image22" /></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">  
+<table width="100%" border="0" cellpadding="8">
+<tr>
+<td align="left">
+<!-- InstanceBeginEditable name="main" -->
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="970">
+ <tbody>
+ <tr>
+ <td style="clear:both;" class="notgreytopbluepadded">
+
+ <table border="0" cellpadding="3" cellspacing="0" width="100%">
+ <tbody>
+ <tr style="">
+ <td>
+  <div class="container">
+  <div>
+  <ul id="menu">
+  <li>
+  <input id="tab0" type="button" class="button" onclick="processTab(0);" value="My Adventures in Music" />
+  </li>
+  <li>
+  <input id="tab1" type="button" class="button" onclick="processTab(1);" value="Label Stories" />
+  </li>
+  <li>
+  <input id="tab2" type="button" class="button" onclick="processTab(2);" value="Artist Stories" />
+  </li>
+  <li>
+  <input id="tab3" type="button" class="button" onclick="processTab(3);" value="Author Stories" />
+  </li>
+  </ul>
+  </div>
+
+<div class="myplayer">
+<video id="video_1" data-account="1244689453" data-player="H1zmvnCfg"
+data-embed="default" data-application-id class="video-js" controls
+width="300" height="150"></video> 
+<script src="//players.brightcove.net/1244689453/H1zmvnCfg_default/index.min.js"></script> 
+<ol class="vjs-playlist"></ol> </div>
+</div>
+</div>
+<b><div id="title"></div></b>
+ </td>
+ </tr>
+ </tbody>
+ </table>
+
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <script>
+<!--
+ <!--
+ var myPlayer,
+  playlistIds = ["3884644778001", "1564607361", "1564556238", "25342473001"],
+  playlistIdsLength = playlistIds.length,
+  tabs = document.getElementsByClassName("button"),
+  currentTab,
+  currentTabName,
+  playlistNames = [];
+
+videojs("video_1").ready(function() {
+  myPlayer = this;
+  // console.log("ready");
+  processTab(0);
+
+
+myPlayer.on("loadedmetadata", function(){
+  var title = document.getElementById('title');
+  title.innerHTML= myPlayer.mediainfo.name;
+})
+});
+
+function processTab(index) {
+  // console.log("processTab");
+  resetTabs();
+  document.getElementById("tab" + index).setAttribute("style", "background:#FF0000; color: #ffFFFF; border-bottom: 1px solid #00FFFF;");
+  loadPlaylist(playlistIds[index]);
+};
+
+function loadPlaylist(currentId) {
+  myPlayer.catalog.getPlaylist(currentId, function(error, playlist) {
+    myPlayer.catalog.load(playlist);
+    myPlayer.playlist.currentItem (0);
+  });
+};
+
+function resetTabs() {
+  var i,
+    iMax = tabs.length;
+  for (i = 0; i < iMax; i++) {
+    tabs[i].setAttribute("style", "background: #CC3333 ;color: #ffffff;")
+  }
+}
+//-->
+ </script>
+<!-- InstanceEndEditable --></td>
+</tr>
+</table>
+</td></tr>
+<tr>
+<td colspan="2" bgcolor="#EE1515"><table border="0" align="left" cellpadding="0" cellspacing="0" bordercolor="#FF0000">
+<tr>
+<td bgcolor="#EE1515"><a href="interviews.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image223','','images/links_over_02.jpg',1)"><img src="images/links_02.jpg" alt="interviews" name="Image223" width="93" height="30" border="0" id="Image223" /></a></td>
+<td bgcolor="#EE1515"><img src="images/bar.jpg" alt="bar" width="12" height="28" /></td>
+<td bgcolor="#EE1515"><a href="programme.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image231','','images/links_over_03.jpg',1)"><img src="images/links_03.jpg" alt="programme directory" name="Image231" width="195" height="30" border="0" id="Image231" /></a></td>
+</tr>
+</table>
+<div align="center"></div></td>
+</tr>
+<tr>
+<td colspan="2"><span class="small">part of <a href="http://www.cherryred.co.uk" target="_blank">Cherry Red Records</a><br />
+site design : <a href="http://www.12testing.net" target="_blank">12testing</a></span> </td>
+</tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

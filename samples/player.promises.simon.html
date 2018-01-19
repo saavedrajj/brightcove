@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brightcove Player</title>
+	<link rel="stylesheet" href="/simon/brightcodes.css" type="text/css" media="screen" charset="utf-8">
+	<!-- IE 9 console fix -->
+	<script type="text/javascript"> if (!window.console) console = {log: function() {}}; </script>
+	<!-- IE8 player fix (browser limitation) -->
+	<script>document.createElement('video')</script>
+	<style type="text/css">
+	.video-js { width: 640px; height: 360px; }
+</style>
+</head>
+<body>
+	<span class="meta">Brightcove Player</span>&nbsp;<span class="meta">Next Gen</span>
+	<h1>Brightcove Player v6</h1>
+	<video
+	id="siPlayer"
+	width="640"
+	height="360"
+	data-account="5458602755001"
+	data-video-id="5575865276001"
+	data-player="default"
+	data-embed="default"
+	data-arbitrary-options="hello!"
+	class="video-js" controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<h2 id="playPromise"></h2>
+	<script type="text/JavaScript">
+		// Initialise player
+		var brightcovePlayer;
+		// When the player's ready, let's get started
+		videojs("siPlayer").ready(function(){
+			brightcovePlayer = this;
+			brightcovePlayer.one("loadedmetadata", function(){
+				// "Autoplay"
+				brightcovePlayer.play().then(function() {
+						// play succeeded!
+						videojs.log("play() successful! Playback has started.");
+						document.getElementById("playPromise").innerText = "play() successful! Playback has started.";
+					})
+				.catch(function(error) {
+						// play failed
+						console.error(error.message);
+						videojs.log("play() failed! Looks like autoplay was blocked.");
+						document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";
+					});
+			});
+		});
+	</script>
+	<script type="text/javascript" src="//cs1.brightcodes.net/simon/js/qrcode.js"></script>
+	<br /><br /><br /><br /><br />
+	<span id="disclaimer">Disclaimer: These examples are provided as is and without warranty to demonstrate features of Brightcove products. They are intended to serve as demonstrations only and are not for production use. Support is not provided by the Brightcove Support team nor Brightcove Inc.</span>
+</body>
+</html>

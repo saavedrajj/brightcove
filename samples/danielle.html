@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Test - No Timeout</title>
+  <link rel="stylesheet" href="https://players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css">
+</head>
+
+<body>
+  <video id="test"
+  style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"
+  data-video-id="5567890461001"
+  data-account="2014288409001"
+  data-player="BJvtj9kUW"
+  data-adserverurl="https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&correlator=1503423904230"
+  data-embed="default"
+  class="video-js"
+  data-playlist="5567787618001,5567608007001"
+  poster="https://stage.newsday.com/polopoly_fs/1.10898272.1501839855!/httpImage/image.jpg_gen/derivatives/display_600/image.jpg" controls>
+
+</video>
+<!-- data-playlist="5532153285001,5532213895001,5532215624001,5532221976001" -->
+  <script src="//players.brightcove.net/2014288409001/BJvtj9kUW_default/index.min.js"></script>
+  <script src="https://players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+  <script>
+    var myPlayer;
+
+    // Initialize player
+    var player = bc('test');
+
+    // Initialize IMA plugin
+    // A blank serverURL is used here because we want metadata from the video
+    player.ima3({
+      serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271",
+      requestMode: 'onplay'
+    });
+
+    // When the player's ready, let's get started
+    player.ready(function() {
+      myPlayer = this;
+      var playlist = myPlayer.el_.getAttribute("data-playlist").split(",");
+      playlist.unshift([myPlayer.el_.getAttribute("data-video-id")]);
+      console.log(playlist);
+      var counter = 1;
+      myPlayer.on("contentended", function(){
+        if (counter < playlist.length) {
+          myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&pod=" + counter;
+          myPlayer.catalog.getVideo(playlist[counter], function(error,video){
+              myPlayer.catalog.load(video);
+              console.log(myPlayer.ima3.settings.serverUrl);
+              myPlayer.one("loadstart", function(){
+                myPlayer.pause();
+                myPlayer.play();
+              });
+          });
+          counter++;
+        } else {
+          counter = 0;
+          myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&correlator=1503423904230";
+          myPlayer.catalog.getVideo(playlist[counter], function(error,video){
+              myPlayer.catalog.load(video);
+              myPlayer.one("playing", function(){
+                myPlayer.pause();
+                myPlayer.play();
+              });
+          });
+          counter++;
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>
+

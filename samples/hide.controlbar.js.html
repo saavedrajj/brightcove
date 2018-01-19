@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Testing </title>
+	<!-- styles for page -->
+
+
+</head>
+
+<body>
+	<video 
+	id="myPlayerID"
+	data-video-id="5520580668001" 
+	data-account="5458602755001" 
+	data-player="BJlDuPRw7b" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls 
+	width="300" 
+	height="150"></video>
+	<script src="//players.brightcove.net/5458602755001/BJlDuPRw7b_default/index.min.js"></script>
+	<script>
+		videojs("myPlayerID").ready(function(){
+			var myPlayer = this;
+			 myPlayer.controlBar.hide();
+		});
+	</script>
+
+</body>
+</html>
+

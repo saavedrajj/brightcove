@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Audio Only</title>
+    <style media="screen">
+        /* keep the controls visible during playback */
+
+        #audioOnly .vjs-control-bar {
+            transform: none;
+            transition: none !important;
+            background-color: transparent;
+        }
+        /* round the corners of the player */
+
+        #audioOnly {
+            border-radius: 1em;
+        }
+        /* remove the background from the big play button */
+
+        .video-js.vjs-mouse .vjs-big-play-button {
+            background: none;
+        }
+        /* round the corners of the dock */
+
+        #audioOnly .vjs-dock-text {
+            border-radius: 1em 1em 0 0;
+            visibility: hidden;
+        }
+        .vjs-loading-spinner, .vjs-fullscreen-control{
+            visibility: hidden;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<video 
+id="audioOnly" 
+data-video-id="5596432984001"
+    data-account="5458602755001"
+    data-player="BJxAdLhKDW"
+    data-embed="default"
+    data-application-id
+    class="video-js"
+    controls
+     style="width: 480px; height: 30px;"
+    ></video>
+    <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+
+</html>

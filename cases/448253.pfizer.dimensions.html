@@ -1,0 +1,79 @@
+<html> 
+<head> 
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, 
+	maximum-scale=1"> 
+</head> 
+<body> 
+	<p> 
+		<strong>Video Player Ver 6+</strong><br> 
+		<p>Video player width = <span id="myPlayer1Width">Calculating...</span></br>
+		Video player height = <span id="myPlayer1Height">Calculating...</span></p>		
+	</p> 
+	<div style="display: block; position: relative; max-width: 100%; height: 
+	400px;"> 
+	<div style="padding-top: 26.25%;"> 
+		<video 
+		id="myPlayerID1" 
+		data-video-id="5575865276001" 
+		data-account="5458602755001" 
+		data-player="default" 
+		data-embed="default" 
+		data-application-id 
+		class="video-js" 
+		controls 
+		style="width: 640px; height: 360px; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"> 
+	</video> 
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script> 
+</div> 
+</div> 
+<script> 
+	document.getElementById("myPlayer1Width").innerHTML = videojs('myPlayerID1').currentWidth();
+	document.getElementById("myPlayer1Height").innerHTML = videojs('myPlayerID1').currentHeight(); 	 
+
+
+
+  videojs('myPlayerID1').ready(function(){
+    var myPlayer = this;
+    myPlayer.on('loadstart',function(){
+      console.log('mediainfo', myPlayer.mediainfo.sources);
+    })
+  });
+
+
+
+
+</script> 
+<hr> 
+<p> 
+	<strong>Video Player Ver 5+</strong><br> 
+		<p>Video player width = <span id="myPlayer2Width">Calculating...</span></br>
+		Video player height = <span id="myPlayer2Height">Calculating...</span></p>		
+</p> 
+<div style="display: block; position: relative; max-width: 100%;"> 
+	<div style="padding-top: 26.25%;"> 
+		<video 
+		id="myPlayerID2" 
+		data-video-id="5681745327001" 
+		data-account="5458602755001" 
+		data-player="SyZOU3FDW" 
+		data-embed="default" 
+		data-application-id 
+		class="video-js" 
+		controls style="width: 640px; height: 360px; position: absolute; top: 
+		0px; bottom: 0px; right: 0px; left: 0px;" > 
+	</video> 
+	<script src="//players.brightcove.net/5458602755001/SyZOU3FDW_default/index.min.js"></script> 
+</div> 
+</div> 
+<script> 
+	document.getElementById("myPlayer2Width").innerHTML = videojs('myPlayerID2').width(); 	
+	document.getElementById("myPlayer2Height").innerHTML = videojs('myPlayerID2').height(); 
+</script> 
+<br><br><br> 
+</body> 
+</html> 
+
+<!--
+ .currentWidth() and .currentHeight(). You could also use .currentDimensions() to get both at the same time
+ -->

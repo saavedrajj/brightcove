@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>AdPlayer Test</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<video style="width: 640px; height: 360px;"
+id="adsPlayer"
+data-video-id="5491813174001"
+data-account="4755935480001"
+data-player="SkOn9W5ux"
+data-embed="default"
+class="video-js" controls></video>
+
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
+
+<script src="//players.brightcove.net/4755935480001/SkOn9W5ux_default/index.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+
+<script type="text/javascript">
+    var myPlayer;
+	
+	//////////////////////////////////////////////////////
+	// use the new and shiny functionality!
+	//////////////////////////////////////////////////////
+	bc('adsPlayer').ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=&referrer={window.location.href}',
+		requestMode: 'onplay', 
+		timeout: 6000, 
+		debug: true,
+		hardTimeouts: false,
+		loadingSpinner: false,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			autoPlayAdBreaks: false,
+			numRedirects: 10
+		} 
+	});
+	
+	videojs("adsPlayer").on('loadstart', function() {
+		myPlayer= this;
+
+        myPlayer.on('ima3-ready',function(){
+            message.innerHTML += "*** Google IMA3 SDK version: " + google.ima.VERSION + "<br>";
+            message.innerHTML += "*** ima3-ready triggered<br>";
+    
+            myPlayer.ima3.adPlayer.on('timeupdate',function(){
+                message.innerHTML += "*** Ad timeupdate TICK!<br>";
+            });
+        });
+        
+		myPlayer.on('ads-ad-started',function(){
+			message.innerHTML += "*** ads-ad-started triggered<br>";
+		});
+
+		myPlayer.on('ima3-ad-error',function(){
+			message.innerHTML += "*** ima3-ad-error triggered<br>";
+		});
+		
+		myPlayer.on('ads-ad-ended',function(){
+			message.innerHTML += "*** ads-ad-ended triggered<br>";
+			/*console.log("STOP timeupdate");*/
+
+            myPlayer.ima3.adPlayer.off('timeupdate',function(){
+                message.innerHTML += "*** Ad timeupdate STOP!<br>";
+            });
+
+
+		});
+		
+		myPlayer.on('adstart', function() {
+			message.innerHTML += "*** adstart triggered<br>";
+		});
+		
+		myPlayer.on('adend', function() {
+			message.innerHTML += "*** adend triggered<br>";
+		});
+
+		myPlayer.on('ads-load', function() { 
+			message.innerHTML += "*** ad loaded<br>";
+		});
+		
+	});
+
+</script>
+
+
+</body>
+</html>

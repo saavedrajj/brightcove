@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Discovery Playlist + Freewheel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">
+	<link href="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.css" rel="stylesheet">	
+	<style>
+</style>
+<script>
+	function GetParameterByName(name) {
+		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regexS = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(regexS);
+		var results = regex.exec(window.location.href);
+		if (results == null)
+			return "";
+		else
+			return decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script> 
+</head>
+
+<body>
+	<div class="container">
+		<h1>Discovery Playlist + Freewheel</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-playlist-id="5460237314001"
+				data-account="1378939881" 
+				data-player="ByxFtKVxG" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls muted
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/1378939881/ByxFtKVxG_default/index.min.js"></script>
+				<script src="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.js"></script>
+
+			</div>
+		</div>
+		<button type="button" class="btn btn-primary" onclick="previousVideo()">Previous Video</button>
+		<button type="button" class="btn btn-primary" onclick="nextVideo()">Next Video</button>	
+		<ol class="vjs-playlist"></ol>
+		<ul>
+			<li><a href="https://support.brightcove.com/guide-playlist-api#previous" target="_blank">Playlist API</a></li>
+		</ul>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+
+	<script type="text/javascript">
+		var myPlayer;
+		videojs("myPlayerID").ready(function(){
+			/* get a reference to the player */
+			myPlayer= this;
+
+			var fw = GetParameterByName('fw');
+			if(fw==2) {
+				myPlayer.FreeWheelPlugin(
+				{
+					"adTechOrder":["html5","flash"],
+					"Html5":{
+						"sdkurl":"https://mssl.fwmrm.net/p/sanoma_sbs_live/AdManager.js",
+						"serverUrl":"https://7b935.v.fwmrm.net/ad/g/1",
+						"profile":"506166:sanoma_sbs_ovp_js_live",
+						"networkId":"506166",
+						"siteSectionCustomId":"sbs_sbs6_desktop",
+						"videoAssetCustomId":"849fClqNfIa"
+					},
+					"Flash":{
+						"sdkurl":"https://mssl.fwmrm.net/p/sanoma_sbs_live/AdManager.swf",
+						"serverUrl":"https://7b935.v.fwmrm.net/ad/g/1",
+						"profile":"506166:sanoma_sbs_flash_live",
+						"networkId":"506166",
+						"siteSectionCustomId":"sbs_sbs6_desktop",
+						"videoAssetCustomId":"849fClqNfIa",
+						"swfurl":"https://players.brightcove.net/videojs-freewheel/2/videojs.freewheel.swf"
+					}
+				});
+			}
+			if(fw==1) {
+				myPlayer.FreeWheelPlugin(
+				{
+					"adTechOrder":["html5","flash"],
+					"prerollTimeout":50000,
+					"timeout":50000,
+					"debug":true,
+					"Html5":{
+						"networkId":48747,
+						"profile":"48747:DiscoveryIntl_BrightcoveJS_secure",
+						"sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.js",
+						"serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+						"siteSectionCustomId":"DISCOVERY_CHANNEL_FR_HOMEPAGE",
+						"siteSectionFallbackId":6909578,
+						"videoAssetFallbackId":"0",
+// "keyValues":[
+// {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH"}
+// ],
+// "videoAssetCustomId": '{mediainfo.reference_id}'
+"videoAssetCustomId": "141753030"
+},
+"Flash": {
+	"networkId":48747,
+	"profile":"48747:DiscoveryIntl_Brightcove_secure",
+	/*"sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.swf",*/
+	"sdkurl":"https://mssl.fwmrm.net/p/sanoma_sbs_live/AdManager.js",	
+	"serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+// "swfurl":"https://players.brightcove.net/videojs-freewheel/videojs.freewheel.swf",
+"swfurl":"https://players.brightcove.net/videojs-freewheel/2/videojs.freewheel.swf",
+"siteSectionCustomId":"DISCOVERY_CHANNEL_FR_HOMEPAGE",
+"siteSectionFallbackId":6909578,
+"videoAssetFallbackId":"0",
+// "keyValues":[
+// {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH"}
+// ],
+// "videoAssetCustomId": "{mediainfo.reference_id}"
+"videoAssetCustomId": "141753030"
+}
+});
+			} 
+			if(fw==3) {
+				myPlayer.FreeWheelPlugin(
+				{
+					"adTechOrder":["html5","flash"],
+					"prerollTimeout":50000,
+					"timeout":50000,
+					"debug":true,
+					"Html5":{
+						"networkId":48747,
+						"profile":"48747:DiscoveryIntl_BrightcoveJS_secure",
+						"sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.js",
+						"serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+						"siteSectionCustomId":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH",
+						"siteSectionFallbackId":6942797,
+						"videoAssetFallbackId":"0",
+// "keyValues":[
+// {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH"}
+// ],
+// "videoAssetCustomId": '{mediainfo.reference_id}'
+"videoAssetCustomId": "141753030"
+},
+"Flash": {
+	"networkId":48747,
+	"profile":"48747:DiscoveryIntl_Brightcove_secure",
+	"sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.swf",
+	"serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+	"swfurl":"https://players.brightcove.net/videojs-freewheel/2/videojs.freewheel.swf",
+	"siteSectionCustomId":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH",
+	"siteSectionFallbackId":6942797,
+	"videoAssetFallbackId":"0",
+// "keyValues":[
+// {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"TESTING_DMAX_GERMANY_2_SERIES_1_QUEEN_OF_THE_SOUTH"}
+// ],
+// "videoAssetCustomId": "{mediainfo.reference_id}"
+"videoAssetCustomId": "141753030"
+}
+});
+			} 
+
+
+
+
+
+		});
+
+
+		function previousVideo() {
+			myPlayer.playlist.previous();
+		}
+
+		function nextVideo() {
+			myPlayer.playlist.next();
+		}
+
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

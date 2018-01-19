@@ -1,0 +1,112 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Brightcove Videos</title>	
+	<script type="text/javascript" src="http://mfpvideo.wpengine.com/wp-includes/js/jquery/jquery.js"></script>
+	<script type="text/javascript">
+		jQuery( function() {
+			var myPlayer;
+			videojs('master-player').ready(function() {
+				myPlayer 	= this;
+				/*myPlayer.play();*/
+					/*
+					if ( myPlayer.ads.isInAdMode() ) {
+						myPlayer.ima3.adPlayer.play();
+					}*/
+				});
+
+
+			videojs('master-player').on('ads-ad-started', function() {
+				myPlayer.muted(true);			
+			});
+
+			jQuery('.videos li').each( function() {		
+				var new_video_id 	= jQuery(this).data('bc');
+
+				jQuery(this).find('a').on('click', function() {
+
+					myPlayer.catalog.getVideo(new_video_id, function(error, video) {
+						myPlayer.ima3.adsLoader.contentComplete();
+						myPlayer.catalog.load(video);
+						/*
+						myPlayer.play();
+							if ( myPlayer.ads.isInAdMode() ) {
+								myPlayer.ima3.adPlayer.play();
+							}
+							*/	
+						});
+
+				});
+
+			});
+			
+		});
+
+	</script>
+
+	<style type="text/css">
+
+	a {
+		display: block;
+	}
+
+	a:hover {
+		color: red;
+		cursor: pointer;
+	}
+
+	ol {
+		margin: 20px 0 0;
+	}
+
+	ol li {
+		margin: 10px 0;
+	}
+
+	.video-js {
+		width: 100%;
+		height: inherit;
+		position: relative;
+		padding-top: 56.25%;
+		vertical-align: top;
+	}
+
+	.video-stage {
+		max-width: 700px;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="video-stage">
+
+		<video id="master-player"
+		data-video-id="5589491930001"
+		data-account="5415335156001"	
+		data-player="rJepebiQ4z"
+		data-embed="default"
+		data-application-id
+		class="video-js"
+		controls></video>
+
+	</div>
+
+	<ol class="videos">
+
+		<li data-bc="5589491930001"><a>Olympic Weightlifting</a></li>
+		<li data-bc="5589570034001"><a>Kicking Sugar</a></li>
+		<li data-bc="5588092506001"><a>Teaching Yoga</a></li>
+		<li data-bc="5585032568001"><a>Acro Yoga</a></li>
+		<li data-bc="5585036742001"><a>HIIT</a></li>
+
+	</ol>
+
+	<script type="text/javascript" src="//players.brightcove.net/5415335156001/rJepebiQ4z_default/index.min.js"></script>
+	<script type="text/javascript" src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+
+</body>
+
+</html>

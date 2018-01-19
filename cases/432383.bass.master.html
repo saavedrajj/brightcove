@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On play</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+
+		<h2>Video 1</h2>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayer1"
+				data-video-id="5337268814001" 
+				data-account="719324159001" 
+				data-player="Bkb8owHqb" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/719324159001/Bkb8owHqb_default/index.min.js"></script>
+			</div>
+		</div>
+
+		<h2>Video 2</h2>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayer2"
+				data-video-id="5335058866001" 
+				data-account="719324159001" 
+				data-player="Bkb8owHqb" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/719324159001/Bkb8owHqb_default/index.min.js"></script>
+			</div>
+		</div>
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+		<script type="text/javascript">
+			/* Brightcove Player initialisation */ 
+			var player1 = bc('myPlayer1');
+			/* IMA3 Plugin initialisation */ 
+			player1.ima3({
+				adTechOrder: ['html5', 'flash'],
+				debug: true,
+				serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&cmsid=658&vid=5337268814001&iu=/8798/bassmaster/tournaments/elite/2017-are-truck-caps-bassmaster-elite-lake-okeechobee&sz=640x360&unviewed_position_start=1&url=https%3A//www.bassmaster.com/tournaments/elite/2017-are-truck-caps-bassmaster-elite-lake-okeechobee&description_url=https%3A%2F%2Fwww.bassmaster.com&cust_params=pgtype%3Dvideo%26s1%3Dtournaments%26s2%3Delite%26s3%3D2017-are-truck-caps-bassmaster-elite-lake-okeechobee%26kw%3Dweigh%26pos%3Dpre&ciu_szs=300x600%2C300x250%2C320x50%2C728x90%2C970x90',		
+				requestMode: 'onload', 
+				timeout: 6000, 
+				hardTimeouts: false,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				}
+			});
+
+			var player2 = bc('myPlayer2');
+			/* IMA3 Plugin initialisation */ 
+			player2.ima3({
+				adTechOrder: ['html5', 'flash'],
+				debug: true,
+				serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&cmsid=658&vid=5337268814001&iu=/8798/bassmaster/tournaments/elite/2017-are-truck-caps-bassmaster-elite-lake-okeechobee&sz=640x360&unviewed_position_start=1&url=https%3A//www.bassmaster.com/tournaments/elite/2017-are-truck-caps-bassmaster-elite-lake-okeechobee&description_url=https%3A%2F%2Fwww.bassmaster.com&cust_params=pgtype%3Dvideo%26s1%3Dtournaments%26s2%3Delite%26s3%3D2017-are-truck-caps-bassmaster-elite-lake-okeechobee%26kw%3Dweigh%26pos%3Dpre&ciu_szs=300x600%2C300x250%2C320x50%2C728x90%2C970x90',		
+				requestMode: 'onload', 
+				timeout: 6000, 
+				hardTimeouts: false,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				}
+			});
+		</script>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	  	
+</body>
+</html>

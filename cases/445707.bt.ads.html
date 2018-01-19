@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Correlator Cache</title>
+	<meta name="cwi.site" content="none" />
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		function GetParameterByName(name) {
+			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			var regexS = "[\\?&]" + name + "=([^&#]*)";
+			var regex = new RegExp(regexS);
+			var results = regex.exec(window.location.href);
+			if (results == null)
+				return "";
+			else
+				return decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	</script>
+
+</head>
+<body>
+
+
+
+	<video 
+	id="myPlayerID" 
+	style="width:900px;height:508px;"
+	data-account="2503979514001"
+	data-player="SkWg2VwuuW"
+	data-video-id="5684624125001"
+	data-embed="default"
+	class="video-js" 
+	controls></video>
+
+	<script src="//players.brightcove.net/2503979514001/SkWg2VwuuW_default/index.min.js"></script>	
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<script>
+
+		var testAd = GetParameterByName('testad'),
+		testAd2 = GetParameterByName('testad2');
+
+		var myPlayer,                
+		videoIds = ["5684725895001", "5684361445001", "5684407857001", "5684624125001"],
+		/*adTag = "http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}";*/
+
+		if(testAd)        
+			adTag = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/16643028/sport_video/playlist_rhr&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cmsid=548&vid={mediainfo.id}&ad_rule=1&cust_params=tags={mediainfo.tags}";
+
+		videojs("myPlayerID").ready(function () {
+
+			myPlayer = this;
+
+			myPlayer.ima3({ requestMode: "onload", serverUrl: adTag, debug: false });
+
+			myPlayer.on("play", function (event) {
+				console.log("MediaPlay");
+				
+
+			});
+
+			myPlayer.on("ended", function (event) {
+				console.log("MediaEnded");
+
+				PlayNext();
+			});
+
+		});
+
+		function PlayNext() {
+			myPlayer.ima3.adsLoader.contentComplete(); 
+			var videoId = videoIds.shift();
+
+			myPlayer.catalog.getVideo(videoId, function (error, video) {
+
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		}
+
+
+	</script>
+	<br/>
+	<input type="button" onclick="PlayNext()" value="ChangeVideo" />
+
+</body>
+</html>

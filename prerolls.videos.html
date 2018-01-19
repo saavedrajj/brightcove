@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta name="cwi.site" content="none" />
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<video id="video_1" style="width:900px;height:508px;"
+	data-account="5458602755001"
+	data-player="default"
+	data-video-id="5575865276001"
+	data-embed="default"
+	class="video-js" controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script>
+		var myPlayer,                
+		adTag = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=";
+		videojs("video_1").ready(function () {
+			myPlayer = this;
+			myPlayer.ima3({ requestMode: "onload", serverUrl: adTag, debug: true, hardTimeouts:true });
+		});
+		function PlayVideo1() { 
+			myPlayer.trigger('contentupdate');
+			myPlayer.ima3.adsLoader.contentComplete();
+			myPlayer.catalog.getVideo(5575865276001, function (error, video) {	
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});
+		}
+		function PlayVideo2() { 
+			myPlayer.ima3.adsLoader.contentComplete(); 
+			myPlayer.catalog.getVideo(5622000782001, function (error, video) {
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});		
+		}
+		function PlayVideo3() { 
+			myPlayer.ima3.adsLoader.contentComplete(); 
+			myPlayer.catalog.getVideo(5515555595001, function (error, video) {
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});				
+		}
+	</script>
+	<br/>
+	<input type="button" onclick="PlayVideo1()" value="Play Video 1" />
+	<input type="button" onclick="PlayVideo2()" value="Play Video 2" />
+	<input type="button" onclick="PlayVideo3()" value="Play Video 3" />	
+</body>
+</html>
+<!--
+Hello, 
+
+we have an end screen menu and when the user clicking replay for the same video we want to play first a preroll and then the video content. 
+when replaying the video the event 'play' was fired so we tried to reload the same video using catalog.load 
+
+but later on we realize that videojs-contrib-ads needs the event contentupdate which verifies if the video source is different from the previous one. 
+
+we add some some trick after catalog.load to change the ads.contentSrc with a dump url and now the event contentupdate is fired but the player does not take our dump( takes the player.currentSrc()) then it displaying the following message : 
+
+VIDEOJS: ads contentupdate triggered: content-playback -> ads-ready? 
+index.min.js:9 VIDEOJS: Cancelling repeat adsRequest for https://matrix_uds_o-a.akamaihd.net/4626510591001/4626510591001_4670046307001_4670023171001.mp4?pubId=4626510591001&videoId=4670023171001 
+
+Do you have a good solution for this issue? 
+
+the test page is : http://stage.noovle.it/dario/brightcove/iol/onload/vpiol/ 
+
+the code is as a plugin to the player. 
+i will put here the snipt of the code for the replay: 
+
+// Standard PosterImage now doesn't play if controls are hidden 
+value: function handleClick(event) {	
+var vid_id = videojs.players.player_1.mediainfo.id; 
+//var self = this; 
+this.player_.catalog.getVideo(vid_id, function(e, v) { 
+
+console.log("==================>PLUGIN:inside getvideo (nextid): " + vid_id ); 
+if(v) { 
+console.log("==================>PLUGIN:inside getvideo load video): " + vid_id ); 
+this.player_.catalog.load(v); 
+this.player_.ads.contentSrc ="//matrix_uds_o-a.akamaihd.net/"; 
+console.log('catalog.load contenSrc: ' + this.player_.ads.contentSrc ); 
+this.player_.play(); 
+} 
+else{ 
+console.log('PLUNIN:inside getvideo-errore : ' + e); 
+} 
+
+}.bind(this)); 
+
+-->

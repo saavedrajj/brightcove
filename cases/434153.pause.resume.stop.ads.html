@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Pause / Resume / Stop Ads</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>IMA3 - Pause / Resume / Stop Ads</h1>
+
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5515555595001" 
+				data-account="5480141310001" 
+				data-player="BJxAdLhKDW" 
+				data-embed="Skl4WdCvUZ" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+			</div>
+		</div>
+
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+		<script type="text/javascript">
+			bc('myPlayerID').ima3({
+				/* IMA3 Plugin initialisation */ 
+				adTechOrder: ['html5', 'flash'],
+				debug: true,
+				serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',		
+				requestMode: 'onplay', 
+				timeout: 6000, 
+				hardTimeouts: false,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				}
+			});
+
+			var myPlayer = videojs("myPlayerID");
+
+			function pauseAds() {
+				console.log("**** PAUSE ADS ****");
+				myPlayer.ima3.adsManager.pause();			
+			}
+
+			function resumeAds() {
+				console.log("**** PLAY ADS ****");
+				myPlayer.ima3.adsManager.resume();			
+			}
+
+			function stopAds() {
+				console.log("**** STOP ADS ****");
+				myPlayer.ima3.adsManager.stop();			
+			}
+
+		</script>
+
+		<button type="button" class="btn btn-primary" onclick="pauseAds()">PAUSE ADS</button>
+		<button type="button" class="btn btn-primary" onclick="resumeAds()">RESUME ADS</button>
+		<button type="button" class="btn btn-primary" onclick="stopAds()">STOP ADS</button>
+
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	  	
+</body>
+</html>

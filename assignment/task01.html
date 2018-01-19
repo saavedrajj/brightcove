@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Assignment</title>
+	<style>
+	body {background-image:url("http://cs1.brightcodes.net/nori/SkillsAssessment/bg_main_image2.png";}
+</style>
+</head>
+
+<body>
+	<center>
+		<h4><i>Brightcove Player Below:</i></h4>
+		<video 
+		id="MyPlayer"
+		data-video-id="ref:skillassessment" 
+		data-account="4413047305001" 
+		data-player="Sym5dzjWx" 
+		data-embed="default"
+		class="video-js"  
+		controls
+		width="480"
+		height="270">
+	</video>
+	<script src="//players.brightcove.net/4413047305001/Sym5dzjWx_default/index.min.js"></script>
+	<br/><br/>
+
+	<button id="playbtn" onclick="playVideo()">PLAY</button>
+	<button id="pausebtn" onclick="pauseVideo()">PAUSE</button>
+	<button id="mutebtn" onclick="muteVideo()">MUTE</button>
+	<button id="mutebtn" onclick="unmuteVideo()">UNMUTE</button>
+
+	<!-- Begin Script Logger --> 
+	<h4><i>Player Log Results:</i></h4>
+	<div id="BCscriptingLog"> 
+		<p><textarea id="logger" name="logger" rows="11" cols="65"></textarea></p>
+	</div>
+	<!-- End Debugging Helper -->
+
+	<script>
+	var myPlayer;
+
+	videojs('MyPlayer').ready(function(){
+		myPlayer = this,
+		logger = document.getElementById('logger');
+
+		myPlayer.on('loadeddata',function(){
+			logger.value += 'loadeddata dispatched\n';
+		});
+
+		myPlayer.on('loadedmetadata',function(){
+			logger.value += 'loadedmetadata dispatched\n';
+		});
+
+		myPlayer.on('loadstart',function(){
+			logger.value += 'loadstart dispatched\n';
+		});
+
+		myPlayer.on('play',function(){
+			logger.value += 'play dispatched\n';
+		});
+
+		myPlayer.on('pause',function(){
+			logger.value += 'pause dispatched\n';
+		});
+		myPlayer.catalog.getVideo('ref:skillassessment', function(error, video){
+			/*console.log('error',error);*/
+		});
+		myPlayer.on('catalog_response',function(evt){
+			var i;
+			i=0; i++;
+			var api_response = JSON.parse(evt.response.response);
+			console.log(api_response.long_description);
+			console.log(api_response.thumbnail);
+			console.log(i);	
+		});
+	});
+
+	function playVideo() {
+		console.log("PLAY");
+		myPlayer.play();
+	}
+	function pauseVideo() {
+		console.log("PAUSE");	
+		myPlayer.pause();
+	}
+	function muteVideo() {
+		console.log("MUTE");
+		myPlayer.muted(true);		
+	}
+	function unmuteVideo() {
+		console.log("UNMUTE");
+		myPlayer.muted(false);		
+	}
+</script>
+</center>
+</body>
+</html>

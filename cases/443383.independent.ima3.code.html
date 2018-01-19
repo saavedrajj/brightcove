@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Code</title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+
+	<h1>IMA3 - Code</h1>
+
+	<video 
+	id="myPlayerID"
+	data-video-id="5666986542001" 
+	data-account="1348423965" 
+	data-player="SJdLmTGbM" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/1348423965/SJdLmTGbM_default/index.min.js"></script>
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<script type="text/javascript">
+
+		var myPlayer;
+		var player = bc('myPlayerID');
+
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			debug: true,
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpremidpost&cmsid=496&vid=short_onecue&correlator=',		
+			requestMode: 'onplay', 
+			timeout: 6000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+	</script>
+</body>
+</html>

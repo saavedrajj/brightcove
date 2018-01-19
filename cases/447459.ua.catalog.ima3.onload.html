@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>AdPlayer Test</title>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls 
+	width="600" 
+	height="350"></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script>
+		var myPlayer, adTag;
+		var player = bc('myPlayerID');
+
+		adTag = 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=';
+
+		player.ima3({
+			adTechOrder: ['html5'],
+			requestMode: 'onload', 
+			serverUrl: adTag,
+			timeout: 4000, 
+			hardTimeouts: true,
+			debug: true,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			} 
+		});
+
+		player.ready(function() {
+			myPlayer = this;
+			/*var temp_id;*/
+		});
+
+		player.on('ads-ad-started', function() {
+			console.log('event: ads-ad-started triggered');	
+			player.muted(true);			
+		});
+
+		player.on('ads-ad-ended', function() {
+			console.log('event: ads-ad-started triggered');	
+		});
+
+
+		function changeVideo(id) {
+
+			var id;
+			console.log('id: ' + id);
+
+			myPlayer.ima3.adsLoader.contentComplete();	
+
+			myPlayer.catalog.getVideo(id, function(error, video){
+				console.log('change video');
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		}
+
+	</script>
+
+	<button onclick="changeVideo(5575865276001)">video 1</button>
+	<button onclick="changeVideo(5681745327001)">video 2</button>
+	<button onclick="changeVideo(5593073974001)">video 3</button>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style> 
+ #chalk-hero-video-container {
+   display:none;
+ } 
+ #chalk-hero-video-container iframe {
+  border-width: 0 !important;
+ } 
+.video-js .vjs-big-play-button {
+  display: none;
+}
+	</style>
+</head>
+<body>
+<p><button onclick="playVideo()">Play</button></p>
+
+    <div id="chalk-hero-video-container">
+      <iframe src="//players.brightcove.net/1532789042001/BygzJeVkcZ_default/index.html?videoId=5571531533001" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width: 90vw; height: 50.7vw;"></iframe>
+<!--   autoplay player, poor quality     -->
+<!--       <iframe src="https://players.brightcove.net/1532789042001/H1eo3vpYW_default/index.html?videoId=5571531533001" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width: 90vw; height: 50.7vw;"></iframe> -->
+      <p><button onclick="closeVideo()">Close</button></p>
+    </div>
+
+	<script>
+		/*+++ Create functions that post either play or pause +++
+		Match the protocol of the of the parent's page */
+		var theProtocol = location.protocol,
+		theURL = theProtocol + "//players.brightcove.net",
+		/* Get a reference to the iframe element */
+		iframeTag = document.querySelector("iframe"),
+		/* Retrieve window object needed for postMessage */
+		win = iframeTag.contentWindow;
+
+		function playVideo() {
+			document.getElementById("chalk-hero-video-container").style.display = "block";
+			/* Post message passing 'playVideo' as the data */
+			win.postMessage("stopVideo", theURL);
+			win.postMessage("playVideo", theURL);
+		}
+
+		function pauseVideo() {
+			/* Post message passing 'pauseVideo' as the data */
+			win.postMessage("pauseVideo", theURL);
+		}
+
+		function closeVideo() {
+			win.postMessage("pauseVideo", theURL);			
+			document.getElementById("chalk-hero-video-container").style.display = "none";
+		}		
+	</script>
+
+</body>
+</html>

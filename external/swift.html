@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<!-- html dir="rtl" lang="ar" xmlns="http://www.w3.org/1999/xhtml" -->
+
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>Markus' Amazing Testing</title>
+	
+	<meta name="twitter:card" content="player" />
+	<meta name="twitter:title" content="Mhmmm Swift!" />
+	<meta name="twitter:description" content="Singing Swiftly." />
+	<meta name="twitter:player" content="https://cs1.brightcodes.net/mglanzer/swift.html?&autoStart=false" />
+	<meta name="twitter:player:width" content="360" />
+	<meta name="twitter:player:height" content="200" />
+	<meta name="twitter:image" content="https://solutions.brightcove.com/bcls/twittercards/bison.jpg" />
+
+
+
+
+   <meta property="og:site_name" content="Swift">
+    <meta property="og:url" content="https://cs1.brightcodes.net/mglanzer/swift.html">
+    <meta property="og:type" content="video">
+    <meta property="og:title" content="Swift!">
+    <meta property="og:description" content="A swift video.">
+    <meta property="og:updated_time" content="2016-08-17T07:54:09-04:00">
+    <meta property="og:image" content="https://cs1.brightcodes.net/mglanzer/amazing.jpg">
+    <meta property="og:image:secure_url" content="https://cs1.brightcodes.net/mglanzer/amazing.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+	
+	<meta property="og:video:url" content="https://secure.brightcove.com/services/viewer/federated_f9/?isVid=1&isUI=1&playerID=4933750839001&autoStart=true&videoId=4779342286001&secureConnections=true&linkBaseURL=https://cs1.brightcodes.net/mglanzer/swift.html">
+
+
+	<meta property="og:video:secure_url" content="https://secure.brightcove.com/services/viewer/federated_f9/?isVid=1&isUI=1&playerID=4933750839001&autoStart=true&videoId=4779342286001&secureConnections=true&linkBaseURL=https://cs1.brightcodes.net/mglanzer/swift.html">
+	<meta property="og:video:type" content="application/x-shockwave-flash"> 
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+
+
+<!-- style> .video-js { zoom: 0.5 } </style
+
+
+		#Swift .vjs-control-bar {
+		transform: none;
+		-webkit-transform: none;
+		-ms-transform: none;
+		}
+
+-->
+	
+	<style>
+		.vjs-control.vjs-button.vjs-icon-replay { top: 100px; }
+		
+		.vjs-social-overlay .vjs-social-embed-code { display: none !important }
+		.vjs-social-overlay .vjs-social-direct-link { display: none !important }
+		
+		.vjs-social-overlay .vjs-social-title { display: none !important }
+		.vjs-social-overlay .vjs-social-description { display: none !important }
+		
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { .vjs-fullscreen-control.vjs-control.vjs-button { display: none\9 } }	
+	</style>
+	
+</head>
+
+<!-- <body onload='onLoadHandler();'>
+
+data-video-id="4779342286001"
+
+
+-->
+<body bgcolor="#ffffff">
+	
+<!-- script type="text/JavaScript">
+	if(!window.console) window.console = {};
+	var oldWarn = console.warn;
+	console.warn = function(){
+		if(arguments[0].indexOf("VIDEOJS") === -1){
+			if(oldWarn !== undefined){
+				var oldArgs = "";
+				for (var i = 0; i < arguments.length; i++){
+					oldArgs += arguments[i] + " ";
+				}
+				oldWarn(oldArgs);
+			}
+		}
+	};
+</script -->
+
+<script src="https://apis.google.com/js/client.js" type="text/javascript"> </script>
+<script type="text/javascript" src="http://cs1.brightcodes.net/mglanzer/js/mgtools.js"></script>
+
+<div id="DivSwift" style="display: block; width: 640px; height: 360px;">
+
+<video style="width: 100%; height: 100%;"
+id='Swift'
+data-video-id="4779342286001"
+data-account="4755935480001"
+data-player="default"
+data-embed="default"
+class="video-js"
+crossOrigin="anonymous"
+controls
+playsinline>
+</video>
+</div>
+<br>
+<!-- div id="DivSwift2" style="display: block; width: 640px; height: 360px;">
+
+<video style="width: 100%; height: 100%;"
+id='Swift2'
+data-video-id="4779342286001"
+data-account="4755935480001"
+data-player="default"
+data-embed="default"
+class="video-js"
+controls>
+</video>
+</div -->
+
+<br>
+<button onclick="goFull();">Drink me?</button>
+<button onclick="goMute();">Shut Up!</button>
+<button onclick="goUnmute();">Speak Up!</button>
+<button onclick="goEndMe();">End Me :(</button>
+<button onclick="goPlayItAgain();">Play me AGAIN!</button>
+<button onclick="goPlay();">Play with me?</button>
+<button onclick="goBrother();">Oh Brother, where art thou?</button>
+<button onclick="goSister();">Go Sister!</button>
+<button onclick="goLink();">Link me up!</button>
+<button onclick="goByeBye();">Adios!</button>
+<button onclick="goError();">It's not my fault!</button>
+<button onclick="goRestartMe();">Timewarp!</button>
+<button onclick="goSwap();">Swappsies?!</button>
+<button onclick="goCC();">CC?!</button>
+<br>
+<br>
+
+<div id="DivBrothers" style="display: none; width: 640px; height: 360px;">
+
+<video style="width: 100%; height: 100%;"
+id='Brothers'
+data-video-id="4931957420001"
+data-account="4755935480001"
+data-player="ryxEOJDWHg"
+data-embed="default"
+class="video-js"
+controls>
+</video>
+</div>
+
+<script src="//players.brightcove.net/4755935480001/default_default/index.min.js"></script>
+<script src="//players.brightcove.net/4755935480001/ryxEOJDWHg_default/index.min.js"></script>
+<br>
+<!-- iframe src="//players.brightcove.net/4755935480001/default_default/index.html?videoId=5114231911001" 
+allowfullscreen 
+webkitallowfullscreen 
+mozallowfullscreen 
+width="640" 
+height="360"></iframe -->
+
+
+
+
+<script type="text/JavaScript">
+	//var methods = ["log", "debug", "warn", "info","dir", "dirxml", "trace", "profile"]; 
+	//for(var i=0;i<methods.length;i++){ 
+	//	console[methods[i]] = function(){}; 
+	//} 
+
+	videojs.addLanguage("en", { "Play Video": "Play Audio" } );
+	
+
+	
+    var myPlayer = videojs("Swift");
+	var totalTime = 0, prevTime=0, currTime=0;
+	var nullFunc = function() {};
+	
+	
+	videojs.log.warn = nullFunc;
+	
+	
+	//myPlayer.options().inactivityTimeout = 10000;
+	
+	//myPlayer.bcAnalytics.log.enable();
+
+
+		myPlayer.errors({
+			"errors":[ {
+			  "POOP": {
+				  "headline": "This is a shitty error message",
+				  "type": "custom type",
+				  "message": "lalala"
+			  },
+			  "PIIP": {
+				  "headline": "This is a shitty error message",
+				  "type": "custom type",
+				  "message": "bla bla"
+			  }
+			}]
+		  });
+	
+	myPlayer.ready(function(){
+		
+
+
+		//myPlayer.error = nullFunc;
+		
+		//myPlayer.poster("");
+		
+		if (myPlayer.autoplay()) {
+			console.log("killing it");
+			//myPlayer.poster("");
+		}
+	});
+
+	
+	videojs("Swift").on('loadedmetadata',function(){
+		//console.log("*** loadedmetadata fired");
+		myPlayer = this;
+		
+//		myPlayer.dock({
+//			description: "HAHAHA!"
+//		});
+		
+		myPlayer.on("ended", onEnded);
+		myPlayer.on("timeupdate", onTimeUpdate);
+		myPlayer.on("volumechange", doVolumeChange);
+		myPlayer.on("error", function(){
+				console.log("*** AN ERROR HAPPENED:");
+				console.log("*** Code: " + myPlayer.error_.code );
+				console.log("*** Text: " + myPlayer.error_.message );
+		//		console.log(event);
+		});
+		console.log("*** loadedmetadata finished");
+	});	
+
+	function doVolumeChange() {
+		//console.log("*** VOLUME CHANGE!");
+		myPlayer.muted(false);
+	}
+	
+	function onTimeUpdate() {
+		currTime = myPlayer.currentTime();
+		totalTime += currTime-prevTime;
+		prevTime = currTime;
+	}
+	function onEnded() {
+		console.log("*** Video has ended.");
+		console.log("*** Remaining time....: " + myPlayer.remainingTime() );
+		console.log("*** Total time watched: " + totalTime );
+	}
+	
+
+	function goRestartMe() {
+		//myPlayer.
+	}
+	
+    function onLoadHandler() {
+		myPlayer = videojs('Swift');
+		
+		//myPlayer.controls(true);
+		//myPlayer.loop(true);
+		//myPlayer.on("timeupdate", cutShort);
+		//myPlayer.play();
+    }
+	
+	function goSwap() {
+		myPlayer.pause();
+		myPlayer.catalog.getVideo(5114231911001, function(error, video) { 
+		myPlayer.catalog.load(video); }); 
+	}
+	
+	function goCC(){
+		myPlayer.addClass('vjs-subtitles-button');
+	}
+	
+	function goBrother() {
+		showDiv('DivBrothers');
+		hideDiv('DivSwift');
+	}
+	
+	function goError() {
+		myPlayer.error({code:'PIIP'});
+	}
+
+	function goSister() {
+		hideDiv('DivBrothers');
+		showDiv('DivSwift');
+	}
+	
+	function showDiv(args) {
+	    var div = document.getElementById(args);
+		div.style.display = 'block';
+	}
+
+	function hideDiv(args) {
+	    var div = document.getElementById(args);
+		div.style.display = 'hide';
+	}
+
+	function goLink(args) {
+		var shortURL = MakeMeShort();
+		var options = {
+            "url": shortURL,
+			"dock": true
+        };
+
+		myPlayer.social(options);
+	}
+	
+	function goPlay() {
+		myPlayer.play();
+	}
+	
+	function goFull() {
+		myPlayer.requestFullscreen();
+	}
+
+	function goMute() {
+		myPlayer.muted(true);
+	}
+
+	function goUnmute() {
+		myPlayer.muted(false);
+	}
+		
+	function cutShort() {
+		//console.log("tick..");
+		var myTime = myPlayer.currentTime();
+		if ( myTime > 10 && myTime < 11 ) {
+			goEndMe();
+		}
+	}
+	
+	function MakeMeShort() {
+	    gapi.client.setApiKey('AIzaSyDXcELx3EX-D5LAKbp2U3WGGFD5a0Xovo0');
+		gapi.client.load('urlshortener', 'v1', function() { 
+
+	        var Url = "http://onlineinvite.in";
+	        var request = gapi.client.urlshortener.url.insert({
+	            'resource': {
+	            'longUrl': Url
+	            }
+	        });
+
+	        request.execute(function(response) {
+
+	            if (response.id !== null) {
+					return(response.id);
+	            }
+	            else {
+	                return("Boohoo!");
+	            }
+	        });
+	    });
+	}
+	
+	function goPlayItAgain() {
+		myPlayer.pause();
+		myPlayer.currentTime(0);
+		myPlayer.play();
+	}
+	
+	function goEndMe() {
+		myPlayer.pause();
+		myPlayer.trigger('ended');
+//		myPlayer.socialOverlay.open();
+	}
+	
+	function goByeBye() {
+		myPlayer.dispose();
+	}
+
+</script>
+	
+</body>
+
+</html>

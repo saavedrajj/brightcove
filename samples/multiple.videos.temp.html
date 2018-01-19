@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video 
+	id="video_1"
+	data-account="5458602755001"
+	data-player="BJxAdLhKDW"
+	data-embed="default"
+	class="video-js" 
+	controls></video>
+
+	<script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+	<script type="text/JavaScript">
+		var myPlayer,
+		currentVideoIndex = 0,
+
+		playlistData = [ "5460105417001", "5460105416001" ];
+		console.log("playlistData: " + playlistData)
+
+
+
+		function loadVideo() {
+			if (currentVideoIndex < playlistData.length) {
+				/* load the new video */
+				console.log('currentVideoIndex: ' + currentVideoIndex)
+				myPlayer.catalog.getVideo(playlistData[currentVideoIndex], function(error, video){
+					/* deal with error */
+					myPlayer.catalog.load(video);
+					myPlayer.play();
+				});
+
+				console.log('video_id: ' + playlistData[currentVideoIndex])
+				/* increment the current video index */
+				currentVideoIndex++;
+			}
+		};
+		videojs("video_1").ready(function () {
+			myPlayer = this;
+
+
+			myPlayer.catalog.getPlaylist('5480138098001', function(error, playlist){
+				/* deal with error */
+				myPlayer.catalog.load(playlist);
+				var aaa = myPlayer.playlist.currentItem(1);
+				console.log(aaa);
+
+			});
+
+
+
+			myPlayer.on("ended", function () {
+				loadVideo();
+			});
+			/* load the first video */
+			loadVideo();
+		});
+	</script>
+
+</body>
+</html>

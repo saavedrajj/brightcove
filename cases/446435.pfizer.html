@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>untitled</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Mert Yentur">
+	<style type="text/css">
+	@import url("index.css");
+	</style>
+	<script type="text/javascript" src="jquery.vj">
+	</script>
+	<meta name="viewport" content="" />
+	</script>
+</head>
+<body  marginwidth="0" marginheight="0">
+<!-- <script>
+var player = videojs("r1xPXFfSXb"); 
+player.ready(function(){ 
+player.playlist.autoadvance(0)
+});
+</script> -->
+<video id="myPlayerID"
+data-account="1852113022001"
+data-player="HJFyDH5Te"
+data-embed="default"
+data-application-id
+class="video-js"
+playsinline
+controls></video>
+<script src="//players.brightcove.net/1852113022001/HJFyDH5Te_default/index.min.js"></script>
+
+<script type="application/javascript">
+videojs('myPlayerID').ready(function () {
+
+var myPlayer = this;
+
+myPlayer.catalog.getPlaylist('5655371070001', function (error, playlist) {
+myPlayer.catalog.load(playlist);
+});
+
+myPlayer.playlist.autoadvance(0);
+});
+</script> 
+</body>
+</html>

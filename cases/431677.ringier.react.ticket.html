@@ -1,0 +1,90 @@
+We are developing a new single page app (React based) where we are now integrating the Brightcove player.
+
+We can initialize the player only once and then load additional players based on that initialization. 
+But Prerolls from the IMA3 plugin are played only on the first player instance. Additional instances play only the main video (no prerolls).
+
+Is there a recommended way how we should handle the Brightcove player (and especially the IMA initialization) on single page apps?
+
+If you need more technical details please let us know. For that, I CCed Pascal, our internal developer.
+
+Thank you very much.
+
+Sandro
+
+
+--------------------
+
+Hi Yuki
+
+We have a restricted stage-environment which is only accessible from Ringier unfortunately.
+But i have attached the sourcecode-file (renamed *.js to *.txt because it
+was not allowed to send it) from the brightcove-component that im working
+on. Would be great if you can check the code and maybe you see where the
+issue is..
+
+Actually i call the brightcove script only once in this file (with
+ramda.once at the top of the file), accountId and playerId should stay the
+same all the time if im doing right.
+
+On line 54 im replacing the videoAdUrl with
+"videoPlayer.ima3.adMacroReplacement" as seen on your documentation, which
+is in our case this one ->
+https://adserver.adtech.de/?advideo/3.0/780.2/3522736/0//cc=2;vidAS=pre_roll;vidRT=VAST;vidRTV=3.0;adType=video;cors=yes;[KEY_VALUES-HERE]
+
+Im doing it this way, because we need the possibility to change the adId
+(3522736) dynamically - so the adId in the URL is actually an dynamic
+Variable.
+
+
+Here also some screenshots, first video play with preroll as expected:
+
+[image: Inline images 1]
+
+When i navigate to another article with another video-player, the preroll
+will not play (also for all further articles with videoplayer):
+
+[image: Inline images 2]
+
+
+Whenever you have further questions, please do not hesitate to ask me.
+
+Thanks for your feedback and best regards,
+Pascal Scheidegger
+
+
+
+Hi Giancarlo
+
+The Ringier prerolls issue might be related to the way they are loading additional players with the IMA3 plugin.
+
+In our IMA3 documentation there is an example which uses In-Page Embed/IMA3 implementation with a single instance of a player using the bc() method that says:
+"In the code below, you see the bc() method is called to initialize the Brightcove Player, then the IMA3 plugin is initialized immediately thereafter. This is because for the IMA3 plugin to function properly it needs to be loaded right after player initialization, before any other plugins are initialized. *Initializing the IMA3 plugin in videojs('myPlayerID').ready(...) or when the loadedmetadata event is dispatched, will cause the plugin to NOT function as intended.*"
+
+In the React JS snippet they sent to us I see they are not using the bc() method, actually I can't see how they are initialising the player.
+
+
+
+----------------
+
+Okay!
+
+This is NOWHERE NEAR as bad as I thought it would be. We will not be rolling back.
+
+It only affects customers setting up ads in-page (Studio + Player config are fine).
+
+If you set up your ads in-page and wait until player.ready(), it's too late and you'll miss the pre-roll.
+
+Best practices are that ads should be set up AS EARLY AS POSSIBLE.
+
+https://support.brightcove.com/advertising-ima3-plugin#implementcode
+
+I'm going to get the docs updated to make it extra-clear. Those best practices have been in place for six months but have only now with 2.19.0 become absolutely necessary.
+
+
+
+
+
+
+
+
+

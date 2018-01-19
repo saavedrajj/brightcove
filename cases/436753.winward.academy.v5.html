@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+
+    <title>Winward Academy</title>
+
+    <!-- Bootstrap core CSS -->
+
+<!--
+<link rel='stylesheet' id='sage/css-css'  href='https://winwardacademy.staging.wpengine.com/wp-content/themes/winward-new/dist/styles/main-4f7067fc86.css' type='text/css' media='all' />
+-->
+
+<link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="//cs1.brightcodes.net/jsaavedra/includes/css/winward.css" rel="stylesheet">    
+
+</head>
+
+<!-- Custom styles for this template -->
+<link href="https://v4-alpha.getbootstrap.com/examples/album/album.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+
+
+    <div class="collapse bg-inverse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Follow on Twitter</a></li>
+              <li><a href="#" class="text-white">Like on Facebook</a></li>
+              <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+</div>
+<div class="navbar navbar-inverse bg-inverse">
+  <div class="container d-flex justify-content-between">
+    <a href="#" class="navbar-brand">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+</div>
+</div>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Winward Academy</h1>
+    <a href="436753.winward.academy.v5.html" class="btn btn-primary">Player v5 (r1uhBCE-W)</a>
+    <a href="436753.winward.academy.v6.html" class="btn btn-secondary">Player v6 (rypFtuORb)</a>
+</p>
+</div>
+</section>
+
+<div class="album text-muted">
+  <div class="container">
+
+    <div class="row">
+      <div class="card">
+        <div class="lesson-container">
+            <div class="sample-lesson">
+
+             <div id="sample-lesson-video0_parent">
+
+                <video 
+                id="sample-lesson-video0"
+                data-video-id="5439826955001" 
+                data-account="5312763424001" 
+                data-player="r1uhBCE-W" 
+                data-embed="default" 
+                data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }'                
+                data-application-id 
+                class="video-js sample-lesson-video"
+                controls 
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+                <script src="//players.brightcove.net/5312763424001/r1uhBCE-W_default/index.min.js"></script>
+
+            </div>    
+        </div>
+
+    </div>
+    <script>
+
+    //FIRST LINE OF ORIGINAL CODE
+    (function() {
+        var id = 'sample-lesson-video0';
+        var parent;
+        // Initialize player
+        videojs(id).ready(function() {
+            var player = this,
+            videoID,
+
+            totalRenditions,
+            mp4Ara = [],
+            highestQuality;
+
+          // TODO find out if explicitly calling load provides any benefits
+          player.catalog.getVideo('5439826955001', function(error, video) {
+              var response = error && JSON.parse(error.response);
+              if(response && response[0] && response[0].error_code) {
+                console.log('on video init');
+                console.error(response[0].error_code);
+            } else {
+                player.catalog.load(video);
+            }
+        });
+
+      });
+
+        // Closes the modal window
+        var close = function(e) {
+            var video = jQuery('.video-popout');
+            video.removeClass('video-popout');
+            jQuery(document.body).css({overflow: 'auto'});
+            jQuery(document).off('keyup', handleEscape);
+            // Destroy modal
+            jQuery('.video-modal').remove();
+            jQuery('.video-placeholder').remove();
+            // Add back to original parent
+            video.insertBefore(parent.find('>:first-child'))
+
+            if(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              e.cancelBubble = true;
+              if(e.stopImmediatePropagation) {
+                e.stopImmediatePropagation();
+            }
+        }
+        return false;
+    };
+
+        // Close modal window on escape press
+        var handleEscape = function(e) {
+          if(e.keyCode === 27) {
+            close();
+        }
+    };
+
+        // Open modal window when the user starts the video
+        videojs(id).on('play', function() {
+          if(jQuery('.video-modal').length || this.isFullscreen()) {
+            return; // video already popped out
+        }
+
+        var container = jQuery(this.el_).parent();
+        parent = container.parent();
+
+          // Create div to take the place of the video on the page
+          var placeholder = jQuery('<div>')
+          .addClass('video-placeholder')
+          .insertAfter(container);
+          placeholder.css({ height: container.innerHeight(), width: container.innerWidth() });
+
+          // Detach from parent so we can add it to the modal
+          container = container.detach();
+
+          // Popout video
+          container.addClass('video-popout');
+
+          // Don't allow scrolling
+          jQuery(document.body).css({overflow: 'hidden'});
+
+          // Create modal div behind video
+          jQuery(document).keyup(handleEscape);
+          var modal = jQuery(document.body).append('<div class="video-modal"><span class="modal-close">&times;</span></div>');
+          setTimeout(function() {
+            jQuery('.modal-close, .video-modal').one('click', close);
+        }, 0);
+
+          // Add video to modal
+          modal.append(container);
+
+          // Re-play the video since moving its parent automatically stops the video
+          var self = this;
+          setTimeout(function() {
+            self.play();
+        }, 0);
+      });
+    })();
+
+
+  //LAST LINE OF ORIGINAL CODE
+</script>
+
+
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+</div>
+      <div class="card">
+        <div class="lesson-container">
+            <div class="sample-lesson">
+
+             <div id="sample-lesson-video1_parent">
+
+                <video 
+                id="sample-lesson-video1"
+                data-video-id="5439826955001" 
+                data-account="5312763424001" 
+                data-player="r1uhBCE-W" 
+                data-embed="default" 
+                data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }'                
+                data-application-id 
+                class="video-js sample-lesson-video"
+                controls 
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+                <script src="//players.brightcove.net/5312763424001/r1uhBCE-W_default/index.min.js"></script>
+
+            </div>    
+        </div>
+
+    </div>
+    <script>
+
+    //FIRST LINE OF ORIGINAL CODE
+    (function() {
+        var id = 'sample-lesson-video1';
+        var parent;
+        // Initialize player
+        videojs(id).ready(function() {
+            var player = this,
+            videoID,
+
+            totalRenditions,
+            mp4Ara = [],
+            highestQuality;
+
+          // TODO find out if explicitly calling load provides any benefits
+          player.catalog.getVideo('5439826955001', function(error, video) {
+              var response = error && JSON.parse(error.response);
+              if(response && response[0] && response[0].error_code) {
+                console.log('on video init');
+                console.error(response[0].error_code);
+            } else {
+                player.catalog.load(video);
+            }
+        });
+
+      });
+
+        // Closes the modal window
+        var close = function(e) {
+            var video = jQuery('.video-popout');
+            video.removeClass('video-popout');
+            jQuery(document.body).css({overflow: 'auto'});
+            jQuery(document).off('keyup', handleEscape);
+            // Destroy modal
+            jQuery('.video-modal').remove();
+            jQuery('.video-placeholder').remove();
+            // Add back to original parent
+            video.insertBefore(parent.find('>:first-child'))
+
+            if(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              e.cancelBubble = true;
+              if(e.stopImmediatePropagation) {
+                e.stopImmediatePropagation();
+            }
+        }
+        return false;
+    };
+
+        // Close modal window on escape press
+        var handleEscape = function(e) {
+          if(e.keyCode === 27) {
+            close();
+        }
+    };
+
+        // Open modal window when the user starts the video
+        videojs(id).on('play', function() {
+          if(jQuery('.video-modal').length || this.isFullscreen()) {
+            return; // video already popped out
+        }
+
+        var container = jQuery(this.el_).parent();
+        parent = container.parent();
+
+          // Create div to take the place of the video on the page
+          var placeholder = jQuery('<div>')
+          .addClass('video-placeholder')
+          .insertAfter(container);
+          placeholder.css({ height: container.innerHeight(), width: container.innerWidth() });
+
+          // Detach from parent so we can add it to the modal
+          container = container.detach();
+
+          // Popout video
+          container.addClass('video-popout');
+
+          // Don't allow scrolling
+          jQuery(document.body).css({overflow: 'hidden'});
+
+          // Create modal div behind video
+          jQuery(document).keyup(handleEscape);
+          var modal = jQuery(document.body).append('<div class="video-modal"><span class="modal-close">&times;</span></div>');
+          setTimeout(function() {
+            jQuery('.modal-close, .video-modal').one('click', close);
+        }, 0);
+
+          // Add video to modal
+          modal.append(container);
+
+          // Re-play the video since moving its parent automatically stops the video
+          var self = this;
+          setTimeout(function() {
+            self.play();
+        }, 0);
+      });
+    })();
+
+
+  //LAST LINE OF ORIGINAL CODE
+</script>
+
+
+<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+</div>
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+<div class="card">
+    <img data-src="holder.js/100px280/thumb" alt="Card image cap">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+  </p>
+  <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+  <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+</div>
+</footer>
+
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://v4-alpha.getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+        <script>
+          $(function () {
+            Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+        });
+    </script>
+    <script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

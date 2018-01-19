@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Download Video Plugin</title>
+	<meta charset="utf-8">
+	<link href="//cs1.brightcodes.net/jsaavedra/includes/css/download-video.css" rel="stylesheet">
+	<style>
+	.video-js{
+		width: 640px;
+		height:360px;
+	}
+</style>
+</head>
+<body>
+	<h1>Download Video Plugin</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5661599048001" 
+	data-account="1699278633001" 
+	data-player="r15DywalG" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/1699278633001/r15DywalG_default/index.min.js"></script>
+	<script type="text/javascript" src="//cs1.brightcodes.net/jsaavedra/includes/js/download-video.js"></script>
+	<script>videojs("myPlayerID").downloadVideoPlugin();</script>
+</body>
+</html>
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>AdPlayer Test</title>
+    
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<video style="width: 640px; height: 360px;"
+id="adsPlayer"
+data-playlist-id="5438905740001"
+data-account="4664230225001"
+data-player="r1WBBZNxf"
+data-embed="default"
+class="video-js"
+autoplay
+controls></video>
+
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
+
+<script src="//players.brightcove.net/4664230225001/r1WBBZNxf_default/index.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2.16.1/videojs.ima3.js"></script>
+
+
+<script type="text/javascript">
+    var myPlayer;
+	var clickOnAudio = false;
+	var defaultOptions = {};
+	defaultOptions.MuteUnmute = true;
+	var availableServerURLs = [
+		"http://pubads.g.doubleclick.net/gampad/ads?nofb=1&sz=640x480&iu=/5180/testiol/video/amelie/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=http%3A%2F%2Fmailplus.libero.it&cust_params=adv_sso1%3D7%26adv_sso2%3D1%26laud%3D93078%26player%3Dbobunmute,html%26trueview%3Dyes"
+	];
+	
+	currentServerURL = "";
+	var adIndex=0;
+
+	// to debug purpose
+	function printToConsole(message) {
+		//if( defaultOptions.show_debug ) { // DA SCOMMENTARE IN PRODUZIONE
+		if (1) {
+			if (window["console"] && console["log"]) {
+				var d = new Date();
+				console.log(d + ": [IOL iol_core_logic_no_volume Plugin] - " + message);
+			};
+		}
+	};
+	
+	//////////////////////////////////////////////////////
+	// use the new and shiny functionality!
+	//////////////////////////////////////////////////////
+	bc('adsPlayer').ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: '',
+		requestMode: 'onload', 
+		timeout: 10000, 
+		debug: true,
+		hardTimeouts: false,
+		loadingSpinner: true,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			autoPlayAdBreaks: false,
+			numRedirects: 10
+		} 
+	});
+	
+	
+	videojs("adsPlayer").on('posterchange',function(){
+		message.innerHTML += "*** poster image change triggered<br>";
+	});
+	
+	videojs("adsPlayer").on('ima3-ready',function(){
+		/*message.innerHTML += "*** ima3-ready triggered<br>";
+		message.innerHTML += "*** Google IMA3 SDK version: " + google.ima.VERSION + "<br>";
+		message.innerHTML += "*** Brightcove IMA3 version: " + this.ima3.VERSION + "<br>";*/
+	});
+
+		
+	videojs("adsPlayer").ready( function() {
+		message.innerHTML += "*** adsPlayer ready<br>";
+		myPlayer= this;
+		myPlayer.muted(true);
+		
+		myPlayer.ima3.adMacroReplacement = function(url){
+			currentServerURL = availableServerURLs[0];
+			adIndex++;
+			message.innerHTML += "*** adMacroReplacement(): "+currentServerURL+"<br>";
+			return (currentServerURL);
+		};
+
+		myPlayer.on('loadstart',function(){
+			message.innerHTML += "*** loadstart triggered<br>";
+		});
+
+		myPlayer.on('ended',function(){
+			message.innerHTML += "*** ended triggered<br>--------------------------------------------<br>";
+		});
+		
+		myPlayer.on('loadedmetadata',function(){
+			message.innerHTML += "*** loadedmetadata triggered<br>";
+			if ( adIndex == 1 ) {
+				printToConsole("====> loadedmetadata adIndex=" + adIndex);
+				audioOnMouseover();
+				audioOnMouseout();
+				setAudioOnOffContent();
+			}
+		});
+	
+
+		myPlayer.on('mouseover', function() { 
+			message.innerHTML += ">>>> mouseover<br>";
+		});	
+
+		myPlayer.on('mouseout', function() { 
+			message.innerHTML += ">>>> mouseout<br>";
+		});	
+
+		myPlayer.on('ads-request', function() { 
+			message.innerHTML += "*** ads-request done<br>";
+		});		
+		
+		myPlayer.on('ads-ad-started',function(){
+			message.innerHTML += "*** ads-ad-started triggered<br>";
+		});
+
+		myPlayer.on('ima3-ad-error',function(){
+			message.innerHTML += "*** ima3-ad-error triggered<br>";
+		});
+		
+		myPlayer.on('ads-ad-ended',function(){
+			message.innerHTML += "*** ads-ad-ended triggered<br>";
+		});
+		
+		myPlayer.on('adstart', function() {
+			message.innerHTML += "*** adstart triggered<br>";
+		});
+		
+		myPlayer.on('adend', function() {
+			message.innerHTML += "*** adend triggered<br>";
+		});
+
+		myPlayer.on('ads-load', function() { 
+			message.innerHTML += "*** ad loaded<br>";
+		});
+
+		function setAudioOn () {
+			printToConsole("====> setAudioOn()");
+			printToConsole("====> setAudioOn ++++++clickOnAudio=" + clickOnAudio);
+			if ( !clickOnAudio ) {
+				printToConsole("====> setAudioOn from muted=" + myPlayer.muted());
+				myPlayer.muted(false);
+				myPlayer.ima3.adPlayer.muted(false);
+				printToConsole("====> setAudioOn to muted=" + myPlayer.muted());
+				printToConsole("");
+			}
+		}
+	
+		function setAudioOff () {
+			printToConsole("====> setAudioOff()");
+			if ( !clickOnAudio ) {
+				printToConsole("====> setAudioOff from muted=" + myPlayer.muted());
+				myPlayer.muted(true);
+				myPlayer.ima3.adPlayer.muted(true);
+				printToConsole("====> setAudioOff to muted=" + myPlayer.muted());
+				printToConsole("");
+			}
+		}	
+		
+
+
+		function audioOnMouseover() {
+			if ( defaultOptions.MuteUnmute ) { 
+				if(myPlayer.el().addEventListener) // For IE compatibility
+					myPlayer.el().addEventListener('mouseover',setAudioOn);
+				else
+					myPlayer.el().attachEvent('onmouseover',setAudioOn);
+				printToConsole("====> audioOnMouseover()");
+			}
+		}
+
+
+		function audioOnMouseout() {
+			if ( defaultOptions.MuteUnmute ) { 
+
+				if(myPlayer.el().addEventListener) // For IE compatibility
+					myPlayer.el().addEventListener('mouseout',setAudioOff);
+				else
+					myPlayer.el().attachEvent('onmouseout',setAudioOff);
+				printToConsole("====> audioOnMouseout()");
+			}
+		}
+
+		function HandlerClickOnVolumeMenuButton () {
+			printToConsole("====> HandlerClickOnVolumeMenuButton() clickOnAudio=true");
+			clickOnAudio = true;
+		}
+		
+		function setAudioOnOffContent () {
+			if ( defaultOptions.MuteUnmute ) { 
+				printToConsole("====> setAudioOnOffContent()");
+				myPlayer.controlBar.volumeMenuButton.one('click',HandlerClickOnVolumeMenuButton);
+				myPlayer.controlBar.volumeMenuButton.volumeBar.one('mousedown',HandlerClickOnVolumeMenuButton);
+			}
+		}
+		
+		function setAudioOnOffPreroll() {
+			if ( defaultOptions.MuteUnmute ) { 
+				printToConsole("====> setAudioOnOffPreroll()");
+				
+				myPlayer.ima3.adControlBar.volumeMenuButton.one('click',HandlerClickOnVolumeMenuButton);
+				myPlayer.ima3.adControlBar.volumeMenuButton.volumeBar.one('mousedown',HandlerClickOnVolumeMenuButton);
+			}
+		}	
+	});
+</script>
+
+</body>
+</html>

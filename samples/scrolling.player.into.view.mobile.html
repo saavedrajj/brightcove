@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scrolling Player into View</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="../includes/css/styles.css">   
+
+    <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"></script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>	
+
+</head>
+<body>
+	<div class="container">
+		<h1>Scrolling Player into View</h1>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet bibendum elit. Pellentesque fringilla ipsum quis tempus dapibus. Curabitur non neque vitae lorem iaculis scelerisque vel id felis. Fusce placerat eget sem quis interdum. Sed purus mauris, vestibulum quis nisi eu, pulvinar convallis libero. Aenean dictum ultricies neque, sed vestibulum justo rhoncus vel. Maecenas placerat ligula quis sem viverra varius. Mauris dictum libero sed nulla pellentesque pharetra. Proin auctor arcu suscipit lacus finibus, scelerisque bibendum turpis rhoncus. Suspendisse molestie, nisi nec mattis lacinia, velit augue maximus ante, accumsan consectetur leo urna sed ante. Donec imperdiet faucibus odio, eu tempus lorem volutpat quis. Nullam cursus velit at rhoncus tempus. Sed ultricies ante in eleifend commodo. Cras finibus sed erat non hendrerit. Vestibulum mattis ultricies tortor in finibus. Integer quis mattis nibh, vel commodo lacus.</p>
+
+		<p>Suspendisse tempor facilisis sapien, sed facilisis arcu ornare vitae. Nunc id metus id orci efficitur finibus ut eu eros. Suspendisse ac sem lorem. Sed et dolor id tortor pellentesque ultrices. Etiam vulputate est urna, a aliquam elit tincidunt id. Donec at libero lacinia, consequat risus quis, mollis felis. Nunc nec lacinia eros, sit amet laoreet dolor. Maecenas feugiat, felis vitae rhoncus molestie, justo dui tincidunt eros, vel vulputate tortor lectus ac libero. Vestibulum facilisis dolor lacinia tincidunt tempus. Donec nulla eros, dictum sit amet nisi tempor, tempor vestibulum augue. Donec dignissim lacus sed leo finibus placerat. Aenean at velit vel velit placerat consectetur aliquam ut metus. Nullam massa lacus, ullamcorper eu condimentum elementum, porta id ipsum. Aenean et elementum tellus. Mauris faucibus accumsan est a sagittis. Donec pharetra pharetra lectus, varius eleifend ipsum rutrum in.</p>
+
+
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5575865276001" 
+				data-account="5458602755001" 
+				data-player="default" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls muted playsinline
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+			</div>
+		</div>
+
+<!--
+<amp-brightcove
+id="myPlayerID"
+    data-account="5458602755001"
+    data-video-id="5575865276001"
+    data-player="default"
+    layout="responsive" width="480" height="270">
+</amp-brightcove>
+-->
+
+		<p>Aenean vel elit rhoncus, ultrices velit quis, facilisis dolor. Maecenas a dolor sodales, ultrices sapien nec, vestibulum nisl. Maecenas varius eros et urna vulputate rutrum. Fusce a elit sem. Aenean auctor felis tincidunt, tincidunt nulla et, semper arcu. Nunc sit amet sollicitudin urna, id fringilla sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam sit amet iaculis arcu, quis gravida mauris. Vivamus sit amet blandit nisl. Curabitur sit amet leo eros. Cras fringilla ligula ut risus elementum commodo eget id urna. Duis ultricies gravida sodales. In nec magna rhoncus, volutpat eros ut, consequat ipsum. Vivamus eu nibh in ex pulvinar dignissim.</p>
+
+		<p>Aliquam aliquet nulla lacus, vitae accumsan magna posuere vitae. Curabitur in elementum ex. Aenean purus erat, commodo vitae ligula porttitor, molestie ultricies nisl. Fusce consectetur nec orci vel facilisis. Nunc in molestie lectus, at tristique orci. Ut sit amet euismod mauris, ut suscipit velit. Praesent at lorem sapien.</p>
+
+		<p>Aenean fermentum rutrum tincidunt. Etiam tellus justo, ullamcorper a iaculis eu, malesuada tristique dui. Nunc quis magna placerat, iaculis purus posuere, porttitor massa. Nam nec vestibulum augue. Aliquam scelerisque sapien ante, fringilla porttitor libero interdum at. Mauris in ligula id leo aliquet efficitur nec in leo. Mauris facilisis ligula in lacinia consequat. Aenean et bibendum mauris, efficitur pulvinar turpis.</p>
+
+		<ul>
+			<li><a href="https://support.brightcove.com/brightcove-player-sample-scrolling-player-view" target="_blank">Brightcove Player Sample: Scrolling Player into View</a></li>	
+		</ul>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- custom script -->
+    <script type="text/JavaScript">
+        var myPlayer;
+
+    videojs("myPlayerID").ready(function(){
+            myPlayer = this;
+
+            var isScrolledIntoView = function(elem) {
+            // get the position of the viewport
+            var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+
+            // get the position of the player element
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(elem).height();
+
+            // determine if the player element is in fully in the viewport
+                return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom)
+                  && (elemBottom <= docViewBottom) &&  (elemTop >= docViewTop) );
+            }
+
+        var checkIfVideoInView = function() {
+                if ( isScrolledIntoView(myPlayerID) ) {
+                    // the player is fully in the viewport
+                    myPlayer.play();
+                } else {
+                    // the player is not in the viewport
+                    myPlayer.pause();
+                }
+            }
+
+        window.onscroll = checkIfVideoInView;
+        });
+    </script>
+
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sony India</title>
+	<style>
+		.vjs-custom-waiting .vjs-loading-spinner
+		{
+			display: block;
+		}
+		.video-js.vjs-custom-waiting .vjs-loading-spinner:before,
+		.video-js.vjs-custom-waiting .vjs-loading-spinner:after
+		{
+			-webkit-animation: vjs-spinner-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, vjs-spinner-fade 1.1s linear infinite;
+			animation: vjs-spinner-spin 1.1s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, vjs-spinner-fade 1.1s linear infinite;
+		}
+	</style>
+</head>
+<body>
+	<video 
+	id="myPlayer"
+	data-video-id="5450705793001"
+	data-account="4338955589001"
+	data-player="S1ZmaYYZ-"
+	data-embed="default"
+	data-application-id
+	class="video-js"
+	controls
+	preload
+	style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+	<script src="//players.brightcove.net/4338955589001/S1ZmaYYZ-_default/index.min.js"></script>
+	<script>
+
+		var Player;
+		videojs('myPlayer').ready(function() {
+			myPlayer = this;
+
+			myPlayer.on("waiting", function ()
+			{
+				this.addClass("vjs-custom-waiting");
+			});
+			myPlayer.on("playing", function ()
+			{
+				this.removeClass("vjs-custom-waiting");
+			});
+
+		});
+	</script>
+
+</body>
+</html>

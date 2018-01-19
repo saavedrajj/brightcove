@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+  <script src="//players.brightcove.net/2418587620001/B145jb53b_default/index.min.js"></script>
+
+<script>
+	// this is where the video tag is generated
+
+generatedHTML = '<video ' +
+'data-account="2418587620001" ' +
+'data-player="B145jb53b" ' +
+'data-embed="default" ' +
+'data-video-id="4890716037001" ' +
+'class="video-js" controls>' +
+'</video> ';
+
+// then we set this html to the modal window *
+
+$modalContent.append(generatedHTML); 
+
+//this is where we set the height in the loadedmetadata event
+if(videoJSON.videoType === 'cove'){
+var video = videoContainer.find("video");
+video.css("height", "0");
+
+video[0].addEventListener("loadedmetadata", function() {
+videojs(video[0]).play();
+var height = video.closest(".brightcove").outerHeight();
+video.css("height", height+"px");
+video.css("width", "100%");
+video.parent().css("height", height+"px");
+video.parent().css("width", "100%");
+}, false);
+}
+</script>
+
+
+</body>
+</html>
+

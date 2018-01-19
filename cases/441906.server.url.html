@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">  	
+</head>
+<body>
+	<div class="container">
+		<h1>Title</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="4789052349001" 
+				data-account="1546279903" 
+				data-player="Sy1IxNEHb"  
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/1546279903/Sy1IxNEHb_default/index.min.js"></script>
+			</div>
+		</div>
+		<ul>
+			<li><a href="https://support.brightcove.com/advertising-ima3-plugin#options" target="_blank">Advertising with the IMA3 Plugin > Options </a></li>	
+		</ul>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+
+	<script>
+		var player = videojs('myPlayerID');
+		player.on('ready', function(){
+			player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=480x360&iu=%2F536%2FUK-video&cust_params=gbstageid%3Duru%26gbtp%3Dbaby%2Cbaby-breastfeeding%2Cbreastfeeding-problemsandsolutions%2Cbreastpain%26gbpgtype%3Darticle%26gbpageid%3D8489%26gbcpkg%3Dbaby-breastfeeding%26pos%3Dlibrary&ciu_szs&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=https%3A%2F%2Fwww.babycentre.co.uk%2Fa8489%2Fbreast-pain&description_url=https%3A%2F%2Fwww.babycentre.co.uk%2Fa8489%2Fbreast-pain&correlator=4201722778133913&eid=667080007&sdkv=h.3.185.2&sdki=3c0d&scor=2826123615067263&adk=1692349790&u_so=l&osd=2&frm=0&sdr=1&mpt=brightcove%2Fplayer-ht&mpv=2.20.2&afvsz=200x200%2C250x250%2C300x250%2C336x280%2C450x50&ged=timeout";
+		});
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>	
+</body>
+</html>

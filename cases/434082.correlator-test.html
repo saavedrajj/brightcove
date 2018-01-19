@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+     .video-js {
+       height: 360px;
+       width: 640px;
+     }
+  </style>
+  <!--link rel="stylesheet" type="text/css" href="../videojs-ima3/videojs.ima3.min.css"-->
+    <link rel="stylesheet" type="text/css" href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css">
+
+</head>
+
+<video id="myPlayer" 
+data-video-id="4080562062001" 
+data-account="3450462642001" 
+data-player="default" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls></video>
+
+<input type="button" value="thumbs down" onclick="loadNextVideo()" />&nbsp;&nbsp;&nbsp;
+        
+<script src="//players.brightcove.net/3450462642001/default_default/index.min.js"></script>
+  <!--script src="../videojs-ima3/videojs.ima3.js"></script-->
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+
+<script>
+  var player = bc('myPlayer');
+    player.ima3({
+          adTechOrder: [
+            'flash',
+            'html5'
+          ],
+            postrollTimeout: 2000,
+            prerollTimeout: 3000,
+            requestMode: "onload",
+            /*serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=",*/
+            serverUrl: "http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}",
+            timeout: 5000,
+            vpaidMode: "ENABLED",
+            debug: false 
+    });
+
+    videojs('myPlayer').on('bc-catalog-error', function(){
+          var myPlayer = this, 
+              specificError;
+          if (myPlayer.catalog.error !== undefined) {
+            specificError = myPlayer.catalog.error.data[0];
+            console.log('bc-catalog-error:', specificError);
+          };
+        });
+
+     function loadNextVideo() {
+            /*player.trigger('contentended');*/
+
+                        player.ima3.settings.serverUrl = "http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}";
+
+
+            player.catalog.getVideo("4080487850001", function (error, video) {
+
+                player.catalog.load(video);
+            });
+            
+            player.on('end', function () {
+              player.play();  
+            })
+
+
+            
+     };
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Video and Playlist Test</title>
+    
+</head>
+
+<body>
+
+<video style="width: 640px; height: 360px;"
+data-video-id="4756096435001"
+data-account="4755935480001"
+data-player="SkXlF3JBl"
+data-embed="default"
+class="video-js"
+controls></video>
+
+<script src="//players.brightcove.net/4755935480001/SkXlF3JBl_default/index.js"></script>
+
+<script type="text/javascript">
+    var myPlayerID = document.getElementsByTagName("video")[0].id;
+    var myPlayer;
+    var playlistID = "5260888751001";
+		
+	videojs(myPlayerID).ready( function() {
+		myPlayer = this;
+        myPlayer.one('loadedmetadata',function() {
+            myPlayer.one('ended', function() {
+                myPlayer.catalog.getPlaylist(playlistID, function (error, playlist) {
+                    myPlayer.catalog.load(playlist);
+                    myPlayer.playlist.currentItem(0);
+                    myPlayer.play();
+                });
+            });
+        });
+	});
+
+</script>
+
+
+</body>
+</html>

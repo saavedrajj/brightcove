@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Display Error Messages</title>
+	<style>
+		.video-js {
+			width:610px;
+			height:344px;
+		}
+
+
+.vjs-fullscreen-control { 
+    display: none; 
+} 
+
+		
+	</style>
+</head>
+<body>
+	<h1>Display Error Messages - Code</h1>
+	<video id="myPlayerID"
+	data-video-id="5648571863001" 
+	data-account="5458602755001" 
+	data-player="rkxQgRg6Hb" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/rkxQgRg6Hb_default/index.min.js"></script>
+	<script type="text/javascript">
+	
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.errors({
+			"errors": {
+					"1": {
+						"headline": "This is a custom error message 1",
+						"type": "MEDIA_ERR_SRC_CUSTOM_1",
+						"message": "These are the details for the custom message 1"
+					},
+					"2": {
+						"headline": "This is a custom error message 2",
+						"type": "MEDIA_ERR_SRC_CUSTOM_2",
+						"message": "These are the details for the custom message 2"
+					},
+					"3": {
+						"headline": "This is a custom error message 3",
+						"type": "MEDIA_ERR_SRC_CUSTOM_3",
+						"message": "These are the details for the custom message 3"
+					},											
+					"4": {
+						"headline": "This is a custom error message 4",
+						"type": "MEDIA_ERR_SRC_CUSTOM_4",
+						"message": "These are the details for the custom message 4"
+					},
+					"5": {
+						"headline": "This is a custom error message 4",
+						"type": "MEDIA_ERR_SRC_CUSTOM_4",
+						"message": "These are the details for the custom message 4"
+					},					
+					"-1": {
+						"headline": "This is a custom error message -1",
+						"type": "MEDIA_ERR_SRC_CUSTOM_-1",
+						"message": "These are the details for the custom message -1"
+					},					
+					"-2": {
+						"headline": "This is a custom error message -2",
+						"type": "MEDIA_ERR_SRC_CUSTOM_-2",
+						"message": "These are the details for the custom message -2"
+					},
+					"unknown": {
+						"message": "These are the details for the custom message unknown"
+					}											
+				}
+			});
+		});
+	</script>
+	<ul>
+		<li><a href="https://docs.brightcove.com/en/player/brightcove-player/guides/errors-plugin.html" target="_blank">Display Error Messages Plugin</a></li>
+		<li><a href="https://docs.brightcove.com/en/video-cloud/playback-api/references/error-reference.html" target="_blank">Playback API Error Reference</a></li>
+	</ul>
+</body>
+
+</html>

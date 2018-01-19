@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Player Configurator</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <link rel="stylesheet" href="http://assets.ipcdigital.co.uk/jumpstart/jumpstart.css" />
+
+    <style>
+                        .video-js {
+            width: 100%;
+            height: 360px;
+        }
+
+        .video-container {
+            height: inherit;
+            width: 100%;
+        }
+
+            </style>
+
+    <script>
+        window.ipcTags = {"site":"nme","section":"news","type":"article","cplatform":"keystone","dfp_config":{"required_tags":["type","section","site","tagging","pub","author","contentId","subtype"],"indexExchange":"ht\/p\/184316-131235576190327.js","available_criteria":{"mobile":{"criteria":{"window_greater_than":{"width_minimum":0},"window_less_than_equal_to":{"width_maximum":727}},"display_mode":"mobile"},"tablet":{"criteria":{"window_greater_than":{"width_minimum":727},"window_less_than_equal_to":{"width_maximum":969}},"display_mode":"desktop"},"desktop":{"criteria":{"window_greater_than":{"width_minimum":969}},"display_mode":"desktop"}},"slots":{"col-3-plus":{"name":"billboard01","criteria":["desktop"],"sizes":[[970,1],[970,250],[970,90],[728,90],[728,1]]},"col-2":{"name":"leaderboard01","criteria":["tablet"],"sizes":[[728,1],[728,90]]},"col-1":{"criteria":["mobile"],"name":"mobilebanner01","sizes":[[320,50],[320,100],[300,50]]},"dfpad-mpu-1":{"name":"mpu01","criteria":["desktop","tablet"],"sizes":[[300,1],[300,250],[300,600],[300,1050]]},"dfpad-mpu-2":{"name":"mpu02","inview":true,"criteria":["desktop","tablet"],"sizes":[[300,1],[300,250],[300,600],[300,1050]]},"dfpad-mpu-3":{"name":"mpu03","inview":true,"criteria":["desktop","tablet"],"sizes":[[300,1],[300,250],[300,600],[300,1050]]},"dfpad-mpu-4":{"name":"mpu04","inview":true,"criteria":["desktop","tablet"],"sizes":[[300,1],[300,250],[300,600],[300,1050]]},"dfpad-mpu-5":{"name":"mpu05","inview":true,"criteria":["desktop","tablet"],"sizes":[[300,1],[300,250],[300,600],[300,1050]]},"dfpad-overlay":{"name":"overlay","criteria":["desktop","tablet"],"sizes":[1,1]},"gumgum":{"name":"gumgum","inview":false,"criteria":["desktop","tablet","mobile"],"sizes":[8,2]},"vibrant":{"name":"vibrant","inview":false,"criteria":["desktop","tablet","mobile"],"sizes":[9,2]},"sharethrough_inline_1_6x1":{"name":"sharethroughinline16x1","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,1],[6,1]]},"sharethrough_inline_2_6x2":{"name":"sharethroughinline26x2","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,2],[6,2]]},"sharethrough_inline_3_6x3":{"name":"sharethroughinline36x3","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,3],[6,3]]},"sharethrough_inline_4_6x4":{"name":"sharethroughinline46x4","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,4],[6,4]]},"sharethrough_inline_5_6x5":{"name":"sharethroughinline56x5","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,5],[6,5]]},"sharethrough_inline_6_6x6":{"name":"sharethroughinline66x6","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,6],[6,6]]},"sharethrough_inline_7_6x7":{"name":"sharethroughinline76x7","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,7],[6,7]]},"sharethrough_inline_8_6x8":{"name":"sharethroughinline86x8","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,8],[6,8]]},"sharethrough_inline_9_6x9":{"name":"sharethroughinline96x9","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,9],[6,9]]},"sharethrough_inline_10_6x10":{"name":"sharethroughinline106x10","targeting":{"strnativekey":"svYC5JtnuJufBNEXP9NmMCPW"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,10],[6,10]]},"sharethrough_home_1_6x11":{"name":"sharethroughhome16x11","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,11],[6,11]]},"sharethrough_home_2_6x12":{"name":"sharethroughhome26x12","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,12],[6,12]]},"sharethrough_home_3_6x13":{"name":"sharethroughhome36x13","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,13],[6,13]]},"sharethrough_home_4_6x14":{"name":"sharethroughhome46x14","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,14],[6,14]]},"sharethrough_home_5_6x15":{"name":"sharethroughhome56x15","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,15],[6,15]]},"sharethrough_home_6_6x16":{"name":"sharethroughhome66x16","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,16],[6,16]]},"sharethrough_home_7_6x17":{"name":"sharethroughhome76x17","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,17],[6,17]]},"sharethrough_home_8_6x18":{"name":"sharethroughhome86x18","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,18],[6,18]]},"sharethrough_home_9_6x19":{"name":"sharethroughhome96x19","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,19],[6,19]]},"sharethrough_home_10_6x20":{"name":"sharethroughhome106x20","targeting":{"strnativekey":"HBTras5fnL9ju2egYcsnR47f"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,20],[6,20]]},"sharethrough_right-rail_1_6x21":{"name":"sharethroughright-rail16x21","targeting":{"strnativekey":"KdDNQzbZVEdnqdi46KkhzrHt"},"criteria":["desktop","mobile"],"inview":false,"sizes":[[6,21],[6,21]]},"sharethrough_mobile_1_6x31":{"name":"sharethroughmobile16x31","targeting":{"strnativekey":"dmXTJRmTKYyZzudNytdD4NDR"},"criteria":["mobile"],"inview":false,"sizes":[[6,31]]},"dfpad-mpu-1-mobile":{"name":"mpu01","inview":true,"criteria":["mobile"],"sizes":[[300,250],[300,600],[300,1050],[300,1]]},"dfpad-mpu-2-mobile":{"name":"mpu02","inview":true,"criteria":["mobile"],"sizes":[[300,250],[300,600],[300,1050],[300,1]]},"dfpad-mpu-3-mobile":{"name":"mpu03","inview":true,"criteria":["mobile"],"sizes":[[300,250],[300,600],[300,1050],[300,1]]},"dfpad-mpu-4-mobile":{"name":"mpu04","inview":true,"criteria":["mobile"],"sizes":[[300,250],[300,600],[300,1050],[300,1]]},"dfpad-mpu-5-mobile":{"name":"mpu05","inview":true,"criteria":["mobile"],"sizes":[[300,250],[300,600],[300,1050],[300,1]]}}},"env":"prod","skimlinks_enabled":true,"contentId":2084030,"subtype":"image","tagging":["category:music","category:news","post_tag:manchester","person_category:oasis","publication_name:nme","author:willbutler"],"author":"willbutler","authorName":"Will Butler","datePublished":"20170605","hourPublished":"08","minPublished":"59","dateUpdated":"20170605","hourUpdated":"11","minUpdated":"56","pub":"nme","template":"single-post"};
+    </script>
+
+<script src="//tags.tiqcdn.com/utag/ipc/nme/prod/utag.js" type="text/javascript" async=""></script>
+<script type="text/javascript">
+/* eslint-disable no-undef,no-console */
+(function () {
+  var legacyAnalyticsPlugin = (function () {
+    var _isIpcUtilsAvailable = function () {
+      return ('object' === typeof window.ipc && 'object' === typeof window.ipc.utils && 'function' === typeof window.ipc.utils.trackEvent);
+    };
+
+    var _isTimeIncAnalyticsAvailable = function () {
+      return ('object' === typeof window.timeinc && 'object' === typeof window.timeinc.analytics && 'function' === typeof window.timeinc.analytics.trackEvent);
+    };
+
+    var _trackEvent = function (event) {
+      if (_isIpcUtilsAvailable()) {
+        console.log('[Analytics] : IPC Utils (GA) - ' + event.eventCategory + ' / ' + event.eventAction + ' / ' + event.eventLabel);
+        ipc.utils.trackEvent(
+          event.eventCategory,
+          event.eventAction,
+          event.eventLabel,
+          undefined,
+          undefined,
+          event.nonInteraction
+        );
+      } else if (_isTimeIncAnalyticsAvailable()) {
+        console.log('[Analytics] : Timeinc Analytics (UA) - ' + event.eventCategory + ' / ' + event.eventAction + ' / ' + event.eventLabel);
+        window.timeinc.analytics.trackEvent({
+          category: event.eventCategory,
+          action: event.eventAction,
+          label: event.eventLabel,
+          interaction: !event.nonInteraction
+        });
+      } else {
+        console.log('[Analytics] : Cannot handle event - ' + event.eventCategory + ' / ' + event.eventAction + ' / ' + event.eventLabel);
+      }
+    };
+
+    var _videoName = function (videoJs) {
+      var info = bcJumpstart.info(videoJs.id());
+      return info.name;
+    };
+
+    return {
+      init: function (bcJumpstart) {
+        bcJumpstart.forAll(function (player) {
+          if (player.dataset.legacyAnalytics) {
+            bcJumpstart.ready(function (player) {
+              bcJumpstart.when(player, 'loadedmetadata', function (videoJs) {
+                _trackEvent({
+                  eventCategory: 'Video',
+                  eventAction: 'Video Player Loaded',
+                  eventLabel: _videoName(videoJs),
+                  hitType: 1,
+                  nonInteraction: true
+                });
+              });
+
+              bcJumpstart.when(player, 'firstplay', function (videoJs) {
+                _trackEvent({
+                  eventCategory: 'Video',
+                  eventAction: 'Video Play Button',
+                  eventLabel: _videoName(videoJs),
+                  hitType: 1,
+                  nonInteraction: true
+                });
+              });
+
+              bcJumpstart.when(player, 'adstart', function (videoJs) {
+                _trackEvent({
+                  eventCategory: 'Video',
+                  eventAction: 'Video Ad Started',
+                  eventLabel: _videoName(videoJs),
+                  hitType: 1,
+                  nonInteraction: true
+                });
+              });
+
+              bcJumpstart.when(player, 'adend', function (videoJs) {
+                _trackEvent({
+                  eventCategory: 'Video',
+                  eventAction: 'Video Ad Ended',
+                  eventLabel: _videoName(videoJs),
+                  hitType: 1,
+                  nonInteraction: true
+                });
+              });
+
+              bcJumpstart.when(player, 'loadstart', function (videoJs) {
+                videoJs.player().one('playing', function () {
+                  _trackEvent({
+                    eventCategory: 'Video',
+                    eventAction: 'Video Content Started',
+                    eventLabel: _videoName(videoJs),
+                    hitType: 1,
+                    nonInteraction: true
+                  });
+                });
+              });
+            }, player);
+          }
+        });
+      }
+    };
+  })();
+
+  var load = function () {
+    legacyAnalyticsPlugin.init(bcJumpstart);
+  };
+
+  if (typeof bcJumpstart !== 'undefined') {
+    load();
+  } else {
+    window.addEventListener('jumpstartLoad', load);
+  }
+})();
+
+
+
+/* eslint-disable no-undef */
+(function () {
+  var adMacroPlugin = (function () {
+
+    var slugify = function (str) {
+      return String(str)
+        .toLowerCase()
+        .replace(/[^\w\s]/g, ' ')
+        .replace(/\ +/g, '_')
+        .replace(/\-$/g, '')
+        .replace(/^\-/g, '');
+    };
+
+    var normaliseValue = function (value) {
+      if (Object.prototype.toString.call(value) !== '[object Array]') {
+        return slugify(value);
+      }
+
+      var result = '';
+      value.forEach(function (subvalue) {
+        if (result !== '') {
+          result += ',';
+        }
+        result += slugify(subvalue);
+      });
+
+      return result;
+    };
+
+    var getIPCTags = function () {
+      var targetingParams = [];
+      if (typeof window.ipcTags !== 'undefined' && window.ipcTags.dfp_config !== 'undefined' && window.ipcTags.dfp_config.required_tags !== 'undefined') {
+        window.ipcTags.dfp_config.required_tags.forEach(function (requiredTag) {
+          if (typeof window.ipcTags[requiredTag] !== 'undefined' && window.ipcTags[requiredTag] !== null) {
+            targetingParams.push(requiredTag + '=' + normaliseValue(window.ipcTags[requiredTag]));
+          }
+        });
+        return targetingParams;
+      }
+      return targetingParams;
+    };
+
+    return {
+      init: function (bcJumpstart) {
+        bcJumpstart.forAll(function (player) {
+          bcJumpstart.ready(function (readyPlayer) {
+            console.log("fish");
+            console.log(readyPlayer);
+            var originalAdMacroReplacement = readyPlayer.player.ima3.adMacroReplacement;
+            readyPlayer.player.ima3.adMacroReplacement = function(url){
+              var replacements = {};
+              replacements['{adVariables.pageUrl}'] = window.location.origin + window.location.pathname;
+              replacements['{adVariables.customParams}'] = encodeURIComponent(getIPCTags().join('&'));
+
+              Object.keys(replacements).forEach(function(key){
+                url = url.replace(key, replacements[key]);
+              });
+
+              url = originalAdMacroReplacement(url);
+
+              return url;
+            };
+          }, player);
+        });
+      }
+    };
+  }());
+
+  var load = function () {
+    adMacroPlugin.init(bcJumpstart);
+  };
+
+  if (typeof bcJumpstart !== 'undefined') {
+    load();
+  } else {
+    window.addEventListener('jumpstartLoad', load);
+  }
+})();
+
+
+</script>
+
+</head>
+<body>
+<div class="container">
+    <div class="page-header">Test Player</div>
+
+
+
+
+        <div class="video-container">
+            <video id="bc-4183-5524609270001" data-account="463898949" data-player="default" data-embed="default" data-video-id="5480542962001" data-autoplay="false" data-legacy-analytics="true" class="video-js " controls playsinline autoplay></video>
+        </div>
+
+
+
+
+    <script src="http://cdn.video.timeinc.com/jumpstart/v2/js/jumpstart.min.js"></script>
+
+
+
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# c: http://s.opencalais.com/1/pred/ sys: http://s.opencalais.com/1/type/sys/ lid: http://s.opencalais.com/1/type/lid/ cat: http://s.opencalais.com/1/type/cat/ resolved: http://s.opencalais.com/1/type/er/ cgeo: http://s.opencalais.com/1/type/er/Geo/ eventfact: http://s.opencalais.com/1/type/em/r/ entity: http://s.opencalais.com/1/type/em/e/ cld: http://s.opencalais.com/1/linkeddata/pred/ content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XAcAVFVADAsBVFhQBQM="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<script>var _sf_startpt=(new Date()).getTime();</script>
+<meta name="Smart_Paging" content="on" />
+<link rel="amphtml" href="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony?amp" />
+<meta property="author" content="Katie Bo Williams and Jonathan Easley" />
+<link rel="shortcut icon" href="http://thehill.com/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="description" content="Sen." />
+<meta name="keywords" content=",Dianne Feinstein, Lindsey Graham, Chuck Grassley, Jared Kushner, Donald Trump," />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" />
+<link rel="shortlink" href="http://thehill.com/node/368210" />
+<meta property="fb:admins" content="581787871" />
+<meta property="fb:admins" content="732535504" />
+<meta property="fb:admins" content="100000299130732" />
+<meta property="fb:pages" content="7533944086" />
+<meta property="fb:app_id" content="566538590082898" />
+<meta property="og:site_name" content="TheHill" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Five takeaways from the Fusion GPS testimony" />
+<meta property="og:url" content="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" />
+<meta property="og:description" content="Sen." />
+<meta property="og:updated_time" content="2018-01-10T10:24:18-05:00" />
+<meta property="og:image" content="http://thehill.com/sites/default/files/feinsteindianne_103117cf_lead.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Five takeaways from the Fusion GPS testimony" />
+<meta name="twitter:url" content="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" />
+<meta name="twitter:description" content="Sen." />
+<meta property="article:published_time" content="2018-01-10T06:00:10-05:00" />
+<meta property="article:modified_time" content="2018-01-10T10:24:18-05:00" />
+<meta name="dcterms.title" content="Five takeaways from the Fusion GPS testimony" />
+<meta name="dcterms.creator" content="Will Sommer" />
+<meta name="dcterms.description" content="Sen." />
+<meta name="dcterms.date" content="2018-01-10T06:00-05:00" />
+<meta name="dcterms.type" content="Text" />
+<meta name="dcterms.format" content="text/html" />
+<meta name="dcterms.identifier" content="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" />
+<script language="javascript" type="text/javascript" src="/sites/all/modules/thehill/thehill_header_bidding/js/prebid.js" async ></script><script language="javascript" type="text/javascript" src="//www.googletagservices.com/tag/js/gpt.js" async ></script>  <title>Five takeaways from the Fusion GPS testimony | TheHill</title>
+
+
+
+<!--
+  <link type="text/css" rel="stylesheet" href="//thehill.com/sites/default/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="//thehill.com/sites/default/files/css/css_-JZ-_n9GUSKhn8VJAI9hwe2BmLcPShPiKeZ_l2hUzQs.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//thehill.com/sites/default/files/css/css_5eW3j7smu9FgwOVE8MiuPT3hapGwjIeTf9CDhK2qgUQ.css" media="all" />-->
+<link type="text/css" rel="stylesheet" href="//thehill.com/sites/default/files/css/css_ArNgOQZY2M-vbd4sOprd9hbvtVzGFA_Ki6h9R9kwAwU.css" media="all" />
+
+<!--
+<link type="text/css" rel="stylesheet" href="http://cs1.brightcodes.net/jsaavedra/includes/css/447785.thehill.css" media="all" />
+-->
+
+
+
+  <!-- Krux interchange code (before the first ad call) -->
+  <script class="kxint" data-namespace="thehill" type="text/javascript">
+    window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+    (function(){
+      function retrieve(n){
+        var k= 'kx'+'thehill_'+n, ls=(function(){
+          try {
+            return window.localStorage;
+          } catch(e) {
+            return null;
+          }
+        })();
+        if (ls) {
+          return ls[k] || '';
+        } else if (navigator.cookieEnabled) {
+          var m = document.cookie.match(k+'=([^;]*)');
+          return (m && unescape(m[1])) || '';
+        } else {
+          return '';
+        }
+      }
+      Krux.user = retrieve('user');
+      Krux.segments = retrieve('segs') ? retrieve('segs').split(',') : [];
+    })();
+  </script>
+  <script src="//thehill.com/sites/default/files/js/js_ZlbZCt9VIesFzM75iHKSbqRnsBoSHbjj0YQjK494mHI.js"></script>
+<script>
+  var PREBID_TIMEOUT = 2000;
+  var AMAZON_SOURCE_ID = '3393';
+
+  var adUnits = [ {
+          code: 'dfp-ad-rightrail_top',
+          sizes: [[300, 250], [300, 600], [300, 1050]],
+          bids: [{
+              bidder: 'openx',
+              params: {
+                  unit: '538678508',
+                   delDomain: 'thehill-d.openx.net'
+              }
+          },{
+              bidder: 'appnexus',
+              params: {
+                  ID: '9114213'
+              }
+          },{
+              bidder: 'sonobi',
+              params: {
+                  ad_unit:'/1107919/RightRail_top_300x250_ROS_asynch',
+                   dom_id:'dfp-ad-rightrail_top'
+              }
+          },{
+              bidder: 'rubicon',
+              params: {
+                  accountId: '15654',
+                   siteId: '102722',
+                   zoneId: '482104'
+              }
+          }]
+      },{
+          code: 'dfp-ad-leaderboard',
+          sizes: [[728, 90], [970, 90], [970, 250], [970, 415], [970, 500], [1237, 500]],
+          bids: [{
+              bidder: 'openx',
+              params: {
+                  unit: '538678500',
+                   delDomain: 'thehill-d.openx.net'
+              }
+          },{
+              bidder: 'appnexus',
+              params: {
+                  ID: '9114153'
+              }
+          },{
+              bidder: 'sonobi',
+              params: {
+                  ad_unit:'/1107919/Leaderboard_728x90_ROS_asynch',
+                   dom_id:'dfp-ad-leaderboard'
+              }
+          },{
+              bidder: 'rubicon',
+              params: {
+                  accountId: '15654',
+                   siteId: '102722',
+                   zoneId: '482104'
+              }
+          },{
+              bidder: 'amazon'
+          }]
+      },{
+          code: 'dfp-ad-rightrail_bottom',
+          sizes: [[300, 250], [300, 600], [300, 1050]],
+          bids: [{
+              bidder: 'openx',
+              params: {
+                  unit: '538678507',
+                   delDomain: 'thehill-d.openx.net'
+              }
+          },{
+              bidder: 'appnexus',
+              params: {
+                  ID: '9114211'
+              }
+          },{
+              bidder: 'sonobi',
+              params: {
+                  ad_unit:'/1107919/RightRail_bottom_300x250_ROS_asynch',
+                   dom_id:'dfp-ad-rightrail_bottom'
+              }
+          },{
+              bidder: 'rubicon',
+              params: {
+                  accountId: '15654',
+                   siteId: '102722',
+                   zoneId: '484056'
+              }
+          }]
+      },{
+          code: 'dfp-ad-mosad_1',
+          sizes: [[300, 250]],
+          bids: [{
+              bidder: 'openx',
+              params: {
+                  unit: '538678494',
+                   delDomain: 'thehill-d.openx.net'
+              }
+          },{
+              bidder: 'sonobi',
+              params: {
+                  ad_unit:'/1107919/Content_300x250_ROS_asynch',
+                   dom_id:'dfp-ad-mosad_1'
+              }
+          },{
+              bidder: 'appnexus',
+              params: {
+                  ID: '9114211'
+              }
+          },{
+              bidder: 'rubicon',
+              params: {
+                  accountId: '15654',
+                   siteId: '102722',
+                   zoneId: '484056'
+              }
+          }]
+} ];
+
+  var pbjs = pbjs || {};
+  pbjs.que = pbjs.que || [];
+
+  pbjs.que.push(function() {
+      pbjs.enableSendAllBids();
+  });</script>
+<script>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];  googletag.cmd.push(function() {
+    googletag.pubads().disableInitialLoad();
+  });
+</script>
+<script>
+  pbjs.que.push(function() {
+    pbjs.addAdUnits(adUnits);
+
+    var A9Adaptor = function A9Adaptor() {
+        return {
+            callBids: function(p) {
+                pbjs.loadScript('//c.amazon-adsystem.com/aax2/amzn_ads.js', function() {
+                    amznads.getAdsCallback(AMAZON_SOURCE_ID, function() {
+                        pbjs.bidsAvailableForAdapter('amazon');
+                    });
+                });
+            }
+        };
+    };
+    pbjs.registerBidAdapter(A9Adaptor, 'amazon');
+
+    pbjs.bidderSettings = {
+standard: {
+        alwaysUseBid: false,
+        adserverTargeting: [{
+            key: "hb_bidder",
+          	val: function(bidResponse) {
+        	return bidResponse.bidderCode;
+          }
+        }, {
+            key: "hb_adid",
+            val: function(bidResponse) {
+                return bidResponse.adId;
+            }
+        }, {
+            key: "hb_pb",
+          	val: function(bidResponse) {
+            var cpm = bidResponse.cpm;
+            if (cpm < 3.00) {
+              return (Math.floor(cpm * 100) / 100).toFixed(2);
+            } else if (cpm < 5.00) {
+              return (Math.floor(cpm * 20) / 20).toFixed(2);
+            } else if (cpm < 10.00) {
+              return (Math.floor(cpm * 10) / 10).toFixed(2);
+            } else if (cpm < 25.00) {
+              return (Math.floor(cpm * 2) / 2).toFixed(2);
+            } else {
+              return '25.00';
+        
+            }
+            }
+        }]
+
+      },
+openx: {
+	alwaysUseBid: true,
+	adserverTargeting: [{
+		key: "oxb",
+ 		val: function(bidResponse) {
+ 			var bid;
+ 			if (bidResponse.cpm < 20) {
+ 				//Penny Bid Buckets
+ 				bid = ((Math.floor(bidResponse.cpm * 100) / 100) * 100).toFixed(0);
+ 			} else {
+ 				//Twenty dollar bucket
+ 				bid = "2000";
+ 			}
+ 			//Returns creativeSize_bidBucket as the value
+ 			return bidResponse.width + "x" + bidResponse.height + "_" + bid;
+ 		}
+ 	}]
+}
+      };
+    pbjs.requestBids({
+      bidsBackHandler: sendAdserverRequest
+    });
+  });
+
+  function sendAdserverRequest() {
+    if (pbjs.adserverRequestSent) return;
+    pbjs.adserverRequestSent = true;
+    googletag.cmd.push(function() {
+      pbjs.que.push(function() {
+        pbjs.setTargetingForGPTAsync();
+        try{ amznads.setTargetingForGPTAsync('amznslots');} catch(e){}
+        googletag.pubads().refresh();
+      });
+    });
+  }
+
+  setTimeout(function() {
+    sendAdserverRequest();
+  }, PREBID_TIMEOUT);
+</script>
+<script>
+googletag.slots = googletag.slots || {};</script>
+<script src="//thehill.com/sites/default/files/js/js_rEbPjuAQEoiYmG4a5yzi-U2v_aueuyLZiOvf47eP2U8.js"></script>
+<script src="//thehill.com/sites/default/files/js/js_CU3-wpoRjXqQUzVH_fXkSKR_o43ZvBVuw8S_WXUsfTY.js"></script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["rightrail_top"] = googletag.defineSlot("1107919/RightRail_top_300x250_ROS_asynch", [[300, 250], [300, 600], [300, 1050]], "dfp-ad-rightrail_top")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["rightrail_bottom"] = googletag.defineSlot("1107919/RightRail_bottom_300x250_ROS_asynch", [[300, 250], [300, 600], [300, 1050]], "dfp-ad-rightrail_bottom")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["leaderboard"] = googletag.defineSlot("1107919/Leaderboard_728x90_ROS_asynch", [[728, 90], [970, 90], [970, 250], [970, 415], [970, 500], [1237, 500]], "dfp-ad-leaderboard")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["mosad_1"] = googletag.defineSlot("1107919/Content_300x250_ROS_asynch", [300, 250], "dfp-ad-mosad_1")
+  .addService(googletag.pubads());
+});
+</script>
+<script src="//thehill.com/sites/default/files/js/js_-MMhXPv0Ubw7_z8dZe5HlsXuxpAl_qyZS_x9wivbIsA.js"></script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["infinite_scroll_separator"] = googletag.defineSlot("1107919/infiniteScroll_separator", [[970, 250], [300, 250], [728, 90], [1006, 500], [970, 90], [1340, 500], [1237, 500]], "dfp-ad-infinite_scroll_separator")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["new_1x1_asynch"] = googletag.defineSlot("1107919/1x1_asynch", [1, 1], "dfp-ad-new_1x1_asynch")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["1x1_oop"] = googletag.defineSlot("1107919/1x1_asynch", [1, 1], "dfp-ad-1x1_oop")
+  .addService(googletag.pubads());
+googletag.defineOutOfPageSlot("1107919/1x1_asynch", "dfp-ad-1x1_oop-oop")
+  .addService(googletag.pubads());
+});
+</script>
+<script>
+googletag.cmd.push(function() {
+googletag.slots["modal_window_ad"] = googletag.defineSlot("1107919/Interstitial_ROS_asynch", [[400, 400], [640, 480], [770, 600], [768, 1024]], "dfp-ad-modal_window_ad")
+  .addService(googletag.pubads());
+});
+</script>
+<script src="//thehill.com/sites/default/files/js/js_TWesmZWxzUZ3DU050sz8QrIU986Uz2SjL2n2joX_XYk.js"></script>
+<script>
+googletag.cmd.push(function() {
+  googletag.pubads().setTargeting("ksg", Krux.segments);
+  googletag.pubads().setTargeting("kuid", Krux.user);
+  googletag.pubads().enableSingleRequest();
+  googletag.pubads().collapseEmptyDivs();
+  googletag.pubads().setTargeting("Article", "368210");
+  googletag.pubads().setTargeting("Category", "National Security");
+  googletag.pubads().setTargeting("Section", "Policy");
+  googletag.pubads().setTargeting("Tarmeta", ["","Dianne Feinstein","Lindsey Graham","Chuck Grassley","Jared Kushner","Donald Trump","five","takeaways","from","the","fusion","gps","testimony"]);
+  googletag.pubads().setTargeting("Video", ["Float","True"]);
+  
+  googletag.enableServices();
+});
+</script>
+<script src="//thehill.com/sites/default/files/js/js_UlgQwqBztlTNwD8PYNXSwCVbJHJOJiHEsF-8ZKBt8yE.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-10188146-1", {"cookieDomain":"auto"});ga("set", "dimension1", "Katie Bo Williams and Jonathan Easley");ga("send", "pageview");</script>
+<script src="//thehill.com/sites/default/files/js/js_dimaQb12MRGrJOvdlzWa-kWGIv1JVT6r5PVS_Cg0ids.js"></script>
+<script src="//platform.twitter.com/widgets.js"></script>
+<script src="//thehill.com/sites/default/files/js/js_gNZ4p6tsRf4I5qDwMw27rv0A_WY1eRAA_40DbJhJr6o.js"></script>
+<script src="//thehill.com/sites/default/files/js/js_6EgLc18KmOJAyiFLuJcG73CEY8sYHG5Z038BfXyITkg.js"></script>
+<script>
+            next_data_url = '/continuous-scroll/368210';
+            scroll_data_exclude[368210] = 368210;
+            jQuery(document).ready(function () {
+              startCache();
+            });
+</script>
+<!--
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"thehill","theme_token":"5qUgS2lWAwAvvpkxlj0YR25wnvwWxSupVXGUJO-OKRs","js":{"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.effect.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.effect-highlight.min.js":1,"0":1,"1":1,"2":1,"3":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.draggable.min.js":1,"4":1,"5":1,"6":1,"7":1,"sites\/all\/modules\/menu_attach_block\/menu_attach_block.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"8":1,"sites\/all\/modules\/thehill\/thehill_misc\/js\/person-links.js":1,"sites\/all\/themes\/thehill\/js\/continuous.scroll.js":1,"\/\/platform.twitter.com\/widgets.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/jquery.caroufredsel.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/helper-plugins\/jquery.ba-throttle-debounce.min.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/helper-plugins\/jquery.mousewheel.min.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/helper-plugins\/jquery.touchSwipe.min.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/helper-plugins\/jquery.transit.min.js":1,"sites\/all\/modules\/thehill\/thehill_blocks\/js\/carousel\/thehill_carousel.js":1,"misc\/jquery.cookie.js":1,"sites\/all\/modules\/mostpopular\/js\/fade.js":1,"sites\/all\/modules\/mostpopular\/js\/mostpopular.js":1,"sites\/all\/modules\/thehill\/thehill_float_video_player\/js\/thehill-float-video-player.js":1,"sites\/all\/modules\/disqus\/disqus.js":1,"sites\/all\/modules\/ajaxblocks\/ajaxblocks.js":1,"sites\/all\/themes\/thehill\/js\/jquery.sticky-kit.min.js":1,"sites\/all\/themes\/thehill\/js\/jquery.visible.min.js":1,"sites\/all\/themes\/thehill\/js\/script.js":1,"sites\/all\/themes\/thehill\/js\/dfp.gpt.logger.override.js":1,"sites\/all\/themes\/thehill\/js\/overriden\/mostpopular.js":1,"sites\/all\/themes\/thehill\/js\/opa.js":1,"9":1,"10":1,"11":1,"12":1,"13":1,"14":1,"15":1,"16":1,"17":1,"18":1,"19":1,"20":1,"21":1,"22":1,"23":1,"24":1,"25":1,"26":1,"27":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/menu_attach_block\/menu_attach_block.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/chartbeat\/chartbeat.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/thehill\/thehill_misc\/css\/person-links.css":1,"sites\/all\/modules\/mostpopular\/css\/mostpopular-basic.css":1,"sites\/all\/modules\/mostpopular\/css\/mostpopular-full.css":1,"sites\/all\/themes\/thehill\/system.menus.css":1,"sites\/all\/themes\/thehill\/css\/normalize.css":1,"sites\/all\/themes\/thehill\/css\/wireframes.css":1,"sites\/all\/themes\/thehill\/css\/layouts\/responsive-sidebars.css":1,"sites\/all\/themes\/thehill\/css\/page-backgrounds.css":1,"sites\/all\/themes\/thehill\/css\/tabs.css":1,"sites\/all\/themes\/thehill\/css\/pages.css":1,"sites\/all\/themes\/thehill\/css\/blocks.css":1,"sites\/all\/themes\/thehill\/css\/navigation.css":1,"sites\/all\/themes\/thehill\/css\/views-styles.css":1,"sites\/all\/themes\/thehill\/css\/nodes.css":1,"sites\/all\/themes\/thehill\/css\/comments.css":1,"sites\/all\/themes\/thehill\/css\/forms.css":1,"sites\/all\/themes\/thehill\/css\/fields.css":1,"sites\/all\/themes\/thehill\/css\/print.css":1,"sites\/all\/themes\/thehill\/css\/articles-teaser.css":1,"sites\/all\/themes\/thehill\/css\/font-awesome.min.css":1,"sites\/all\/themes\/thehill\/css\/opa.css":1,"sites\/all\/themes\/thehill\/css\/opa-fix.css":1}},"chartbeat":{"uid":3100,"domain":"thehill.com","useCanonical":true,"noCookies":false},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"ad_timeout":"25000","urlIsAjaxTrusted":{"\/policy\/national-security\/368210-five-takeaways-from-the-fusion-gps-testimony":true},"thehill_mostpopular":{"sid":"4","iid":"1","tag":""},"thehill_carousel":{"carousels":{"#thehill-mostpopular-block .mostpopular--content ul":{"auto":false,"infinite":false,"circular":true,"next":"#most_popular_next","mousewheel":false,"swipe":{"onMouse":true,"onTouch":true},"items":5,"mostpopular":true,"direction":"up","scroll":{"items":5,"duration":1000,"timeoutDuration":2000}}}},"mostpopular":{"url":"\/mostpopular\/ajax"},"disqus":{"domain":"thehill-v4","url":"http:\/\/thehill.com\/policy\/national-security\/368210-five-takeaways-from-the-fusion-gps-testimony","title":"Five takeaways from the Fusion GPS testimony","identifier":"node\/368210","developer":1,"language":"en","sso":{"name":"TheHill","url":"\/user\/login?destination=disqus\/closewindow","logout":"\/user\/logout?destination=node\/368210","width":800,"height":600,"button":"http:\/\/thehill.com\/sites\/all\/themes\/thehill\/images\/print_logo.png","icon":"http:\/\/thehill.com\/favicon.ico"},"api_key":"MU2vV9R8hBF3W9kH0Zo2HKkiLqQY5ahOlvro6pPtNeOnnI6dQLfkIjd0OgRl9W6x","remote_auth_s3":"W10= de61ddd988450e4e99a212025d00d365c6e5f2e6 1515605964"},"ajaxblocks":"blocks=mostpopular-1\/views-articles-articles_just_in\u0026path=node"});</script>
+-->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e8f5d7e1bc8befe"></script>
+  <meta http-equiv="refresh" content="2700"/><meta name="twitter:widgets:csp" content="on">
+<!-- iOS -->
+ <meta name="apple-itunes-app" content="app-id=396640962">
+<!-- end iOS -->
+<!-- START Nativo -->
+<script type="text/javascript" src="//s.ntv.io/serve/load.js" async></script>
+<!-- END Nativo -->
+<!-- NDN Start -->
+<script type="text/javascript" src="//launch.newsinc.com/js/embed.js"></script>
+<!-- NDN End -->
+  <!--[if lt IE 9]>
+    <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+    </script>
+  <![endif]-->
+  <!-- Krux ControlTag for "The Hill" -->
+  <script class="kxct" data-id="sf90wt710" data-timing="async" data-version="3.0" type="text/javascript">
+    window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+    (function()
+      { var k=document.createElement('script');k.type='text/javascript';k.async=true; k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/sf90wt710.js'; var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s); }
+    ());
+  </script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-368210 node-type-article section-policy" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+            <div class="region region-before-header">
+    <div id="block-system-main-menu" class="block block-system block-menu first last odd" role="navigation">
+  <div class="expand-menu-header">
+    <span class="expand-menu-close"></span>
+    <a href="/"></a>
+  </div>
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/" class="menu__link menu__link">Home</a></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/" class="menu__link menu__link">News</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/homenews/senate" title="Senate" name="Senate" class="menu__link menu__link">Senate</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/house" class="menu__link menu__link">House</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/administration" class="menu__link menu__link">Administration</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/business-a-lobbying" class="menu__link menu__link">Business</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation" class="menu__link menu__link">Regulation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/media" class="menu__link menu__link">Media</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/blog-briefing-room" class="menu__link menu__link">Briefing Room</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/state-watch" class="menu__link menu__link">State Watch</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/latino" class="menu__link menu__link">Latino</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/ballot-box/polls" class="menu__link menu__link">Polls</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/1230-report" class="menu__link menu__link">12:30 Report</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/floor-action" class="menu__link menu__link">Floor Action</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/in-the-know" class="menu__link menu__link">In The Know</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/homenews/sunday-talk-shows" class="menu__link menu__link">Sunday Talk Shows</a></li>
+</ul></li>
+<li class="menu__item is-active-trail is-expanded menu__item is-active-trail is-expanded expanded active-trail depth-1"><a href="/policy" class="menu__link is-active-trail menu__link is-active-trail active-trail">Policy</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/policy/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-active-trail is-leaf menu__item is-active-trail is-leaf last leaf active-trail depth-2"><a href="/policy/national-security" class="menu__link is-active-trail menu__link is-active-trail active-trail">National Security</a></li>
+</ul></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/regulation" class="menu__link menu__link">Regulation</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/regulation/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/regulation/national-security" class="menu__link menu__link">National Security</a></li>
+</ul></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/opinion-old" class="menu__link menu__link">Opinion</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/blogs/pundits-blog" class="menu__link menu__link">Contributors</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/opinion/columnists" class="menu__link menu__link">Columnists</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/contributor-application-form" class="menu__link menu__link">Become a contributor</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/blogs/congress-blog" class="menu__link menu__link">Congress Blog</a></li>
+</ul></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1 left"><a href="/video" class="menu__link menu__link left">Video</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/video/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/national-security" class="menu__link menu__link">National Security</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/sunday-shows" class="menu__link menu__link">Sunday Shows</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/events" class="menu__link menu__link">Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/video/lawmaker-interviews" class="menu__link menu__link">Lawmaker Interviews</a></li>
+</ul></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/podcasts" class="menu__link menu__link">Podcasts</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/podcasts/hillcast" class="menu__link menu__link">HillCast</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/podcasts/history-cast" class="menu__link menu__link">HistoryCast</a></li>
+</ul></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1 left single"><a href="/events" class="menu__link menu__link single left">Events</a><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/events" class="menu__link menu__link">Upcoming Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/events/past" class="menu__link menu__link">Past Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/events/about" class="menu__link menu__link">About</a></li>
+</ul></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/people" class="menu__link menu__link">People</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/homenews/senate/368140-mcconnell-no-daca-fix-in-spending-bill" class="menu__link menu__link">McConnell: No DACA fix in spending bill</a></li>
+</ul>  <div id="expand-menu-social-share">
+    <div class="expand-menu-headline">Follow Us</div>
+    <a href="http://www.facebook.com/TheHill" class="social-share-facebook" target="_blank">Facebook</a>&nbsp;<a href="http://twitter.com/intent/follow?screen_name=thehill" class="social-share-twitter-follow" target="_blank">Twitter</a>&nbsp;<a href="https://plus.google.com/+thehill/posts" class="social-share-googleplus-follow" target="_blank">Google Plus</a>&nbsp;<a href="https://www.linkedin.com/company/the-hill" class="social-share-linkedin" target="_blank">LinkedIn</a>&nbsp;  </div>
+  <div id="expand-menu-footer">
+    <div class="expand-menu-headline"><a href="/">TheHill.com</a></div>
+    &copy; 1996-2018 News Communication
+    <ul class="links"><li class="menu-3055 first"><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+<li class="menu-3054 last"><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>  </div>
+</div>
+  </div>
+    <header id="header" role="banner" >
+    <div>
+      <div class="header_blocks">
+                      </div>
+      <div class="clear"></div>
+      <div id="navigation">
+        <nav id="main-menu" role="navigation">
+          <div class="expanded-menu"></div>
+                        <div class="region region-navigation">
+    <div id="block-menu-menu-top-menu" class="block block-menu first last odd" role="navigation">
+
+        <h2 class="block__title block-title">Top menu</h2>
+    
+  <div class="menu-wrapper"><ul class="menu"><li class="menu__item is-expanded menu__item is-expanded first expanded depth-1"><a href="/" class="menu__link menu__link">News</a><div class="menu-wrapper"><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/homenews/senate" class="menu__link menu__link">Senate</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/house" class="menu__link menu__link">House</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/administration" class="menu__link menu__link">Administration</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/business-a-lobbying" class="menu__link menu__link">Business</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/regulation" class="menu__link menu__link">Regulation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/media" class="menu__link menu__link">Media</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/blog-briefing-room" class="menu__link menu__link">Briefing Room</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/state-watch" class="menu__link menu__link">State Watch</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/latino" class="menu__link menu__link">Latino</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/ballot-box/polls" class="menu__link menu__link">Polls</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/homenews/1230-report" class="menu__link menu__link">12:30 Report</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/floor-action" class="menu__link menu__link">Floor Action</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/blogs/in-the-know" class="menu__link menu__link">In The Know</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/homenews/sunday-talk-shows" class="menu__link menu__link">Sunday Talk Shows</a></li>
+</ul></div></li>
+<li class="menu__item is-active-trail is-expanded menu__item is-active-trail is-expanded expanded active-trail depth-1"><a href="/policy" class="menu__link is-active-trail menu__link is-active-trail active-trail">Policy</a><div class="menu-wrapper"><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/policy/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/policy/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-active-trail is-leaf menu__item is-active-trail is-leaf last leaf active-trail depth-2"><a href="/policy/national-security" class="menu__link is-active-trail menu__link is-active-trail active-trail">National Security</a></li>
+</ul></div></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/opinion" class="menu__link menu__link">Opinion</a><div class="menu-wrapper opa-opinion-menu"><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/opinion/columnists" class="menu__link menu__link">Columnists</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/blogs/congress-blog" class="menu__link menu__link">Congress Blog</a></li>
+</ul><div class="opa-opinion-submenu">
+            <a href="/opinion" class="opa-opinion-submenu-all">All Contributors</a>
+            <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/opinion/campaign" class="menu__link menu__link">- Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/civil-rights" class="menu__link menu__link">- Civil Rights</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/criminal-justice" class="menu__link menu__link">- Criminal Justice</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/education" class="menu__link menu__link">- Education</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/energy-environment" class="menu__link menu__link">- Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/finance" class="menu__link menu__link">- Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/healthcare" class="menu__link menu__link">- Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/immigration" class="menu__link menu__link">- Immigration</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/international" class="menu__link menu__link">- International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/judiciary" class="menu__link menu__link">- Judiciary</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/technology" class="menu__link menu__link">- Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/white-house" class="menu__link menu__link">- White House</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/contributor-application-form" class="menu__link menu__link">- Become A Contributor</a></li>
+</ul>
+            </div></div></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/video" class="menu__link menu__link">Video</a><div class="menu-wrapper"><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/video/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/national-security" class="menu__link menu__link">National Security</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/sunday-shows" class="menu__link menu__link">Sunday Shows</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-2"><a href="/video/events" class="menu__link menu__link">Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/video/lawmaker-interviews" class="menu__link menu__link">Lawmaker Interviews</a></li>
+</ul></div></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/podcasts/hillcast" class="menu__link menu__link">Podcasts</a></li>
+<li class="menu__item is-expanded menu__item is-expanded expanded depth-1"><a href="/events" class="menu__link menu__link">Events</a><div class="menu-wrapper"><ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-2"><a href="/events" class="menu__link menu__link">Upcoming Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-2"><a href="/events/about" class="menu__link menu__link">About</a></li>
+</ul></div></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/resources/classifieds/employer" class="menu__link menu__link">Jobs</a></li>
+</ul></div>
+</div>
+  </div>
+                                  <div class="region region-controls">
+    <div id="block-social-share-social-share" class="block block-social-share first odd">
+
+      
+  <a href="http://www.facebook.com/TheHill" class="social-share-facebook" target="_blank">Facebook</a>&nbsp;<a href="http://twitter.com/intent/follow?screen_name=thehill" class="social-share-twitter-follow" target="_blank">Twitter</a>&nbsp;<a href="https://plus.google.com/+thehill/posts" class="social-share-googleplus-follow" target="_blank">Google Plus</a>&nbsp;<a href="https://www.linkedin.com/company/the-hill" class="social-share-linkedin" target="_blank">LinkedIn</a>&nbsp;
+</div>
+<div id="block-search-form" class="block block-search last even" role="search">
+
+      
+  <form action="/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="TYPE TO SEARCH" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="0" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form--GAcYwVKvx8O0bpvFSWEE4jmkj4BsTvTvItb4Q3uk5o" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>
+</div>
+  </div>
+                  </nav>  
+      </div>
+    </div>
+  </header><div id="page" class="page-new-layout">
+  <div id="main" class="scrolling-content ">
+      <div class="region region-highlighted">
+    <div id="block-term-queue-0" class="block block-term-queue first odd">
+
+        <h2 class="block__title block-title">TRENDING:</h2>
+    
+  <ul class="term-queue-links"><li class="0 first"><a href="/person/donald-trump">Donald Trump</a></li>
+<li class="1"><a href="/social-tags/income-taxes">Income taxes</a></li>
+<li class="2 last"><a href="/country/north-korea">North Korea</a></li>
+</ul>
+</div>
+<div id="block-term-queue-16" class="block block-term-queue last even">
+
+        <h2 class="block__title block-title">FEATURED:</h2>
+    
+  <ul class="term-queue-links"><li class="0 first last"><a href="/podcasts/hillcast">HillCast</a></li>
+</ul>
+</div>
+  </div>
+      <div class="region region-top-page">
+    <div id="block-dfp-leaderboard" class="block block-dfp first last odd">
+
+      
+  <div id="dfp-ad-leaderboard-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-leaderboard" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-leaderboard");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+  </div>
+        <div class="scrolling-content-item " data-url='/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony'>
+              <div class="left-sidebar">
+        <a href="/" title="TheHill" rel="home" alt="TheHill.com">
+          <img class="logo" alt="TheHill.com" src="/sites/all/themes/thehill/images/redesign/thehill-logo-big.png" />
+        </a>
+          <div class="region region-column-left">
+    <div id="block-views-articles-articles-just-in" class="block block-views first odd">
+
+      
+  <div id="block-views-articles-articles_just_in-ajax-content" class="ajaxblocks-wrapper"></div>
+</div>
+<div id="block-block-50" class="block block-block even">
+
+      
+  <div style="width:215px; height:200px; padding:0; margin:0;"></div>
+</div>
+<div id="block-block-52" class="block block-block last odd">
+
+      
+  <!-- Outbrain: Desktop Left Column -->
+<div class="OUTBRAIN" data-src="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" data-widget-id="SB_1" data-ob-template="The Hill"></div> 
+</div>
+  </div>
+        <div class="left-sidebar-space">&nbsp;</div>
+              </div>
+      <div class="content-wrapper">
+                          <h1 class="title" id="page-title">Five takeaways from the Fusion GPS testimony</h1>
+                <div class="submitted-wrp">
+    <span class="submitted-by">
+    By <a href="/author/katie-bo-williams">Katie Bo Williams</a> and <a href="/author/jonathan-easley">Jonathan Easley</a> - <span class="submitted-date">01/10/18 06:00 AM EST</span>
+  </span>
+  <a href="/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony#bottom-story-socials" class="disqus-comments" data-disqus-identifier="node/368210"></a>  </div>
+        <div class="blogs-social-wrp">
+  <span  data-behavior="socialShareCount" data-href="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" class="social-share-count">
+  2,713</span>
+  <div class="addthis_inline_share_toolbox_ru82"></div>
+<div class="share-additional">
+  <div class="share-linkedin">
+    <script>
+      ;(function(){
+        var linkedinScriptEl = document.querySelector('script[src="//platform.linkedin.com/in.js"]');
+        if (linkedinScriptEl == null) {
+          var shareLinkedinEl = document.querySelector('.share-linkedin');
+          var scriptEl = document.createElement('script');
+          scriptEl.src = "//platform.linkedin.com/in.js";
+          scriptEl.async = true;
+          scriptEl.innerHTML = " lang: en_US";
+          shareLinkedinEl.appendChild(scriptEl);
+        }
+      })();
+    </script>
+    <script type="IN/Share"></script>
+  </div>
+  <div class="share-stumbleupon">
+    <su:badge layout="6"></su:badge>
+    <script type="text/javascript">
+      (function() {
+        var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+        li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+      })();
+    </script>
+  </div>
+</div>
+<div class="share">
+  <a href="mailto:?subject=TheHill.com%3A%20Five%20takeaways%20from%20the%20Fusion%20GPS%20testimony&amp;body=From%20TheHill.com%3A%20%0A%0A%0A%0Ahttp%3A//thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" class="email">&nbsp</a>  </div></div>
+                    <div id="content" class="column">
+                                                  
+
+
+<article class="node-368210 node node-article view-mode-full clearfix" about="/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" typeof="sioc:Item foaf:Document">
+    <header>
+    <span property="dc:title" content="Five takeaways from the Fusion GPS testimony" class="rdf-meta element-hidden"></span>      </header>
+      <div class="content-with-sidebar-wrp">
+    <div class="content-wrp">
+      <div class="field field-name-field-free-html field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="myPlayerWrapper"><div style="position: relative; display: block; max-width: 640px;"><div style="padding-top: 56.25%;"><video data-video-id="5706211908001" 
+data-account="1077863425" 
+data-player="rkxJWzAQ4f" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls 
+style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+  <script src="//players.brightcove.net/1077863425/rkxJWzAQ4f_default/index.min.js"></script></div></div></div></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Sen. <span class="rollover-people" data-behavior="rolloverpeople"><a class="rollover-people-link" data-nid="188242" href="http://origin-nyi.thehill.com/people/dianne-feinstein">Dianne Feinstein</a><span class="rollover-people-block" id="rollover-people-188242"><span class="rollover-block"><span><img typeof="foaf:Image" src="/sites/default/files/styles/thumb_100/public/article_images/feinstein.jpg?itok=wLaGBrbM" width="100" height="100" alt="" /><a class="name" href="http://origin-nyi.thehill.com/people/dianne-feinstein">Dianne Emiel Feinstein</a><a class="people-articles" href="/blogs/floor-action/senate/363689-grassley-blasts-democrats-over-unwillingness-to-probe-clinton">Grassley blasts Democrats over unwillingness to probe Clinton</a> <a class="people-articles" href="/homenews/senate/363543-women-in-senate-call-for-franken-to-resign">Avalanche of Democratic senators say Franken should resign</a> <a class="people-articles" href="/homenews/senate/363462-blumenthal-credible-case-of-obstruction-of-justice-can-be-made-against-trump">Blumenthal: ‘Credible case' of obstruction of justice can be made against Trump </a> <a class="more" href="http://origin-nyi.thehill.com/people/dianne-feinstein">MORE<span></span></a></span></span></span></span> (Calif.), the top Democrat on the Senate Judiciary Committee, on Tuesday unilaterally released more than 300 pages documenting an interview the panel conducted in August with the founder of the opposition research firm that commissioned a controversial dossier on <span class="rollover-people" data-behavior="rolloverpeople"><a class="rollover-people-link" data-nid="261287" href="http://thehill.com/people/donald-trump">President Trump</a><span class="rollover-people-block" id="rollover-people-261287"><span class="rollover-block"><span><img typeof="foaf:Image" src="/sites/default/files/styles/thumb_100/public/trumpdonald_070117getty.jpg?itok=JZMvGO3d" width="100" height="100" alt="" /><a class="name" href="http://thehill.com/people/donald-trump">Donald John Trump</a><a class="people-articles" href="/homenews/house/363690-house-democrat-slams-donald-trump-jr-for-serious-case-of-amnesia-after">House Democrat slams Donald Trump Jr. for ‘serious case of amnesia’ after testimony</a> <a class="people-articles" href="/blogs/blog-briefing-room/363685-skier-lindsey-vonn-i-dont-want-to-represent-trump-at-olympics">Skier Lindsey Vonn: I don’t want to represent Trump at Olympics</a> <a class="people-articles" href="/blogs/blog-briefing-room/363664-4-in-10-republicans-think-senior-trump-advisers-had-improper">Poll: 4 in 10 Republicans think senior Trump advisers had improper dealings with Russia</a> <a class="more" href="http://thehill.com/people/donald-trump">MORE<span></span></a></span></span></span></span>. </p><p>In that interview, Fusion GPS co-founder Glenn Simpson said the dossier’s author, a former British intelligence officer named Christopher Steele, told him that the FBI already had “other intelligence” backing up claims in the dossier when he met with an agent in September.</p><p>The document has been a partisan flashpoint in the congressional investigations into Russian interference in the U.S. presidential election, with some Republicans suggesting that the bureau may have used unverified information to launch a baseless investigation into Trump.</p><p>Here are five takeaways from Simpson’s 10-hour testimony. </p><p><strong>Simpson defends veracity of the dossier</strong></p><p>The salacious details included in the dossier have become a partisan flashpoint in the debate over whether Trump campaign officials had improper contacts with Russia.</p><p></p><div id="dfp-ad-mosad_1-wrapper" class="dfp-tag-wrapper wrapper"><div id="dfp-ad-mosad_1" class="dfp-tag-wrapper"><span>ADVERTISEMENT</span><script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+googletag.cmd.push(function() {googletag.display("dfp-ad-mosad_1");});
+//--><!]]>
+</script></div></div>The dossiers’ supporters have pointed to confirmed details — like a meeting that former Trump adviser Carter Page had in Moscow — to argue that it gives credibility to the document as a whole.<p>Republicans argue that the dossier was funded by Democrats and includes wild accusations about sexual impropriety by Trump. The core claims of collusion and corruption have not been borne out by the special investigation at this point, they say.</p><p>Simpson was clear about what side of the debate he’s on, describing Steele as a “boy scout” who “delivered quality work in very appropriate ways.”</p><p>“This is his specialty,” Simpson said. </p><p>But while Simpson described his own opposition research work as dealing with hard facts laid out in public records and court filings, he acknowledged that Steele’s endeavors were more subjective and murky and open to interpretation.</p><p><strong>“</strong>When you evaluate human intelligence, human reporting, field reporting, source reporting, you know, it’s sort of like when you’re a journalist and you’re trying to figure out who’s telling the truth,” he said. “You don’t really decide who’s telling the truth. You decide whether the person is credible, whether there’s other reasons to believe what they’re saying, whether anything they’ve said factually matches up with something in public record.”</p><p><strong>Steele “severed” relationship with FBI after questionable New York Times story: Simpson</strong></p><p>According to Simpson, Steele was so concerned by the possibility that a presidential candidate might be “blackmailed” by Russia that he reached out to the FBI of his own accord to share what he knew was “a security issue.”</p><p>Steele first met with the bureau in the first week of July 2016. He later met an agent in Rome in the fall, a trip that the bureau reimbursed. The bureau launched its investigation into the Trump campaign in late July. </p><p>But according to Simpson, Steele cut off his contact with the bureau after the Times ran a story in the fall alleging that the Trump campaign was not under investigation. The former spy was concerned that “the FBI was being manipulated for political ends by the Trump people and that we didn't really understand what was going on.”  </p><p>“So he stopped dealing with them,” Simpson said. </p><p><strong>Partisan rift on Judiciary Committee widens</strong></p><p>A spokesman for Judiciary Committee Chairman <span class="rollover-people" data-behavior="rolloverpeople"><a class="rollover-people-link" data-nid="188248" href="http://thehill.com/people/chuck-grassley">Chuck Grassley</a><span class="rollover-people-block" id="rollover-people-188248"><span class="rollover-block"><span><img typeof="foaf:Image" src="/sites/default/files/styles/thumb_100/public/grassleychuck_040317gn3_lead.jpg?itok=ZfKVKIDu" width="100" height="100" alt="" /><a class="name" href="http://thehill.com/people/chuck-grassley">Charles (Chuck) Ernest Grassley</a><a class="people-articles" href="/blogs/floor-action/senate/363689-grassley-blasts-democrats-over-unwillingness-to-probe-clinton">Grassley blasts Democrats over unwillingness to probe Clinton</a> <a class="people-articles" href="/homenews/senate/363447-gop-and-dems-bitterly-divided-by-immigration">GOP and Dems bitterly divided by immigration</a> <a class="people-articles" href="/opinion/energy-environment/363337-thanks-to-the-farm-lobby-the-us-is-stuck-with-a-broken-ethanol">Thanks to the farm lobby, the US is stuck with a broken ethanol policy</a> <a class="more" href="http://thehill.com/people/chuck-grassley">MORE<span></span></a></span></span></span></span> (R-Iowa) immediately blasted the release of the transcript as “totally confounding,” citing the damage to the ongoing investigation.</p><p>“Feinstein’s unilateral decision was made as the committee is still trying to secure testimony from other witnesses, including <span class="rollover-people" data-behavior="rolloverpeople"><a class="rollover-people-link" data-nid="365115" href="http://thehill.com/people/jared-kushner">Jared Kushner</a><span class="rollover-people-block" id="rollover-people-365115"><span class="rollover-block"><span><img typeof="foaf:Image" src="/sites/default/files/styles/thumb_100/public/kushnerstatementscreen.jpg?itok=2xfpHLjw" width="100" height="100" alt="" /><a class="name" href="http://thehill.com/people/jared-kushner">Jared Corey Kushner</a><a class="people-articles" href="/homenews/administration/363018-kushner-trump-team-working-on-mideast-peace-plan-unconventional-but">Kushner: Trump team working on Mideast peace plan unconventional, but ‘perfectly qualified’ </a> <a class="people-articles" href="/blogs/blog-briefing-room/news/362886-us-attorney-fired-by-trump-mueller-team-likely-looking-at">US attorney fired by Trump: Mueller team likely looking at everyone</a> <a class="people-articles" href="/policy/national-security/362873-additional-trump-transition-official-familiar-with-flynns-russia">Additional Trump transition official identified who knew about Flynn's Russia contact: report</a> <a class="more" href="http://thehill.com/people/jared-kushner">MORE<span></span></a></span></span></span></span>,” spokesman Taylor Foy said in a statement. “Her action undermines the integrity of the committee’s oversight work and jeopardizes its ability to secure candid voluntary testimony relating to the independent recollections of future witnesses.” </p><p>Feinstein for weeks has been sending out requests for interviews and documents related to the Russia investigation without Grassley’s sign-off, and the incident exposes a new low in a deepening partisan rift on the Judiciary panel.  </p><p>The panel is the latest bout of partisan infighting in one of the several Capitol Hill committees probing Russian interference. </p><p><strong>Criminal referral against Steele remains a mystery </strong></p><p>Last week, Grassley and Sen. <span class="rollover-people" data-behavior="rolloverpeople"><a class="rollover-people-link" data-nid="188247" href="http://thehill.com/people/lindsey-graham">Lindsey Graham</a><span class="rollover-people-block" id="rollover-people-188247"><span class="rollover-block"><span><img typeof="foaf:Image" src="/sites/default/files/styles/thumb_100/public/article_images/grahamlindsey_201405gn.jpg?itok=dvsdVZuz" width="100" height="100" alt="" /><a class="name" href="http://thehill.com/people/lindsey-graham">Lindsey Olin Graham</a><a class="people-articles" href="/homenews/senate/363447-gop-and-dems-bitterly-divided-by-immigration">GOP and Dems bitterly divided by immigration</a> <a class="people-articles" href="/opinion/immigration/363352-on-immigration-congress-must-push-trump-aside-and-lead">We are running out of time to protect Dreamers</a> <a class="people-articles" href="/policy/finance/363338-us-trade-deficit-rises-on-record-imports-from-china">US trade deficit rises on record imports from China</a> <a class="more" href="http://thehill.com/people/lindsey-graham">MORE<span></span></a></span></span></span></span> (R-S.C.) asked the Department of Justice to open a criminal investigation into Steele, with Graham accusing the former spy of “shopping this dossier all over the world” while acting as an informant for the FBI. </p><p>The referral appears to suggest that Steele may have misled the FBI. It cites a law prohibiting individuals from lying to federal authorities, asking the Justice Department to probe whether Steele made false statements about “the distribution of claims from the dossier.”</p><p>Simpson acknowledged in his testimony that he had Steele brief a small group of reporters on his findings. The briefings took place before the election and after Steele had first reached out to the FBI. He did not provide copies of the memoranda to those journalists.</p><p>But what, precisely, Grassley and Graham are accusing Steele of misleading investigators about remains unclear.</p><p><strong>A dossier-related death?</strong></p><p>The Fusion GPS chief was at one point asked by investigators if he had taken steps to “assess the credibility” of Steele’s sources. </p><p>“Yes, but I’m not going to get into sourcing information,” Simpson replied.</p><p>When asked why not, Simpson’s lawyer, Joshua Levy, intervened. </p><p>“Somebody’s already been killed as a result of the publication of this dossier, and no harm should come to anybody related to this honest work,” Levy said.</p><p>In January of 2017, BuzzFeed published the dossier in full, saying that the memo had been circulating in Washington and that in the interests of transparency it would put it online so that the public could decide whether it’s true or not. </p><p>Later in his testimony, Simpson again declined to reveal a source associated with the dossier. </p><p>“I just don't feel comfortable sharing because obviously it's been in the news a lot lately that people who get in the way of the Russians tend to get hurt,” he said. </p></div></div></div>              <div class="article-tags">
+          <span>Tags</span> <a href="/person/dianne-feinstein" title="Dianne Feinstein">Dianne Feinstein</a> <a href="/person/lindsey-graham" title="Lindsey Graham">Lindsey Graham</a> <a href="/person/chuck-grassley" title="Chuck Grassley">Chuck Grassley</a> <a href="/person/jared-kushner" title="Jared Kushner">Jared Kushner</a> <a href="/person/donald-trump" title="Donald Trump">Donald Trump</a>        </div>
+            <div id="bottom-story-socials" class="blogs-social-wrp">
+        <div class="addthis_inline_share_toolbox_ru82"></div>
+<div class="share-additional">
+  <div class="share-linkedin">
+    <script>
+      ;(function(){
+        var linkedinScriptEl = document.querySelector('script[src="//platform.linkedin.com/in.js"]');
+        if (linkedinScriptEl == null) {
+          var shareLinkedinEl = document.querySelector('.share-linkedin');
+          var scriptEl = document.createElement('script');
+          scriptEl.src = "//platform.linkedin.com/in.js";
+          scriptEl.async = true;
+          scriptEl.innerHTML = " lang: en_US";
+          shareLinkedinEl.appendChild(scriptEl);
+        }
+      })();
+    </script>
+    <script type="IN/Share"></script>
+  </div>
+  <div class="share-stumbleupon">
+    <su:badge layout="6"></su:badge>
+    <script type="text/javascript">
+      (function() {
+        var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+        li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+      })();
+    </script>
+  </div>
+</div>
+<div class="share">
+  <a href="mailto:?subject=TheHill.com%3A%20Five%20takeaways%20from%20the%20Fusion%20GPS%20testimony&amp;body=From%20TheHill.com%3A%20%0A%0A%0A%0Ahttp%3A//thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" class="email">&nbsp</a>  </div>      </div>
+    </div>
+  </div>
+    </article>
+            <div class="region region-content-bottom">
+    <div id="block-disqus-disqus-comments-368210" class="block block-disqus first odd">
+
+      
+  <div id="disqus_thread"><noscript><p><a href="http://thehill-v4.disqus.com/?url=http%3A%2F%2Fthehill.com%2Fpolicy%2Fnational-security%2F368210-five-takeaways-from-the-fusion-gps-testimony">View the discussion thread.</a></p></noscript></div>
+</div>
+<div id="block-block-51" class="block block-block first last odd">
+
+      
+  <!-- Outbrain Desktop Footer -->
+<div class="OUTBRAIN" data-src="http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" data-widget-id="AR_1" data-ob-template="The Hill"></div> 
+</div>
+  </div>
+        </div>
+                  <aside class="sidebars">
+                          <section class="region region-sidebar-second column sidebar">
+    <div id="block-dfp-rightrail-top" class="block block-dfp first odd">
+
+      
+  <div id="dfp-ad-rightrail_top-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-rightrail_top" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-rightrail_top");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+<div id="block-block-38" class="block block-block even">
+
+      
+  <!--Start Inform Slider-->
+<div class="inform-embed"
+    id="thehill_slider"
+    data-type="VideoLauncher/Slider300x250"
+    data-tracking-group="91690"
+    data-config-id="32321"
+    data-site-section="thehill_politics_story"></div>
+<script type="text/javascript">_informq.push(['embed']);</script>
+<!--End Inform Slider-->
+</div>
+<div id="block-mostpopular-1" class="block block-mostpopular odd">
+
+        <h2 class="block__title block-title">Most Popular</h2>
+    
+  <div id="block-mostpopular-1-ajax-content" class="ajaxblocks-wrapper"></div>
+</div>
+<div id="block-dfp-rightrail-bottom" class="block block-dfp even">
+
+      
+  <div id="dfp-ad-rightrail_bottom-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-rightrail_bottom" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-rightrail_bottom");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+<div id="block-block-3" class="block block-block last odd">
+
+        <h2 class="block__title block-title">More From The Web</h2>
+    
+  <!-- NewsMax -->
+<div style="margin:20px 0;">
+<div id="ArJ3hAAeLHQlnBN1sd1RthXxn5mzijNmf-LAAxFD"></div>
+<script src="https://s.newsmaxfeednetwork.com/static/js/connectV5.js"></script>
+<script type="text/javascript">
+    NM.init({
+        widgetId: "ArJ3hAAeLHQlnBN1sd1RthXxn5mzijNmf-LAAxFD",
+         template: "NM22"
+    });
+</script>
+</div>
+<!-- End NewsMax -->
+</div>
+  </section>
+          </aside>
+              </div>          <div class="region region-cs-separator">
+    <div id="block-dfp-infinite-scroll-separator" class="block block-dfp first last odd">
+
+      
+  <div id="dfp-ad-infinite_scroll_separator-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-infinite_scroll_separator" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-infinite_scroll_separator");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+  </div>
+    </div> <!-- cs-end -->
+      </div>
+            <div class="page-bottom">
+      <div class="region region-footer-bottom">
+    <div id="block-thehill-blocks-footer-signup" class="block block-thehill-blocks first last odd">
+
+      
+  <div class="simple-signup-form">
+  <div class="text">Don't miss a brief. <span>Sign up for our daily email.</span></div>
+  <form action="/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony" method="post" id="thehill-blocks-signup-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-email">
+  <label for="edit-email">Your Email </label>
+ <input placeholder="" type="text" id="edit-email" name="email" value="" size="60" maxlength="128" class="form-text" />
+</div>
+<div class="form-item form-type-textfield form-item-list">
+ <input class="hidden form-text" type="text" id="edit-list" name="list" value="" size="60" maxlength="128" />
+</div>
+<input type="submit" id="edit-submit--2" name="op" value="Sign Up" class="form-submit" /><input type="hidden" name="form_build_id" value="form-N81QvJRNN3wqkyg3P44_8OLCrHr5nE2Kb6bEtQw9TaU" />
+<input type="hidden" name="form_id" value="thehill_blocks_signup_form" />
+</div></form></div>
+
+
+</div>
+  </div>
+    <a href="/" title="TheHill" rel="home" alt="TheHill.com">
+      <img class="logo" alt="TheHill.com" src="/sites/all/themes/thehill/images/redesign/thehill-logo-footer.png" />
+    </a>
+      <div class="region region-bottom-column1">
+    <div id="block-menu-menu-home" class="block block-menu first odd" role="navigation">
+
+        <h2 class="block__title block-title">News</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/homenews/senate" class="menu__link menu__link">Senate</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/house" class="menu__link menu__link">House</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/campaign" class="menu__link menu__link">Campaign</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/administration" class="menu__link menu__link">Administration</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/regulation" class="menu__link menu__link">Regulation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/media" class="menu__link menu__link">Media</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/blogs/blog-briefing-room" class="menu__link menu__link">Briefing Room</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/latino" class="menu__link menu__link">Latino</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/polls" class="menu__link menu__link">Polls</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/1230-report" class="menu__link menu__link">12:30 Report</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/blogs/floor-action" class="menu__link menu__link">Floor Action</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/blogs/in-the-know" class="menu__link menu__link">In The Know</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/homenews/sunday-talk-shows" class="menu__link menu__link">Sunday Talk Shows</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/" class="menu__link menu__link">More</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-policy-menu" class="block block-menu even" role="navigation">
+
+        <h2 class="block__title block-title">Policy</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/policy/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/policy/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-active-trail is-leaf menu__item is-active-trail is-leaf leaf active-trail depth-1"><a href="/policy/national-security" class="menu__link is-active-trail menu__link is-active-trail active-trail">National Security</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="http://thehill.com/policy" class="menu__link menu__link">More</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-video" class="block block-menu odd" role="navigation">
+
+        <h2 class="block__title block-title">Video</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/video/hilltube" class="menu__link menu__link">Latest</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/defense" class="menu__link menu__link">Defense</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/energy-environment" class="menu__link menu__link">Energy &amp; Environment</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/finance" class="menu__link menu__link">Finance</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/healthcare" class="menu__link menu__link">Healthcare</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/technology" class="menu__link menu__link">Technology</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/transportation" class="menu__link menu__link">Transportation</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/international" class="menu__link menu__link">International</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/cybersecurity" class="menu__link menu__link">Cybersecurity</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/national-security" class="menu__link menu__link">National Security</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/sunday-shows" class="menu__link menu__link">Sunday Shows</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/video/events" class="menu__link menu__link">Events</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/hill-tube" class="menu__link menu__link">More</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-opinion" class="block block-menu last even" role="navigation">
+
+        <h2 class="block__title block-title">Opinion</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/opinion/columnists/brent-budowsky" class="menu__link menu__link">Brent Budowsky</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/opinion/columnists" class="menu__link menu__link">Columnists</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/blogs/congress-blog" class="menu__link menu__link">Congress Blog</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/blogs/pundits-blog" class="menu__link menu__link">Contributors</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/opinion" class="menu__link menu__link">More</a></li>
+</ul>
+</div>
+  </div>
+      <div class="region region-bottom-column2">
+    <div id="block-menu-menu-anchor-menu" class="block block-menu first odd" role="navigation">
+
+        <h2 class="block__title block-title">TheHill.com</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/privacy-policy" class="menu__link menu__link">Privacy Policy</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/terms-and-conditions" class="menu__link menu__link">Terms &amp; Conditions</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/contact" class="menu__link menu__link">Contact</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/contact/subscriptions" class="menu__link menu__link">Subscriptions</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/contact/advertise" class="menu__link menu__link">Advertise</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-resources" class="block block-menu even" role="navigation">
+
+        <h2 class="block__title block-title">Resources</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/hill-apps" class="menu__link menu__link">The Hill Apps</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="http://mobile.thehill.com" class="menu__link menu__link">Mobile Site</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/people/" class="menu__link menu__link">People</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/resources/rss-feeds" class="menu__link menu__link">RSS</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-menu-contributors" class="block block-menu odd" role="navigation">
+
+        <h2 class="block__title block-title">Contributors</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first last leaf depth-1"><a href="/contributor-application-form" class="menu__link menu__link">Become a Contributor</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-contact-us" class="block block-menu last even" role="navigation">
+
+        <h2 class="block__title block-title">Other Areas</h2>
+    
+  <ul class="menu"><li class="menu__item is-leaf menu__item is-leaf first leaf depth-1"><a href="/special-reports/special-reports" class="menu__link menu__link">Special Reports</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/galleries" class="menu__link menu__link">Galleries</a></li>
+<li class="menu__item is-leaf menu__item is-leaf leaf depth-1"><a href="/classifieds" class="menu__link menu__link">Classifieds</a></li>
+<li class="menu__item is-leaf menu__item is-leaf last leaf depth-1"><a href="/resources/classifieds/employer" class="menu__link menu__link">Jobs</a></li>
+</ul>
+</div>
+  </div>
+    <div class="clearer"></div>
+    <div class="copyright-wrp">
+        <div class="region region-copyright">
+    <div id="block-thehill-blocks-copyright" class="block block-thehill-blocks first odd">
+
+      
+  <p>The Hill 1625 K Street, NW Suite 900 Washington DC 20006 | 202-628-8500 tel | 202-628-8503 fax</p><p>The contents of this site are &copy;2018 Capitol Hill Publishing Corp., a subsidiary of News Communications, Inc.</p>
+</div>
+<div id="block-dfp-new-1x1-asynch" class="block block-dfp even">
+
+      
+  <div id="dfp-ad-new_1x1_asynch-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-new_1x1_asynch" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-new_1x1_asynch");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+<div id="block-dfp-1x1-oop" class="block block-dfp last odd">
+
+      
+  <div id="dfp-ad-1x1_oop-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-1x1_oop" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-1x1_oop");
+    });
+  </script>
+</div>
+  <div id="dfp-ad-1x1_oop-oop" class="dfp-tag-wrapper">
+    <script type="text/javascript">
+      googletag.cmd.push(function() {
+        googletag.display("dfp-ad-1x1_oop-oop");
+      });
+    </script>
+  </div>
+
+</div>
+</div>
+  </div>
+    </div>
+  </div>
+  <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+</div>
+  <div id="dfp-ad-overlay">
+    <div id="block-dfp-modal-window-ad" class="block block-dfp first last odd">
+
+      
+  <div id="dfp-ad-modal_window_ad-wrapper" class="dfp-tag-wrapper"><!-- dfp_tag.tpl.php -->
+<a href="#" class="hide_overlay"></a>
+<div  id="dfp-ad-modal_window_ad" class="dfp-inner">
+  <script type="text/javascript">
+    googletag.cmd.push(function() {
+      googletag.display("dfp-ad-modal_window_ad");
+    });
+  </script>
+</div>
+
+</div>
+</div>
+  </div>
+    <div class="region region-page-bottom">
+    <script type="text/javascript">
+  var _sf_async_config=Drupal.settings.chartbeat;
+  _sf_async_config.sections = "Policy, Policy - National Security";
+  _sf_async_config.authors = "Katie Bo Williams and Jonathan Easley";
+  _sf_async_config._demo = "publish_date=2018-01-10,editor=Will Sommer";
+  (function(){
+    function loadChartbeat() {
+      window._sf_endpt=(new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    }
+    var oldonload = document.ready;
+    document.ready = (typeof document.ready != 'function') ?
+       loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script><!-- Begin comScore Tag -->
+          <script>
+            var _comscore = _comscore || [];
+            _comscore.push({ c1: "2", c2: "10314615", c3: "", c4: "http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony", c5: "", c6: "", c15: "" });
+            (function() {
+              var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+              s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+              el.parentNode.insertBefore(s, el);
+            })();
+          </script>
+          <noscript>
+            <img src="http://b.scorecardresearch.com/p?c1=2&c2=10314615&c3=&c4=http://thehill.com/policy/national-security/368210-five-takeaways-from-the-fusion-gps-testimony&c5=&c6=&c15=&cv=2.0&cj=1" />
+          </noscript>
+      <!-- End comScore Tag --><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-51dZx4IkAE4Zk.gif" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script><!-- This site is converting visitors into subscribers and customers with OptinMonster - http://optinmonster.com -->
+<!-- script>var om5654d81483af7,om5654d81483af7_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){om5654d81483af7_poll(function(){if(window['om_loaded']){if(!om5654d81483af7){om5654d81483af7=new OptinMonsterApp();return om5654d81483af7.init({"s":"13086.5654d81483af7","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="//a.optnmnstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;om5654d81483af7=new OptinMonsterApp();om5654d81483af7.init({"s":"13086.5654d81483af7","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script --><!-- / OptinMonster -->
+
+<!--START Lightbox Javascript-->
+<script type="text/javascript">
+    /*<![CDATA[*/ window.lightboxjs || function (c) { function g(b, d) { d && (d += (/\?/.test(d) ? "&" : "?") + "lv=1"); c[b] || function () { var i = window, h = document, j = b, g = h.location.protocol, l = "load", k = 0; (function () { function b() { a.P(l); a.w = 1; c[j]("_load") } c[j] = function () { function m() { m.id = e; return c[j].apply(m, arguments) } var b, e = ++k; b = this && this != i ? this.id || 0 : 0; (a.s = a.s || []).push([e, b, arguments]); m.then = function (b, c, h) { var d = a.fh[e] = a.fh[e] || [], j = a.eh[e] = a.eh[e] || [], f = a.ph[e] = a.ph[e] || []; b && d.push(b); c && j.push(c); h && f.push(h); return m }; return m }; var a = c[j]._ = {}; a.fh = {}; a.eh = {}; a.ph = {}; a.l = d ? d.replace(/^\/\//, (g == "https:" ? g : "http:") + "//") : d; a.p = { 0: +new Date }; a.P = function (b) { a.p[b] = new Date - a.p[0] }; a.w && b(); i.addEventListener ? i.addEventListener(l, b, !1) : i.attachEvent("on" + l, b); var q = function () { function b() { return ["<head></head><", c, ' onload="var d=', n, ";d.getElementsByTagName('head')[0].", d, "(d.", g, "('script')).", i, "='", a.l, "'\"></", c, ">"].join("") } var c = "body", e = h[c]; if (!e) return setTimeout(q, 100); a.P(1); var d = "appendChild", g = "createElement",
+    i = "src", k = h[g]("div"), l = k[d](h[g]("div")), f = h[g]("iframe"), n = "document", p; k.style.display = "none"; e.insertBefore(k, e.firstChild).id = o + "-" + j; f.frameBorder = "0"; f.id = o + "-frame-" + j; /MSIE[ ]+6/.test(navigator.userAgent) && (f[i] = "javascript:false"); f.allowTransparency = "true"; l[d](f); try { f.contentWindow[n].open() } catch (s) { a.domain = h.domain, p = "javascript:var d=" + n + ".open();d.domain='" + h.domain + "';", f[i] = p + "void(0);" } try { var r = f.contentWindow[n]; r.write(b()); r.close() } catch (t) { f[i] = p + 'd.write("' + b().replace(/"/g, String.fromCharCode(92) + '"') + '");d.close();' } a.P(2) }; a.l && q() })() }(); c[b].lv = "1"; return c[b] } var o = "lightboxjs", k = window[o] = g(o); k.require = g; k.modules = c }({}); /*]]>*/</script><script type="text/javascript">window.lightboxlib = lightboxjs.require("lightboxlib", "//www.lightboxcdn.com/vendor/ee48a214-dcd9-4d76-af7b-dd194f9094db/lightbox.js?mb=" + (new Date().getTime()));</script>
+<!--END Lightbox Javascript-->
+  </div>
+<script>var _qevents = _qevents || [];(function() {var elem = document.createElement("script");elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName("script")[0];scpt.parentNode.insertBefore(elem, scpt);})();_qevents.push({qacct:"p-51dZx4IkAE4Zk"});</script>
+<script>  var disqus_shortname = 'thehill-v4';
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());</script>
+<script>    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=566538590082898&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <div id="fb-root"></div>
+  <script src="//platform.twitter.com/widgets.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"962df17ac8","applicationID":"48109222","transactionName":"YwRXYBQFWhEEUUYNV1pOdFcSDVsMSlxdAF1rEVRTAztCCwBF","queueTime":0,"applicationTime":785,"atts":"T0NUFlwfSR8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

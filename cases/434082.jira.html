@@ -1,0 +1,68 @@
+
+ 
+<!doctype html>
+<html>
+<head>
+  <style>
+     .video-js {
+       height: 360px;
+       width: 640px;
+     }
+  </style>
+  <!--link rel="stylesheet" type="text/css" href="../videojs-ima3/videojs.ima3.min.css"-->
+    <link rel="stylesheet" type="text/css" href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css">
+
+</head>
+
+<video id="myPlayer" data-video-id="3989814763001" 
+data-account="3450462642001" 
+data-player="default" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls></video>
+
+<input type="button" value="thumbs down" onclick="loadNextVideo()" />&nbsp;&nbsp;&nbsp;
+        
+<script src="//players.brightcove.net/3450462642001/default_default/index.min.js"></script>
+  <!--script src="../videojs-ima3/videojs.ima3.js"></script-->
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+
+<script>
+  var player = videojs('myPlayer');
+    player.ima3({
+          adTechOrder: [
+            'flash',
+            'html5'
+          ],
+            postrollTimeout: 2000,
+            prerollTimeout: 3000,
+            requestMode: "onload",
+            serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=",
+            timeout: 5000,
+            vpaidMode: "ENABLED",
+            debug: true 
+    });
+
+    videojs('myPlayer').on('bc-catalog-error', function(){
+          var myPlayer = this, 
+              specificError;
+          if (myPlayer.catalog.error !== undefined) {
+            specificError = myPlayer.catalog.error.data[0];
+            console.log('bc-catalog-error:', specificError);
+          };
+        });
+
+     function loadNextVideo() {
+            player.trigger('contentended');
+            player.catalog.getVideo("5249150135001", function (error, video) {
+                player.catalog.load(video);
+            });
+            player.one('adsready', function () {
+              player.play();  
+            })
+            
+     };
+</script>
+</body>
+</html>

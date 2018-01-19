@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delayed Instantiation</title>
+</head>
+<body>
+  <script src="//players.brightcove.net/811631557001/BkleQSpL_default/index.min.js"></script>
+
+  <video
+  id="myPlayerA"
+  width="480px"
+  height="270px"
+  data-account="811631557001"
+  data-player="BkleQSpL"
+  data-video-id="1506227585001"
+  data-embed="default"
+  class="video-js" controls>
+</video>
+<video
+id="myPlayerB"
+width="480px"
+height="270px"
+data-account="811631557001"
+data-player="BkleQSpL"
+data-video-id="1506227585001"
+data-embed="default"
+class="video-js" controls>
+</video>
+<button onclick="recreate()">Recreate Player A</button>
+<script type="text/javascript">
+
+  bc(myPlayerA);
+  bc(myPlayerB);
+
+  setTimeout(function(){
+    try{
+    // attempt to init myPlayerA once more to throw error
+    bc(document.querySelector("video"));
+  }
+  catch(e){
+    alert(e);
+  }
+},1000)
+
+  function recreate(){
+    console.log('recreate');
+
+    videojs('myPlayerA').on('dispose',function(){
+
+    //recreate the player
+    var playerLocation = document.body;
+    var videlem = document.createElement("video");
+    videlem.setAttribute('id','myPlayerA');
+    videlem.setAttribute('width','480');
+    videlem.setAttribute('height','270');
+    videlem.setAttribute('data-account','2602624528001');
+    videlem.setAttribute('data-player','986fb7fb-2969-4226-ba90-bd8cad179b5d');
+    videlem.setAttribute('data-video-id','4122131563001');
+    videlem.setAttribute('data-embed','default');
+    videlem.setAttribute('class','video-js');
+    videlem.setAttribute('controls','');
+    playerLocation.appendChild(videlem);
+    // rough example. The correct video element or video element ID will need to be passed to bc()
+    bc(document.querySelectorAll("video")[document.querySelectorAll("video").length - 1]);
+    //bc(myPlayerA);
+  })
+
+  //dispose of the player
+  videojs('myPlayerA').dispose();
+}
+</script>
+</body>
+</html>

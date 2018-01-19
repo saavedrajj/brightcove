@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	#container {
+		width: 100%;
+		height: auto;
+	}
+
+	.vjs-fullscreen .vjs-tech {
+		padding-bottom: 0 !important;
+	}
+</style>
+</head>
+<body>
+	<div id="container">
+		<video id='brigcovepersonalplayer'
+		data-account="4486098250001"
+		data-player="rJ7uYC7Ix"
+		data-video-id="5572398726001"
+		data-embed="default"
+		style="width: 100%; height:auto; padding-bottom: 56.25%;"
+		class="video-js bc-video" controls >
+	</video>
+	<script src="//players.brightcove.net/4486098250001/rJ7uYC7Ix_default/index.min.js"></script>
+	<style>
+	.vjs-fullscreen .vjs-tech {
+		adding-bottom: 0 !important;
+	}
+</style>
+<link rel="stylesheet" href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css">
+<style>
+.vjs-modal-dialog .vjs-modal-dialog-content {
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" href="//players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css">
+<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+<script src="//players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"></script>
+<script id="pageScript" type="text/javascript">
+	var myPlayer = videojs("brigcovepersonalplayer");  
+	myPlayer.overlay({
+		content: '',
+		overlays: [{
+			align: "bottom-right",
+			content: '<img src="https://memberedge.io/storage/3/bc_logo.png?nocache=1509452303" style="width: 100px; height: auto;">',
+			start: 'play',
+			end: 'stop'
+		},{
+			align: "bottom-left",
+			content: '<img src="https://memberedge.io/storage/subchannels/bc_logo_1.png" style="max-width: 196px; width:50%; height: 50%;">',
+			start: 'play',
+			end: 'stop'
+		}]
+	});
+
+	videojs.plugin('myBeginPlugin', function() {
+		/* The first time the player is asked to play, pause it, show the bumper, wait 5 seconds, hide the bumper, and begin playback. */
+		this.one('play', function() {
+			this.pause();
+			/* Show the first bumper here, perhaps using the video.js ModalDialog component */
+			myModal = myPlayer.addChild('ModalDialog');
+			myModal.closeable(false);
+			var myImg = new Image();
+			myImg.src = 'https://memberedge.io/storage/3/title_card.jpg?nocache=1509452303';
+			myImg.style.width = '109%';
+			myImg.style.height = 'auto';
+			myModal.fillWith(myImg);
+			myModal.open();
+			setTimeout(videojs.bind(this, function() {
+				/* Hide the first bumper here. */
+				myModal.close();
+				this.play();
+			}), 5000);
+		});
+	});
+
+	/*  Then invoke it on your player: */
+	myPlayer.myBeginPlugin();
+	myPlayer.ready(function(){
+		var myPlayer = this;
+		myPlayer.customEndscreen({
+			'content': '<img src="https://memberedge.io/storage/3/end_card.jpg?nocache=1509452303" class="endscreen-image" />'
+		})
+	});</script></div>
+</body>
+</html>
+
+

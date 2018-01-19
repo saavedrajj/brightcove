@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Overlay Plugin - Code</title>
+	<link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">	
+	<style>
+		.video-js {
+			width:640px;
+			height:360px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Overlay Plugin</h1>
+	<video id="myPlayerID" 
+	data-video-id="5460105416001" 
+	data-account="5458602755001" 
+	data-player="rkHhaxpHW" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/rkHhaxpHW_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+	<script type="text/javascript">
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.overlay({
+				overlays: [
+				{
+					"start": 1,
+					"end": 3,
+					"content": "<a href='http://www.brightcove.com'><img src='http://solutions.brightcove.com/bcls/assets/images/brightcove-logo.png'></a>",
+					"align": "bottom-right"
+				},
+				{
+					"start": 3,
+					"end": 5,
+					"content": "top-left",
+					"align": "top-left"
+				},
+				{
+					"start": 5,
+					"end": 7,
+					"content": "top",
+					"align": "top"
+				},
+				{
+					"start": 7,
+					"end": 9,
+					"content": "top-right",
+					"align": "top-right"
+				},
+				{
+					"start": 9,
+					"end": 11,
+					"content": "right",
+					"align": "right"
+				},
+				{
+					"start": 11,
+					"end": 13,
+					"content": "bottom-right",
+					"align": "bottom-right"
+				},
+				{
+					"start": 13,
+					"end": 15,
+					"content": "bottom",
+					"align": "bottom"
+				},
+				{
+					"start": 15,
+					"end": 17,
+					"content": "bottom-left",
+					"align": "bottom-left"
+				},
+				{
+					"start": 17,
+					"end": 19,
+					"content": "left",
+					"align": "left"
+				}
+				]
+			});
+		});
+	</script>
+</body>
+</html>

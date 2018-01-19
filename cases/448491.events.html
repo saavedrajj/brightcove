@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Events</title>
+
+</head>
+
+<body>
+
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls 
+	width="600" 
+	height="350"></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+	<script>
+		var myPlayer;
+
+		videojs('myPlayerID').on('ready',function(){
+			myPlayer = this;
+
+			myPlayer.on(["suspend", "abort", "error", "emptied", "stalled", "playing", "waiting", "seeking", "seeked", "pause","ended", "play", "pause", "resize", "volumechange"],function(event){
+				console.log(event.type);    
+			});
+
+			myPlayer.on(["loadeddata"],function(event){
+				console.log('New video!');    
+			});
+
+		});
+
+		function changeVideo(id) {
+			var id;
+			/*console.log('video id: ' + id);*/
+			myPlayer.catalog.getVideo(id, function(error, video){
+				console.log('events when a video changes ---------------------------');
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});			
+
+			
+		}
+	</script>
+
+	<button onclick="changeVideo(5575865276001)">video 1</button>
+	<button onclick="changeVideo(5681745327001)">video 2</button>
+	<button onclick="changeVideo(5593073974001)">video 3</button>
+
+</body>
+</html>

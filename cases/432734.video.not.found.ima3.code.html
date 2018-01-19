@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Video Not Found Test</title>
+  <style>
+    .video-js {
+      width: 640px;
+      height: 360px;
+    }
+  </style>  
+</head>
+
+<body>
+  <video 
+  id="myPlayerId" 
+  data-video-id="5568854822001" 
+  data-account="5458602755001" 
+  data-player="BJxAdLhKDW" 
+  data-embed="default" 
+  data-application-id 
+  class="video-js" 
+  controls></video>
+  <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+
+  <script type="text/javascript">
+    var myPlayer;
+    /* Brightcove Player initialisation */ 
+    var player = bc('myPlayerID');
+    /* IMA3 Plugin initialisation */ 
+    player.ima3({
+      adTechOrder: ['html5', 'flash'],
+      debug: true,
+      serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',    
+      requestMode: 'onplay', 
+      timeout: 6000, 
+      hardTimeouts: false,
+      loadingSpinner: false,
+      vpaidMode: 'ENABLED',
+      ima3SdkSettings: {
+        disableCustomPlaybackForIOS10Plus: true, 
+        numRedirects: 10
+      }
+    });
+
+    videojs('myPlayerId').one('bc-catalog-error', function(){
+      /*var myPlayer = this;*/
+      var specificError;
+
+      if (myPlayer.catalog.error !== undefined) {
+        specificError = myPlayer.catalog.error.data[0];
+        if (specificError !== 'undefined' & specificError.error_code == "VIDEO_NOT_PLAYABLE") {
+            // Hides the error message.
+            myPlayer.error(null);
+            // Hide the big play button.
+            document.getElementsByClassName("vjs-big-play-button")[0].style.display = "none";
+            // Set the poster image (You may change the image url to show your own image)
+            myPlayer.poster("http://solutions.brightcove.com/bcls/assets/images/please-stand-by.png");
+          }
+        }
+      });
+
+
+    </script>
+
+
+  </body>
+
+  </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Display Error Messages Plugin</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Display Error Messages Plugin</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5575865276001" 
+				data-account="5458602755001" 
+				data-player="default" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls muted
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+			</div>
+		</div>
+		<p>
+			<button onclick="createError1()">Create Error 1</button>
+			<button onclick="createError2()">Create Error 2</button> 
+			<button onclick="createError3()">Create Error 3</button>
+			<button onclick="createError4()">Create Error 4</button>
+			<button onclick="createError5()">Create Error 5</button>
+			<button onclick="createErrorUnknown()">Create Error Unknown</button>
+		</p>
+		<ul>
+			<li><a href="https://support.brightcove.com/display-error-messages-plugin" target="_blank">Display Error Messages Plugin</a></li>	
+		</ul>
+
+		<script type="text/javascript">
+			var createError1, createError2, createError3, createError4, createError5, createErrorUnknown;
+			videojs('myPlayerID').ready(function(){
+				var myPlayer = this;
+				myPlayer.addClass("hide-overlay");
+				createError1 = function(){
+					myPlayer.error({code:'1'});
+				};		
+				createError2 = function(){
+					myPlayer.error({code:'2'});
+				};
+				createError3 = function(){
+					myPlayer.error({code:'3'});
+				};		
+				createError4 = function(){
+					myPlayer.error({code:'4'});
+				};
+				createError5 = function(){
+					myPlayer.error({code:'5'});
+				};		
+				createErrorUnknown = function(){
+					myPlayer.error({code:'unknown'});
+				};
+
+				myPlayer.errors({
+					"errors": {
+						"1": {
+							"headline": "This is a custom error message 1",
+							"type": "MEDIA_ERR_ABORTED",
+							"message": "These are the details for the custom message 1"
+						},
+						"2": {
+							"headline": "This is a custom error message 2",
+							"type": "MEDIA_ERR_NETWORK",
+							"message": "These are the details for the custom message 2"
+						},
+						"3": {
+							"headline": "This is a custom error message 3",
+							"type": "MEDIA_ERR_DECODE",
+							"message": "These are the details for the custom message 3"
+						},											
+						"4": {
+							"headline": "This is a custom error message 4",
+							"type": "MEDIA_ERR_SRC_CUSTOM_4",
+							"message": "These are the details for the custom message 4"
+						},
+						"5": {
+							"headline": "This is a custom error message 5",
+							"type": "MEDIA_ERR_ENCRYPTED",
+							"message": "These are the details for the custom message 5"
+						},					
+						"unknown": {
+							"message": "These are the details for the custom message unknown"
+						}											
+					}
+				});
+			});
+		</script>
+		
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

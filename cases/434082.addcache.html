@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Correlator Cache</title>
+	<meta name="cwi.site" content="none" />
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		function GetParameterByName(name) {
+			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			var regexS = "[\\?&]" + name + "=([^&#]*)";
+			var regex = new RegExp(regexS);
+			var results = regex.exec(window.location.href);
+			if (results == null)
+				return "";
+			else
+				return decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	</script>
+
+</head>
+<body>
+
+	<h2>Correlator Cache</h2>   
+
+	<video id="video_1" style="width:900px;height:508px;"
+	data-account="4077388043001"
+	data-player="E1ej3O6Q0x"
+	data-video-id="ref:1_cxguhr5y"
+	data-embed="default"
+	class="video-js" controls></video>
+
+
+	<script src="//players.brightcove.net/4077388043001/E1ej3O6Q0x_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<script>
+
+		var testAd = GetParameterByName('testad'),
+		testAd2 = GetParameterByName('testad2');
+
+		var videoObj,                
+		videoIds = ["0_0gh07ago", "1_39hjzcea", "1_b6kbo8h4", "1_qsq9bqzk"],
+		adTag = "http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}";
+
+		if(testAd)        
+			adTag = "https://pubads.g.doubleclick.net/gampad/ads?correlator={timestamp}&sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url={referrer_url}&vid={mediainfo.reference_id}";
+		else if (testAd2)
+			adTag = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x360&iu=/6062/iab_vast_samples/skippable&ciu_szs=300x250,728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url={referrer_url}&vid={mediainfo.reference_id}";
+
+
+		videojs("video_1").ready(function () {
+
+			videoObj = this;
+
+			videoObj.ima3({ requestMode: "onplay", serverUrl: adTag, debug: false });
+
+			videoObj.on("play", function (event) {
+				console.log("MediaPlay");
+				
+
+			});
+
+			videoObj.on("ended", function (event) {
+				console.log("MediaEnded");
+
+				PlayNext();
+			});
+
+		});
+
+		function PlayNext() {
+			videoObj.ima3.adsLoader.contentComplete(); 
+			var videoId = "ref:" + videoIds.shift();
+
+			videoObj.catalog.getVideo(videoId, function (error, video) {
+
+				videoObj.catalog.load(video);
+				videoObj.play();
+
+			});
+		}
+
+
+	</script>
+	<br/>
+	<input type="button" onclick="PlayNext()" value="ChangeVideo" />
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+<p>
+<button class="bcls-button" onclick="playVideo()">Play Video</button>
+<button class="bcls-button" onclick="pauseVideo()">Pause Video</button>
+</p>
+
+<iframe src="//players.brightcove.net/5458602755001/r1B2YiWuqb_default/index.html?videoId=5575865276001" 
+allowfullscreen 
+webkitallowfullscreen 
+mozallowfullscreen></iframe>
+
+
+<script>
+	var theProtocol = location.protocol,
+  theURL = theProtocol + "//players.brightcove.net",
+  // Get a reference to the iframe element
+  iframeTag = document.querySelector("iframe"),
+  // Retrieve window object needed for postMessage
+  win = iframeTag.contentWindow;
+
+function playVideo() {
+  // Post message passing 'playVideo' as the data
+  win.postMessage("playVideo", theURL);
+}
+
+function pauseVideo() {
+  // Post message passing 'pauseVideo' as the data
+  win.postMessage("pauseVideo", theURL);
+}
+</script>
+
+</body>
+</html>

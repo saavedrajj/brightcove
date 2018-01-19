@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+	<style>
+		.video-js {
+			width:480px;
+			height:270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Preload None</h1>
+	<video id="myPlayer"
+	data-video-id="5485749956001" 
+	data-account="5458602755001" 
+	data-player="rkbJWbtPIb" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/rkbJWbtPIb_default/index.min.js"></script>
+
+	<p><button onclick="changeVideo1()">change video 1</button></p>
+	<p><button onclick="changeVideo2()">change video 2</button></p>	
+	<link href="//learning-services-media.brightcove.com/doc-assets/css/debugger/videojs-player-debugger.css" rel="stylesheet">
+	<script src="//learning-services-media.brightcove.com/doc-assets/js/debugger/videojs-player-debugger.min.js"></script>
+	<script>
+		var Player;
+		videojs('myPlayer').ready(function() {
+			myPlayer = this;
+			/*myPlayer.play();*/
+			options = {
+				"captureConsole":true,
+				"debugAds":false
+			};
+			myPlayer.playerDebugger(options);
+			myPlayer.on('abort',function() {console.log('Abort Triggered')});
+			myPlayer.on('emptied',function() {console.log('Emptied Triggered')});				
+		});
+
+		function changeVideo1() {
+			myPlayer.catalog.getVideo(5480141310001, function(error,video){
+				console.log('error', error);
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		};	
+
+		function changeVideo2() {
+			myPlayer.catalog.getVideo(5480141233001, function(error,video){
+				console.log('error', error);
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		};	
+
+
+	</script>
+</body>
+</html>

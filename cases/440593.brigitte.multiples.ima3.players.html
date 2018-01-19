@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple IMA3 players</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">   
+    <link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">  
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">       
+</head>
+<body>
+
+    <script src="//players.brightcove.net/1371335702/default_default/index.min.js"></script>
+
+    <div class="container">
+        <h1>Multiple IMA3 players</h1>
+
+        <h3>IMA Player 1</h3>
+        <div style="position: relative; display: block; max-width: 100%;">
+            <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayer1"
+                data-video-id="1398258041" 
+                data-account="1371335702" 
+                data-player="default" 
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls muted
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+            </div>
+        </div>
+
+        <h3>IMA Player 3</h3>
+        <div style="position: relative; display: block; max-width: 100%;">
+            <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayer3"
+                data-video-id="5154755999001" 
+                data-account="1371335702" 
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls muted
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+            </div>
+        </div>
+
+        <h3>IMA Player 4</h3>
+        <div style="position: relative; display: block; max-width: 100%;">
+            <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayer4"
+                data-video-id="3887349165001" 
+                data-account="1371335702" 
+                data-player="default" 
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls muted
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+            </div>
+        </div>
+
+
+
+        <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+        <script type="text/JavaScript">
+          var myPlayer;
+          /* Brightcove Player initialisation */ 
+          var player1 = bc('myPlayer1');
+          var player3 = bc('myPlayer3');   
+          var player4= bc('myPlayer4');
+
+          /* IMA3 Plugin initialisation */ 
+          player1.ima3({
+            adTechOrder: ['html5', 'flash'],
+            debug: false,
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',      
+            requestMode: 'onload', 
+            timeout: 6000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+
+          player3.ima3({
+            adTechOrder: ['html5', 'flash'],
+            debug: false,
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpremidpostpod&cmsid=496&vid=short_onecue&correlator=',      
+            requestMode: 'onload', 
+            timeout: 6000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+
+          player4.ima3({
+            adTechOrder: ['html5', 'flash'],
+            debug: false,
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',      
+            requestMode: 'onload', 
+            timeout: 6000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>    
+</body>
+</html>

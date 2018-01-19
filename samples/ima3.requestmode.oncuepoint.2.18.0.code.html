@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Working with Cue Points in the Media Module</title>
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>IMA3 - Request Ads: On cue point (Using code)</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5480141310001" 
+	data-account="5458602755001" 
+	data-player="Skl4WdCvUZ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+		videojs('myPlayerID').ready(function(){
+			var myPlayer = this,
+			options = {
+				debug: true,
+				adTechOrder: [
+				'html5',
+				'flash'
+				],
+				loadingSpinner: false,
+				useMediaCuePoints: true,
+				requestMode: 'oncue',
+				serverUrl: "https://ads.brightcove.com/stable/ads"
+			};
+			myPlayer.ima3(options);
+		});
+	</script>
+	<ul>
+		<li>Player v.6.5.0</li>
+		<li>When configuring the IMA3 plugin you will need to provide a URL to a location of a VAST tag.</li>
+		<li><a href="https://support.brightcove.com/advertising-ima3-plugin" target="_blank">Advertising with the IMA3 Plugin</a></li>
+		<li><a href="https://support.brightcove.com/displaying-ads-using-ad-cue-points" target="_blank">Displaying Ads Using Ad Cue Points</a></li>
+		<li><a href="https://support.brightcove.com/implementing-cue-points-programmatically" target="_blank">Implementing Cue Points Programmatically</a></li>					
+		<li><a href="https://support.brightcove.com/learning-guide-video-advertising" target="_blank">Learning Guide: Video Advertising</a></li>	
+		<li><a href="https://support.brightcove.com/configuring-player-advertising" target="_blank">Configuring Player Advertising</a></li>	
+		<li><a href="https://support.brightcove.com/advertising-sdks" target="_blank">Advertising with the SDKs</a></li>	
+	</ul>
+</body>
+</html>
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Ads audio. Player v5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">   
+    <link rel="stylesheet" href="../includes/css/styles.css">    
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">    
+    <script>
+        function GetParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.href);
+            if (results == null)
+                return "";
+            else
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>       
+</head>
+<body>
+    <div class="container">
+        <h1>Facebook Ads audio. Player v5</h1>
+        <div style="position: relative; display: block; max-width: 100%;">
+            <div style="padding-top: 56.25%;">
+                <video 
+                id="myPlayerID"
+                data-video-id="5622000782001"
+                data-account="5458602755001"
+                data-player="SyZOU3FDW"
+                data-embed="default" 
+                data-application-id 
+                class="video-js" 
+                controls
+                style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+                <script src="//players.brightcove.net/5458602755001/SyZOU3FDW_default/index.min.js"></script>
+            </div>
+        </div>
+        <p class="console"><b><u>MESSAGE LOG:</u></b></p>
+        <p class="console" id="message"></p>
+        <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+        <script type="text/JavaScript"> 
+          var myPlayer;
+          /* Brightcove Player initialisation */ 
+          var player = bc('myPlayerID');
+          /* IMA3 Plugin initialisation */ 
+
+          player.ima3({
+            adTechOrder: ['html5', 'flash'],
+            debug: false,   
+            requestMode: 'onload', 
+            timeout: 7000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+
+          var ad = GetParameterByName('ad');
+
+          if(ad==0)  {
+              console.log('Facebook ad Test');      
+              player.ima3.settings.serverUrl = "https://an.facebook.com/v1/instream/vast.xml?placementid=TEST_PLACEMENT_ID&pageurl=test.com";
+              player.ima3.settings.vpaidMode = "ENABLED";
+          }
+
+          if(ad==1)  {
+              console.log('Facebook ad Test');      
+              player.ima3.settings.serverUrl = "https://an.facebook.com/v1/instream/vast.xml?placementid=TEST_PLACEMENT_ID&pageurl=test.com";
+              player.ima3.settings.vpaidMode = "INSECURE";
+          }
+
+
+
+        bc("myPlayerID").ready(function() { 
+            var myPlayer = this;
+
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>    
+</body>
+</html>

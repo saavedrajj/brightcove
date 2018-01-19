@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">  	
+	<style>
+	/*
+	#container {
+		width: 100%;
+		height: auto;
+	}
+	.vjs-fullscreen .vjs-tech {
+		padding-bottom: 0 !important;
+		} 
+	.vjs-fullscreen .vjs-tech {
+		adding-bottom: 0 !important;
+	}
+
+	*/
+</style>
+<link rel="stylesheet" href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Abbot</h1>
+		<video id='brigcovepersonalplayer'
+				data-video-id="5626747277001" 
+				data-account="1336131408001" 
+				data-player="default"
+		data-embed="default"
+		style="width: 100%; height:auto; padding-bottom: 56.25%;"
+		class="video-js bc-video" controls >
+	</video>
+	<script src="//players.brightcove.net/1336131408001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>	
+
+
+
+
+
+	<script id="pageScript" type="text/javascript">
+		var myPlayer = videojs("brigcovepersonalplayer");  
+
+		videojs.plugin('myBeginPlugin', function() {
+			/* The first time the player is asked to play, pause it, show the bumper, wait 5 seconds, hide the bumper, and begin playback. */
+			this.one('play', function() {
+				this.pause();
+				/* Show the first bumper here, perhaps using the video.js ModalDialog component */
+				myModal = myPlayer.addChild('ModalDialog');
+				myModal.closeable(false);
+				var myImg = new Image();
+				myImg.src = 'https://memberedge.io/storage/3/title_card.jpg?nocache=1509452303';
+				myImg.style.width = '100%';
+				myImg.style.height = '100%';
+				myModal.fillWith(myImg);
+				myModal.open();
+				setTimeout(videojs.bind(this, function() {
+					/* Hide the first bumper here. */
+					myModal.close();
+					this.play();
+				}), 5000);
+			});
+		});
+
+		/*  Then invoke it on your player: */
+		myPlayer.myBeginPlugin();
+		myPlayer.ready(function(){
+			var myPlayer = this;
+			myPlayer.customEndscreen({
+				'content': '<img src="https://memberedge.io/storage/3/end_card.jpg?nocache=1509452303" class="endscreen-image" />'
+			})
+		});</script>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>	
+</body>
+</html>
+
+
+
+

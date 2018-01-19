@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style> 
+		#myVideoContainer {
+			display:none;
+			background:grey;
+		}
+	</style>
+</head>
+<body>
+	<p><button onclick="playVideo()">Play</button></p>
+
+	<div id="myVideoContainer">
+		<iframe src="//players.brightcove.net/1752604059001/VJCJXL3Ye_default/index.html?videoId=4093643993001" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="width: 640px; height: 360px;"></iframe>
+		<p><button onclick="closeVideo()">Close</button></p>
+	</div>
+
+	<script>
+		/*+++ Create functions that post either play or pause +++
+		Match the protocol of the of the parent's page */
+		var theProtocol = location.protocol,
+		theURL = theProtocol + "//players.brightcove.net",
+		/* Get a reference to the iframe element */
+		iframeTag = document.querySelector("iframe"),
+		/* Retrieve window object needed for postMessage */
+		win = iframeTag.contentWindow;
+
+		function playVideo() {
+			document.getElementById("myVideoContainer").style.display = "block";
+			/* Post message passing 'playVideo' as the data */		
+			win.postMessage("playVideo", theURL);
+		}
+
+		function pauseVideo() {
+			/* Post message passing 'pauseVideo' as the data */
+			win.postMessage("pauseVideo", theURL);
+		}
+
+		function closeVideo() {
+			win.postMessage("pauseVideo", theURL);			
+			document.getElementById("myVideoContainer").style.display = "none";
+		}		
+	</script>
+
+</body>
+</html>

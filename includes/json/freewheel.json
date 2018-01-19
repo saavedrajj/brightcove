@@ -1,0 +1,76 @@
+{
+    "adTechOrder": ["flash", "html5"],
+    "Flash": {
+      "networkId": 90750,
+      "serverUrl": "http://cue.v.fwmrm.net/ad/g/1",      
+      "profile": "3pqa_profile",
+      "videoAssetCustomId": "as3_demo_video_asset",
+      "siteSectionCustomId": "as3_demo_site_section",      
+      "videoAssetDuration": 500,
+
+
+"keyValues": [{
+        "module": "DemoPlayer",
+        "feature": "simpleAds",
+        "feature": "trackingURLs"
+      }],
+
+
+
+
+
+
+
+      "siteSectionCustomId": "",
+      "swfurl": "",
+      "temporalSlots": [{
+        "adUnit": "preroll",
+        "id": "Preroll_1",
+        "timePosition": 0
+      }, {
+        "adUnit": "postroll",
+        "id": "Postroll_1",
+        "timePosition": 60
+      }, {
+        "adUnit": "midroll",
+        "id": "Midroll_1",
+        "timePosition": 5
+      }, {
+        "adUnit": "overlay",
+        "id": "Overlay_1",
+        "timePosition": 10
+      }],
+
+    },
+    "Html5": {
+      "keyValues": [{
+        "feature": "simpleAds",
+        "module": "DemoPlayer"
+      }, {
+        "feature": "trackingURLs"
+      }],
+      "networkId": 99999,
+      "profile": "global-js",
+      "sdkurl": "http://adm.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
+      "serverUrl": "http://cue.v.fwmrm.net/ad/h/5",
+      "siteSectionCustomId": "DemoSiteGroup.01",
+      "temporalSlots": [{
+        "adUnit": "preroll",
+        "id": "Preroll_1",
+        "timePosition": 0
+      }, {
+        "adUnit": "postroll",
+        "id": "Postroll_1",
+        "timePosition": 60
+      }, {
+        "adUnit": "overlay",
+        "id": "Overlay_1",
+        "timePosition": 5
+      }],
+      "videoAssetCustomId": "DemoVideoGroup.01",
+      "videoAssetDuration": 500
+    },
+    "debug": true,
+    "prerollTimeout": 1000,
+    "timeout": 5000
+  }

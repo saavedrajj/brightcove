@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Freewheel Test v5 remote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">   
+  <link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">  
+  <link href="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Freewheel Test v5 remote</h1>
+    <div style="position: relative; display: block; max-width: 100%;">
+      <div style="padding-top: 56.25%;">
+        <video 
+        id="myPlayerID"
+        data-video-id="5629922982001" 
+        data-account="5458602755001" 
+        data-player="SyZOU3FDW" 
+        data-embed="default" 
+        data-application-id 
+        class="video-js" 
+        controls muted
+        style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+        <script src="//players.brightcove.net/5458602755001/SyZOU3FDW_default/index.min.js"></script>
+      </div>
+    </div>
+
+    <script src="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.js"></script>
+
+    <button onclick="clearConsole()">Clear Console</button>
+    <p class="console"><b><u>MESSAGE LOG:</u></b></p>
+    <p class="console" id="message"></p>
+
+  </div>
+
+  <script type="text/javascript">
+    function clearConsole(){
+      message.innerHTML = "";      
+    }       
+    var myPlayer;
+
+    videojs("myPlayerID").ready(function(){
+     /* get a reference to the player */
+     myPlayer= this;
+
+     myPlayer.FreeWheelPlugin({"adTechOrder":["html5","flash"],"Html5":{"sdkurl":"https:\/\/mssl.fwmrm.net\/p\/sanoma_sbs_live\/AdManager.js","serverUrl":"https:\/\/7b935.v.fwmrm.net\/ad\/g\/1","profile":"506166:sanoma_sbs_ovp_js_live","networkId":"506166","siteSectionCustomId":"sbs_sbs6_desktop","videoAssetCustomId":"849fClqNfIa"},"Flash":{"sdkurl":"https:\/\/mssl.fwmrm.net\/p\/sanoma_sbs_live\/AdManager.swf","serverUrl":"https:\/\/7b935.v.fwmrm.net\/ad\/g\/1","profile":"506166:sanoma_sbs_flash_live","networkId":"506166","siteSectionCustomId":"sbs_sbs6_desktop","videoAssetCustomId":"849fClqNfIa","swfurl":"https:\/\/players.brightcove.net\/videojs-freewheel\/2\/videojs.freewheel.swf"}});
+
+     /* Freewheel Plugin */
+
+     myPlayer.on(["fw-before-ad-request", "ads-request", "ads-load", "ads-ad-started", "ads-ad-ended", "ads-pause", "ads-play", "ads-first-quartile", "ads-midpoin", "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started"],function(event){
+      message.innerHTML += "BC FW event: " + event.type + "<br/>";      
+    });
+
+     myPlayer.on('ads-pod-ended',function(){
+      message.innerHTML += "BC FW event: ads-pod-ended<hr>";
+    });
+
+     myPlayer.on('ads-allpods-completed',function(){
+      message.innerHTML += "BC FW event: ads-allpods-completed<hr>";
+    });
+
+     /* contrib-ads events */
+
+     myPlayer.on(["readyforpreroll", "adcanplay", "nopreroll", "nopostroll", "adsready", "contentupdate", "contentresumed", "contentended", "adtimeupdate"],function(event){
+      message.innerHTML += "contrib-ads event: " + event.type + "<br/>";      
+    });
+
+     myPlayer.on(["adstart", "adtimeout"],function(event){
+      message.innerHTML += "<hr>contrib-ads event: " + event.type + "<br/>";      
+    });
+
+     myPlayer.on("adserror", function() { 
+      message.innerHTML += "<hr><span style='color:red'>contrib-ads event: adserror</span><hr>";
+    });
+
+     /* Basic Player events */
+
+     myPlayer.on(["play", "playing", "pause", "volumechange"],function(event){
+      message.innerHTML += "BC Player event: " + event.type + "<br/>";      
+    });
+
+   });
+
+ </script>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> 
+</body>
+</html>

@@ -1,0 +1,9 @@
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+    font-size: 28px!important;
+}
+
+.video-js .vjs-big-play-button {
+	top:17px!important;
+	left:17px!important;
+}
+

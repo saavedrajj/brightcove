@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On play</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Pre-roll VPAID tag for Pet Center Sponsorship</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="1966738766001" 
+				data-account="429049095" 
+				data-player="default" 
+				data-embed="Skl4WdCvUZ" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/429049095/default_default/index.min.js"></script>
+			</div>
+		</div>
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+		<script type="text/javascript">
+			var myPlayer;
+			/* Brightcove Player initialisation */ 
+			var player = bc('myPlayerID');
+			/* IMA3 Plugin initialisation */ 
+			player.ima3({
+				adTechOrder: ['html5', 'flash'],
+				debug: true,
+				/*
+				serverUrl: 'http://pubads.g.doubleclick.net/gampad/preview_cookie?gct=1GjkBoHw2iIY-_f9zgUw-5Oz1gWIAYCAgKDrzvmUfg&op=set&redirect=http://womenshealthmag.com/video&redirect_hash=AJlzBa1LO8e3-W_Wuud_CvcIxo7Omy0dPw&lineItemId=4437628777&creativeId=138212976243',	
+*/
+
+
+				serverUrl: 'https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=2133752213538009&output=json_html&callback=googletag.impl.pubads.callbackProxy1&impl=fif&eid=108809107%2C21060364&sc=1&sfv=1-0-13&iu=%2F3899%2Fwomenshealth%2Fvideo%2Fvideo%2Fadhesion_unit&sz=3x3&scp=adhesion%3Dtrue%26domain%3Dhttps%253A%252F%252Fwww.womenshealthmag.com%26slot%3Dadhesion_unit&eri=1&cust_params=amznbid%3D0%26amznp%3D0%26qt%3DW3siayI6Implc3Mta2luZy00LWV4ZXJjaXNlLXRhYmF0YSIsICJ0IjoxNDMwNDk3NTUzLCAiZiI6MX1d%26ksg%3Dq7p4q3ebe%252Cpybgt00kc%252Cqmrs05ptx%252Cq236cvfh1%252Cqxg2ssxvu%252Cq7p5fqvb6%252Cqth7g2e84%252Crhy93nmtc%252Cpyag99gmi%252Cq85j06fcj%252Cpyah6aux5%252Cpuxfze77r%252Cq7p64enq1%252Cq7p7yde17%252Cqtmt0x3ww%252Cqxg3onzq1%252Cp4dq8pzhz%252Cqxg1n8jnp%252Cq171sno8t%252Cqv81bufc7%252Cqgeq62910%252Cpynfa6dro%252Cqv808c069%252Cpyns5bced%252Cqxg4l08cq%252Cq7p4090lq%252Cqxg25wqe8%252Cpyan33mj0%252Cqup1welvu%252Cpuxfzf2os%252Cq62vlasvi%252Cqv806z5uz%252Cpya7ubm49%252Cq7p6d1jm8%252Cq236lcpd6%252Cq7p7ghj3i%252Cq7p0hx7wu%252Cqgeres0it%252Cq7p52vs3s%252Cqup12486w%26kuid%3Drydz488an%26pid%3D2143426%26ctype%3Dvideo%26s1%3Dwomenshealth%26s2%3Dvideo%26s3%3Djess-king-4-exercise-tabata%26pv%3D1&cookie=ID%3D077c594fad7f7123%3AT%3D1507901219%3AS%3DALNI_MZKmoXTi0obiIe0jZeQ-5HSpIrEZA&abxe=1&lmt=1507902659&dt=1507902659427&frm=20&biw=1085&bih=434&oid=3&adx=0&ady=1669&adk=2864605796&gut=v2&ifi=1&u_tz=60&u_his=5&u_h=1200&u_w=1920&u_ah=1098&u_aw=1920&u_cd=24&u_nplug=4&u_nmime=5&u_sd=1&flash=0&url=https%3A%2F%2Fwww.womenshealthmag.com%2Fvideo%2Fjess-king-4-exercise-tabata&dssz=102&icsg=3589063634322428&mso=1&std=0&vrg=158&vis=1&ga_vid=266786739.1507117004&ga_sid=1507902659&ga_hid=861487269',
+
+				requestMode: 'onplay', 
+				timeout: 6000, 
+				hardTimeouts: false,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				}
+			});
+		</script>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	  	
+</body>
+</html>

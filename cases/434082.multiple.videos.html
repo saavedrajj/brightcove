@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>	
+<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">	
+</head>
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-account="5458602755001"
+	data-player="BJxAdLhKDW"
+	data-embed="default"
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>	
+	<script type="text/JavaScript">
+		var myPlayer,
+		currentVideoIndex = 0,
+		playlistData = [{
+			"id" : "5485732381001"
+		}, {
+			"id" : "5485747242001"
+		}, {
+			"id" : "5480140717001"
+		}, {
+			"id" : "5480137273001"
+		}, {
+			"id" : "5480140243001"
+		}, {
+			"id" : "5480113116001"
+		}, {
+			"id" : "5480110299001"
+		}, {
+			"id" : "5480116594001"
+		}, {
+			"id" : "5460105417001"
+		}, {
+			"id" : "5460105416001"
+		}
+		];
+
+		function loadVideo() {
+			if (currentVideoIndex < playlistData.length) {
+
+				/* load the new video */
+				console.log('currentVideoIndex: ' + currentVideoIndex)
+				myPlayer.catalog.getVideo(playlistData[currentVideoIndex].id, function(error, video){
+					/* deal with error */
+					myPlayer.catalog.load(video);
+
+
+
+ myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&pod=";
+
+
+
+
+
+					myPlayer.play();
+				});
+
+				console.log('video_id: ' + playlistData[currentVideoIndex].id)
+				/* increment the current video index */
+				currentVideoIndex++;
+			}
+		};
+
+		/*var myPlayer;*/
+
+    // Initialize player
+    var player = bc('myPlayerID');
+
+    // Initialize IMA plugin
+    // A blank serverURL is used here because we want metadata from the video
+    
+    player.ima3({
+    	serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=4x4&iu=/5819/stg.cblvsn.nwsd.videogallery&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&description_url=http%3A%2F%2Fstage.newsday.com%2Fnews%2Fsharknado-5-actors-surprised-by-series-success-1.10898271&pod=",
+    	requestMode: 'onplay',
+    	timeout: 6000, 				
+    	vpaidMode: 'ENABLED'
+    });
+
+
+    player.ready(function() {
+    	myPlayer = this;
+    	myPlayer.on("contentended", function () {
+    		loadVideo();
+    	});
+
+    	loadVideo();   
+    });
+
+
+
+	
+	</script>
+	<input type="button" onclick="loadVideo()" value="ChangeVideo" />
+</body>
+</html>

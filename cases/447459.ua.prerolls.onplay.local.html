@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">	
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Under armour</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5575865276001"
+				data-account="5458602755001" 
+				data-player="default" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+			</div>
+		</div>
+		<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+		<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+		<script>
+			var myPlayer, adTag;
+			adTag = 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=';
+
+			var player = bc('myPlayerID');
+			player.ima3({
+				adTechOrder: ['html5','flash'],
+				requestMode: 'onplay',
+				serverUrl: adTag, 
+				timeout: 4000, 
+				debug: true,
+				loadingSpinner: false,
+				vpaidMode: 'ENABLED',
+				ima3SdkSettings: {
+					disableCustomPlaybackForIOS10Plus: true, 
+					numRedirects: 10
+				} 
+			});
+
+			player.ready(function() {
+				myPlayer = this;
+			});
+
+			function PlayVideo1() {
+				myPlayer.ima3.adsLoader.contentComplete();
+				myPlayer.catalog.getVideo(5575865276001, function (error, video) {	
+					myPlayer.catalog.load(video);			
+					myPlayer.play();
+				});
+			}
+
+			function PlayVideo2() {
+				myPlayer.ima3.adsLoader.contentComplete(); 
+				myPlayer.catalog.getVideo(5622000782001, function (error, video) {		
+					myPlayer.catalog.load(video);	
+					myPlayer.play();
+				});
+			}
+			function PlayVideo3() {
+				myPlayer.ima3.adsLoader.contentComplete();
+				myPlayer.catalog.getVideo(5515555595001, function (error, video) {		
+					myPlayer.catalog.load(video);	
+					myPlayer.play();
+				});
+			}
+		</script>
+		<ul>
+			<li><a href="" onclick="PlayVideo1()">Play Video1</a></li>
+			<li><a href="" onclick="PlayVideo2()">Play Video2</a></li>
+			<li><a href="" onclick="PlayVideo3()">Play Video3</a></li>	
+		</ul>
+	</div>
+</body>
+</html>

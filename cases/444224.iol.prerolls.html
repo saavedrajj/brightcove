@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta name="cwi.site" content="none" />
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<video id="myPlayerID" style="width:900px;height:508px;"
+	data-account="5458602755001"
+	data-player="default"
+	data-video-id="5575865276001"
+	data-embed="default"
+	class="video-js" controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script>
+		var myPlayer, adTag;
+
+		adTag = 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=';
+
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5'],
+			requestMode: 'ondemand', 
+			timeout: 4000, 
+			debug: true,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			} 
+		});
+
+		player.ready(function() {
+			myPlayer = this;
+		});
+
+		function PlayVideo1() {
+			myPlayer.currentTime(0);			
+			myPlayer.ima3.adsLoader.contentComplete();	
+			myPlayer.catalog.getVideo(5575865276001, function (error, video) {	
+				myPlayer.catalog.load(video);	
+				myPlayer.ima3.adrequest(adTag);
+				myPlayer.play();
+			});
+		}
+
+		function PlayVideo2() {
+			myPlayer.currentTime(0);	
+			myPlayer.ima3.adsLoader.contentComplete(); 	
+			myPlayer.catalog.getVideo(5622000782001, function (error, video) {		
+				myPlayer.catalog.load(video);	
+				myPlayer.ima3.settings.serverUrl = adTag;
+				myPlayer.ima3.adrequest(adTag);
+				myPlayer.play();
+			});
+		}
+		function PlayVideo3() {
+			myPlayer.currentTime(0);	
+			myPlayer.ima3.adsLoader.contentComplete(); 	
+			myPlayer.catalog.getVideo(5515555595001, function (error, video) {		
+				myPlayer.catalog.load(video);	
+				myPlayer.ima3.adrequest(adTag);
+				myPlayer.play();
+			});
+		}
+
+	</script>
+	<br/>
+	<input type="button" onclick="PlayVideo1()" value="Play Video 1" />
+	<input type="button" onclick="PlayVideo2()" value="Play Video 2" />
+	<input type="button" onclick="PlayVideo3()" value="Play Video 3" />	
+</body>
+</html>

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FreeWheel Testing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style>
+		.video-js.vjs-ad-playing.vjs-ad-loading .vjs-loading-spinner {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.fw_config = function() {
+			var ret_flash = {};
+			ret_flash['networkId'] = 90750;
+			ret_flash['serverUrl'] = "http://cue.v.fwmrm.net/ad/g/1";
+			ret_flash['profile'] = '3pqa_profile';
+			ret_flash['videoAssetCustomId'] = 'as3_demo_video_asset';
+			ret_flash['siteSectionCustomId'] = 'as3_demo_site_section';
+			ret_flash['videoAssetDuration'] = 500;
+			ret_flash['keyValues'] = [{'module': 'DemoPlayer', 'feature': 'simpleAds'}, {'feature': 'trackingURLs'}];
+			ret_flash['capabilities'] = ['+supportsFallbackAds', '+synchronizeMultipleRequests', '-expectMultipleCreativeRenditions'];
+			ret_flash['temporalSlots'] = [
+			{'id': 'Preroll_1', 'timePosition': 0, 'adUnit': 'preroll'},
+			{'id': 'Overlay_21', 'timePosition':5 , 'adUnit': 'overlay'},
+			{'id': 'Midroll_1', 'timePosition': 8, 'adUnit': 'midroll'},
+			{'id': 'Overlay_2', 'timePosition': 14, 'adUnit': 'overlay'},
+			{'id': 'Postroll_1', 'timePosition': 60, 'adUnit': 'postroll'}
+			];
+			ret_flash['subsessionToken'] = 1234567890;
+
+			var ret_html5 = {};
+			ret_html5['networkId'] = 96749;
+			ret_html5['serverUrl'] = "http://cue.v.fwmrm.net/ad/g/1";
+			ret_html5['profile'] = 'global-js';
+			ret_html5['videoAssetCustomId'] = 'DemoVideoGroup.01';
+			ret_html5['siteSectionCustomId'] = 'DemoSiteGroup.01';
+			ret_html5['videoAssetDuration'] = 500;
+			ret_html5['keyValues'] = [{'module': 'DemoPlayer', 'feature': 'simpleAds'}, {'feature': 'trackingURLs'}];
+			ret_html5['capabilities'] = ['-emcr', '+unka', '+sync'];
+			ret_html5['temporalSlots'] = [
+			{'id': 'Preroll_1', 'timePosition': 0, 'adUnit': 'preroll'},
+			{'id': 'Overlay_1', 'timePosition': 1, 'adUnit': 'overlay'},
+			{'id': 'Overlay_2', 'timePosition': 14, 'adUnit': 'overlay'},
+			{'id': 'Postroll_1', 'timePosition': 60, 'adUnit': 'postroll'}
+			];
+			ret_html5['subsessionToken'] = 1234567890;
+
+			var adTechOverride = /adTechOrder=([^&]*)/.exec(window.location.search);
+			var adTechOrder;
+			if (adTechOverride) {
+				adTechOrder = adTechOverride[1].split(',');
+			}
+			else{
+				adTechOrder = ["html5","flash"];
+			}
+
+			var fw_config={
+				Flash:ret_flash,
+				Html5:ret_html5,
+				timout: '10000',
+				requestAdsMode:'onload',
+				adTechOrder: adTechOrder,
+				debug:true
+			}
+			return fw_config;
+		}
+	</script>
+</head>
+<body>
+
+	<link href="https://players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.css" rel="stylesheet">
+
+	<div class="container">
+		<h1>Freewheel</h1>
+
+
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayer"
+				data-video-id="5520580668001"
+				data-account="5458602755001"
+				data-player="BJxAdLhKDW"
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.js"></script>
+			</div>
+		</div>
+
+
+
+
+		<script src="https://players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.js"></script>
+		<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	</div>
+
+
+
+
+	<script>
+		var myPlayer;
+		videojs("myPlayer").ready(function() {
+			myPlayer = this;
+			myPlayer.FreeWheelPlugin(window.fw_config());
+
+			var adEvents = [
+			'readyforpreroll',
+			'adcanplay',
+			'addurationchange',
+			'adplay',
+			'adpause',
+			'admuted',
+			'adstart',
+			'adend',
+			'adtimeout',
+			'advolumechange',
+			'adserror',
+			'adscanceled',
+			'adsready',
+			'ads-ready',
+			'preroll?',
+			'ad-playback',
+			'nopreroll',
+			'nopostroll',
+			'content-playback',
+			'content-resuming',
+			'ads-adstart',
+			'ads-ad-started',
+			'ads-adplay',
+			'ads-adend',
+			'ads-ad-ended',
+			'ads-click',
+			'ads-first-quartile',
+			'ads-midpoint',
+			'ads-third-quartile',
+			'ads-complete',
+			'ads-volume-change',
+			'ads-pause',
+			'ads-play',
+			'ads-allpods-completed',
+			'ads-request',
+			'ads-load',
+			'ads-pod-ended',
+			'ads-pod-started',
+			'playing',
+			'contentplayback'
+			];
+
+			for ( let i = 0; i < adEvents.length; i++ ) {
+				myPlayer.on(adEvents[i], function (e) {
+					console.log('BC EVENTS', e.type);
+				});
+			}
+		});
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>	
+</body>
+</html>
+<!--
+https://sites.google.com/a/brightcove.com/cs/playbooks/the-brightcove-player/advertising/configuring-freewheel
+-->

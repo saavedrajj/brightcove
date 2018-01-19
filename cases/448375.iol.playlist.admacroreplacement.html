@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>AdPlayer Test</title> 
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<video style="width: 640px; height: 360px;"
+id="adsPlayer"
+data-playlist-id="5712771368001"
+data-account="5458602755001"
+data-player="r1TIqjgAW"
+data-embed="default"
+class="video-js"
+controls></video>
+<script src="//players.brightcove.net/5458602755001/r1TIqjgAW_default/index.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
+
+
+<script type="text/javascript">
+    var myPlayer;
+	
+	var availableServerURLs = [
+		"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=&referrer={window.location.href}",
+		"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=",
+		"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
+	];
+	
+	currentServerURL = "";
+	var adIndex=0;
+	
+	bc('adsPlayer').ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: '',
+		requestMode: 'onload', 
+		timeout: 10000, 
+		debug: true,
+		hardTimeouts: false,
+		loadingSpinner: false,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			autoPlayAdBreaks: false,
+			numRedirects: 10
+		} 
+	});
+	
+	videojs("adsPlayer").on('posterchange',function(){
+		message.innerHTML += "*** poster image change triggered<br>";
+	});
+	
+	videojs("adsPlayer").on('ima3-ready',function(){
+		message.innerHTML += "*** ima3-ready triggered<br>";
+		/*
+		message.innerHTML += "*** Google IMA3 SDK version: " + google.ima.VERSION + "<br>";
+		message.innerHTML += "*** Brightcove IMA3 version: " + this.ima3.VERSION + "<br>";*/
+	});
+
+		
+	videojs("adsPlayer").ready( function() {
+		myPlayer= this;
+
+		myPlayer.ima3.adMacroReplacement = function(url){
+			currentServerURL = availableServerURLs[adIndex%3];
+			adIndex++;
+			message.innerHTML += "*** adMacroReplacement(): "+currentServerURL+"<br>";
+			return (currentServerURL);
+		};
+
+		myPlayer.on('loadstart',function(){
+			message.innerHTML += "*** loadstart triggered<br>";
+		});
+
+		myPlayer.on('ended',function(){
+			message.innerHTML += "END of video";
+			message.innerHTML += "*** ended triggered<br>--------------------------------------------<br>";
+		});
+		
+		myPlayer.on('loadedmetadata',function(){
+			message.innerHTML += "*** loadedmetadata triggered<br>";
+		});
+	
+		myPlayer.on('ads-request', function() { 
+			message.innerHTML += "*** ads-request done<br>";
+		});		
+		
+		myPlayer.on('ads-ad-started',function(){
+			message.innerHTML += "*** ads-ad-started triggered<br>";
+		});
+
+		myPlayer.on('ima3-ad-error',function(){
+			message.innerHTML += "*** ima3-ad-error triggered<br>";
+		});
+		
+		myPlayer.on('ads-ad-ended',function(){
+			message.innerHTML += "*** ads-ad-ended triggered<br>";
+		});
+		
+		myPlayer.on('adstart', function() {
+			message.innerHTML += "*** adstart triggered<br>";
+		});
+		
+		myPlayer.on('adend', function() {
+			message.innerHTML += "*** adend triggered<br>";
+		});
+
+		myPlayer.on('ads-load', function() { 
+			message.innerHTML += "*** ad loaded<br>";
+		});
+		
+	});
+</script>
+
+
+</body>
+</html>

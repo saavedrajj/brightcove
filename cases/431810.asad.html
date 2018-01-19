@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On play</title>
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2.19.0/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>IMA3 - Request Ads: On play</h1>
+<video 
+id="myPlayerID"
+data-video-id="5149347850001" 
+data-account="3936484236001" 
+data-player="H13SrRzYZ" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls 
+width="300" 
+height="150"></video>
+<script src="//players.brightcove.net/3936484236001/H13SrRzYZ_default/index.min.js"></script>
+<script type="text/javascript">
+	/* https://sites.google.com/a/brightcove.com/cs/playbooks/the-brightcove-player/advertising */
+
+
+	var myPlayer;
+	var player = bc('myPlayerID');
+	player.ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+		requestMode: 'onplay', 
+		timeout: 6000,
+		hardTimeouts: false,
+		loadingSpinner: false,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+
+	player.ready(function() {
+		myPlayer = this;
+	});
+
+</script>
+
+
+
+
+</div>
+</body>
+</html>

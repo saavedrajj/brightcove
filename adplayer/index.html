@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    /********************
+ * Custom Playlist  *
+ ********************/
+    /*style for the div that wraps the playlist*/
+    div.bcls-playlist-wrapper {
+        background-color: #141B17;
+        width: 640px;
+        max-height: 95px;
+        min-height: 82px;
+        line-height: 76px;
+        text-align: center;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        position: absolute;
+        top: 360px;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+    }
+    /*style for the divs that make up the playlist items*/
+    .bcls-playlist-item {
+        display: inline-block;
+        border: 2px solid #141B17;
+        padding: 0;
+        margin: 0;
+        height: 74px;
+        width: 124px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    /*style for the divs that make up the playlist item inner div */
+    .bcls-item-inner-div {
+        background-size: cover;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    /* mouse over style for items */
+    .bcls-playlist-item:hover {
+        border-color: #FF0000;
+    }
+    /*style for the thumbnail images*/
+    .bcls-title {
+        /*background-color: #141B17;*/
+        color: #fff;
+        z-index: 9999;
+        /*opacity: .8;*/
+        font-size: .7em;
+        font-family: sans-serif;
+        font-weight: bold;
+        max-width: 124px;
+        width: 124px;
+        height: 66px;
+        margin-top: 30%;
+        text-align: center;
+        cursor: pointer;
+    }
+
+</style>
+<link href="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.css" rel="stylesheet">
+<video id="dnibcplayer" data-account="1378939881"
+       data-player="HkTwuH1RZ"
+       data-embed="default"
+       data-application-id
+       class="video-js"
+       controls
+       width="600"
+       data-playlist-id="5460237314001"
+       height="300"></video>
+<script src="//players.brightcove.net/1378939881/HkTwuH1RZ_default/index.min.js"></script>
+<script type="text/javascript" src="//players.brightcove.net/videojs-freewheel/2/videojs-freewheel.min.js"></script>
+<script type="text/javascript" src="customplaylist.js"></script>
+
+
+<script>
+    var waitForBCPlayer = function() {
+        if(window.videojs) {
+            videojs("dnibcplayer").ready(function() {
+                this.tagAttributes['data-asset-ref'] = '{mediainfo.reference_id}';
+
+                var myPlayer =  this;
+                myPlayer.customPlaylist();
+
+
+                var config = {
+                    "adTechOrder":["html5","flash"],
+                    "prerollTimeout":50000,
+                    "timeout":50000,
+                    "debug":true,
+                    "Html5":{
+                        "networkId":48747,
+                        "profile":"48747:DiscoveryIntl_BrightcoveJS_secure",
+                        "sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.js",
+                        "serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+                        "siteSectionCustomId":"DISCOVERY_CHANNEL_FR_HOMEPAGE",
+                        "siteSectionFallbackId":6909578,
+                        "videoAssetFallbackId":"0",
+                        "keyValues":[
+                            {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"DISCOVERY_CHANNEL_FR_DEFAULT"}
+                        ],
+                        "videoAssetCustomId": '{mediainfo.reference_id}'
+                    },
+                    "Flash": {
+                        "networkId":48747,
+                        "profile":"48747:DiscoveryIntl_Brightcove_secure",
+                        "sdkurl":"https://mssl.fwmrm.net/p/DI_live/AdManager.swf",
+                        "serverUrl":"https://be6b.v.fwmrm.net/ad/g/1",
+                        "swfurl":"https://players.brightcove.net/videojs-freewheel/videojs.freewheel.swf",
+                        "siteSectionCustomId":"DISCOVERY_CHANNEL_FR_HOMEPAGE",
+                        "siteSectionFallbackId":6909578,
+                        "videoAssetFallbackId":"0",
+                        "keyValues":[
+                            {"flag":"2bamcb","inskin_yes":"true","_fw_fss":"DISCOVERY_CHANNEL_FR_DEFAULT"}
+                        ],
+                        "videoAssetCustomId": '{mediainfo.reference_id}'
+                    }
+                };
+
+                myPlayer.FreeWheelPlugin(config);
+
+/*
+
+                myPlayer.FreeWheelPlugin(
+                {
+                    "adTechOrder":["html5","flash"],
+                    "Html5":{
+                        "sdkurl":"https://mssl.fwmrm.net/p/sanoma_sbs_live/AdManager.js",
+                        "serverUrl":"https://7b935.v.fwmrm.net/ad/g/1",
+                        "profile":"506166:sanoma_sbs_ovp_js_live",
+                        "networkId":"506166",
+                        "siteSectionCustomId":"sbs_sbs6_desktop",
+                        "videoAssetCustomId":"849fClqNfIa"
+                    },
+                    "Flash":{
+                        "sdkurl":"https://mssl.fwmrm.net/p/sanoma_sbs_live/AdManager.swf",
+                        "serverUrl":"https://7b935.v.fwmrm.net/ad/g/1",
+                        "profile":"506166:sanoma_sbs_flash_live",
+                        "networkId":"506166",
+                        "siteSectionCustomId":"sbs_sbs6_desktop",
+                        "videoAssetCustomId":"849fClqNfIa",
+                        "swfurl":"https://players.brightcove.net/videojs-freewheel/2/videojs.freewheel.swf"
+                    }
+                });
+*/
+                //                                                                        AdOps.fw.initPlayer(this);
+            });
+        } else {
+            window.setTimeout(waitForBCPlayer, 100);
+        }
+    }
+    waitForBCPlayer();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- Magnific Popup core CSS file -->
+  <link rel="stylesheet" href="../includes/css/magnific-popup.css">
+
+  <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!-- Magnific Popup core JS file -->
+  <script src="../includes/js/jquery.magnific-popup.js"></script>
+  <style>
+    .vjs-big-play-button {
+      /*display:block!important;*/
+    }
+  </style>
+</head>
+<body>
+
+  <div class="example gc3">
+    <h3>Modal popup</h3>
+    <div class="html-code">
+      <a class="popup-modal" href="#test-modal">Open modal</a>
+      <div id="test-modal" class="mfp-hide white-popup-block">
+        <video 
+        id="myPlayerID"
+        data-video-id="5312289132001" 
+        data-account="1822790457001" 
+        data-player="default" 
+        data-embed="default" 
+        data-application-id 
+        class="video-js" 
+        controls 
+        width="1920" 
+        height="1080"></video>
+        <script src="//players.brightcove.net/1822790457001/default_default/index.min.js"></script>
+        <p><a class="popup-modal-dismiss" href="#">Dismiss</a></p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var myPlayer;
+      videojs("myPlayerID").ready(function(){
+        myPlayer = this;
+      });
+      $(function () {
+        $('.popup-modal').magnificPopup({
+          type: 'inline',
+          preloader: false,
+          focus: '#username',
+          modal: true
+        });
+        $(document).on('click', '.popup-modal-dismiss', function (e) {
+          e.preventDefault();
+          $.magnificPopup.close();
+          myPlayer.pause();
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>

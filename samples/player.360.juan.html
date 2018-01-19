@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>360 Video</title>
+    <style>
+        html, body { padding: 0; margin: 0; }
+    </style>
+</head>
+<body>
+    <div style="position: relative; display: block; max-width: 100%;"><div style="padding-top: 50%;">
+        <video
+            id="brightcovePlayer"
+            data-account="5458602755001" 
+            data-player="rJxYDPqZuZ" 
+            data-embed="default" 
+            data-application-id 
+            class="video-js" 
+            data-video-id="5580585699001"
+            controls playsinline
+            style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
+        </video>
+    </div></div>
+    <script src="//players.brightcove.net/5458602755001/rJxYDPqZuZ_default/index.min.js"></script>
+    <script type="text/javascript">
+        console.log("This demo uses a remote asset video hosted on Brightcodes to ensure playback despite https://bugs.webkit.org/show_bug.cgi?id=135379")
+        var player = bc('brightcovePlayer');
+        player.ready(function() {
+            player = this;
+            player.one("loadedmetadata", function(){
+                videojs.log("Projection=" + player.mediainfo.projection);
+            });
+        });
+    </script>
+</body>
+</html>

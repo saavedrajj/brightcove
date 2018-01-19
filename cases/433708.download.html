@@ -1,0 +1,33 @@
+<!--
+http://f1.media.brightcove.com/4/5458602755001/5458602755001_5520589932001_5520580668001.mp4?pubId=5458602755001&videoId=5520580668001
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5 Download Attribute</title>
+        <meta rel="description" content="Basic example of using HTML5 download attribute to force non-downloadable file to download by the browser.">
+        <link rel="stylesheet" href="http://tutsplus.github.io/download-attribute/css/style.css">
+        <script src="http://tutsplus.github.io/download-attribute/js/modernizr.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    <body>
+
+
+
+<span style="color: #0000ff;">
+<script>
+$( document ).ready(function() {    
+    var downloadDiv = $('#downloadLink');
+    downloadDiv.append($('<a>').attr('href', 'http://f1.media.brightcove.com/4/5458602755001/5458602755001_5520589932001_5520580668001.mp4?pubId=5458602755001&videoId=5520580668001').attr('download', 'Guitar_eBook.doc').text('Download my Guitar book'));
+    if (!('download' in downloadDiv.children('a:first').get(0))) {
+       downloadDiv.append(' (save the file as "Guitar_eBook.doc")'); 
+    }
+});
+ </script>
+<div id="downloadLink"></div></span><br>
+
+
+    </body>
+</html>

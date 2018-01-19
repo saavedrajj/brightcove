@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Title</title>
+
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<h2>Title</h2>   
+
+	<video 
+	id="adsPlayer" style="width:900px;height:508px;"
+	data-account="5458602755001"
+	data-player="default"
+	data-video-id="5520581834001"
+	data-embed="default"
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<script>
+		var myPlayer;
+		var adIndex=0;
+
+		videojs("adsPlayer").ready(function () {
+			myPlayer = this;
+
+			myPlayer.ima3({ 
+				adTechOrder: ['html5'],
+				requestMode: "onload", serverUrl: '', debug: false
+				 });
+			newTagUrl();
+			
+			myPlayer.on("play", function (event) {
+				console.log("MediaPlay");
+			});
+
+			myPlayer.on("ended", function (event) {
+				console.log("MediaEnded");
+				newTagUrl();
+			});
+		});
+
+		function newTagUrl() {
+			console.log('function newTagUrl')
+			var availableServerURLs = [
+			"http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}",
+			"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=",
+			"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
+			];
+
+			myPlayer.ima3.adMacroReplacement = function(url){
+				currentServerURL = availableServerURLs[adIndex%3];
+				adIndex++;
+				console.log('*** adMacroReplacement(): ' + currentServerURL);
+				return (currentServerURL);
+			};			
+		}
+
+		function playVideo(videoId) {
+			myPlayer.ima3.adsLoader.contentComplete(); 
+			myPlayer.catalog.getVideo(videoId, function (error, video) {
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+			});
+		}
+
+	</script>
+	<br/>
+
+	<input type="button" onclick="playVideo(5575865276001)" value="video 1" />
+	<input type="button" onclick="playVideo(5681745327001)" value="video 2" />
+	<input type="button" onclick="playVideo(5593073974001)" value="video 3" />	
+</body>
+</html>

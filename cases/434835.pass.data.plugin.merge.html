@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video 
+	id="myPlayer"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="BJxAdLhKDW" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+	<script src="http://127.0.0.1/brightcove/includes/js/pluginmerge.js"></script>
+	<script type="text/javascript">
+		var options = {"var1": "value1"};
+	</script>
+	<script>videojs('myPlayer').pluginmerge(options);</script>
+</body>
+</html>
+
+<!--
+	https://stackoverflow.com/questions/39841513/how-to-combine-two-array-objects-if-a-key-value-matches-in-both-arrays
+
+	-->

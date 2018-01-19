@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <style>
+    .video-js {
+      width: 960px;
+      height: 408px;
+    }
+  </style>
+</head>
+
+<body onload=addPlayer()>
+	
+  <div id="placeHolder"></div>
+
+  <button onclick="removePlayer()">Remove Player</button>
+
+  <script src="//players.brightcove.net/5458602755001/HyDD31IPb_default/index.min.js"></script>
+  <script type="text/javascript">
+    var myPlayer,
+    playerHTML,
+    playerData = {
+      'accountId': '5458602755001',
+      'playerId': 'HyDD31IPb',
+      'videoId': '5520580668001'
+    };
+
+    function addPlayer() {
+      /* dynamically build the player video element*/
+      playerHTML = '<video id=\"myPlayerID\" data-video-id=\"' + playerData.videoId + '\"  data-account=\"' + playerData.accountId + '\" data-player=\"' + playerData.playerId + '\" data-embed=\"default\" class=\"video-js\" controls></video>';
+      /* inject the player code into the DOM */
+      document.getElementById('placeHolder').innerHTML = playerHTML;
+      /* instantiate player */
+      bc(document.getElementById('myPlayerID'));
+      videojs('myPlayerID').ready(function(){
+        myPlayer = this;
+        console.log(myPlayer);     
+        myPlayer.play();
+      });
+    }
+
+    function removePlayer() {
+      myPlayer.dispose();
+      console.log(myPlayer);
+    }
+
+
+  </script>
+
+</body>
+</html>
