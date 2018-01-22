@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <style type="text/css">
+    
+    #myPlayerID, .vjs-playlist {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 0px !important;
+    }
+
+    ol, .vjs-playlist {
+      width: 300px;
+      height: 483px;
+      overflow: scroll;
+    }
+
+  </style>
+  <title>Looooong Playlist Test</title>
+</head>
+<body>
+
+<video id="myPlayerID"
+    data-account="4755935480001"
+    data-player="SkXlF3JBl"
+    data-embed="default"
+    width="1000" 
+    height="500" 
+    class="video-js" controls></video>
+  <ol class="vjs-playlist"></ol>
+  <script src="//players.brightcove.net/4755935480001/SkXlF3JBl_default/index.min.js"></script>
+
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
+
+<!--div style="position: relative; display: block; max-width: 480px;">
+  <div style="padding-top: 56.25%;">
+    <video data-account="4755935480001"
+      id="myPlayerID"
+      data-player="SkXlF3JBl" 
+      data-embed="default" 
+      data-application-id 
+      class="video-js" 
+      controls 
+      style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;">
+      
+    </video>
+  <ol class="vjs-playlist"></ol>  
+  <script src="//players.brightcove.net/4755935480001/SkXlF3JBl_default/index.min.js"></script></div></div -->
+
+
+
+
+  <script type="text/javascript">
+
+    videojs('myPlayerID').ready(function () {
+        var myPlayer = this;
+    
+        myPlayer.on("loadedmetadata", function() { 
+            message.innerHTML += "*** loadedmetadata triggered<br>";
+        });
+        
+        myPlayer.on("play", function() { 
+            message.innerHTML += "*** play triggered<br>";
+        });
+        
+        myPlayer.on("ended", function() { 
+            message.innerHTML += "*** ended triggered<br>";
+        }); 
+    
+    
+    $.ajax({
+          url: 'https://edge.api.brightcove.com/playback/v1/accounts/4755935480001/playlists/5374210431001?limit=100',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            var iMax = data.videos.length;
+            for (i = 0; i < iMax; i++) {
+                data.videos[i] = myPlayer.catalog.transformVideoResponse (data.videos[i], myPlayer);
+            }
+            myPlayer.playlist(data.videos);
+          },
+          beforeSend: setHeader
+        });
+    });
+
+    function setHeader(xhr) {
+        xhr.setRequestHeader('Accept', 'application/json;pk=BCpkADawqM2nRqBllCvMlAnnIwAV_bEL3Eq_E8sSBGX81ocvUEQdpZx2Dp5RklaIhu_Zy8pmaJyyF7s6MARn5USn2eT5sVX1nfIdqT5ncxSrw4VJQ-r7Hi-1deBfI3PrsAThLE6SOJkhVyhH');
+    }
+  </script>
+  
+  
+
+
+</body>
+</html>
+

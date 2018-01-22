@@ -31,6 +31,7 @@
 				adTechOrder: ['html5'],
 				requestMode: "onload", 
 				serverUrl: '', 
+				hardTimeouts: true,
 				timeout: 5000,
 				debug: false
 			});
@@ -44,7 +45,7 @@
 		});
 
 		function calculateNewTagUrl() {
-			var serverURL = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes";
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dredirecterror&correlator=";
 			myPlayer.ima3.adMacroReplacement = function(url){
 				log.innerHTML += "adMacroReplacement(): " + serverURL;	
 				return (serverURL);

@@ -1,79 +1,121 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>Title</title>
-
-
-	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
-
+	<meta charset="UTF-8">
+    <title>AdPlayer Test</title> 
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-	<h2>Title</h2>   
+<video style="width: 640px; height: 360px;"
+id="adsPlayer"
+data-playlist-id="5712771368001"
+data-account="5458602755001"
+data-player="r1TIqjgAW"
+data-embed="default"
+class="video-js"
+controls></video>
+<script src="//players.brightcove.net/5458602755001/r1TIqjgAW_default/index.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+<br>
+<p style="text-align: left; font-family: monospace"><b><u>MESSAGE LOG:</u></b></p>
+<p id="message"></p>
 
-	<video 
-	id="adsPlayer" style="width:900px;height:508px;"
-	data-account="5458602755001"
-	data-player="default"
-	data-video-id="5520581834001"
-	data-embed="default"
-	class="video-js" 
-	controls></video>
-	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
-	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
 
-	<script>
-		var myPlayer;
-		var adIndex=0;
+<script type="text/javascript">
+    var myPlayer;
+	
+	var availableServerURLs = [
+		"http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes"
+	];
+	
+	currentServerURL = "";
+	var adIndex=0;
+	
+	bc('adsPlayer').ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: '',
+		requestMode: 'onload', 
+		timeout: 10000, 
+		debug: true,
+		hardTimeouts: false,
+		loadingSpinner: false,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			autoPlayAdBreaks: false,
+			numRedirects: 10
+		} 
+	});
+	
+	videojs("adsPlayer").on('posterchange',function(){
+		message.innerHTML += "*** poster image change triggered<br>";
+	});
+	
+	videojs("adsPlayer").on('ima3-ready',function(){
+		message.innerHTML += "*** ima3-ready triggered<br>";
+		/*
+		message.innerHTML += "*** Google IMA3 SDK version: " + google.ima.VERSION + "<br>";
+		message.innerHTML += "*** Brightcove IMA3 version: " + this.ima3.VERSION + "<br>";*/
+	});
 
-		videojs("adsPlayer").ready(function () {
-			myPlayer = this;
+		
+	videojs("adsPlayer").ready( function() {
+		myPlayer= this;
 
-			myPlayer.ima3({ 
-				adTechOrder: ['html5'],
-				requestMode: "onload", serverUrl: '', debug: false
-				 });
-			newTagUrl();
-			
-			myPlayer.on("play", function (event) {
-				console.log("MediaPlay");
-			});
+		myPlayer.ima3.adMacroReplacement = function(url){
+			currentServerURL = availableServerURLs[adIndex%3];
+			adIndex++;
+			message.innerHTML += "*** adMacroReplacement(): "+currentServerURL+"<br>";
+			return (currentServerURL);
+		};
 
-			myPlayer.on("ended", function (event) {
-				console.log("MediaEnded");
-				newTagUrl();
-			});
+		myPlayer.on('loadstart',function(){
+			message.innerHTML += "*** loadstart triggered<br>";
 		});
 
-		function newTagUrl() {
-			console.log('function newTagUrl')
-			var availableServerURLs = [
-			"http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}",
-			"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=",
-			"https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
-			];
+		myPlayer.on('ended',function(){
+			message.innerHTML += "END of video";
+			message.innerHTML += "*** ended triggered<br>--------------------------------------------<br>";
+		});
+		
+		myPlayer.on('loadedmetadata',function(){
+			message.innerHTML += "*** loadedmetadata triggered<br>";
+		});
+	
+		myPlayer.on('ads-request', function() { 
+			message.innerHTML += "*** ads-request done<br>";
+		});		
+		
+		myPlayer.on('ads-ad-started',function(){
+			message.innerHTML += "*** ads-ad-started triggered<br>";
+		});
 
-			myPlayer.ima3.adMacroReplacement = function(url){
-				currentServerURL = availableServerURLs[adIndex%3];
-				adIndex++;
-				console.log('*** adMacroReplacement(): ' + currentServerURL);
-				return (currentServerURL);
-			};			
-		}
+		myPlayer.on('ima3-ad-error',function(){
+			message.innerHTML += "*** ima3-ad-error triggered<br>";
+		});
+		
+		myPlayer.on('ads-ad-ended',function(){
+			message.innerHTML += "*** ads-ad-ended triggered<br>";
+		});
+		
+		myPlayer.on('adstart', function() {
+			message.innerHTML += "*** adstart triggered<br>";
+		});
+		
+		myPlayer.on('adend', function() {
+			message.innerHTML += "*** adend triggered<br>";
+		});
 
-		function playVideo(videoId) {
-			myPlayer.ima3.adsLoader.contentComplete(); 
-			myPlayer.catalog.getVideo(videoId, function (error, video) {
-				myPlayer.catalog.load(video);
-				myPlayer.play();
-			});
-		}
+		myPlayer.on('ads-load', function() { 
+			message.innerHTML += "*** ad loaded<br>";
+		});
+		
+	});
+</script>
 
-	</script>
-	<br/>
 
-	<input type="button" onclick="playVideo(5575865276001)" value="video 1" />
-	<input type="button" onclick="playVideo(5681745327001)" value="video 2" />
-	<input type="button" onclick="playVideo(5593073974001)" value="video 3" />	
 </body>
 </html>
