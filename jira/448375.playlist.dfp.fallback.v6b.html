@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>AdPlayer Test</title> 
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<video style="width: 640px; height: 360px;"
+id="adsPlayer"
+data-playlist-id="5479927530001"
+data-account="5458602755001"
+data-player="r1TIqjgAW"
+data-embed="default"
+class="video-js"
+muted
+controls></video>
+<script src="//players.brightcove.net/5458602755001/r1TIqjgAW_default/index.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+<br>
+	<p>logs:</p>
+	<div id="log"></div>
+
+
+	<script>
+		var myPlayer;
+		var adIndex=0;
+
+		bc("adsPlayer").ready(function () {
+			myPlayer = this;
+
+			myPlayer.ima3({ 
+				adTechOrder: ['html5'],
+				requestMode: "onload", 
+				serverUrl: '', 
+				timeout: 5000,
+				debug: false
+			});
+
+			calculateNewTagUrl();
+			myPlayer.play();
+			myPlayer.on("ended", function (event) {
+				log.innerHTML += "<br>------------------ video ended ------------------<br>";				
+				calculateNewTagUrl();
+			});
+		});
+
+		function calculateNewTagUrl() {
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=1000x1&iu=%2F8484%2Fsi%2Fvideo_bc%2Fnfl_bc&gdfp_req=1&env=vp&output=xml_vast3&vid=5667253247001&description_url=https%3A%2F%2Fwww.si.com%2Fnfl%2Fvideo%2F2017%2F12%2F04%2Fchargers-win-third-straight-game-tied-chiefs%3Ftestads%3D56&cust_params=xid%3D%26aid%3D14006314%26cid%3D%26sentiment%3DVeryPositive%26ad_sponsored%3Dunknown%26play%3Dautoplay%26ad_count%3D1%26pos%3D1%26video_source%3D%26ttid%3D5667253247001%26ad_keys%3D%26plid%3Ddefault%26type%3Dprod%26frnch%3DSIUpbeat%26ad_tags%3D%26category%3D%26section%3DNFL%26tags%3D%26ch%3Dnfl%26sch%3D%26pub%3Dsi%26aid%3D14006314%26plat%3D%26test%3D56&unviewed_position_start=1&url=https%3A%2F%2Fwww.si.com%2Fnfl%2Fvideo%2F2017%2F12%2F04%2Fchargers-win-third-straight-game-tied-chiefs%3Ftestads%3D56&correlator=2475799024677040&eid=651800004&sdkv=h.3.188.1&sdki=3c0d&scor=4342905798174112&adk=679693874&u_so=l&osd=2&frm=0&sdr=1&is_amp=0&mpt=brightcove%2Fplayer-ht&mpv=2.20.3&afvsz=200x200%2C250x250%2C300x250%2C336x280%2C450x50%2C468x60%2C480x70%2C728x90&ciu_szs=101x1%7C970x90%7C970x66%7C970x250%7C728x90%2C300x600%7C300x250%7C160x600&ged=ve4_td9_tt1_pd9_la9000_er621.-9769.1069.1030_vi298.0.1419.1580_vp10_eb22123";
+			myPlayer.ima3.adMacroReplacement = function(url){
+				log.innerHTML += "adMacroReplacement(): " + serverURL;	
+				return (serverURL);
+			};	
+		}
+	</script>
+
+</body>
+</html>

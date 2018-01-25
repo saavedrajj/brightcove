@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
 
 <video style="width: 640px; height: 360px;"
 id="adsPlayer"
-data-playlist-id="5712771368001"
+data-playlist-id="5479927530001"
 data-account="5458602755001"
 data-player="r1TIqjgAW"
 data-embed="default"
@@ -48,7 +47,7 @@ controls></video>
 		});
 
 		function calculateNewTagUrl() {
-			var serverURL = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes";
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F5180%2Ftestiol%2Fvideo%2Famelie&ciu_szs&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=null&correlator=2511631930897850&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes&eid=495644008%2C651800002&sdkv=h.3.188.1&sdki=3c0d&scor=2013660714822259&adk=2847139343&u_so=l&osd=2&frm=0&sdr=1&is_amp=0&mpt=brightcove%2Fplayer-ht&mpv=2.20.3&afvsz=200x200%2C250x250%2C300x250%2C336x280%2C450x50%2C468x60%2C480x70&ged=ve4_td49_tt47_pd49_la1000_er8.-9991.368.648_vi0.0.856.664_vp6_ts21_eb22123.648_vi0.0.856.664_vp6_eb22123";
 			myPlayer.ima3.adMacroReplacement = function(url){
 				log.innerHTML += "adMacroReplacement(): " + serverURL;	
 				return (serverURL);
