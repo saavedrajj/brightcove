@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Working with Cue Points in the Media Module</title>
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>IMA3 - Request Ads: On cue point (Using code)</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5485749956001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+    var myPlayer;
+
+    var player = bc('myPlayerID');
+
+		player.ima3({  
+			adTechOrder: [
+			"html5"
+			],
+			timeout: 5000,
+			requestMode: "oncue",
+			vpaidMode: "ENABLED",
+			useMediaCuePoints: true,
+			serverUrl: "//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vast.xml"
+		});
+
+    player.ready(function() {
+      myPlayer = this;
+    });
+
+	</script>
+	
+</body>
+</html>
+
+

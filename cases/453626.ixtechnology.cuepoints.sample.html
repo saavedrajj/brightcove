@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VAST CuePoint</title>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<video 
+	data-video-id="5470397049001" 
+	data-account="4005328949001" 
+	data-player="r19XG5vhx" 
+	data-embed="default"
+	width="480"
+	height="360"
+	data-application-id 
+	class="video-js" 
+	controls 
+	loop autoplay></video>
+	<br/>
+	<script src="//players.brightcove.net/4005328949001/r19XG5vhx_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script>
+		var player = videojs('vjs_video_3');
+
+		player.ima3({  
+			timeout: 2000,
+			requestMode: "oncue",
+			debug: true,
+			adTechOrder: [
+			"html5"
+			],
+			vpaidMode: "ENABLED",
+			useMediaCuePoints: true,
+			serverUrl: "//solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vast.xml"
+		});
+
+
+
+
+	</script>
+</body>
+</html>

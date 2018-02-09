@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+	/*
+demo styles
+*/
+
+.player-container {
+	background-color: black;
+	float: left;
+	margin: 20px 20px 10px 0;
+	width: 500px;
+}
+
+.player-minimize .player-position {
+	background-color: white;
+	border-radius: 2px;
+	bottom: 20px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+	left: 20px;
+	padding: 7px;
+	position: fixed;
+	width: 300px;
+	z-index: 1;
+}
+
+/*
+overrides for developer site defaults (for presentation only, non-demo styles)
+*/
+
+.demo-single .demo-layout-content .jwplayer {
+	margin: 0;
+}
+
+.demo-layout-content {
+	text-align: left;
+}
+
+.demo-single .demo-layout-content h1 {
+	font-size: 56px;
+	font-weight: 500;
+}
+
+.demo-single .demo-layout-content h2 {
+	font-size: 32px;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-content p,
+.demo-single .demo-layout-content p + p {
+	margin-top: 20px;
+}
+
+.demo-single .demo-layout-vertical .demo-layout-code {
+	max-width: 900px;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	
+<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+
+<h1>Minimize + Float Player on Scroll</h1>
+
+<p>This demo resembles a long blog post with inline video content. Scroll down to see the demo and JavaScript code.</p>
+
+<div class="player-container">
+	<div class="player-position">
+		<div id="player"></div>
+	</div>
+</div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dui ex, suscipit eu ultrices et, congue nec quam. Sed ultricies bibendum quam at sollicitudin. Mauris ut dapibus sapien. Sed turpis mauris, cursus in enim ut, sodales tempus tortor. Donec varius aliquam massa. Donec fermentum pellentesque molestie. Integer varius porta vehicula. Etiam volutpat nibh et nisl malesuada, vel auctor tellus commodo. Aliquam quis pharetra diam. Aliquam efficitur molestie viverra. Curabitur eu vulputate odio. Praesent sollicitudin tincidunt rhoncus. Phasellus nunc metus, blandit quis arcu at, feugiat viverra lorem. Phasellus sollicitudin augue at tincidunt ullamcorper. Quisque non ipsum augue.</p>
+
+<p>Donec eget urna sit amet tellus varius efficitur ac sodales lorem. Nullam id elit eros. Etiam finibus nunc vel ante condimentum, eu ullamcorper lorem commodo. Maecenas pretium, nulla id iaculis convallis, lectus dui feugiat arcu, sit amet placerat augue turpis quis ante. Sed sit amet ornare dui. Ut maximus suscipit dictum. Fusce vitae justo tortor. Cras ac vestibulum augue, sed tristique felis. Nam tincidunt sapien velit, dignissim tempus justo laoreet in.</p>
+
+<p>Vivamus eleifend congue lectus, quis ullamcorper tortor accumsan non. Duis vitae mattis tortor. Nulla vitae odio enim. Praesent eu orci at elit venenatis luctus. Praesent at luctus mauris. Maecenas accumsan posuere varius. Suspendisse id vehicula mauris. Vestibulum id neque vitae dui lobortis eleifend non sed erat. Nunc posuere augue nec turpis ornare facilisis. Vivamus lectus justo, commodo sed molestie consequat, dictum sed est. Maecenas semper velit placerat ex finibus rhoncus. Duis nisi justo, pharetra ac ipsum ac, gravida venenatis risus. Praesent eu est ultrices, lobortis felis quis, volutpat augue. Mauris non varius lacus. Etiam pulvinar ornare lectus et tristique.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dui ex, suscipit eu ultrices et, congue nec quam. Sed ultricies bibendum quam at sollicitudin. Mauris ut dapibus sapien. Sed turpis mauris, cursus in enim ut, sodales tempus tortor. Donec varius aliquam massa. Donec fermentum pellentesque molestie. Integer varius porta vehicula. Etiam volutpat nibh et nisl malesuada, vel auctor tellus commodo. Aliquam quis pharetra diam. Aliquam efficitur molestie viverra. Curabitur eu vulputate odio. Praesent sollicitudin tincidunt rhoncus. Phasellus nunc metus, blandit quis arcu at, feugiat viverra lorem. Phasellus sollicitudin augue at tincidunt ullamcorper. Quisque non ipsum augue.</p>
+
+<p>Donec eget urna sit amet tellus varius efficitur ac sodales lorem. Nullam id elit eros. Etiam finibus nunc vel ante condimentum, eu ullamcorper lorem commodo. Maecenas pretium, nulla id iaculis convallis, lectus dui feugiat arcu, sit amet placerat augue turpis quis ante. Sed sit amet ornare dui. Ut maximus suscipit dictum. Fusce vitae justo tortor. Cras ac vestibulum augue, sed tristique felis. Nam tincidunt sapien velit, dignissim tempus justo laoreet in.</p>
+
+<p>Vivamus eleifend congue lectus, quis ullamcorper tortor accumsan non. Duis vitae mattis tortor. Nulla vitae odio enim. Praesent eu orci at elit venenatis luctus. Praesent at luctus mauris. Maecenas accumsan posuere varius. Suspendisse id vehicula mauris. Vestibulum id neque vitae dui lobortis eleifend non sed erat. Nunc posuere augue nec turpis ornare facilisis. Vivamus lectus justo, commodo sed molestie consequat, dictum sed est. Maecenas semper velit placerat ex finibus rhoncus. Duis nisi justo, pharetra ac ipsum ac, gravida venenatis risus. Praesent eu est ultrices, lobortis felis quis, volutpat augue. Mauris non varius lacus. Etiam pulvinar ornare lectus et tristique.</p>
+<script>
+	// initialize jwplayer
+var playerInstance = jwplayer('player');
+
+// player dom elements
+var playerContainerEl = document.querySelector('.player-container');
+
+// returns video player position from top of document
+function getElementOffsetTop(el) {
+  var boundingClientRect = el.getBoundingClientRect();
+  var bodyEl = document.body;
+  var docEl = document.documentElement;
+  var scrollTop = window.pageYOffset || docEl.scrollTop || bodyEl.scrollTop;
+  var clientTop = docEl.clientTop || bodyEl.clientTop || 0;
+  return Math.round(boundingClientRect.top + scrollTop - clientTop);
+}
+
+// returns the current y scroll position
+function getScrollTop() {
+  var docEl = document.documentElement;
+  return (window.pageYOffset || docEl.scrollTop) - (docEl.clientTop || 0);
+}
+
+// configure jwplayer instance
+playerInstance.setup({
+  autostart: true,
+  file: '//content.jwplatform.com/manifests/vM7nH0Kl.m3u8',
+  primary: 'html5',
+  setFullscreen: true,
+  width: '100%'
+});
+
+// when jwplayer instance is ready
+playerInstance.on('ready', function() {
+        var config = playerInstance.getConfig();
+        var utils = playerInstance.utils;
+        // get height of player element
+        var playerHeight = config.containerHeight;
+
+        // get player element position from top of document
+        var playerOffsetTop = getElementOffsetTop(playerContainerEl);
+
+        // set player container to match height of actual video element
+        // this prevents container from disappearing and changing element positions
+        // on page when player becomes minimized. this also leaves a nice visual
+        // placeholder space for minimized player to return to when appropriate
+        playerContainerEl.style.height = playerHeight + 'px';
+
+        // below we handle window scroll event without killing performance
+        // this is a minimal approach. please consider implementing something more extensive:
+        // i.e. http://joji.me/en-us/blog/how-to-develop-high-performance-onscroll-event
+
+        // determine player display when scroll event is called
+        // if inline player is no longer visible in viewport, add class
+        // .player-minimize to minimize and float. otherwise, remove the class to put
+        // player back to inline inline position
+        function onScrollViewHandler() {
+            var minimize = getScrollTop() >= playerOffsetTop;
+
+            utils.toggleClass(playerContainerEl, 'player-minimize', minimize);
+            // update the player's size so the controls are adjusted
+            playerInstance.resize();
+        }
+
+        // namespace for whether or not we are waiting for setTimeout() to finish
+        var isScrollTimeout = false;
+
+        // window onscroll event handler
+        window.onscroll = function() {
+            // skip if we're waiting on a scroll update timeout to finish
+            if (isScrollTimeout) return;
+            // flag that a new timeout will begin
+            isScrollTimeout = true;
+            // otherwise, call scroll event view handler
+            onScrollViewHandler();
+            // set new timeout
+            setTimeout(function() {
+                // reset timeout flag to false (no longer waiting)
+                isScrollTimeout = false;
+            }, 80);
+
+        };
+
+    });
+</script>
+</body>
+
+</html>

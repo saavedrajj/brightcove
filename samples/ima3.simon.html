@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brightcove Player - IMA3 Advertising</title>
+  <link rel="stylesheet" href="/simon/brightcodes.css" type="text/css" media="screen" charset="utf-8">
+  <style type="text/css">
+  	.video-js{
+	  	  width: 640px;
+	    	height: 360px;
+		}
+  </style>
+  <script type="text/javascript"> if (!window.console) console = {log: function() {}}; </script>
+</head>
+<body>
+<span class="meta">Brightcove Player</span>&nbsp;<span class="meta">Advertising</span>&nbsp;
+  <h1>Brightcove Player - IMA3 Advertising</h1>
+	<video
+		id="player"
+		data-account="1646517646001"
+		data-player="f9c76b35-ced3-4720-a9b6-fe72eb03711a"
+		data-embed="default"
+		data-video-id="3614790354001"
+		class="video-js" controls playsinline></video>
+	<script src="//players.brightcove.net/1646517646001/f9c76b35-ced3-4720-a9b6-fe72eb03711a_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<script type="text/JavaScript">
+		// Initialise player
+		var myPlayer;
+		var brightcovePlayer = bc('player');
+		// Set up advertising ASAP
+		// We're using a blank serverURL here because we want metadata from the video
+		brightcovePlayer.ima3({
+			serverUrl: "",
+			requestMode: "onplay",
+			debug: true,
+			adTechOrder: [
+    			"html5"
+  			]
+		});
+		// When the player's ready, let's get started
+		videojs('player').ready(function(){
+			myPlayer = this;
+			// Do stuff here!
+			myPlayer.one("loadedmetadata", function(){
+				// Now we have metadata, we can set up the ad with macros
+				myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator={timestamp}&title={mediainfo.name}&ID={mediainfo.id}&refID={mediainfo.reference_id}";
+			})
+		});
+	</script>
+	<br /><br /><br /><br /><br />
+	<script type="text/javascript" src="//cs1.brightcodes.net/simon/js/qrcode.js"></script>
+  	<span id="disclaimer">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</span>
+  </body>
+</html>

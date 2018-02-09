@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Overlay Plugin - Code</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">	
+	<link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">	
+	<style>
+	.video-js {
+		width:640px;
+		height:360px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+
+		<h1>Overlay Plugin</h1>
+
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5460105416001" 
+				data-account="5458602755001" 
+				data-player="rkHhaxpHW" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/rkHhaxpHW_default/index.min.js"></script>
+			</div>
+		</div>
+
+	</div>
+	<script src="//players.brightcove.net/5458602755001/rkHhaxpHW_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+	<script type="text/javascript">
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.overlay({
+				overlays: [
+				{
+					"start": 1,
+					"end": 3,
+					"content": "<a href='http://www.brightcove.com'><img src='http://solutions.brightcove.com/bcls/assets/images/brightcove-logo.png'></a>",
+					"align": "bottom-right"
+				},
+				{
+					"start": 3,
+					"end": 5,
+					"content": "top-left",
+					"align": "top-left"
+				},
+				{
+					"start": 5,
+					"end": 7,
+					"content": "top",
+					"align": "top"
+				},
+				{
+					"start": 7,
+					"end": 9,
+					"content": "top-right",
+					"align": "top-right"
+				},
+				{
+					"start": 9,
+					"end": 11,
+					"content": "right",
+					"align": "right"
+				},
+				{
+					"start": 11,
+					"end": 13,
+					"content": "bottom-right",
+					"align": "bottom-right"
+				},
+				{
+					"start": 13,
+					"end": 15,
+					"content": "bottom",
+					"align": "bottom"
+				},
+				{
+					"start": 15,
+					"end": 17,
+					"content": "bottom-left",
+					"align": "bottom-left"
+				},
+				{
+					"start": 17,
+					"end": 19,
+					"content": "left",
+					"align": "left"
+				}
+				]
+			});
+		});
+	</script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>	
+</body>
+</html>
