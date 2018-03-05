@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<video 
+	id="myPlayerID" 
+	data-account="5458602755001"
+	data-player="default"
+	data-video-id="5575865276001"
+	data-embed="default"
+	class="video-js">	
+</video>
+<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+
+<script>
+	var player = bc('myPlayerID');
+		function playVideo(id) {
+			var id;
+			player.catalog.getVideo(id, function (error, video) {
+				player.catalog.load(video);	
+				player.play();
+			});
+		}
+	</script>
+	<br/>
+	<input type="button" onclick="playVideo(5575865276001)" value="Play Video 1" />
+	<input type="button" onclick="playVideo(5622000782001)" value="Play Video 2" />
+	<input type="button" onclick="playVideo(5515555595001)" value="Play Video 3" />	
+</body>
+</html>

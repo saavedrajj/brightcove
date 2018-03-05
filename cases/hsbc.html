@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+	.video-js {
+		height: 360px; 
+		width: 640px;
+	}
+</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5700447730001" 
+	data-account="1311491902001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/1311491902001/default_default/index.min.js"></script>
+
+<p id="message"></p>
+
+<script>
+	 videojs("myPlayerID").ready(function() { 
+            var myPlayer = this;
+
+            myPlayer.on(["play", "pause"],function(event){
+                message.innerHTML += "BC Player event: " + event.type + "<br/>";    
+            });
+ });
+</script>
+
+</body>
+</html>

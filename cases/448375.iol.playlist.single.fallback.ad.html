@@ -1,57 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>IOL Playlist</title>
-	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>AdPlayer Test</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
 </head>
+
 <body>
-	<h2>IOL Playlist</h2>   
-	<video 
-	id="adsPlayer" style="width:900px;height:508px;"
-	data-account="4626510591001"
-	data-player="B1MFbOBfz"
-	data-video-id="4670023171001"
-	data-embed="default"
-	class="video-js" 
-	controls></video>
-	<script src="//players.brightcove.net/4626510591001/B1MFbOBfz_default/index.js"></script>
-	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+    <video style="width: 640px; height: 360px;" id="adsPlayer" data-playlist-id="5479927530001" data-account="5458602755001"
+        data-player="r1TIqjgAW" data-embed="default" class="video-js" controls></video>
+    <script src="//players.brightcove.net/5458602755001/r1TIqjgAW_default/index.js"></script>
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+    <br>
+    <p>logs:</p>
+    <div id="log"></div>
 
-	<p>logs:</p>
-	<div id="log"></div>
+    <script>
+        var myPlayer = bc("adsPlayer");
+        var adIndex = 0;
 
-	<script>
-		var myPlayer;
-		var adIndex=0;
+        myPlayer.ima3({
+            adTechOrder: ['html5'],
+            requestMode: "onload",
+            serverUrl: '',
+            timeout: 5000,
+            debug: false,
+            vpaidMode: 'INSECURE'
+        });
 
-		bc("adsPlayer").ready(function () {
-			myPlayer = this;
+        myPlayer.ready(function () {
+            calculateNewTagUrl();
+            myPlayer.play();
+            myPlayer.on("ended", function (event) {
+                log.innerHTML += "<br>------------------ video ended ------------------<br>";
+                calculateNewTagUrl();
+            });
+        });
 
-			myPlayer.ima3({ 
-				adTechOrder: ['html5'],
-				requestMode: "onload", 
-				serverUrl: '', 
-				timeout: 5000,
-				debug: false
-			});
-
-			calculateNewTagUrl();
-			myPlayer.play();
-			myPlayer.on("ended", function (event) {
-				log.innerHTML += "<br>------------------ video ended ------------------<br>";				
-				calculateNewTagUrl();
-			});
-		});
-
-		function calculateNewTagUrl() {
-			var serverURL = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes";
-			myPlayer.ima3.adMacroReplacement = function(url){
-				log.innerHTML += "adMacroReplacement(): " + serverURL;	
-				return (serverURL);
-			};	
-		}
-	</script>
-	<br/>
+        function calculateNewTagUrl() {
+            var serverURL =
+                "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=i.plug.it&cust_params=player%3Dhtml%26%26fbvtkn%3Dundefined%26trueview%3Dyes";
+            myPlayer.ima3.adMacroReplacement = function (url) {
+                log.innerHTML += "adMacroReplacement(): " + serverURL;
+                return (serverURL);
+            };
+        }
+    </script>
 
 </body>
+
 </html>

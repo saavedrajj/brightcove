@@ -24,6 +24,20 @@
                 <script src="//players.brightcove.net/5458602755001/rJxYDPqZuZ_default/index.min.js"></script>
             </div>
         </div>
+
+
+
+   <script type="text/javascript">
+        console.log("This demo uses a remote asset video hosted on Brightcodes to ensure playback despite https://bugs.webkit.org/show_bug.cgi?id=135379")
+        var player = bc('myPlayerID');
+        player.ready(function() {
+            player = this;
+            player.one("loadedmetadata", function(){
+                videojs.log("Projection=" + player.mediainfo.projection);
+            });
+        });
+    </script>
+        
         <ul>
             <li><a href="https://support.brightcove.com/working-360-degree-videos" target="_blank">Working with 360-Degree Videos</a></li>
         </ul>

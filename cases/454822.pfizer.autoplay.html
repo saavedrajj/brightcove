@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video id="myPlayerID" 
+	data-account="1852113022001" 
+	data-player="HJFyDH5Te" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	playsinline 
+	autoplay controls> 
+</video> 
+
+<script src="//players.brightcove.net/1852113022001/HJFyDH5Te_default/index.min.js"></script> 
+
+<script type="application/javascript"> 
+	videojs('myPlayerID').ready(function () { 
+		var myPlayer = this; 
+		myPlayer.catalog.getPlaylist('5656531358001', function (error, playlist) { 
+			myPlayer.catalog.load(playlist); 
+		}); 
+		myPlayer.playlist.autoadvance(0); 
+
+/////////////////////////////////////////////// 
+// This code Handles the playlist restart 
+/////////////////////////////////////////////// 
+myPlayer.on("ended", function() { 
+	console.log("*** ended"); 
+	if(myPlayer.playlist.currentItem() === myPlayer.playlist.length) { 
+		console.log("*** last ended"); 
+		myPlayer.controlBar.playToggle.one("click", function() { 
+			console.log("*** Play clicked"); 
+			myPlayer.pause(); 
+			myPlayer.playlist.currentItem(0); 
+			myPlayer.play(); 
+		});	
+	} 
+}); 
+
+
+}); 
+</script> 
+</body>
+</html>
+
+<!-----
+
+	4109926315001
+	---->

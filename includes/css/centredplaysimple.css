@@ -1,0 +1,32 @@
+/* Centered, rounded big play button that displays on pause */
+.video-js.video-js .vjs-big-play-button {
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background: initial;
+}
+
+.video-js.video-js .vjs-big-play-button::before {
+  font-size: 60px;
+  line-height: 10px;
+  width: 50px;
+}
+
+/* Shadow on big play button */
+.video-js.video-js .vjs-big-play-button::before {
+  text-shadow: 0 0 6px black;
+}
+
+/*Hide default shadow effect on hover, become more solid instead*/
+.video-js.video-js .vjs-big-play-button:focus,
+.video-js.video-js .vjs-big-play-button:hover {
+   box-shadow: none;
+}
+.video-js.video-js .vjs-big-play-button:focus::before,
+.video-js.video-js .vjs-big-play-button:hover::before {
+   opacity: 1;
+}

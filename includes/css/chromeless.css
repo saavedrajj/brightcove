@@ -1,0 +1,114 @@
+/*
+Resets the control behaviour to remain in position and fade in/out
+rather than minimise on inactivity.
+*/
+
+/*
+This version has no background to the bar which is a nice clean effect
+but won't look good over light video - remove the next section to undo.
+*/
+/*Remove bgcolor and top line from control bar*/
+.video-js.video-js .vjs-control-bar {
+  border-top: none;
+  background-color: initial;
+}
+/*Progress colour */
+.video-js.video-js .vjs-play-progress,
+.video-js.video-js .vjs-volume-level {
+  background-color: #fff;
+}
+/* Rectangular volume handle */
+.video-js.video-js .vjs-volume-handle {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  width: 3px;
+  margin-top: -6px;
+  height: 9px;
+}
+/* Clear volume menu background */
+.video-js.video-js .vjs-menu-content {
+  background: initial;
+}
+/*Hide default shadow effect on hover, Become more solid instead*/
+.video-js.video-js .vjs-control:focus:before,
+.video-js.video-js .vjs-control:hover:before,
+.video-js.video-js .vjs-menu-item:focus,
+.video-js.video-js .vjs-menu-item:hover {
+  text-shadow: none;
+  opacity: 1;
+}
+.video-js.video-js .vjs-big-play-button:focus,
+.video-js.video-js .vjs-big-play-button:hover,
+.video-js.video-js .vjs-progress-holder:focus:before {
+  box-shadow: none;
+}
+/* Default to transparent / hidden */
+.video-js.video-js .vjs-control,
+.video-js.video-js .vjs-control-bar,
+.video-js.video-js .vjs-progress-control,
+.video-js.video-js .vjs-time-divider {
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+/* Show on play (until inactive) */
+.video-js.video-js.vjs-has-started .vjs-control,
+.video-js.video-js.vjs-has-started .vjs-control-bar,
+.video-js.video-js.vjs-has-started .vjs-progress-control,
+.video-js.video-js.vjs-has-started .vjs-time-divider {
+  opacity:1;
+}
+/* Hide on inactive, override and set transition */
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-control,
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-control-bar,
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-control-bar .vjs-progress-control,
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-time-divider {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 0;
+}
+/* Show when paused */
+.video-js.video-js.vjs-has-started.vjs-paused .vjs-control,
+.video-js.video-js.vjs-has-started.vjs-paused .vjs-control-bar,
+.video-js.video-js.vjs-has-started.vjs-paused .vjs-control-bar .vjs-progress-control,
+.video-js.video-js.vjs-user-active .vjs-control-bar .vjs-progress-control,
+.video-js.video-js.vjs-has-started.vjs-paused .vjs-control-bar .vjs-time-divider,
+.video-js.video-js.vjs-user-active .vjs-control-bar .vjs-time-divider {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity:1;
+}
+/* Don't squish width on inactive - or leave for a woosh off to side effect */
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-control {
+  width: 48px;
+}
+.video-js.video-js.vjs-has-started.vjs-user-inactive .vjs-time-divider {
+  width: 4px;
+}
+
+/* Better align progress bar and holder */
+.video-js.video-js .vjs-progress-holder:before {
+  margin-top: -2px;
+}
+
+/* Background gradient for control bar */
+.video-js.video-js .vjs-control-bar {
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+}
+
+/* Remove share button radius */
+.video-js.video-js .vjs-share-control {
+  border-radius: 0;
+}
