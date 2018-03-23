@@ -36,7 +36,7 @@
 
 /*
 			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinearvpaid2js&correlator=',
-*/
+			*/
 			requestMode: 'onload', 
 			timeout: 6000, 
 			hardTimeouts: false,
@@ -55,11 +55,11 @@
 
 		window.onresize = function(){
 			player.dimensions('100%','100%');
-			/*player.widht('100%');
-			player.height('100%');		*/
+			player.ima3.adsManager.resize(player.currentWidth(), player.currentHeight(), google.ima.ViewMode.NORMAL);
 		}
 		window.ondeviceorientationabsolute = function(){
-			player.dimensions('100%','100%');				
+			player.dimensions('100%','100%');	
+			player.ima3.adsManager.resize(player.currentWidth(), player.currentHeight(), google.ima.ViewMode.NORMAL);					
 		}
 
 	</script>

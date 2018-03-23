@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Fixed Player v6</title>
 	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
-	<style>
-	.video-js {
-
-	}
-</style>
 </head>
 <body>
-	<h1>Fixed Player</h1>
+	<h1>Fixed Player v6</h1>
 	<video 
 	id="myPlayerID"
 	data-video-id="ref:promo01" 
@@ -24,16 +19,10 @@
 	style=""></video>
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>	
-	<p><span>dimensions()</span>
+	<p>
 		<button onclick="changeVideoSize(1)">640 x 360</button>						
 		<button onclick="changeVideoSize(2)">960 x 540</button>
 		<button onclick="changeVideoSize(3)">1280 x 720</button>
-	</p>
-
-	<p><span>width()/height()</span>
-		<button onclick="changeVideoSize(4)">640 x 360</button>						
-		<button onclick="changeVideoSize(5)">960 x 540</button>
-		<button onclick="changeVideoSize(6)">1280 x 720</button>
 	</p>
 
 	<script>
@@ -56,32 +45,22 @@
 
 		player.ready(function() {
 			myPlayer = this;
-			console.log('ready!!!');
 		});
-
 
 		function changeVideoSize(i) {
 			var i;
-			if (i==1) {
-				player.width(640);
-				player.height(360);	
-			}
+			console.log(i);
+			if (i==1) { 
+				player.dimensions(640,360);
+				player.ima3.adsManager.resize(player.currentWidth(), player.currentHeight(), google.ima.ViewMode.NORMAL);				
+			}		
 			if (i==2) { 
-				player.width(960);
-				player.height(540);	
+				player.dimensions(960,540);	
+				player.ima3.adsManager.resize(player.currentWidth(), player.currentHeight(), google.ima.ViewMode.NORMAL);									
 			}
 			if (i==3) { 
-				player.width(1280);
-				player.height(720);	
-			}
-			if (i==4) { 
-				player.dimensions(640,360);		
-			}		
-			if (i==5) { 
-				player.dimensions(960,540);		
-			}
-			if (i==6) { 
-				player.dimensions(1280,720);		
+				player.dimensions(1280,720);
+				player.ima3.adsManager.resize(player.currentWidth(), player.currentHeight(), google.ima.ViewMode.NORMAL);							
 			}			
 		}
 	</script>

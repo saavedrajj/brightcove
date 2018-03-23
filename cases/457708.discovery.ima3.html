@@ -1,0 +1,32 @@
+<!doctype html> 
+<html> 
+<head> 
+	<meta charset="UTF-8"> 
+	<title>Untitled Document</title> 
+	<style> 
+	.video-js { 
+		height: 344px; 
+		width: 610px; 
+	} 
+</style> 
+
+</head> 
+<body> 
+	<video id="myPlayerID" 
+	data-video-id="5738378550001" 
+	data-account="1378939881" 
+	data-player="ryebqDwHKf" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video> 
+	<script src="http://players.brightcove.net/1378939881/ryebqDwHKf_default/index.min.js"></script> 
+
+		<script>
+		var player = bc('myPlayerID');
+		player.on('loadedmeta', function(){
+			player.ima3.settings.serverUrl = "http://dni-adops-proxy.com/v1/telia/live?duration=120&userId=23412313&programId=SE1475005103527&channelId=TV4&deviceType=ipad&os=ios&sceeenSize=1920x1080&geolocation=46.246.1.188";
+		});
+	</script>
+</body> 
+</html> 

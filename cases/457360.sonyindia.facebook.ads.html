@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook Ads audio</title>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">    
+
+</head>
+<body>
+	<h1>Facebook Ads audio</h1>
+	<div style="position: relative; display: block; max-width: 100%;">
+		<div style="padding-top: 56.25%;">
+			<video 
+			id="myPlayerID"
+			data-video-id="ref:5524500267001"
+			data-account="5182475815001"
+			data-player="S1XJ5Tfez"
+			data-embed="default" 
+			data-application-id 
+			class="video-js" 
+			controls
+			style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+			<script src="//players.brightcove.net/5182475815001/S1XJ5Tfez_default/index.min.js"></script>
+		</div>
+	</div>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+	<script type="text/JavaScript"> 
+		var myPlayer;
+
+		/* Set ad URL */
+		var adURL = "https://an.facebook.com/v1/instream/vast.xml?placementid=204227333267243_412366215786686&pageurl=http://www.sonyliv.com/";
+
+		/* Brightcove Player initialisation */ 
+		var player = bc('myPlayerID');
+		/* IMA3 Plugin initialisation */ 
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],		
+			serverUrl: adURL,
+			debug: false,   
+			requestMode: 'onload', 
+			timeout: 5000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+		checkAdURL(adURL);
+
+		if (checkAdURL==true) {
+			player.ima3.settings.vpaidMode = "INSECURE";
+		}
+		else {			
+			player.ima3.settings.vpaidMode = "ENABLED";				
+		}
+
+		bc("myPlayerID").ready(function() { 
+			var myPlayer = this;
+		});
+
+		function checkAdURL(serverURL) {
+			var serverURL;
+			if (serverURL.includes('an.facebook.com')) {
+				return true;
+			} else {
+				return false;
+			}
+		} 
+
+
+	</script> 
+</body>
+</html>

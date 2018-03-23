@@ -4,11 +4,6 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
-	<style>
-	.video-js {
-
-	}
-</style>
 </head>
 <body>
 	<h1>Fixed Player</h1>
@@ -24,18 +19,11 @@
 	style=""></video>
 	<script src="//players.brightcove.net/5458602755001/SyZOU3FDW_default/index.min.js"></script>
 	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>	
-	<p><span>dimensions()</span>
+	<p>
 		<button onclick="changeVideoSize(1)">640 x 360</button>						
 		<button onclick="changeVideoSize(2)">960 x 540</button>
 		<button onclick="changeVideoSize(3)">1280 x 720</button>
 	</p>
-
-	<p><span>width()/height()</span>
-		<button onclick="changeVideoSize(4)">640 x 360</button>						
-		<button onclick="changeVideoSize(5)">960 x 540</button>
-		<button onclick="changeVideoSize(6)">1280 x 720</button>
-	</p>
-
 	<script>
 		var myPlayer;
 		var player = bc('myPlayerID');
@@ -59,28 +47,15 @@
 			console.log('ready!!!');
 		});
 
-
 		function changeVideoSize(i) {
 			var i;
-			if (i==1) {
-				player.width(640);
-				player.height(360);	
-			}
-			if (i==2) { 
-				player.width(960);
-				player.height(540);	
-			}
-			if (i==3) { 
-				player.width(1280);
-				player.height(720);	
-			}
-			if (i==4) { 
+			if (i==1) { 
 				player.dimensions(640,360);		
 			}		
-			if (i==5) { 
+			if (i==2) { 
 				player.dimensions(960,540);		
 			}
-			if (i==6) { 
+			if (i==3) { 
 				player.dimensions(1280,720);		
 			}			
 		}

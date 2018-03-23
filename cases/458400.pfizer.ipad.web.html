@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:dc="http://purl.org/dc/terms/" xmlns:og="http://ogp.me/ns#" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:product="http://ogp.me/ns/product#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#">
+<head>
+	<meta name="google-site-verification" content="MaW-BKcAiQtrZyOqtswB424JND39zmhRHRhleQPZl8M" />
+	<meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-106411408-2", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+	<meta name="title" content="The Erectile Dysfunction (ED) Conversation" />
+	<meta name="description" content="Pharmacists can watch these animations of experts managing the ED conversation to help understand how to better counsel men with the condition." />
+	<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+	<meta name="MobileOptimized" content="width" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script>  var pfConfig = {
+		mode: 'prod',
+		reportSuites: {
+			dev: 'pfizerukhcpdevviagradirect',
+			prod: 'pfizerukhcpprodviagradirect'
+		},
+		domains: {
+			dev: '',
+			prod: ''
+		},
+		siteSection: {
+			prefix: '',
+			delimiter: '>'
+		},
+		pageName: {
+			base: '',
+			prefix: '',
+			delimiter: '>',
+			homePage: ''
+		},
+	};</script>
+	<link rel="canonical" href="/the-erectile-dysfunction-ed-conversation" />
+	<link rel="shortlink" href="/node/11" />
+	<link rel="revision" href="/the-erectile-dysfunction-ed-conversation" />
+	<link rel="create" href="/node?node=11" />
+
+	<title>The Erectile Dysfunction (ED) Conversation</title>
+	<link rel="stylesheet" href="https://hcp.viagraconnect.co.uk/sites/default/files/css/css_-gG6PcNMiLRnBxqGdPgyheKdeO_DLU9XCdEdIbH3nOo.css?p5n0lt" media="all" />
+	<link rel="stylesheet" href="https://cookies.pfizer.com/sites/default/files/websites/uk---viagraconnect-co-uk-en.css" media="all" />
+	<link rel="stylesheet" href="https://hcp.viagraconnect.co.uk/sites/default/files/css/css_dIvuFhCX-g-S4OjjnGzdL8OfiDKaqaPwHRhwfPht2Cg.css?p5n0lt" media="all" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" media="all" />
+
+
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+<script src="/modules/pfizer/pfizer_analytics/js/urlconfig.js?v=1.x"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/themes/pfizer/pfizer_viagra_theme/prototype/dist/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/themes/pfizer/pfizer_viagra_theme/prototype/dist/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/themes/pfizer/pfizer_viagra_theme/prototype/dist/img/favicon-16x16.png">
+<link rel="manifest" href="/themes/pfizer/pfizer_viagra_theme/prototype/dist/img/site.webmanifest">
+<link rel="mask-icon" href="/themes/pfizer/pfizer_viagra_theme/prototype/dist/img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#ffffff">
+<script type="text/javascript" src="/modules/contrib/seckit/js/seckit.document_write.js"></script>
+<link type="text/css" rel="stylesheet" id="seckit-clickjacking-no-body" media="all" href="/modules/contrib/seckit/css/seckit.no_body.css" />
+<!-- stop SecKit protection -->
+<noscript>
+	<link type="text/css" rel="stylesheet" id="seckit-clickjacking-noscript-tag" media="all" href="/modules/contrib/seckit/css/seckit.noscript_tag.css" />
+	<div id="seckit-noscript-tag">
+		Sorry, you need to enable JavaScript to visit this website.
+	</div>
+</noscript></head>
+<body class="workspace-live path-node page-node-type-media-page">
+
+	<div class="main-layer ">
+
+		<div class="overlay">
+			<div class="overlay-wrapper"></div>
+		</div>
+		<div class="popup welcome-popup">
+			<div class="references-popup-body">
+				<h3> Welcome to the VIAGRA Connect<sup>®</sup> UK site for healthcare professionals. </h3>
+				<p>Within this site you can access information about VIAGRA Connect<sup>®</sup> 50 mg film-coated tablets (sildenafil). The information contained on this site is reserved exclusively for healthcare professionals resident in the UK.</p>
+				<div class="checkbox-wrapper">
+					<input required class="policy-check" type="checkbox" id="confirm1" />
+					<label for="confirm1">I confirm that I am a healthcare professional resident in the UK</label>
+				</div>
+				<div class="checkbox-wrapper">
+					<input required class="policy-check" type="checkbox" id="confirm2" />
+					<label for="confirm2">I accept and agree to the <a target="_blank" href="/website-terms-of-use">Terms of Use</a> and <a target="_blank" href="/content/website-cookie-and-privacy-policy">Privacy Policy</a></label>
+				</div>
+				<div class="popup-row">
+					<div class="link-wrapper">
+						<button class="back-button confirm-button disable">Confirm</button>
+					</div>
+					<div class="link-wrapper">
+						<a href="https://viagraconnect.co.uk" class="consumer-site-link">» I am not a healthcare professional </a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper">
+			<header>
+				<div class="head-wrapper">
+					<div class="container sticky-wrapper">
+						<div class="language-switcher-wrapper">
+
+							<ul>
+								<li>
+									<a href="https://www.medicines.org.uk/emc/product/8725" class="arrow-link">Summary of Product Characteristics</a>
+								</li>
+								<li>
+									<a href="https://www.viagraconnect.co.uk/" class="head-link">Viagra Connect Consumer Website</a>
+								</li>
+							</ul>
+
+
+
+
+
+						</div>
+					</div>
+					<div class="header-row">
+						<div class="logo-container">
+							<div class="container">
+								<div class="logo">
+									<a href="/" title="Home"  id="block-sitelogo" class="logo-link-wrapper" rel="home">
+
+										<img src="https://hcp.viagraconnect.co.uk/sites/default/files/2018-01/VIAGRA-Connect-Logo_0.png" width="339" height="120" alt="VIAGRA Connect Logo" />
+
+
+
+									</a>
+
+
+									<span class="menu-switcher">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</span>
+								</div>
+								<div class="search-menu-wrapper">
+									<nav class="head-menu">
+
+										<ul>
+											<li>
+												<span data-drupal-link-system-path="&lt;front&gt;">Pharmacy Supply Tools</span>
+												<span class="next-level"></span>
+												<ul>
+													<li>
+														<a href="/essential-information-for-supply" data-drupal-link-system-path="node/26">Essential Supply Information</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/viagra-connect-checklist" data-drupal-link-system-path="node/56">VIAGRA Connect Checklist</a>
+														<span class="icon-angle-right"></span>
+													</li>
+												</ul>
+
+											</li>
+											<li>
+												<span data-drupal-link-system-path="&lt;front&gt;">Pharmacy Training</span>
+												<span class="next-level"></span>
+												<ul>
+													<li>
+														<a href="/pharmacy-training-guide-0" data-drupal-link-system-path="node/586">Pharmacy Training Guide</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/supply-scenarios" data-drupal-link-system-path="node/16">Supply Scenarios</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/the-erectile-dysfunction-ed-conversation" data-drupal-link-system-path="node/11" class="is-active">The ED Conversation</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/patient-referrals" data-drupal-link-system-path="node/81">Patient Referrals</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/repeat-supply" data-drupal-link-system-path="node/21">Repeat Supply</a>
+														<span class="icon-angle-right"></span>
+													</li>
+												</ul>
+
+											</li>
+											<li>
+												<span data-drupal-link-system-path="&lt;front&gt;">Doctor Information</span>
+												<span class="next-level"></span>
+												<ul>
+													<li>
+														<a href="/managing-pharmacist-referrals" data-drupal-link-system-path="node/91">Managing Pharmacist Referrals</a>
+														<span class="icon-angle-right"></span>
+													</li>
+												</ul>
+
+											</li>
+											<li>
+												<span data-drupal-link-system-path="&lt;front&gt;">Resource Centre</span>
+												<span class="next-level"></span>
+												<ul>
+													<li>
+														<a href="/patient-referrals" data-drupal-link-system-path="node/81">Patient Referrals</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/repeat-supply" data-drupal-link-system-path="node/21">Repeat Supply</a>
+														<span class="icon-angle-right"></span>
+													</li>
+													<li>
+														<a href="/pharmacy-assistant-support" data-drupal-link-system-path="node/71">Pharmacy Assistant Support</a>
+														<span class="icon-angle-right"></span>
+													</li>
+												</ul>
+
+											</li>
+										</ul>
+
+
+
+									</nav>
+									<div  class="viagra-search-form search-wrapper" data-drupal-selector="viagra-search-form" id="block-searchformblock">
+
+
+										<form action="/search" method="get" id="viagra-search-form" accept-charset="UTF-8">
+											<div class="icon-search search-toggle"></div><div class="search-field-wrapper"><div class="js-form-item form-item js-form-type-search-api-autocomplete form-item-search-api-fulltext js-form-item-search-api-fulltext form-no-label">
+												<input data-drupal-selector="edit-keys" data-search-api-autocomplete-search="search_view" class="form-autocomplete form-text" data-autocomplete-path="/search_api_autocomplete/search_view" type="text" id="edit-keys" name="search_api_fulltext" value="" size="60" maxlength="128" placeholder="Search..." />
+
+											</div>
+											<button class="icon-angle-right" type="submit"></button></div>
+										</form>
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</header>
+
+
+
+
+
+			<article role="article">
+
+				<div class="video-page-wrapper">
+					<div class="container">
+						<div class="left-column">
+							<h1><span>The Erectile Dysfunction (ED) Conversation</span>
+							</h1>
+							<p class="sub-title">
+								Watch and learn how experts manage the ED conversation
+							</p>
+						</div>
+						<div class="right-column">
+							<div class="img-container">
+
+								<img src="https://hcp.viagraconnect.co.uk/sites/default/files/2017-09/img12_10_12_0_0_0_0_0_0_3.png" width="792" height="452" alt="THE ERECTILE DYSFUNCTION (ED) CONVERSATION  " />
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+
+
+
+					<div class="paragraph paragraph-type-standard paragraph--type--text paragraph--view-mode--default">
+
+						<p class="MsoNormal"><span lang="EN-GB" style="mso-ansi-language:EN-GB" xml:lang="EN-GB">The launch of VIAGRA Connect as a pharmacy medicine should make it easier for men with ED to seek help at an earlier stage of their treatment journey.</span></p><p class="MsoNormal" style="margin-top:12.0pt;page-break-after:avoid"><span style="mso-ascii-font-family:Calibri;mso-fareast-font-family:&quot;Times New Roman&quot;;&#10;mso-hansi-font-family:Calibri;mso-bidi-font-family:&quot;Times New Roman&quot;">The impact of ED on an individual and his partner can be considerable, as the ability to have an erection is important to a man's perception of his own wellbeing. ED could lead to a man feeling anxious, depressed and lacking in self-confidence. Many men do not seek help from a healthcare professional because they are embarrassed.<sup>1,2</sup> These videos show how experts have been able to have the ED conversation successfully by addressing these issues of anxiety. </span></p><p class="MsoNormal"><span lang="EN-GB" style="mso-ansi-language:EN-GB" xml:lang="EN-GB">The interest generated by VIAGRA Connect creates an excellent opportunity for pharmacists to engage with men around the wider potential health concerns associated with ED, such as cardiovascular disease.</span></p><p class="MsoNormal"><span lang="EN-GB" style="mso-ansi-language:EN-GB" xml:lang="EN-GB">Our bite-sized videos and presentation materials are designed to help pharmacists prepare for the ED conversation and become confident in counselling men with the condition. Covering a wide range of subject matter, the materials show how having the ED conversation with men may help you improve male health in this hard-to-reach group.</span></p><p class="MsoNormal"><br /><strong><span lang="EN-GB" style="mso-ansi-language:EN-GB" xml:lang="EN-GB">Select a video from the menu to understand how VIAGRA Connect can integrate with the wider benefits of pharmacy intervention:</span></strong></p><p class="MsoNormal"><p></p></p>
+
+					</div>
+
+
+
+
+
+
+					<div class="video-item-wrapper">
+
+						<div class="video-container">
+							<div class="responsive-video">
+
+								
+								<div class="video-embed-field-responsive-video"><iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="//players.brightcove.net/1852113022001/default_default/index.html?videoId=5729993029001&playsinline=true"></iframe>
+								</div>
+								
+								
+							</div>
+						</div>
+
+						<div class="video-description">
+							<div class="text">
+								<h4>
+									A Doctor&#039;s View on VIAGRA Connect
+								</h4>
+								<p>
+									Discover what the availability of VIAGRA Connect means for patients, doctors and pharmacists
+								</p>
+								<span class="download-video">Duration 
+									08:23
+								</span>
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+
+
+
+
+					<div class="video-item-wrapper">
+
+						<div class="video-description">
+							<div class="text">
+								<h4>
+									Having the ED Conversation
+								</h4>
+								<p>
+									Watch pharmacists talk about their experience treating ED in the pharmacy
+								</p>
+								<span class="download-video">Duration 
+									23:36
+								</span>
+
+							</div>
+						</div>
+
+						<div class="video-container">
+							<div class="responsive-video">
+
+								<div class="video-embed-field-responsive-video"><iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="//players.brightcove.net/1852113022001/default_default/index.html?videoId=5729996953001&playsinline=true"></iframe>
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+
+
+
+
+					<div class="video-item-wrapper">
+
+						<div class="video-container">
+							<div class="responsive-video">
+
+								<div class="video-embed-field-responsive-video"><iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="//players.brightcove.net/1852113022001/default_default/index.html?videoId=5742310771001&playsinline=true"></iframe>
+								</div>
+
+
+							</div>
+						</div>
+
+						<div class="video-description">
+							<div class="text">
+								<h4>
+									The link between ED and cardiovascular disease (CVD)
+								</h4>
+								<p>
+									Understand the link between ED and CVD by watching this short animation
+								</p>
+								<span class="download-video">Duration 
+									01:42
+								</span>
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+
+
+
+
+					<div class="video-item-wrapper">
+
+						<div class="video-description">
+							<div class="text">
+								<h4>
+									Acting to help reduce cardiovascular risk
+								</h4>
+								<p>
+									Discover what can help reduce cardiovascular risk by watching this short animation
+								</p>
+								<span class="download-video">Duration 
+									01:36
+								</span>
+
+							</div>
+						</div>
+
+						<div class="video-container">
+							<div class="responsive-video">
+
+								<div class="video-embed-field-responsive-video"><iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="//players.brightcove.net/1852113022001/default_default/index.html?videoId=5726539626001&playsinline=true"></iframe>
+								</div>
+
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+
+
+
+
+					<div class="video-item-wrapper">
+
+						<div class="video-container">
+							<div class="responsive-video">
+
+								<div class="video-embed-field-responsive-video"><iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="//players.brightcove.net/1852113022001/default_default/index.html?videoId=5726533784001&playsinline=true"></iframe>
+								</div>
+
+
+							</div>
+						</div>
+
+						<div class="video-description">
+							<div class="text">
+								<h4>
+									Assessing fitness for sex in men with ED symptoms
+								</h4>
+								<p>
+									Be clear on how to establish fitness for sex in men with ED symptoms by watching this short animation
+								</p>
+								<span class="download-video">Duration 
+									02:22
+								</span>
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+
+					<div class="paragraph references paragraph--type--references paragraph--view-mode--default">
+						<div class="references-title">
+							References
+						</div>
+
+						<ol><li>Shabsigh R, <em>et al. BJU Int </em>2004;94:1055-65.</li><li>Solomon H, <em>et al. Heart </em>2003;89:251-4.<br /> </li></ol>
+
+					</div>
+
+
+				</div>
+
+			</article>
+
+
+
+
+
+		</div>
+		<footer>
+			<div class="container">
+				<div  id="block-footerlogo" class="footer-logo">
+
+
+
+					<p><img alt="Footer logo" src="https://hcp.viagraconnect.co.uk/sites/default/files/inline-images/footer-logo_0.png" data-entity-type="file" data-entity-uuid="7439a8e9-5e0c-4b4c-be1e-b3b3db698074" /></p>
+
+				</div>
+				<nav class="footer-menu">
+
+					<ul>
+						<li>
+							<a href="/contact-us" data-drupal-link-system-path="node/501">Contact Us</a>
+						</li>
+						<li>
+							<a href="/website-cookie-and-privacy-policy" data-drupal-link-system-path="node/506">Cookie &amp; Privacy Policy</a>
+						</li>
+						<li>
+							<a href="/website-terms-of-use" data-drupal-link-system-path="node/511">Terms of Use</a>
+						</li>
+					</ul>
+
+
+
+				</nav>
+
+
+			</div>
+			<div class="container">
+				<div id="block-copyright" class="copyright">
+
+
+					<p style="word-wrap: normal;"><strong>Name of product:</strong> VIAGRA Connect<sup>®</sup> 50 mg film-coated tablets</p><p><strong>Active ingredient:</strong> Sildenafil</p><p><strong>Supply classification:</strong> Pharmacy supply (P)</p><p style="word-wrap: normal;"><strong>Indications: </strong>For erectile dysfunction in adult men. Further information about this product, including essential supply information, adverse reactions, precautions, contraindications, and method of use can be found at: <a href="https://www.medicines.org.uk/emc/product/8725">https://www.medicines.org.uk/emc/product/8725</a> or from Pfizer Consumer Healthcare Ltd, Walton Oaks, Surrey, KT20 7NS.</p><p style="word-wrap: normal;">VIAGRA Connect<sup>®</sup> is available in packs of 4 and 8 at RRP excluding VAT; 4 pack £16.66 and 8 pack £29.16, respectively.</p><p>The blue diamond tablet shape and VIAGRA Connect<sup>®</sup> are registered trademarks of Pfizer Inc.</p><p><br />PP-PHE-GBR-0006 – Dec 2017</p>
+
+				</div>
+
+
+			</div>
+		</footer>
+	</div>
+
+    <!-- AdobeAnalytics code version: H.20.3.
+    	Copyright 1996-2017 Adobe, Inc. -->
+    	<script type="text/javascript" src="https://s3.amazonaws.com/pfe_im/js/prod/s_code.js"></script>
+
+    	<script type="text/javascript"><!--
+
+
+    	/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    	var s_code=s.t();if(s_code)document.write(s_code) //--></script>
+    	<script type="text/javascript"><!--
+    	if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+    		//--></script>
+    	<noscript><img src="http://pfizer.112.2o7.net/b/ss/pfizerukhcpprodviagradirect/1/JS-1.2.2--NS/0" height="1" width="1" />
+    	</noscript>
+    	<!--/DO NOT REMOVE/-->
+    	<!-- End AdobeAnalytics code version: H.20.3. -->
+
+    	<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/11","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","ajaxPageState":{"libraries":"core\/html5shiv,extlink\/drupal.extlink,extlink_popup\/main,google_analytics\/google_analytics,pfizer_analytics\/urlconfig,pfizer_viagra_theme\/cookie-popup,pfizer_viagra_theme\/global-styling,search_api_autocomplete\/search_api_autocomplete,system\/base,video_embed_field\/responsive-video","theme":"pfizer_viagra_theme","theme_token":null},"ajaxTrustedUrl":{"\/search":true},"data":{"extlink":{"extTarget":true,"extNofollow":false,"extClass":"0","extLabel":"","extImgClass":false,"extSubdomains":false,"extExclude":"(.+viagraconnect.+)|(pfizer\\.co\\.uk)|(players\\.brightcove\\.net)","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"Test text for popup","mailtoClass":"0","mailtoLabel":""},"extlinkPopup":{"extPopupTitle":"","extPopupBody":"You are now leaving hcp.viagraconnect.co.uk. Links to external websites are provided as a resource to the viewer. This website is neither owned nor controlled by Pfizer Consumer Healthcare Ltd. Pfizer accepts no responsibility for the content or services of the linked sites.","extPopupButtonTitle":"Continue","extPopup":"_popup"}},"google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"search_api_autocomplete":{"search_view":{"delay":0,"auto_submit":true,"min_length":3}},"user":{"uid":0,"permissionsHash":"9d7730d608041f9056130f4205c0ff86bcdbbbe318ea2f447b3584079e462afc"}}</script>
+    	<script src="/sites/default/files/js/js_h7fOskZ1wVYUoIJeg8slWsMsNE_pNKOKULM7wgIkuPE.js"></script>
+    	<script src="https://cookies.pfizer.com/sites/default/files/websites/uk---viagraconnect-co-uk-en.js"></script>
+    	<script src="/sites/default/files/js/js_ekmT_bn5fTdDGfiYekACnsnDTuu62XISFJHEdlD_FG4.js"></script>
+
+    	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5f7dd2ba14","applicationID":"59276383","transactionName":"bgZQZkcHXENWARdZC1dMc1FBD11eGBICVwFmAFNRXQM=","queueTime":0,"applicationTime":105,"atts":"QkFTEA8dT00=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+    	</html>
