@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+	<p> <button onclick="currentRendition()">Current rendition</button> 
+
+		<script>
+	videojs('myPlayerID').ready(function(){
+		var myPlayer = this;
+		myPlayer.on('loadstart',function(){ 
+			myPlayer.tech(true);
+			/*console.log('mediainfo', myPlayer.mediainfo.sources);*/
+			console.log('HLS renditions', myPlayer.tech().hls.playlists.master.playlists);
+
+		})
+	});
+/*
+		myPlayer.on('loadstart',function(){ 
+			console.log('HLS renditions', myPlayer.tech_.hls.playlists.master.playlists);
+
+		})
+*/
+
+
+		</script>
+
+	</body>
+	</html>

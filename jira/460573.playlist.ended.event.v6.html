@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	ol { width: 480px; }
+</style>
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-playlist-id="5479927530001" 
+	data-account="5458602755001" 
+	data-player="Hy3MbdmsG" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/Hy3MbdmsG_default/index.min.js"></script>
+	<p>Event Log:</p>
+	<p id="message"></p>
+	<ol class="vjs-playlist"></ol>
+	<script>
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+			myPlayer.on("ended", function() { 
+				message.innerHTML += "*** ended triggered<br>";		
+			});
+		});
+	</script>
+</body>
+</html>

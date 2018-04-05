@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JP Morgan</title>
+	<style>
+	.video-js {
+		width:640px;
+		height:360px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>JP Morgan</h1>
+
+		<video 
+		id="myPlayerID"
+		data-video-id="5752640723001" 
+		data-account="899458531001" 
+		data-player="r1JWyAPtf" 
+		data-embed="default" 
+		data-application-id 
+		class="video-js" 
+		controls
+		></video>
+		<script src="//players.brightcove.net/899458531001/r1JWyAPtf_default/index.min.js"></script>
+
+		<script type="text/javascript">
+			videojs("myPlayerID").on('ready',function(){
+				var myPlayer = this;
+				myPlayer.on('loadstart',function(){
+					myPlayer.mediainfo.name = "";
+					document.getElementById("vjs-dock-title-1").innerHTML = myPlayer.mediainfo.name;
+				})
+			});
+		</script>
+	</div>
+</body>
+</html>

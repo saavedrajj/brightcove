@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  .video-js {
+    width:640px;
+    height:360px;
+  }
+</style>
+</head>
+<body>
+
+  <video 
+  id="myPlayerID"
+  data-video-id="ref:promo01" 
+  data-account="5458602755001" 
+  data-player="default" 
+  data-embed="default" 
+  data-application-id 
+  class="video-js" 
+  controls></video>
+  <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+
+  <script type="text/javascript">
+
+    videojs.options.hls.overrideNative = true;
+    videojs.options.html5.nativeAudioTracks  = false;
+    videojs.options.html5.nativeVideoTracks = false;
+
+    videojs('myPlayerID').ready(function(){
+      var myPlayer = this;
+    });
+  </script>
+</body>
+</html>
+
+
+

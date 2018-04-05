@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01"
+	data-account="5458602755001"
+	data-player="r1trqUjnb"
+	data-embed="default"
+	class="video-js" controls>
+</video>
+<script src="//players.brightcove.net/5458602755001/r1trqUjnb_default/index.min.js"></script>
+<script>
+	videojs("myPlayerID").ready(function(){
+		var myPlayer = this;
+		myPlayer.options().inactivityTimeout = 0;
+	});
+</script>
+</body>
+</html>

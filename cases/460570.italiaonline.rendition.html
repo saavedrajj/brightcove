@@ -8,7 +8,7 @@
 		width: 480px;
 		height: 270px;
 	}
-	</style>
+</style>
 </head>
 <body>
 	<h1>Title</h1>
@@ -22,5 +22,29 @@
 	class="video-js" 
 	controls></video>
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
-</body>
-</html>
+
+	<p> <button onclick="currentRendition()">Current rendition</button> 
+
+		<script>
+			var myPlayer;
+			videojs("myPlayerID").ready(function(){
+
+				var myPlayer = this;
+
+				myPlayer.on('ready',function(){
+					myPlayer.play();
+
+
+				});
+
+			});
+			/*
+			function currentRendition() {
+				a= myPlayer.tech()hls.selectPlaylist;
+				console.log(a);
+			}
+*/
+		</script>
+
+	</body>
+	</html>

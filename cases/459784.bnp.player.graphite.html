@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.video-js .vjs-control-bar{
+		display: flex;
+		transform: none !important;
+	}
+</style>
+</head>
+<body>
+  <video 
+  id="audioOnly" 
+  data-video-id="5743708336001" 
+  data-account="1890328962001" 
+  data-player="ByWQD4o8dG" 
+  data-embed="default" 
+  data-application-id 
+  class="video-js" 
+  controls 
+  style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+  <script src="//players.brightcove.net/1890328962001/ByWQD4o8dG_default/index.min.js"></script> 
+
+  <script>
+    videojs("audioOnly").ready(function(){
+      var myPlayer = this;
+      myPlayer.options().inactivityTimeout = 0;
+    });
+  </script>
+
+</body>
+</html>

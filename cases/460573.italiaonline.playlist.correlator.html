@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+
+<body>
+	<video id="myPlayer"
+	data-playlist-id="5679021543001"
+	data-account="4626510591001"
+	data-player="By6Os0MOz"
+	data-embed="default"
+	data-playlist-video-id="4669835986001"
+	data-application-id
+	class="video-js"
+	controls></video>
+	<script src="//players.brightcove.net/4626510591001/By6Os0MOz_default/index.min.js"></script>
+	<p>Event Log:</p>
+	<p id="message"></p>
+	<script>
+		var myPlayer;
+		var player = bc('myPlayer');
+		player.ready(function() {
+			myPlayer = this;
+			myPlayer.on("ended", function() { 
+				message.innerHTML += "*** ended triggered<br>";		
+			});
+		});
+
+		var nextButton = player.el().querySelector('button.vjs-next-button'); 
+		nextButton.addEventListener('click',function() 
+		{ 
+			message.innerHTML = message.innerHTML + "*** Next Button Clicked! New correlator<br>"; 
+			player.ima3.adsLoader.contentComplete(); 
+		}); 
+	</script>
+</body>
+</html>

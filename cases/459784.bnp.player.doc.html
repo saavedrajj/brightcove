@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+<video id="myPlayerID"
+  data-account="1752604059001"
+  data-player="04ee9f58-9d08-43ea-803f-abda86776db2"
+  data-embed="default"
+  class="video-js" controls></video>
+<script src="//players.brightcove.net/1752604059001/04ee9f58-9d08-43ea-803f-abda86776db2_default/index.min.js"></script>
+
+<script>
+  videojs("myPlayerID").ready(function(){
+    var myPlayer = this;
+    myPlayer.options().inactivityTimeout = 0;
+  });
+</script>
+
+</body>
+</html>
