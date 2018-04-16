@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brightcove Player - Advertising with IMA3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+        <link rel="stylesheet" href="//cs1.brightcodes.net/doleskevicius/styles/styles.css" />      
+        <!-- IMA3 Plugin Styles -->
+        <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet"/>
+        
+        <style>
+            fieldset{
+                margin: 30px 0 2px 0;
+            }
+            
+            #console{
+                width: 100%;
+                margin: 10px 0
+            }
+            
+            .sr{
+                float: left;
+                margin: 0 8px
+            }
+            
+            .sc{
+                clear: both;
+                padding: 10px 8px
+            }
+            
+            #imasdksettings-container{
+                                    display: none;
+                           }
+            
+            .fr{
+                float: right;
+                margin-left: 3px
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Brightcove Player - Advertising with IMA3</h1>
+             <div style="display: block; position: relative; max-width: 100%;"><div style="padding-top: 56.25%;">
+                     <video data-account="3755095892001" 
+                            data-player="SkgYvzbZu" 
+                            data-embed="default" 
+                            data-video-id="5243277563001"
+                            class="video-js" 
+                            id="bc-player"
+                                                                                                                controls 
+                            style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+              <script src="//players.brightcove.net/3755095892001/SkgYvzbZu_default/index.js"></script>
+              <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+             </div>
+            </div>
+            <textarea rows="10" cols="10" disabled="disabled" id="console"></textarea>
+            
+            <form method="get" action="?">
+                <fieldset>
+                    <legend>Player/IMA3 plugin version</legend>
+                    <div id="st">
+                      <div class="sc">
+                        <div class="sr">
+                            <p>
+                                <label>Player version</label>
+                                <select name="pv">
+                                                                        <option value="6.5.0">6.5.0</option>
+                                                                        <option value="6.1.0">6.1.0</option>
+                                                                        <option value="6.0.0">6.0.0</option>
+                                                                        <option value="current" selected="selected">current</option>
+                                                                        <option value="5.28.1">5.28.1</option>
+                                                                        <option value="5.22.2">5.22.2</option>
+                                                                        <option value="5.22.1">5.22.1</option>
+                                                                        <option value="5.22.0">5.22.0</option>
+                                                                        <option value="5.21.0">5.21.0</option>
+                                                                        <option value="5.20.1">5.20.1</option>
+                                                                        <option value="5.19.2">5.19.2</option>
+                                                                        <option value="5.19.1">5.19.1</option>
+                                                                        <option value="5.19.0">5.19.0</option>
+                                                                        <option value="5.18.4">5.18.4</option>
+                                                                        <option value="5.18.3">5.18.3</option>
+                                                                        <option value="5.18.2">5.18.2</option>
+                                                                        <option value="5.18.1">5.18.1</option>
+                                                                        <option value="5.18.0">5.18.0</option>
+                                                                        <option value="5.17.1">5.17.1</option>
+                                                                        <option value="5.17.0">5.17.0</option>
+                                                                        <option value="5.15.0">5.15.0</option>
+                                                                        <option value="5.14.0">5.14.0</option>
+                                                                        <option value="5.13.4">5.13.4</option>
+                                                                        <option value="5.13.0">5.13.0</option>
+                                                                        <option value="5.11.4">5.11.4</option>
+                                                                        <option value="5.12.0">5.12.0</option>
+                                                                        <option value="5.11.2">5.11.2</option>
+                                                                        <option value="5.10.5">5.10.5</option>
+                                                                        <option value="5.9.0">5.9.0</option>
+                                                                        <option value="5.7.1">5.7.1</option>
+                                                                        <option value="5.7.0">5.7.0</option>
+                                                                        <option value="5.6.2">5.6.2</option>
+                                                                        <option value="5.6.1">5.6.1</option>
+                                                                        <option value="5.6.0">5.6.0</option>
+                                                                        <option value="5.5.0">5.5.0</option>
+                                                                        <option value="5.4.0">5.4.0</option>
+                                                                        <option value="5.3.4">5.3.4</option>
+                                                                        <option value="5.2.2">5.2.2</option>
+                                                                        <option value="5.2.1">5.2.1</option>
+                                                                        <option value="5.1.14">5.1.14</option>
+                                                                        <option value="5.1.12">5.1.12</option>
+                                                                        <option value="5.1.8">5.1.8</option>
+                                                                        <option value="5.1.7">5.1.7</option>
+                                                                        <option value="5.1.5">5.1.5</option>
+                                                                        <option value="5.0.9">5.0.9</option>
+                                                                        <option value="1.14.32">1.14.32</option>
+                                                                    </select>
+                            </p>
+                        </div>
+                        
+                        <div class="sr">
+                            <p>
+                                <label>IMA3 plugin version</label>
+                                <select name="iv">
+                                                                            <option value="current">current</option>
+
+
+                                                                            <option value="2.22.2">2.22.2</option>
+
+
+                                                                            <option value="2.18.0">2.18.0</option>
+                                                                            <option value="2.17.0">2.17.0</option>
+                                                                            <option value="2.16.4">2.16.4</option>
+                                                                            <option value="2.16.3">2.16.3</option>
+                                                                            <option value="2.16.2">2.16.2</option>
+                                                                            <option value="2.16.1">2.16.1</option>
+                                                                            <option value="2.16.0">2.16.0</option>
+                                                                            <option value="2.15.5">2.15.5</option>
+                                                                            <option value="2.15.4">2.15.4</option>
+                                                                            <option value="2.15.3">2.15.3</option>
+                                                                            <option value="2.15.2">2.15.2</option>
+                                                                            <option value="2.15.1">2.15.1</option>
+                                                                            <option value="2.15.0">2.15.0</option>
+                                                                            <option value="2.14.0">2.14.0</option>
+                                                                            <option value="2.13.0">2.13.0</option>
+                                                                            <option value="2.12.0">2.12.0</option>
+                                                                            <option value="2.11.6">2.11.6</option>
+                                                                            <option value="2.11.5">2.11.5</option>
+                                                                            <option value="2.11.3">2.11.3</option>
+                                                                            <option value="2.11.2">2.11.2</option>
+                                                                            <option value="2.11.1">2.11.1</option>
+                                                                            <option value="2.11.0">2.11.0</option>
+                                                                            <option value="2.10.3">2.10.3</option>
+                                                                            <option value="2.10.2">2.10.2</option>
+                                                                            <option value="2.10.1">2.10.1</option>
+                                                                            <option value="2.10.0">2.10.0</option>
+                                                                            <option value="2.9.1">2.9.1</option>
+                                                                            <option value="2.9.0">2.9.0</option>
+                                                                            <option value="2.8.0">2.8.0</option>
+                                                                            <option value="2.7.1">2.7.1</option>
+                                                                            <option value="2.7.0">2.7.0</option>
+                                                                            <option value="2.6.0">2.6.0</option>
+                                                                            <option value="2.5.2">2.5.2</option>
+                                                                            <option value="2.5.1">2.5.1</option>
+                                                                            <option value="2.5.0">2.5.0</option>
+                                                                            <option value="2.4.0">2.4.0</option>
+                                                                            <option value="2.3.0">2.3.0</option>
+                                                                            <option value="1.14.0">1.14.0</option>
+                                                                            <option value="1.13.0">1.13.0</option>
+                                                                            <option value="1.12.0">1.12.0</option>
+                                                                            <option value="1.11.0">1.11.0</option>
+                                                                            <option value="1.10.0">1.10.0</option>
+                                                                            <option value="1.8.0">1.8.0</option>
+                                                                            <option value="1.7.0">1.7.0</option>
+                                                                            <option value="1.6.0">1.6.0</option>
+                                                                            <option value="1.5.0">1.5.0</option>
+                                                                            <option value="1.4.0">1.4.0</option>
+                                                                            <option value="1.3.0">1.3.0</option>
+                                                                    </select>
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>IMA3 plugin options</legend>
+                    <div id="st">
+                      <div class="sc">
+                          <div class="sr">
+                              <p>
+                                <label>Ad server URL</label>
+                                <input type="text" name="surl" value="https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=[timestamp]" size="60"/>
+                              </p>
+                          </div>
+                      </div>
+                        
+                        <div class="sc">
+                          <div class="sr">
+                              <p>
+                                <label>Request mode</label>
+                                <select name="rm">
+                                    <option value="onload" selected="selected">On load</options>
+                                    <option value="onplay" >On Play</option> 
+                                </select>
+                              </p>
+                          </div>
+                            
+                            <div class="sr">
+                                <p>
+                                <label>Ad tech</label>
+                                <select name="at">
+                                    <option value="'html5','flash'" selected="selected">HTML5 preferred</options>
+                                    <option value="'flash','html5'" >Flash preferred</option>
+                                    <option value="'html5'" >HTML5 only</option>
+                                </select>
+                              </p>
+                            </div> 
+                              <div class="sr">
+                                <p>
+                                <label>VPAID mode</label>
+                                <select name="vm">
+                                    <option value="ENABLED" selected="selected">Enabled</options>
+                                    <option value="INSECURE" >Insecure</option>
+                                    <option value="DISABLED" >Disabled</option>
+                                </select>
+                              </p>
+                            </div>
+                      </div> 
+                        
+                        <div class="sc">
+                            <div class="sr">
+                                <p>
+                                <label>Timeout</label>
+                                <input type="text" size="10" value="5000" name="t"/>
+                               </p>
+                            </div>
+                            
+                             <div class="sr">
+                                <p>
+                                <label>Preroll timeout</label>
+                                <input type="text" size="10" value="4000" name="pt"/>
+                               </p>
+                            </div>
+                            
+                            <div class="sr">
+                                <p>
+                                <label>Postroll timeout</label>
+                                <input type="text" size="10" value="2000" name="pot"/>
+                               </p>
+                            </div>
+                        </div>
+                        
+                        <div class="sc">
+                            <div class="sr">
+                                <p>
+                                <label>Hard timeouts</label>
+                                <select name="ht">
+                                    <option value="false" >False</option>
+                                    <option value="true" selected="selected">True</option>
+                                </select>
+                               </p>
+                            </div>
+                            
+                            <div class="sr">
+                                <p>
+                                    <label>Other IMA3 SDK Settings</label>
+                                    <input type="checkbox" name="i3s" id="imasdksettings"  />
+                                </p>
+                            </div>
+                            
+                            <div class="sr" id="imasdksettings-container">
+                                <p>
+                                    <label>Number of VAST redirects</label>
+                                    <input type="text" size="6" name="nrd" value="" class="fr" />
+                                </p>
+                                 <p>
+                                    <label>Publisher id</label>
+                                    <input type="text" size="6" name="ppid" value="" class="fr" />
+                                </p>
+                                 <p>
+                                    <label>Locale</label>
+                                    <input type="text" size="6" name="lc" value="" class="fr" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <input type="submit" value="set"/>
+            </form>
+        </div>
+        
+        <script>
+            var player = videojs("bc-player"),
+                imaOptions = {
+                    "adTechOrder": ['html5','flash'],
+                    "debug": true,
+                    "timeout": 5000,
+                    "prerollTimeout": 4000,
+                    "requestMode": "onload",
+                    "serverUrl": "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=[timestamp]",
+                    "vpaidMode" : "ENABLED",
+                    "hardTimeouts": true,
+                    "ima3SdkSettings": {
+                                            }
+                };
+
+             player.ima3(imaOptions);
+             
+             player.ready(function(){
+                 var ima3Events = ["ima3-ready", "ima3error", "ima3-ad-error", "adserror",
+                                   "ads-request", "ads-load", "ads-ad-started", "ads-ad-ended",
+                                   "ads-pause", "ads-play", "ads-first-quartile", "ads-midpoint",
+                                   "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started",
+                                   "ads-pod-ended", "ads-allpods-completed", "ended"];
+                 player.ima3.ready(function(){
+                                         });
+                 // setup ima event listeners 
+                 player.on(ima3Events, imaEventCallback);  
+
+             });
+             
+             function imaEventCallback(e){
+                 logger(e.type);
+                 if(e.type === 'ima3-ad-error'){
+                    console.log(">>>>>>" + e.originalEvent.getError().getErrorCode());
+                    console.log(">>>>>>" + e.originalEvent.getError());
+                 }
+             }
+        
+             function logger(m){
+                var console = document.getElementById("console");
+                if(console.innerHTML){
+                    console.innerHTML = console.innerHTML + "\n" + m;
+                }else{
+                    console.innerHTML = m;
+                }
+             }
+             
+             window.onload = function(){
+                 var imasettingschk = document.getElementById("imasdksettings"),
+                     container = document.getElementById("imasdksettings-container");
+                     imasettingschk.addEventListener("click", function(){
+                         if(imasettingschk.checked){
+                            container.style.display = "block";
+                         }else{
+                             container.style.display = "none";
+                         }
+                     });
+             }
+          
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<html> 
+<head> 
+	<meta charset="utf-8"> 
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head> 
+<body> 
+	<video 
+	id="myPlayerID" 
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted> 
+</video> 
+<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script> 
+</div> 
+</div> 
+<script> 
+	videojs('myPlayerID').ready(function(){
+		var myPlayer = this;
+		myPlayer.on('loadedmetadata',function(){ 
+			obj = myPlayer.tech(true).hls.playlists.master;
+			str = JSON.stringify(obj, null, 4); 
+			console.log(str); 
+			/**/
+			rend = myPlayer.tech(true).hls.playlists.master.uri;
+			str = JSON.stringify(rend, null, 4); 
+			console.log(str); 
+			/**/
+			width = myPlayer.tech(true).hls.playlists.media().attributes.RESOLUTION.width;
+			height = myPlayer.tech(true).hls.playlists.media().attributes.RESOLUTION.height;
+/*
+videojs.players.myPlayerID.tech_.hls.playlists.media_.attributes.RESOLUTION.width
+*/
+			width = JSON.stringify(width, null, 4); 
+			console.log(width); 		
+			height = JSON.stringify(height, null, 4); 
+			console.log(height); 					
+		})
+	});
+</script> 
+</body> 
+</html> 

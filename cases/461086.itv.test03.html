@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+</head>
+<body>
+	<h1>ITV - Player rkuA645jG. IMA3 plugin 2.19.3 version</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5766868455001" 
+	data-account="2635130839001" 
+	data-player="rkuA645jG" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/2635130839001/rkuA645jG_default/index.min.js"></script>
+	<script>
+		var player = bc('myPlayerID');
+		player.on('ready', function(){
+			player.ima3.settings.serverUrl = "https://tom.itv.com/itv/tserver/size=vmap/randomnum={timestamp}/fcid=79126/area=lifetsyle.thismorning/bcvidid={mediainfo.id}/bcplayerid={player.id}/bcvidname={mediainfo.name}";
+		});		
+	</script>
+</body>
+</html>

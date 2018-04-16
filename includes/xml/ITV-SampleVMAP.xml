@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0">
+ <vmap:AdBreak timeOffset="start" breakType="linear" breakId="preroll">
+  <vmap:AdSource id="preroll-ad-1" allowMultipleAds="false" followRedirects="true">
+   <vmap:AdTagURI templateType="vast3"><![CDATA[https://tom.itv.com/itv/tserver/site=itv/area=lifetsyle.thismorning/source=clip/proggenre=entertainment.lifestyle/genre=lif.a2.a3.aa.ad.h5.ha.hc.hw.w3.wa.wo/progname=this.morning/progid=itv.com.SF5575865276001/tparts=1/rstrct=none/conttype=none/owner=itv/chanbrand=itv1/pm=free/us=ano/size=video/random=01523617937258/generic=0.1523617937258/breaknum=0/adpos=last/viewid=11523617937258/vmapfcid=79126/contentid=/bcvidname=Brightcove Promo 1]]></vmap:AdTagURI>
+  </vmap:AdSource>
+ </vmap:AdBreak>
+ <vmap:AdBreak timeOffset="start" breakType="linear" breakId="preroll">
+  <vmap:AdSource id="preroll-post-bumper" allowMultipleAds="false" followRedirects="true">
+   <vmap:AdTagURI templateType="vast3"><![CDATA[https://tom.itv.com/itv/tserver/site=itv/area=lifetsyle.thismorning/source=clip/proggenre=entertainment.lifestyle/genre=lif.a2.a3.aa.ad.h5.ha.hc.hw.w3.wa.wo/progname=this.morning/progid=itv.com.SF5575865276001/tparts=1/rstrct=none/conttype=none/owner=itv/chanbrand=itv1/pm=free/us=ano/size=videosponsor/random=01523617937258/generic=0.1523617937258/breaknum=0/adpos=sponlast1/viewid=21523617937258/vmapfcid=79126/contentid=/bcvidname=Brightcove Promo 1]]></vmap:AdTagURI>
+  </vmap:AdSource>
+  <vmap:Extensions>
+   <vmap:Extension type="bumper" suppress_bumper="true"></vmap:Extension>
+  </vmap:Extensions>
+ </vmap:AdBreak>
+ <vmap:AdBreak timeOffset="end" breakType="linear" breakId="postroll">
+  <vmap:AdSource id="postroll-pre-bumper" allowMultipleAds="false" followRedirects="true">
+   <vmap:AdTagURI templateType="vast3"><![CDATA[https://tom.itv.com/itv/tserver/site=itv/area=lifetsyle.thismorning/source=clip/proggenre=entertainment.lifestyle/genre=lif.a2.a3.aa.ad.h5.ha.hc.hw.w3.wa.wo/progname=this.morning/progid=itv.com.SF5575865276001/tparts=1/rstrct=none/conttype=none/owner=itv/chanbrand=itv1/pm=free/us=ano/size=videosponsor/random=01523617937258/generic=0.1523617937258/breaknum=0/adpos=spon1/viewid=31523617937258/vmapfcid=79126/contentid=/bcvidname=Brightcove Promo 1]]></vmap:AdTagURI>
+  </vmap:AdSource>
+  <vmap:Extensions>
+   <vmap:Extension type="bumper" suppress_bumper="true"></vmap:Extension>
+  </vmap:Extensions>
+ </vmap:AdBreak>
+ <vmap:AdBreak timeOffset="end" breakType="linear" breakId="postroll">
+  <vmap:AdSource id="postroll-ad-1" allowMultipleAds="false" followRedirects="true">
+   <vmap:AdTagURI templateType="vast3"><![CDATA[https://tom.itv.com/itv/tserver/site=itv/area=lifetsyle.thismorning/source=clip/proggenre=entertainment.lifestyle/genre=lif.a2.a3.aa.ad.h5.ha.hc.hw.w3.wa.wo/progname=this.morning/progid=itv.com.SF5575865276001/tparts=1/rstrct=none/conttype=none/owner=itv/chanbrand=itv1/pm=free/us=ano/size=video/random=01523617937258/generic=0.1523617937258/breaknum=end/adpos=last/viewid=41523617937258/vmapfcid=79126/contentid=/bcvidname=Brightcove Promo 1]]></vmap:AdTagURI>
+  </vmap:AdSource>
+ </vmap:AdBreak>
+</vmap:VMAP>

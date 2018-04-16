@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>IOL Playlist</title>
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	ol {
+		width: 480px;
+	}
+</style>
+</head>
+<body>
+	<h2>IOL Playlist</h2>   
+	<video 
+	id="adsPlayer" 
+	style=""
+	data-account="5036649783001"
+	data-player="rymXTujoG"
+	data-playlist-id="5741264920001"
+	data-embed="default"
+	class="video-js" 
+	controls muted></video>
+
+	<script src="//players.brightcove.net/5036649783001/rymXTujoG_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+	<p>logs:</p>
+	<div id="log"></div>
+	<ol class="vjs-playlist"></ol>
+	<script>
+		var myPlayer;
+
+		bc("adsPlayer").ready(function () {
+			myPlayer = this;
+
+			myPlayer.ima3({ 
+				adTechOrder: ['html5'],
+				requestMode: "onload", 
+				serverUrl: '', 
+				hardTimeouts: true,
+				timeout: 5000,
+				debug: false
+			});
+
+			calculateNewTagUrl();
+			myPlayer.play();
+			myPlayer.on("ended", function (event) {		
+				calculateNewTagUrl();
+			});
+		});
+
+		function calculateNewTagUrl() {
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url={document.referrer}";
+			myPlayer.ima3.adMacroReplacement = function(url){
+				/*myPlayer.ima3.adsManager.destroy();	*/		
+				myPlayer.ima3.adsLoader.contentComplete(); 		
+		
+
+				log.innerHTML += "adMacroReplacement(): " + serverURL;	
+				log.innerHTML += "<hr>";	
+				return (serverURL);
+
+			};	
+		}
+	</script>
+	<br/>
+
+</body>
+</html>

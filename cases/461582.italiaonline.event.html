@@ -16,7 +16,7 @@
             <div style="padding-top: 56.25%;">
                 <video 
                 id="myPlayerID"
-                data-video-id="5622000782001" 
+                data-video-id="ref:promo01" 
                 data-account="5458602755001" 
                 data-player="default" 
                 data-embed="default" 
@@ -27,12 +27,6 @@
                 <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
             </div>
         </div>
-        <ul>
-            <li><a href="https://support.brightcove.com/advertising-ima3-plugin" target="_blank">Advertising with the IMA3 Plugin</a></li>            
-            <li><a href="https://support.brightcove.com/ad-events-and-ad-objects" target="_blank">Ad Events and Ad Objects</a></li>
-            <li><a href="https://github.com/videojs/videojs-contrib-ads/" target="_blank">videojs-contrib-ads</a></li>
-            <li><a href="https://support.brightcove.com/guide-contrib-ads-migration" target="_blank">Guide: contrib-ads Migration</a></li>
-        </ul>
         <button onclick="clearConsole()">Clear Console</button>
         <p class="console"><b><u>MESSAGE LOG:</u></b></p>
         <p class="console" id="message"></p>
@@ -64,38 +58,14 @@
 
             var myPlayer = this;
 
-            /* IMA3 Plugin events */
-
-            myPlayer.on(["ima3-ready", "ima3error", "ima3-ad-error", "ads-request", "ads-load","ads-pod-started","ads-pod-ended","ads-allpods-completed","ads-ad-started","ads-ad-ended","ads-first-quartile","ads-midpoint","ads-third-quartile","ads-pause","ads-play","ads-volumechange","ads-click","ad_start","ad_end"],function(event){
-                
-                message.innerHTML += "BC IMA3 event: " + event.type + "<br/>";      
-            });
-
-            /* IMA3 Plugin redispatched events */
-
-            myPlayer.on(["ima3-ad-error", "ima3-ads-manager-loaded", "ima3-all-ads-completed", "ima3-click", "ima3-complete", "ima3-content-pause-requested", "ima3-first-quartile", "ima3-hardtimeout", "ima3-loaded", "ima3-midpoint", "ima3-resumed", "ima3-started", "ima3-third-quartile", "ima3-volume-changed'"],function(event){
-                message.innerHTML += "BC IMA3 re-dispatched event: " + event.type + "<br/>";      
-            });
-
-            /* contrib-ads events */
-
-            myPlayer.on(["readyforpreroll","adcanplay","nopreroll","nopostroll","adsready","contentupdate","contentresumed","contentended","adtimeupdate"],function(event){
-                message.innerHTML += "contrib-ads event: " + event.type + "<br/>";      
-            });
-
-            myPlayer.on(["adstart","adtimeout"],function(event){
-                message.innerHTML += "<hr>contrib-ads event: " + event.type + "<br/>";      
-            });
-
-            myPlayer.on("adserror", function() { 
-              message.innerHTML += "<hr><span style='color:red'>contrib-ads event: adserror</span><hr>";
-          });
-
-            /* Basic Player events */
-
-            myPlayer.on(["play","playing","pause","volumechange"],function(event){
+            myPlayer.on(["play","pause","volumechange"],function(event){
                 message.innerHTML += "BC Player event: " + event.type + "<br/>";      
             });
+
+            myPlayer.one(["playing"],function(event){
+                message.innerHTML += "BC Player event: " + event.type + "<br/>";      
+            });
+
 
         });
     </script>

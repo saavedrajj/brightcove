@@ -24,22 +24,19 @@
 	<script src="//players.brightcove.net/4626510591001/By6Os0MOz_default/index.min.js"></script>
 	<p>Event Log:</p>
 	<p id="message"></p>
+	<ol class="vjs-playlist"></ol>
 	<script>
 		var myPlayer;
 		var player = bc('myPlayer');
 		player.ready(function() {
 			myPlayer = this;
-			myPlayer.on("ended", function() { 
-				message.innerHTML += "*** ended triggered<br>";		
+
+			myPlayer.on("playlistitem", function() { 
+				message.innerHTML += "*** playlistitem triggered<br>";	
 			});
+
 		});
 
-		var nextButton = player.el().querySelector('button.vjs-next-button'); 
-		nextButton.addEventListener('click',function() 
-		{ 
-			message.innerHTML = message.innerHTML + "*** Next Button Clicked! New correlator<br>"; 
-			player.ima3.adsLoader.contentComplete(); 
-		}); 
 	</script>
 </body>
 </html>

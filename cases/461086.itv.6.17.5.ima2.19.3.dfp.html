@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+</head>
+<body>
+	<h1>ITV - Player 6.17.5 Sk7EAxCiz. IMA3 plugin v2.19.3</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="Sk7EAxCiz" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/Sk7EAxCiz_default/index.min.js"></script>
+	<script>
+		videojs('myPlayerID').ready(function(){
+			var myPlayer = this;
+			myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpostonlybumper&cmsid=496&vid=short_onecue&correlator=";
+		});			
+	</script>
+</script>
+</body>
+</html>
