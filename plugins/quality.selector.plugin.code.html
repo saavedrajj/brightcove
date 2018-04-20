@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DEFAULT(HLS)</title>
+
+	<style type="text/css">
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-quality-menu/1.2.0/videojs-quality-menu.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1>Quality Selector Plugin</h1>
+	<video id="myPlayerID"
+	data-video-id="ref:promo01"
+	data-account="5458602755001"
+	data-player="default"
+	data-embed="default"
+	data-application-id
+	class="video-js"
+	playsinline
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-quality-menu/1.2.0/videojs-quality-menu.min.js"></script>
+
+	<script type="application/javascript">
+		videojs('myPlayerID').ready(function () {
+			var myPlayer = this;
+			myPlayer.qualityMenu({
+				"defaultResolution": "720p", 
+				"useResolutionLabels": true,
+				"resolutionLabelBitrates": false
+			});
+		});
+	</script>
+
+
+</body>
+</html>

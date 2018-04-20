@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>Delayed Instantiation</h1>
+	<video 
+	id="myPlayerID"
+	data-embed="default"
+	class="video-js" controls>
+</video>
+<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+<script type="text/javascript">
+	myPlayerID.setAttribute('data-account', 5458602755001);
+	myPlayerID.setAttribute('data-player', 'default');
+	myPlayerID.setAttribute('data-video-id', 'ref:promo01');
+	/*bc(document.getElementById("myPlayerID"));*/
+</script>
+</body>
+</html>

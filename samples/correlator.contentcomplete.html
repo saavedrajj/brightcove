@@ -48,7 +48,7 @@
 		player.ready(function() {
 			myPlayer = this;
 			myPlayer.on("playlistitem", function (event) {	
-				if(typeof myPlayer.ima3.adsLoader != 'undefined'){
+				if(typeof myPlayer.ima3.adsManager != 'undefined'){
 					myPlayer.ima3.adsManager.destroy();
 					myPlayer.ima3.adsLoader.contentComplete(); 
 				}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Player v6 Promise</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="../includes/css/styles.css">       
+</head>
+<body>
+	<div class="container">
+		<h1>Player v6 Promise</h1>
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="ref:promo02" 
+				data-account="5458602755001" 
+				data-player="rJBaTOw2M" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/rJBaTOw2M_default/index.min.js"></script>
+			</div>
+		</div>
+		<p id="playPromise"></p>
+		<script type="text/JavaScript">
+		// Initialise player
+		var myPlayer;
+		// When the player's ready, let's get started
+		videojs("myPlayerID").ready(function(){
+			myPlayer = this;
+			myPlayer.one("loadedmetadata", function(){
+				// "Autoplay"
+				myPlayer.play().then(function() {
+						// play succeeded!
+						videojs.log("play() successful! Playback has started.");
+						document.getElementById("playPromise").innerText = "play() successful! Playback has started.";
+					})
+				.catch(function(error) {
+						// play failed
+						console.error(error.message);
+						videojs.log("play() failed! Looks like autoplay was blocked.");
+						document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";
+					});
+			});
+		});
+	</script>
+	<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

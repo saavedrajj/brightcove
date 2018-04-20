@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Player Demos - Basic Bumper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  .video-container {
+    max-width:720px;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+  .video-container:after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  .video-container .video-js {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+  <script>document.createElement('video')</script>
+</head>
+<body>
+
+  <div class="video-container">
+    <video id="player"
+      data-account="1872491397001"
+      data-player="b9d6b77a-e8aa-4935-8812-822ed63b02f8"
+      data-embed="default"
+      data-video-id="4444314230001"
+      class="video-js" controls></video>
+  </div>
+
+  <script src="//players.brightcove.net/1872491397001/b9d6b77a-e8aa-4935-8812-822ed63b02f8_default/index.min.js"></script> 
+
+  <script>
+  var _player = videojs('player');
+  var _bumperVideo = {};
+  _player.one('loadedmetadata',function(){
+    console.log(this.mediainfo);
+    var _bumperId = this.mediainfo.custom_fields.bumper;
+    this.catalog.getVideo('ref:' + _bumperId,function(e,v){
+      if(e){
+        // handle errors
+      } else {
+        _bumperVideo = v;
+      }
+    });
+  });
+  _player.one('play',function(){
+    var _originalVideo = this.mediainfo;
+    this.catalog.load(_bumperVideo);
+    this.play();
+    this.one('ended',function(){
+      this.catalog.load(_originalVideo);
+      this.play();
+    });
+  });
+  </script>
+</body>
+</html>

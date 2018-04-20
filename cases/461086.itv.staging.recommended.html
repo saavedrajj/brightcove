@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Untitled Document</title>
+	<style>
+	.video-js {
+		height: 344px;
+		width: 610px;
+	}
+</style>
+</head>
+<body>
+	<h1>Latest Player & IMA3 plugin versions</h1>
+	<button onclick="addPlayer()">Generate the player dynamically</button>
+	<div id="placeHolder"></div>
+	<script src="//players.brightcove.net/5458602755001/Hk94QHM2M_default/index.min.js"></script>
+
+	<script type="text/javascript">
+		var playerHTML,
+		playerData = {
+			'accountId' : '5458602755001',
+			'playerId' : 'Hk94QHM2M',
+			'videoId' : 'ref:promo01'
+		};
+
+		function addPlayer() {
+			/* dynamically build the player video element */
+			playerHTML = '<video id=\"myPlayerID\" data-video-id=\"' + playerData.videoId + '\"  data-account=\"' + playerData.accountId + '\" data-player=\"' + playerData.playerId + '\" data-embed=\"default\" class=\"video-js\" controls></video>';
+			/* inject the player code into the DOM */
+			document.getElementById('placeHolder').innerHTML = playerHTML;
+			/* instantiate player */
+			var player = bc(document.getElementById('myPlayerID'));
+
+			player.on('ready', function(){
+				player.ima3.settings.serverUrl = "https://tom.itv.com/itv/tserver/size=vmap/randomnum={timestamp}/fcid=79126/area=lifetsyle.thismorning/bcvidid={mediainfo.id}/bcplayerid={player.id}/bcvidname={mediainfo.name}";
+
+			});	
+		}
+	</script>
+</body>
+</html>

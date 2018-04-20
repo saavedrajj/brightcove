@@ -38,7 +38,7 @@
 
 		player.ima3({ 
 			adTechOrder: ['html5'],
-			requestMode: "onload", 
+			requestMode: "onplay", 
 			serverUrl: '', 
 			hardTimeouts: true,
 			timeout: 5000,
@@ -49,6 +49,7 @@
 			myPlayer = this;
 			myPlayer.on("playlistitem", function (event) {	
 				if(typeof myPlayer.ima3.adsLoader != 'undefined'){
+
 					myPlayer.ima3.adsManager.destroy();
 					myPlayer.ima3.adsLoader.contentComplete(); 
 				}
