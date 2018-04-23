@@ -1,0 +1,49 @@
+<html>
+<head>
+<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+<video data-video-id="5598380514001" 
+data-account="5567732451001" 
+data-player="HyuwhihOG" 
+data-embed="default" 
+data-application-id 
+class="video-js"
+id="myPlayerID"
+
+controls></video>
+<script src="//players.brightcove.net/5567732451001/HyuwhihOG_default/index.min.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+<script type="text/javascript">
+
+		var myPlayer = videojs("myPlayerID");
+
+		myPlayer.on("loadedmetadata", function(){
+			var playPromise = myPlayer.play();
+			console.log(playPromise);
+			if(playPromise !== undefined) {
+				playPromise.then(_ => {
+					console.log("play()");
+					console.log(playPromise);
+				}).catch(error => {
+					console.log("error()" + error);
+					console.log(playPromise);
+				});
+			}
+
+		});
+/*
+		bc("myPlayerID").ima3({
+			adTechOrder: ['html5'],
+			vpaidMode: 'ENABLED',
+			timeout:"5000",
+			serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=",
+			requestMode: "onload",
+			debug: true
+		});
+*/
+		
+</script>
+</body>
+</html>

@@ -61,33 +61,13 @@
 					})
 				.catch(function(error) {
 						// play failed
+						/*myPlayer.ima3.settings.requestMode = "onplay";*/
 						console.error(error.message);
 						videojs.log("play() failed! Looks like autoplay was blocked.");
 						document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";
 					});
 			});
 		});
-
-/*
-		var myPlayer;
-
-		videojs("myPlayerID").ready(function(){
-			myPlayer = this;
-			myPlayer.one("loadedmetadata", function(){
-				// "Autoplay"
-				myPlayer.play().then(function() {
-						// play succeeded!
-						videojs.log("play() successful! Playback has started.");
-						document.getElementById("playPromise").innerText = "play() successful! Playback has started.";
-					})
-				.catch(function(error) {
-						// play failed
-						console.error(error.message);
-						videojs.log("play() failed! Looks like autoplay was blocked.");
-						document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";
-					});
-			});
-		});*/
 	</script>
 
 </div>
