@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<style>
+.video-js {
+    width: 640px;
+    height: 360px;
+}
+</style>
+<body>
+    <video id="myPlayerID" 
+    data-video-id="ref:promo01" 
+    data-account="5458602755001" 
+    data-player="SJQWk133M" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls
+    playsinline></video>
+    <script src="//players.brightcove.net/5458602755001/SJQWk133M_default/index.min.js"></script></div></div>
+    <p id="playPromise"></p>
+    <script>
+        var contentVideo = document.getElementById('myPlayerID');
+        var promise = contentVideo.play();
+
+        if (promise !== undefined) {
+          promise.then(_ => {
+    // Autoplay worked!
+}).catch(error => {
+    // Autoplay failed.
+});
+}
+</script>
+</body>
+</html>

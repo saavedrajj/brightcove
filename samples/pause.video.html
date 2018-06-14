@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brightcove Players</title>
+	<style>
+		.video-js {
+			width:610px;
+			height:344px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Pause video</h1>
+
+	<video 
+	id="myPlayerID"
+	data-video-id="5480141233001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+ 	<p><button onclick="playVideo()">play</button></p>	
+ 	<p><button onclick="pauseVideo()">pause</button></p>
+	<script type="text/javascript">
+		var myPlayer;
+		videojs("myPlayerID").on('ready', function() {
+			myPlayer = this;
+		});
+
+		function playVideo() {
+			myPlayer.play();
+		}
+
+
+		function pauseVideo() {
+			myPlayer.pause();
+		}
+	</script>
+</body>	
+</body>
+</html>

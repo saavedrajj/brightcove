@@ -11,7 +11,7 @@
 <body>
 
 	<div class="container">
-		<h1>IMA3 - Request Ads: On play</h1>
+		<h1>IMA3 - Request Ads: On demand</h1>
 
 
 		<div style="position: relative; display: block; max-width: 100%;">
@@ -50,7 +50,7 @@
 	//////////////////////////////////////////////////////
 	bc('myPlayerID').ima3({
 		adTechOrder: ['html5', 'flash'],
-		serverUrl: 'https://ads.brightcove.com/stable/ads',
+		serverUrl: '',
 		requestMode: 'ondemand', 
 		timeout: 6000, 
 		debug: true,
@@ -79,7 +79,7 @@
 
 	function doAdsRequest() {
 		message.innerHTML += "*** Requesting an ad NOW<br>";
-		myPlayer.ima3.adrequest('https://ads.brightcove.com/stable/ads');
+		myPlayer.ima3.adrequest('https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=');
 	}
 </script>
 

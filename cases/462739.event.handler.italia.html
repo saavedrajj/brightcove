@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+    <link href="//players.brightcove.net/videojs-ima3/2.22.3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<style>
+.video-js {
+    width: 640px;
+    height: 360px;
+}
+</style>
+<body>
+    <video id="myPlayerID" 
+    data-video-id="5768888129001" 
+    data-account="5458602755001" 
+    data-player="r16vzeYsG" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls muted
+    playsinline></video>
+    <script src="//players.brightcove.net/5036649783001/r16vzeYsG_default/index.min.js"></script></div></div>
+    <script src="//players.brightcove.net/videojs-ima3/2.22.3/videojs.ima3.js"></script>
+    <p id="playPromise"></p>
+    <script>
+        var myPlayer;
+        /* ima3-ad-error*/
+        var adtag1 = "https:";
+         /* preroll */
+        var adtag2 = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";       
+        /*italiaonline*/
+        var adtag4 = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url={document.referrer}<https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=%5breferrer_url%5d&correlator=%5btimestamp%5d&description_url=%7bdocument.referrer%7d";
+
+        bc('myPlayerID').ima3({
+            adTechOrder: [
+            'html5',
+            'flash'
+            ], 
+            serverUrl: adtag1,
+            requestMode: 'onload', 
+            timeout: 5000, 
+            debug: true,
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true,
+                autoPlayAdBreaks: false,
+                numRedirects: 10
+            } 
+        });
+
+        videojs("myPlayerID").ready(function() {
+            player = this; 
+
+            /* ad request handler*/
+            player.one('ads-request', adsRequestHandler);
+
+            /* Error handlers */
+            player.one('ima3error', ima3ErrorHandler);
+            player.one('ima3-ad-error', ima3AdErrorHandler);
+            player.one('ima3-hardtimeout', ima3HardTimeoutHandler);
+
+
+
+          function adsRequestHandler(evt) {
+              removeEvents();
+          }
+
+            function ima3ErrorHandler(evt){
+              removeEvents();
+          }
+
+          function ima3AdErrorHandler(evt){
+              removeEvents();
+          }
+          function ima3HardTimeoutHandler(evt){
+              removeEvents();
+          }
+
+
+          function removeEvents() { 
+            player.off('ima3error');
+            player.off('ima3-ad-error');            
+            player.off('ima3-hardtimeout');
+                  
+        }
+
+
+    });
+
+</script>
+</body>
+</html>
+<!---
+https://support.brightcove.com/player-events#bc-ipnav-8
+    -->

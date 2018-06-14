@@ -25,13 +25,17 @@
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
 
+
+
+
+
 	<script>
 		var myPlayer;
 		var player = bc('myPlayerID');
 		player.ima3({
 			adTechOrder: ['html5', 'flash'],
 			debug: true,
-			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=&playerwidth={_playerwidth}&playerheight={_playerheight}',		
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=1920x1080&iu=/122227034/Crash-Video-Test&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=%7bdocument.referrer%7d&description_url=%7bwindow.location.href%7d&correlator=%7btimestamp%7d&cust_params%3Dplayerwidth%3D{_playerwidth}%26playerheight%3D{_playerheight}',					
 			requestMode: 'onload', 
 			timeout: 6000, 
 			hardTimeouts: false,

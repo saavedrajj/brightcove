@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Player Demos - Basic Bumper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  .video-container {
+    max-width:720px;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
+  .video-container:after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  .video-container .video-js {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+  <script>document.createElement('video')</script>
+</head>
+<body>
+
+  <div class="video-container">
+    <video id="player"
+      data-account="5458602755001"
+      data-player="B1qOitxaz"
+      data-embed="default"
+      data-video-id="5480141747001"
+      class="video-js" controls></video>
+  </div>
+  <script src="//players.brightcove.net/5458602755001/B1qOitxaz_default/index.min.js"></script> 
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+
+.video-js .vjs-captions-button { 
+display: none; 
+} 
+
+.video-js .vjs-captions-button.vjs-menu-button{ 
+display: none; 
+} 
+
+	</style>
+</head>
+<body>
+	<h1>Title 1</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	playsinline 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+<script>
+
+		var nativeTextTracks = true;
+		if(videojs.browser.IS_SAFARI){
+			nativeTextTracks = false;
+		}
+			 bc('myPlayerID', {
+				html5: {
+			        nativeTextTracks: nativeTextTracks
+			      }
+			});
+	     
+
+
+		</script>
+
+
+</body>
+</html>

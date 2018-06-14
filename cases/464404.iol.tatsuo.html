@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script>
+        document.createElement('video')
+    </script>
+
+    <style>
+        .video-js {
+            width: 640px;
+            height: 360px;
+        }
+/*
+        .video-js .vjs-big-play-button { 
+            display:none; 
+        } 
+*/
+    </style>
+</head>
+
+<body>
+
+    <video id="myPlayer"
+    data-video-id="4902876982001" 
+    data-account="3981276734001" 
+    data-player="HyYPCNflZ" 
+    data-embed="default" 
+    data-application-id 
+    playsinline
+    class="video-js" 
+    controls></video>
+    <script src="//players.brightcove.net/3981276734001/HyYPCNflZ_default/index.min.js"></script>
+    <script type="text/javascript">
+
+        videojs("myPlayer").ready(function() {
+            var myPlayer = this;
+            myPlayer.on("loadstart", function() {
+                // Show mute button using Class selector
+                document.getElementsByClassName("vjs-volume-panel")[0].classList.remove("vjs-hidden");
+                document.getElementsByClassName("vjs-mute-control")[0].classList.remove("vjs-hidden");                
+
+                // Show mute button using objects
+                //myPlayer.controlBar.volumePanel.show()
+                //myPlayer.controlBar.volumePanel.muteToggle.show()
+            })
+        });
+    </script>
+</body>
+
+</html>

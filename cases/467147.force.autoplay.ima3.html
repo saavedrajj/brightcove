@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<style>
+.video-js {
+    width: 640px;
+    height: 360px;
+}
+</style>
+<body>
+    <video id="iol_player" 
+    data-video-id="ref:promo01" 
+    data-account="5458602755001" 
+    data-player="SJQWk133M" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls
+    playsinline></video>
+    <script src="//players.brightcove.net/5458602755001/SJQWk133M_default/index.min.js"></script></div></div>
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+    <p id="playPromise"></p>
+<script>
+
+    videojs('iol_player').ready(function(){
+        var player = this
+        /*player.muted(true);*/
+        player.on('loadedmetadata',function(){
+            
+            player.play().then(function() {
+                // play succeeded!
+
+                console.log('Play with audio succeeded!');
+            })
+            .catch(function(error) {
+                // play failed
+                console.log('Play with audio failed! Audio muted');
+                player.muted(true);
+                player.play();
+            });
+
+            });
+            
+    });
+     </script>
+</body>
+</html>

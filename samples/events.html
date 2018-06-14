@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Events</title>
+    <style>
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
+</style>
+</head>
+<body>
+    <h1>Player Events v6</h1>
+    <video 
+    id="myPlayerID"
+    data-video-id="5575865276001" 
+    data-account="5458602755001" 
+    data-player="default" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls muted></video>
+    <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+
+
+    <button onclick="clearConsole()">Clear Console</button>
+    <p class="console"><b><u>MESSAGE LOG:</u></b></p>
+    <p class="console" id="message"></p>
+
+
+
+    <script type="text/JavaScript">
+        var myPlayer;
+
+
+        function clearConsole(){
+            message.innerHTML = "";    
+        }
+
+
+        /* loadstart: Dispatched when the player is initialized, and if it’s re-initialized in the case of giving it a new source to play */
+        videojs('myPlayerID').on('loadstart',function(){
+            /*message.innerHTML += "*** loadstart triggered<br>";*/
+        });
+
+        videojs("myPlayerID").ready(function() { 
+            var myPlayer = this;
+
+            myPlayer.on(["suspend", "abort", "error", "emptied", "stalled", "loadedmetadata", "loadeddata", "canplay", "canplaythrough", "playing", "waiting", "seeking", "seeked", "ended", "durationchange", "play", "pause", "ratechange", "resize", "volumechange", "modalclose"],function(event){
+                message.innerHTML += "BC Player event: " + event.type + "<br/>";    
+            });
+
+            myPlayer.on('progress', function() {
+                /*message.innerHTML += "BC Player event: " + event.type + "<br/>"; */  
+            });
+            myPlayer.on('timeupdate', function() {
+                /*message.innerHTML += "BC Player event: " + event.type + "<br/>"; */  
+            });
+
+            myPlayer.on('fullscreenchange', function() {
+                if (myPlayer.isFullscreen()) {
+                    message.innerHTML += "*** fullscreen triggered at " + myPlayer.currentTime() + ' seconds<br>';
+                } else {
+                    message.innerHTML += "*** fullscreen off at " + myPlayer.currentTime() + ' seconds<br>';
+                }
+            });
+
+        });
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+.video-player__meta {
+    padding:0;
+    bottom: 30%;
+    left:44%;
+}
+
+.video-player__meta .video-player__meta-play {
+	background-color: red;
+}
+
+.video-player__meta .video-player__meta-play:hover {
+	background-color: green;
+}
+.video-player__meta .video-player__meta-play .fa {
+	margin-left: 4px;
+}
+@media (min-width: 500px) {
+	.video-player__meta .video-player__meta-play {
+		background-color: red;
+	}
+}
+
+@media (min-width: 1050px) {
+	.video-player__meta .video-player__meta-play {
+		background-color: red;
+	}
+}
+
+.video-player__meta .video-player__meta-title {
+display:none;
+}
+@media (min-width: 500px) {
+  .video-player__meta .video-player__meta-title {
+display:none;
+  }
+}
+@media (min-width: 1050px) {
+  .video-player__meta .video-player__meta-title {
+display:none;
+  }
+}

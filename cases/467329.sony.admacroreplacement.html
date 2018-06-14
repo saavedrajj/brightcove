@@ -31,9 +31,9 @@
 		player.ima3({
 			adTechOrder: ['html5', 'flash'],
 			debug: true,
-			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=&playerwidth={_playerwidth}&playerheight={_playerheight}',		
+			serverUrl: '',		
 			requestMode: 'onload', 
-			timeout: 6000, 
+			timeout: 4000, 
 			hardTimeouts: false,
 			loadingSpinner: false,
 			vpaidMode: 'ENABLED',
@@ -45,16 +45,11 @@
 
 		videojs("myPlayerID").ready( function() {
 			myPlayer= this;
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
 			myPlayer.ima3.adMacroReplacement = function(url){
-				var parameters = {
-					'{_playerwidth}': '640',
-					'{_playerheight}': '360'					
-				};
-				for (var i in parameters) {
-					url = url.split(i).join(encodeURIComponent(parameters[i]));
-				}
-				return url;
-			};
+				return (serverURL);
+
+			};	
 		});
 	</script>
 </body>

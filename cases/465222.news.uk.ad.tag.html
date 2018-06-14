@@ -12,7 +12,7 @@
 <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <body>
-	<h1>adMacroReplacement()</h1>
+	<h1>News UK</h1>	
 	<video 
 	id="myPlayerID"
 	data-video-id="5575865276001" 
@@ -31,8 +31,8 @@
 		player.ima3({
 			adTechOrder: ['html5', 'flash'],
 			debug: true,
-			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=&playerwidth={_playerwidth}&playerheight={_playerheight}',		
-			requestMode: 'onload', 
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&ad_rule=1&description_url={pageVariable.location.href}&iu={pageVariable.iu}&vpaid={pageVariable.vpaid}&impl=s&hl=en&vpos=preroll&gdfp_req=1&env=vp&output=xml_vast3&unviewed_position_start=1&url=[description_url]&correlator=[timestamp]&cmsid={pageVariable.cmsid}&vid={mediainfo.id}&cust_params={pageVariable.cust_params}',		
+			requestMode: 'onplay', 
 			timeout: 6000, 
 			hardTimeouts: false,
 			loadingSpinner: false,
@@ -42,19 +42,9 @@
 				numRedirects: 10
 			}
 		});
+		player.ready(function() {
+			myPlayer = this;
 
-		videojs("myPlayerID").ready( function() {
-			myPlayer= this;
-			myPlayer.ima3.adMacroReplacement = function(url){
-				var parameters = {
-					'{_playerwidth}': '640',
-					'{_playerheight}': '360'					
-				};
-				for (var i in parameters) {
-					url = url.split(i).join(encodeURIComponent(parameters[i]));
-				}
-				return url;
-			};
 		});
 	</script>
 </body>
