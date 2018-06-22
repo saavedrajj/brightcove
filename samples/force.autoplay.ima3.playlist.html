@@ -11,6 +11,11 @@
     width: 640px;
     height: 360px;
 }
+
+.vjs-playlist {
+    width: 640px;
+
+}
 </style>
 <body>
     <video id="myPlayerID" 
@@ -22,6 +27,7 @@
     class="video-js" 
     controls
     playsinline></video>
+    <div class="vjs-playlist"></div>
     <script src="//players.brightcove.net/5458602755001/HkffkYCx7_default/index.min.js"></script></div></div>
     <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
     <p id="playPromise"></p>
@@ -45,27 +51,29 @@
                 numRedirects: 10
             } 
         });
-
-        videojs("myPlayerID").ready(function() {
-            myPlayer = this; 
-            myPlayer.muted(true);
-
-
-            myPlayer.one('loadedmetadata', function(){
-                myPlayer.play().then(function() {
-                    console.log("play() successful! Playback has started.");
-                    document.getElementById("playPromise").innerText = "play() successful! Playback has started.";
-                })
-                .catch(function(error) {
-                  console.log("play() failed! Looks like autoplay was blocked.");
-                  document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";
-                  myPlayer.muted(true);
-                  myPlayer.play();
-              });
+        
+    videojs('myPlayerID').ready(function(){
+        var player = this;
+        player.autoplay(true);
+        player.on('loadedmetadata',function(){
+            
+            player.play().then(function() {
+                // play succeeded!
+                console.log('Play with audio succeeded!');
+            })
+            .catch(function(error) {
+                console.log('Play with audio failed! Audio muted');
+                /*player.adPlayer.muted(true);*/
+                /*player.ima3.adPlayer.muted(true);*/
+                player.muted(true);
+       /*player.ima3.adPlayer.muted(true);*/
+                player.play();
+                        /*player.ima3.adPlayer.muted(true); */  
             });
 
-
-        });
+            });
+            
+    });
     </script>
 </body>
 </html>

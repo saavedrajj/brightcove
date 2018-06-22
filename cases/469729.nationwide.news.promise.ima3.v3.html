@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<div id="p"></div>
+<script src="http://players.brightcove.net/5348771526001/HJPMbJaxm_default/index.js"></script>
+<script src="http://players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>
+<script>
+    setTimeout(function() {
+      document.getElementById('p').innerHTML = '<video id="player"' +
+      'data-video-id="5799979613001"' +
+      'data-account="5348771526001"' +
+      'data-player="Sk7HOqxof"' +
+      'data-embed="default"' +
+      'class="video-js" controls></video>';
+
+
+      var p = bc('player');
+      p.ready(function(){
+        p.ima3({
+          serverUrl:"http://pubads.g.doubleclick.net/gampad/ads?gdfp_req=1&impl=s&output=xml_vast4&unviewed_position_start=1&url=http%3A%2F%2Fplayer.local%3A9999%2Fdemos%2Fone.html%3Fenv%3Dsit%26debug%3Dtrue&correlator=[timestamp]&hl=en&cmsid=3207&vid=5797904147001&iu=/5129/ndm.news&sz=427x240&description_url=http%3A%2F%2Fplayer.local%3A9999%2Fdemos%2Fone.html%3Fenv%3Dsit%26debug%3Dtrue&cust_params=vsite%3Dnews%26prod%3Dvideo%26kw%3D%26pltype%3Dother%26ph%3D0%26pw%3D0%26plo%3D1%26source%3DStoryful%26ap%3Don%26vsec1%3DNews%26vsec2%3DNational%26pos%3D1%26nk%3D1a0bb81c79f735b5e6be88e54c28218d%26ksgmnt%3D%26siteview%3D2%26netview%3D2%26us%3Db%26s%3D0%26abt%3Dvideo-timeout-4200&ad_rule=1&pvid=1a0bb81c79f735b5e6be88e54c28218d-00000000000000000000000000000000-1529651775843-844796&env=vp",
+          adTechOrder: [ 'html5', 'flash' ],
+          vpaidMode: 'ENABLED',
+          hardTimeouts: false,
+          timeout: 4200,
+          loadingSpinner: true,
+          requestMode: 'onload',
+          adSwf: '//players.brightcove.net/videojs-ima3/2/videojs.ima3.swf',
+          debug: false
+        });
+      });
+      setTimeout(function() {
+        var promise = p.play();
+                console.log('PROMISE::');
+                console.log(promise);
+        if (promise) {
+          
+        } else {
+          console.log('PROMISE IS NULL');
+        }
+      }, 1000);
+
+    }, 1000);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+<div style="display: block; position: relative; max-width: 800px;">
+<div style="padding-top: 56.25%;">
+
+
+<video id="iol_player"
+        data-playlist-id="5679021543001"
+        data-account="4626510591001"
+        data-player="By6Os0MOz"
+        data-embed="default"
+        data-playlist-video-id="4669835986001"
+        data-application-id
+        class="video-js"
+        controls
+        style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+
+ <script src="//players.brightcove.net/4626510591001/By6Os0MOz_default/index.min.js"></script>
+
+<script>
+ //Set IMA3 Properties
+    bc('iol_player').ima3({
+        serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/5180/testiol/video/amelie&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&description_url=[description_url]',
+        timeout: 5000,
+        requestMode: 'onplay',
+        loadingSpinner: true,
+        hardTimeouts: true,
+        showVpaidControls: true,
+        debug: false,
+        adTechOrder: ["html5"],
+        ima3SdkSettings: {
+            disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+            autoPlayAdBreaks: false,
+            numRedirects: 4
+        }
+    });
+    
+    videojs('iol_player').ready(function(){
+        var player = this;
+        player.autoplay(true);
+        player.on('loadedmetadata',function(){
+            
+            player.play().then(function() {
+                // play succeeded!
+                console.log('Play with audio succeeded!');
+            })
+            .catch(function(error) {
+                console.log('Play with audio failed! Audio muted');
+                player.muted(true);
+                player.play();
+                
+            });
+
+            });
+            
+    });
+     </script>
+</body>
+</html>

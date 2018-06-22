@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On demand</title>
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>IMA3 - Request Ads: On demand</h1>
+
+
+		<div style="position: relative; display: block; max-width: 100%;">
+			<div style="padding-top: 56.25%;">
+				<video 
+				id="myPlayerID"
+				data-video-id="5480141310001" 
+				data-account="5458602755001" 
+				data-player="Skl4WdCvUZ" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls 
+				style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+				<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+				<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>			
+			</div>
+		</div>
+
+
+
+		<br>
+		<button type="button" class="btn btn-primary" onclick="doAdsRequest();">Request Ad</button>
+
+		<p><u>Message log:</u></p>
+
+		<p id="message"></p>
+
+
+
+
+		<script type="text/javascript">
+			
+	//////////////////////////////////////////////////////
+	// use the new and shiny functionality!
+	//////////////////////////////////////////////////////
+	bc('myPlayerID').ima3({
+		adTechOrder: ['html5', 'flash'],
+		serverUrl: '',
+		requestMode: 'ondemand', 
+		timeout: 6000, 
+		debug: true,
+		hardTimeouts: false,
+		loadingSpinner: false,
+		vpaidMode: 'ENABLED',
+		ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+		message.innerHTML += "*** ima3-ready triggered<br>";
+	var myPlayer = videojs("myPlayerID");
+
+	myPlayer.on('ima3-ready',function(){
+		message.innerHTML += "*** ima3-ready triggered<br>";
+	});
+	
+	myPlayer.on('loadedmetadata',function(){
+		message.innerHTML += "*** loadedmetadata triggered<br>";
+	});
+	
+	myPlayer.on('ads-request', function() { 
+		message.innerHTML += "*** ads-request done<br>";
+	});
+
+	function doAdsRequest() {
+		message.innerHTML += "*** Requesting an ad NOW<br>";
+		myPlayer.ima3.adrequest('https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=');
+	}
+</script>
+
+<ul>
+	<li>Player v.6.5.0</li>
+	<li>IMA3 Plugin v2.19.0</li>	
+	<li><a href="https://support.brightcove.com/advertising-ima3-plugin" target="_blank">Advertising with the IMA3 Plugin</a></li>							
+	<li><a href="https://support.brightcove.com/learning-guide-video-advertising" target="_blank">Learning Guide: Video Advertising</a></li>	
+	<li><a href="https://support.brightcove.com/configuring-player-advertising" target="_blank">Configuring Player Advertising</a></li>	
+	<li><a href="https://support.brightcove.com/advertising-sdks" target="_blank">Advertising with the SDKs</a></li>	
+</ul>
+<div class="alert alert-warning" role="alert">These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

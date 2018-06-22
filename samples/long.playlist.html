@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="UTF-8">	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<title>Long Playlist</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link href="//cs1.brightcodes.net/jsaavedra/includes/css/styles.css" rel="stylesheet">  
+	<style type="text/css">
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	.vjs-playlist {
+		width: 270px;
+		height: 480px;		
+	}
+</style>
+
+</head>
+<body>
+	<h1>Long Playlist</h1>
+	<video 
+	id="myPlayerID"
+	data-account="4755935480001" 
+	data-player="SkXlF3JBl" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/4755935480001/SkXlF3JBl_default/index.min.js"></script>
+<div class="vjs-playlist"></div>
+
+
+<script type="text/javascript">
+	var videoCount = 0;
+
+	videojs('myPlayerID').ready(function () {
+		var myPlayer = this,
+		options = {};
+
+		options.horizontal = true;
+		options.nextButton = false;
+
+		myPlayer.bcPlaylistUi(options);
+
+		$.ajax({
+			url: 'https://edge.api.brightcove.com/playback/v1/accounts/4755935480001/playlists/5374210431001?limit=100',
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				var iMax = data.videos.length;
+				for (i = 0; i < iMax; i++) {
+					data.videos[i] = myPlayer.catalog.transformVideoResponse (data.videos[i], myPlayer);
+				}
+				myPlayer.playlist(data.videos);
+			},
+			beforeSend: setHeader
+		});
+	});
+
+	function setHeader(xhr) {
+		xhr.setRequestHeader('Accept', 'application/json;pk=BCpkADawqM2nRqBllCvMlAnnIwAV_bEL3Eq_E8sSBGX81ocvUEQdpZx2Dp5RklaIhu_Zy8pmaJyyF7s6MARn5USn2eT5sVX1nfIdqT5ncxSrw4VJQ-r7Hi-1deBfI3PrsAThLE6SOJkhVyhH');
+	}
+</script>
+
+
+</body>
+</html>

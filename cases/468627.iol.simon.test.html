@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<style>
+    .video-js {
+        width: 640px;
+        height: 360px;
+    }
+</style>
+
+<body>
+    <video id="myPlayerID" data-video-id="ref:promo01" data-account="5458602755001" data-player="SJQWk133M" data-embed="default"
+        data-application-id class="video-js" controls playsinline></video>
+    <script src="//players.brightcove.net/5458602755001/SJQWk133M_default/index.min.js"></script>
+    </div>
+    </div>
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
+    <p id="playPromise"></p>
+    <script>
+        var myPlayer;
+        bc('myPlayerID').ima3({
+            adTechOrder: [
+                'html5',
+                'flash'
+            ],
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+            requestMode: 'onload',
+            timeout: 4000,
+            debug: true,
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true,
+                autoPlayAdBreaks: false,
+                numRedirects: 10
+            }
+        });
+
+        videojs("myPlayerID").ready(function () {
+            myPlayer = this;
+            myPlayer.autoplay(true);
+            myPlayer.play();
+        });
+    </script>
+</body>
+
+</html>
