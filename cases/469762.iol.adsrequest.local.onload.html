@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+        <title></title>
+    <style>
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
+    </style>
+</head>
+<body>
+    <h2>iol - onload</h2>
+
+            <video 
+            id="myPlayerID"
+            data-video-id="ref:promo01" 
+            data-account="5458602755001"
+            data-player="default"
+            data-embed="default"
+            data-playlist-video-id="5485732381001"
+            data-application-id
+            class="video-js"
+            controls></video>
+
+            <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+            <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+            <script>
+               /* Set IMA3 Properties */
+               bc('myPlayerID').ima3({
+                serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+                timeout: 5000,
+                requestMode: 'onload',
+                loadingSpinner: true,
+                hardTimeouts: true,
+                showVpaidControls: true,
+                debug: true,
+                adTechOrder: ["html5"],
+                ima3SdkSettings: {
+                    disableCustomPlaybackForIOS10Plus: true, /* enables skippable ads on iOS */
+                    autoPlayAdBreaks: false,
+                    numRedirects: 4
+                }
+            });
+
+               videojs('myPlayerID').ready(function(){
+                var myPlayer = this;
+                myPlayer.play();
+                myPlayer.on(["ads-request"],function(event){
+                    console.log("> event: " + event.type);      
+                });
+
+            });
+        </script>
+    </body>
+    </html>
+<!--
+	window.videojs.players.myPlayerID.ima3.settings.requestMode
+	window.videojs.players.iol_bcplaylist.ima3.settings.requestMode
+-->

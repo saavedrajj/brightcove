@@ -51,29 +51,27 @@
                 numRedirects: 10
             } 
         });
-        
-    videojs('myPlayerID').ready(function(){
-        var player = this;
-        player.autoplay(true);
-        player.on('loadedmetadata',function(){
-            
-            player.play().then(function() {
-                // play succeeded!
-                console.log('Play with audio succeeded!');
-            })
-            .catch(function(error) {
-                console.log('Play with audio failed! Audio muted');
-                /*player.adPlayer.muted(true);*/
-                /*player.ima3.adPlayer.muted(true);*/
-                player.muted(true);
-       /*player.ima3.adPlayer.muted(true);*/
-                player.play();
-                        /*player.ima3.adPlayer.muted(true); */  
+
+        videojs("myPlayerID").ready(function() {
+            myPlayer = this; 
+            myPlayer.autoplay(true);
+
+
+            myPlayer.on('loadedmetadata', function(){
+                myPlayer.play().then(function() {
+                    console.log("play() successful! Playback has started.");
+                    /*document.getElementById("playPromise").innerText = "play() successful! Playback has started.";*/
+                })
+                .catch(function(error) {
+                  console.log("play() failed! Looks like autoplay was blocked.");
+                  /*document.getElementById("playPromise").innerText = "play() failed! Looks like autoplay was blocked.";*/
+                  myPlayer.muted(true);
+                  myPlayer.play();
+              });
             });
 
-            });
-            
-    });
+
+        });
     </script>
 </body>
 </html>

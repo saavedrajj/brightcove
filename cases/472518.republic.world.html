@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pause / Resume / Stop Ads</title>
+    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1>IMA3 - Events + Stop Ads</h1>
+    <h2>Vdeo 1</h2>
+    <video 
+    id="myPlayerID1"
+    data-video-id="ref:promo01" 
+    data-account="5480141310001" 
+    data-player="BJxAdLhKDW" 
+    data-embed="Skl4WdCvUZ" 
+    data-application-id 
+    class="video-js" 
+    controls></video>
+    <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+    <script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+    <hr>
+    <h2>Video 2</h2>
+    <video 
+    id="myPlayerID2"
+    data-video-id="ref:promo02" 
+    data-account="5480141310001" 
+    data-player="BJxAdLhKDW" 
+    data-embed="Skl4WdCvUZ" 
+    data-application-id 
+    class="video-js" 
+    controls></video>
+    <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+
+
+    <script type="text/javascript">
+        var myPlayer1;
+        var myPlayer2;
+
+        var player1 = bc('myPlayerID1');    
+        var player2 = bc('myPlayerID2');    
+
+        /* Single Skippable Inline ads */ 
+        player1.ima3({
+            adTechOrder: ['html5'],
+            debug: false,
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',      
+            requestMode: 'onload', 
+            timeout: 6000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+        /* Single Inline Linear ads */
+        player2.ima3({
+            adTechOrder: ['html5'],
+            debug: false,
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',      
+            requestMode: 'onload', 
+            timeout: 6000, 
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true, 
+                numRedirects: 10
+            }
+        });
+
+        player1.ready(function() { 
+            var myPlayer1 = this;
+            myPlayer1.on(["ima3-ad-error","ads-ad-skipped"],function(event){
+                console.log(event.type);   
+            });
+        });
+
+        player2.ready(function(){
+            myPlayer2 = this;
+            myPlayer2.on("play", function(){
+                console.log('player2');
+                pauseAdsPlayer1();
+            });
+        });
+
+        function pauseAdsPlayer1() {
+            console.log("**** PAUSE ADS ****");
+            player1.ima3.adsManager.pause();            
+        }
+
+    </script>
+</body>
+</html>

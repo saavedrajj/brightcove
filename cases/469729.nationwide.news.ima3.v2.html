@@ -1,0 +1,76 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+  <style>
+  .video-js {
+    width: 480px;
+    height: 270px;
+  }
+</style>
+</head>
+<body>
+  <h2>promise - ima3 plugin v2</h2>
+
+  <video id="myPlayerID"
+  data-video-id="ref:promo01"
+  data-account="5458602755001"
+  data-player="default"
+  data-embed="default"
+  data-playlist-video-id="5485732381001"
+  data-application-id
+  class="video-js"
+  controls>
+</video>
+
+<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
+
+<script>
+
+  bc('myPlayerID').ima3({
+    serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+    timeout: 5000,
+    requestMode: 'onplay',
+    loadingSpinner: true,
+    hardTimeouts: true,
+    showVpaidControls: true,
+    debug: false,
+    adTechOrder: ["html5"],
+    ima3SdkSettings: {
+            disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+            autoPlayAdBreaks: false,
+            numRedirects: 4
+          }
+        });
+
+  videojs('myPlayerID').ready(function(){
+    var player = this;
+
+    player.on('loadedmetadata',function(){
+      var promise = player.play();
+
+      console.log('checking promise object value:');
+      console.log(promise);
+
+
+      if (promise !== undefined) {
+        promise.then(function() {
+        // play succeeded!
+        console.log('Play with audio succeeded!');
+      }).catch(function(error) {
+      // Autoplay was prevented.
+      console.log('Play with audio failed! Audio muted');
+      player.muted(true);
+      player.play();
+    });
+    }
+
+  });
+
+  });
+</script>
+</body>
+</html>

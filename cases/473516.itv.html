@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5813742431001" 
+	data-account="2821697655001" 
+	data-player="B1J9ApOVZ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<script src="//players.brightcove.net/2821697655001/B1J9ApOVZ_default/index.min.js"></script>
+
+
+  <video
+      id="id105224534763127"
+      data-video-id="5813742431001"
+      data-account="2821697655001"
+      data-player="B1J9ApOVZ"
+      data-is-regionalised="false"
+      poster = "http://news.images.itv.com/image/file/1597195/image_update_img.jpg"
+      data-embed="default"
+      data-application-id
+      class="video-js"
+      controls>
+    </video>
+    <script>
+          var myPlayer = 'bc' + 'id105224534763127';
+          bc('id105224534763127').ready(function(){
+            var videos = document.getElementsByTagName('video');
+              for (var i=0; i<videos.length; i++){
+                window[myPlayer + i] = this;
+              }
+          });
+    </script>
+
+</body>
+</html>

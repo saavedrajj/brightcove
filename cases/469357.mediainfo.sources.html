@@ -1,0 +1,16 @@
+<video id="myPlayerID"
+  data-video-id="4093643993001"
+  data-account="1752604059001"
+  data-player="VJvZIueYx"
+  data-embed="default"
+  class="video-js" controls=""></video>
+<script src="//players.brightcove.net/1752604059001/VJvZIueYx_default/index.min.js"></script>
+
+<script type="text/javascript">
+  videojs('myPlayerID').ready(function(){
+    var myPlayer = this;
+    myPlayer.on('loadstart',function(){
+      console.log('mediainfo sources', myPlayer.mediainfo.sources);
+    })
+  });
+</script>

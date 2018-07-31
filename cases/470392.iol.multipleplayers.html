@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>Italia online multiple players</h1>
+	<h2>Player 1. ima3 + overlay + endscreen</h2>
+	<video 
+	id="myPlayerID1"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="SkqAPkeMX" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="//players.brightcove.net/5458602755001/SkqAPkeMX_default/index.min.js"></script>
+
+	<h2>Player 2. ima3 + overlay + endscreen</h2>
+	<video 
+	id="myPlayerID2"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="SJkJOkeG7" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="//players.brightcove.net/5458602755001/SJkJOkeG7_default/index.min.js"></script>	
+	<button type="button" onclick="playPlayer2()">Play Player 2</button>
+
+<script>
+		var myPlayer1 = videojs("myPlayerID1");
+
+		var myPlayer2 = videojs("myPlayerID2");
+
+        myPlayer1.play();
+
+		function playPlayer2() {
+			myPlayer2.play();			
+		}
+</script>
+
+</body>
+</html>

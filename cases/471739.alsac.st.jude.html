@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h2>iframe</h2>
+
+	<div style="position: relative; display: block; max-width: 100%;">
+		<div style="padding-top: 65.5%;">
+			<iframe src="//players.brightcove.net/1942203451001/H1ldLnLmV_default/index.html?videoId=5806342179001" 
+			allowfullscreen 
+			webkitallowfullscreen 
+			mozallowfullscreen 
+			style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></iframe>
+		</div>
+	</div>
+	<h2>html5</h2>
+
+
+
+	<div style="position: relative; display: block; max-width: 100%;">
+		<div style="padding-top: 56.25%;">
+			<video 
+			id="myPlayerID"
+			data-video-id="5806342179001" 
+			data-account="1942203451001" 
+			data-player="H1ldLnLmV" 
+			data-embed="default" 
+			data-application-id 
+			class="video-js" 
+			controls 
+			style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+			<script src="//players.brightcove.net/1942203451001/H1ldLnLmV_default/index.min.js"></script>
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	.vjs-playlist {
+		width: 480px;		
+	}	
+	</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video 
+	id="myPlayerID"
+	data-playlist-id="2312993038001" 
+	data-account="1942203455001" 
+	data-player="By8P8Ar47" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<div class="vjs-playlist"></div>
+	<script src="//players.brightcove.net/1942203455001/By8P8Ar47_default/index.min.js"></script>
+	<script>
+		var player = videojs('myPlayerID');
+
+		player.on('ready', function(){
+			player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpreonly&cmsid=496&vid=short_onecue&correlator=";
+		});
+	</script>
+
+</body>
+</html>
+
+

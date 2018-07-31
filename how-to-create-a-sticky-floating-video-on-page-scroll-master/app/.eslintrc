@@ -1,7 +1,0 @@
-{
-  "extends": "jquery",
-  "globals": {
-    "jQuery": true,
-    "YT": true
-  }
-}

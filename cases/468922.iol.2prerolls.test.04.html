@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Pause / Resume / Stop Ads</title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/2.20.3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+
+	<h1>iol -- Player v5.28.1 IMA v2.20.3 + iol new vast response</h1>
+
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5480141310001" 
+	data-player="SkXLCdLRWQ" 
+	data-embed="Skl4WdCvUZ" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/SkXLCdLRWQ_default/index.min.js"></script>
+
+	<script src="//players.brightcove.net/videojs-ima3/2.20.3/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+		bc('myPlayerID').ima3({
+			/* IMA3 Plugin initialisation */ 
+			adTechOrder: ['html5', 'flash'],
+			debug: true,
+			serverUrl: 'http://cs1.brightcodes.net/jsaavedra/includes/xml/vast.response.iol.xml',		
+			requestMode: 'onplay', 
+			timeout: 6000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+		var player = videojs("myPlayerID");
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>
