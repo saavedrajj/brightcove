@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+<title>BOSULIF® (bosutinib) Tablets | Safety Info</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta property="hcp:hcp-paywall-state" content="Public" />
+<meta property="hcp:build-no" content="PP-BOS-USA-0382" />
+<meta property="hcp:version" content="7.x-2.10.26" />
+<link rel="shortcut icon" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/themes/pfizer_hcp_us/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if lte IE 8]><script src="/sites/all/modules/contrib/personalize/js/personalize.ie8.js" />
+</script><![endif]--><meta name="description" content="For patients resistant or intolerant to prior therapy, BOSULIF® (bosutinib) may help treat Ph+ CML. See risks and benefits." />
+<link rel="apple-touch-icon" sizes="114x114" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/all/themes/pfizer_hcp2_theme/pfizer114x114.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/all/themes/pfizer_hcp2_theme/pfizer72x72.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/all/themes/pfizer_hcp2_theme/pfizer144x144.png" />
+<link rel="apple-touch-icon" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/all/themes/pfizer_hcp2_theme/pfizer57x57.png" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp" />
+<link rel="shortlink" href="https://pfpfportaladvcmdev.prod.acquia-sites.com/node/6736" />
+<style type="text/css" media="all">
+@import url("/modules/system/system.base.css?pcw4c1");
+@import url("/modules/system/system.messages.css?pcw4c1");
+@import url("/modules/system/system.theme.css?pcw4c1");
+</style>
+<style type="text/css" media="screen">
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_isi/css/pfizer_hcp2_isi.css?pcw4c1");
+@import url("/sites/default/modules/updated/pfizer_hcp2_products/css/pfizer-hcp2-products-isi.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+@import url("/sites/all/modules/panopoly/panopoly_core/css/panopoly-jquery-ui-theme.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp/css/pfizer-hcp-quicklink.css?pcw4c1");
+@import url("/sites/all/modules/contrib/date/date_api/date.css?pcw4c1");
+@import url("/sites/all/modules/contrib/date/date_popup/themes/datepicker.1.7.css?pcw4c1");
+@import url("/sites/all/modules/contrib/deploy/css/deploy.css?pcw4c1");
+@import url("/modules/field/theme/field.css?pcw4c1");
+@import url("/modules/node/node.css?pcw4c1");
+@import url("/sites/all/modules/panopoly/panopoly_core/css/panopoly-dropbutton.css?pcw4c1");
+@import url("/sites/all/modules/panopoly/panopoly_magic/css/panopoly-magic.css?pcw4c1");
+@import url("/sites/all/modules/panopoly/panopoly_widgets/panopoly-widgets.css?pcw4c1");
+@import url("/sites/all/modules/panopoly/panopoly_widgets/panopoly-widgets-spotlight.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_edetail_pitcher/css/edetail-pitcher-style.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_news/css/news-style.css?pcw4c1");
+@import url("/sites/default/modules/updated/pfizer_hcp2_products/css/pfizer-hcp2-products.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_ui/css/pfizer-hcp2-ui.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_webinar/css/webinar-style.css?pcw4c1");
+@import url("/sites/all/modules/contrib/picture/picture_wysiwyg.css?pcw4c1");
+@import url("/modules/search/search.css?pcw4c1");
+@import url("/modules/user/user.css?pcw4c1");
+@import url("/sites/all/modules/contrib/extlink/extlink.css?pcw4c1");
+@import url("/sites/default/modules/custom/hcp2_core_override/layouts/hcp_landing_enhanced/hcp_landing_enhanced.css?pcw4c1");
+@import url("/sites/all/modules/contrib/views/css/views.css?pcw4c1");
+@import url("/sites/all/modules/contrib/caption_filter/caption-filter.css?pcw4c1");
+@import url("/sites/default/modules/custom/pfizer_grv/markets/us/pfizer_grv.us.css?pcw4c1");
+@import url("/sites/all/modules/contrib/ckeditor/css/ckeditor.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+@import url("/sites/all/modules/contrib/colorbox/styles/default/colorbox_style.css?pcw4c1");
+@import url("/sites/all/modules/contrib/ctools/css/ctools.css?pcw4c1");
+@import url("/sites/all/modules/contrib/panels/css/panels.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_cr36/cr36.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_ui/plugins/panels/layouts/hcp_landing/hcp_landing.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+/* <![CDATA[ */
+@media screen and (min-width:1400px){#block-pfizer-hcp2-isi-hcp-isi-block{width:336.25px !important;}}@media screen and (min-width:1400px){body.isi .section{width:998.75px;}}
+
+/* ]]> */
+</style>
+<style type="text/css" media="all">
+@import url("/sites/default/modules/custom/pfizer_grv/css/pfizer_grv.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+/* <![CDATA[ */
+#block-pfizer-hcp2-isi-hcp-isi-block{height:calc(25% + 32px);}
+
+/* ]]> */
+</style>
+<style type="text/css" media="all">
+@import url("/sites/default/modules/updated/pfizer_hcp2_products/css/navigation.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_banner/css/pfizer-hcp2-banner.css?pcw4c1");
+@import url("/sites/default/modules/custom/pfizer_hcp2_products_subheader/css/product-subheader.css?pcw4c1");
+</style>
+<link type="text/css" rel="stylesheet" href="/sites/default/files/color/brand-1096-bosulif.css?pcw4c1" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/files/color/indication-241-hcp.css?pcw4c1" media="all" />
+
+<!--[if IE 8]>
+<style type="text/css" media="all">
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/styles.ie8.css?pcw4c1");
+</style>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<style type="text/css" media="all">
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/dist/ie.css?pcw4c1");
+</style>
+<![endif]-->
+<style type="text/css" media="all">
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/lib/bootstrap-select.min.css?pcw4c1");
+@import url("/sites/all/modules/custom/pfizer_lift/css/pfizer_lift.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/lib/jquery.qtip.min.css?pcw4c1");
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/dist/compass_radix/fontawesome/font-awesome.css?pcw4c1");
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/dist/screen.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/system.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/banner.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/contact.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/co-pay.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/custom-module-styles.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/front.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/medical-conditions.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/modal.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/page-not-found.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/panel-pane.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/products.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/sign-in-register.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/sitemap.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/support-services.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/css/webinars.css?pcw4c1");
+</style>
+<style type="text/css" media="print">
+@import url("/sites/all/themes/pfizer_hcp2_theme/assets/stylesheets/print.css?pcw4c1");
+</style>
+<style type="text/css" media="all">
+@import url("/sites/all/modules/panopoly/panopoly_images/panopoly-images.css?pcw4c1");
+@import url("/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_core/css/brightcove_video.css?pcw4c1");
+@import url("/sites/default/themes/pfizer_hcp_us/assets/bosulif/brand.css?pcw4c1");
+</style>
+<script type="text/javascript" src="/sites/default/modules/contrib/jquery_update/replace/jquery/1.8/jquery.min.js?v=1.8.3"></script>
+<script type="text/javascript" src="/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="/misc/drupal.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/visitor_actions/modules/visitor_actions_ui/js/jquery/alias.js?v=1.8.3"></script>
+<script type="text/javascript" src="/sites/default/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js?v=1.10.2"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _tcaq = _tcaq || [];
+var _tcwq = _tcwq || [];
+_tcaq.push(['setAccount', 'PFIZERSANDBOX', 'pfportaladv']);
+//--><!]]>
+</script>
+<script type="text/javascript" src="/sites/default/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js?v=67fb34f6a866c40d0570"></script>
+<script type="text/javascript" src="/sites/default/modules/contrib/jquery_update/replace/jquery.form/4/jquery.form.min.js?v=4.2.1"></script>
+<script type="text/javascript" src="/misc/jquery.ba-bbq.js?v=1.2.1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/visitor_actions/modules/visitor_actions_ui/js/jquery/ducktape.events.js?v=7.59"></script>
+<script type="text/javascript" src="/misc/ajax.js?v=7.59"></script>
+<script type="text/javascript" src="/sites/default/modules/contrib/jquery_update/js/jquery_update.js?v=0.0.1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_grv/js/ajax.js?v=7.59"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.createElement( "picture" );
+//--><!]]>
+</script>
+<script type="text/javascript" src="/sites/all/modules/panopoly/panopoly_images/panopoly-images.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/marketo_ma/js/marketo_ma.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/panopoly/panopoly_magic/panopoly-magic.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/caption_filter/js/caption-filter.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/extlink/extlink.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/acquia_lift/acquia_lift_profiles/js/acquia_lift_profiles.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_webstandards/modules/pfizer_webstandards_hcp210/js/hcp210_plugin.js?pcw4c1"></script>
+<script type="text/javascript" src="/misc/progress.js?v=7.59"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp/js/login.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp_grv/js/login-pfizer_grv.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/libraries/colorbox/jquery.colorbox-min.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/colorbox/js/colorbox.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/colorbox/styles/default/colorbox_style.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/colorbox/js/colorbox_inline.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/libraries/jquery.imagesloaded/jquery.imagesloaded.min.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_core/js/extlink.js?pcw4c1"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+      // close script tag for SecKit protection
+      //--><!]]>
+      </script>
+      <script type="text/javascript" src="/sites/all/modules/security/seckit/js/seckit.document_write.js"></script>
+      <link type="text/css" rel="stylesheet" id="seckit-clickjacking-no-body" media="all" href="/sites/all/modules/security/seckit/css/seckit.no_body.css" />
+      <!-- stop SecKit protection -->
+      <noscript>
+      <link type="text/css" rel="stylesheet" id="seckit-clickjacking-noscript-tag" media="all" href="/sites/all/modules/security/seckit/css/seckit.noscript_tag.css" />
+      <div id="seckit-noscript-tag">
+        Enable JavaScript to visit this website.
+      </div>
+      </noscript>
+      <script type="text/javascript">
+      <!--//--><![CDATA[//><!--
+      // open script tag to avoid syntax errors
+//--><!]]>
+</script>
+<script type="text/javascript" src="/sites/default/modules/custom/hcp2_core_override/js/hcp2_core_override.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp/js/pfizer-hcp-quicklink.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/ctools/js/modal.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_grv/js/pfizer_grv.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_grv/markets/us/pfizer_grv.us.js?pcw4c1"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function() {
+    if (typeof window.janrain !== 'object') window.janrain = {};
+    window.janrain.settings = {};
+    window.janrain.settings.capture = {};
+
+    janrain.settings.custom = false;
+
+    janrain.settings.packages = ['login', 'capture'];
+    janrain.settings.language = 'en';
+    janrain.settings.appUrl = 'https://pfizergrv-dev.rpxnow.com';
+    janrain.settings.tokenAction = 'event';
+
+    janrain.settings.capture.flowName = 'us';
+    janrain.settings.capture.appId = 'gpg8c96pat48q9f57xugucqks8';
+    janrain.settings.capture.captureServer = 'https://pfizergrv-dev.janraincapture.com';
+    janrain.settings.capture.redirectUri = 'https://pfpfportaladvcmdev.prod.acquia-sites.com/pfizer-grv/oauth';
+    janrain.settings.capture.clientId = 'p3p3rbf286bpj5v3ubgrcwkpde4fy5g8';
+    janrain.settings.capture.flowVersion = 'HEAD';
+    janrain.settings.capture.registerFlow = 'traditionalRegistration';
+    janrain.settings.capture.setProfileCookie = true;
+    janrain.settings.capture.setProfileData = true;
+    janrain.settings.capture.keepProfileCookieAfterLogout = false;
+    janrain.settings.capture.responseType = 'code';
+    janrain.settings.capture.returnExperienceUserData = ['displayName'];
+    janrain.settings.capture.hasSettings = false;
+    janrain.settings.capture.federate = true;
+    janrain.settings.capture.federateServer = 'https://pfizergrv-dev.janrainsso.com';
+    janrain.settings.capture.federateXdReceiver = 'https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/modules/custom/pfizer_grv/modules/pfizer_grv_sso/xdcomm.html';
+    janrain.settings.capture.federateLogoutUri = 'https://pfpfportaladvcmdev.prod.acquia-sites.com/user/logout';
+    janrain.settings.capture.federateSegment = 'Pfizer_com_idp_hcp_us_full';
+    janrain.settings.capture.federateSupportedSegments = '[""]';
+    janrain.settings.capture.federateLogoutCalllback = function() {};
+    janrain.settings.capture.federateEnableSafari = true;
+
+    var httpsLoadUrl = "https://rpxnow.com/load/pfizergrv-dev";
+    var httpLoadUrl = "http://rpxnow.com/load/pfizergrv-dev";
+
+    function isReady() { janrain.ready = true; };
+    if (document.addEventListener) {
+        document.addEventListener("DOMContentLoaded", isReady, false);
+    } else {
+        window.attachEvent('onload', isReady);
+    }
+
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.id = 'janrainAuthWidget';
+    if (document.location.protocol === 'https:') {
+        e.src = httpsLoadUrl;
+    } else {
+        e.src = httpLoadUrl;
+    }
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+
+})();
+//--><!]]>
+</script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_grv/modules/pfizer_grv_sso/js/pfizer_grv_sso.js?pcw4c1"></script>
+<script type="text/javascript" src="https://sadmin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/pfanalytics/pfaLoader.js"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_marketo/js/pfizer_marketo.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp2_products_subheader_popup/js/product-subheader-popup.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp_grv/js/pfizer_hcp_grv.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp_grv/js/pfizer_hcp_grv.modal.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp_grv/js/pfizer_hcp_grv_quicktabs.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/modules/custom/pfizer_hcp2_federation/js/federation.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/files/pfizer_webstandards/urlconfig.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/files/pfizer_webstandards/pfconfig.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_webstandards/resources/javascript/ws_plugin.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_webstandards/modules/pfizer_webstandards_hcp2/resources/js/hcp2_plugin.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_webstandards/modules/pfizer_webstandards_hcp27/js/hcp27_plugin.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_webstandards/modules/pfizer_webstandards_hcp29/js/hcp29_plugin.js?pcw4c1"></script>
+<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/sites/all/themes/pfizer_hcp2_theme/assets/javascripts/lib/bootstrap-select.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/entity_context/js/entity_context.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/personalize/modules/personalize_elements/js/personalize_elements.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/personalize/modules/personalize_taxonomy_context/js/personalize_taxonomy_context.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/personalize/modules/personalize_url_context/js/personalize_url_context.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_lift/js/pfizer_lift.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/themes/radix/assets/javascripts/radix-script.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/themes/pfizer_hcp2_theme/assets/javascripts/lib/jquery.matchHeight-min.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/themes/pfizer_hcp2_theme/assets/javascripts/lib/jquery.waitforimages.min.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/themes/pfizer_hcp2_theme/assets/javascripts/dist/scripts.dist.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/themes/pfizer_hcp_us/js/scripts.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/themes/radix/assets/javascripts/radix-progress.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/default/themes/pfizer_hcp_us/assets/bosulif/brand.js?pcw4c1"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"pfizer_hcp_us","theme_token":"04TyESk2EpyzIPNlsdVmh-uwfyo3hzeTf2wsVvMfv-Y","jquery_version":"1.8","pfizer_hcp_context":"products.indication:dc80993e-29d6-5d81-859b-904624b51d6a:d4242eff-7274-4b09-97d6-ac3bdd033218:c24cf37a-1fbc-58ed-9b8d-59ceca209ea7:43220029-93d3-4728-b3fb-34ecaaf03a5c","pfizer_hcp_context_token":"s1X02efNIorJZSUtynfwDbM8V1RAttEUMhHAjdFkpa8","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_isi\/css\/pfizer_hcp2_isi.css":1,"sites\/default\/modules\/updated\/pfizer_hcp2_products\/css\/pfizer-hcp2-products-isi.css":1,"misc\/ui\/jquery.ui.theme.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp\/css\/pfizer-hcp-quicklink.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/contrib\/deploy\/css\/deploy.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/panopoly\/panopoly_core\/css\/panopoly-dropbutton.css":1,"sites\/all\/modules\/panopoly\/panopoly_magic\/css\/panopoly-magic.css":1,"sites\/all\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.css":1,"sites\/all\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_edetail_pitcher\/css\/edetail-pitcher-style.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_news\/css\/news-style.css":1,"sites\/default\/modules\/updated\/pfizer_hcp2_products\/css\/pfizer-hcp2-products.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_ui\/css\/pfizer-hcp2-ui.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_webinar\/css\/webinar-style.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_wysiwyg\/hcp2-wysiwyg.css":1,"sites\/all\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/extlink\/extlink.css":1,"sites\/default\/modules\/custom\/hcp2_core_override\/layouts\/hcp_landing_enhanced\/hcp_landing_enhanced.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/caption_filter\/caption-filter.css":1,"sites\/default\/modules\/custom\/pfizer_grv\/markets\/us\/pfizer_grv.us.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_cr36\/cr36.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_ui\/plugins\/panels\/layouts\/hcp_landing\/hcp_landing.css":1,"0":1,"sites\/all\/modules\/contrib\/ctools\/css\/modal.css":1,"sites\/default\/modules\/custom\/pfizer_grv\/css\/pfizer_grv.css":1,"1":1,"sites\/default\/modules\/updated\/pfizer_hcp2_products\/css\/navigation.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_banner\/css\/pfizer-hcp2-banner.css":1,"sites\/default\/modules\/custom\/pfizer_hcp2_products_subheader\/css\/product-subheader.css":1,"public:\/\/color\/brand-1096-bosulif.css":1,"public:\/\/color\/indication-241-hcp.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/styles.ie8.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/dist\/ie.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/lib\/bootstrap-select.min.css":1,"sites\/all\/modules\/custom\/pfizer_lift\/css\/pfizer_lift.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/lib\/jquery.qtip.min.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/dist\/compass_radix\/fontawesome\/font-awesome.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/dist\/screen.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/system.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/banner.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/contact.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/co-pay.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/custom-module-styles.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/front.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/medical-conditions.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/modal.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/page-not-found.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/panel-pane.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/products.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/sign-in-register.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/sitemap.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/support-services.css":1,"sites\/default\/themes\/pfizer_hcp_us\/css\/webinars.css":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/stylesheets\/print.css":1,"sites\/all\/modules\/panopoly\/panopoly_images\/panopoly-images.css":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_core\/css\/brightcove_video.css":1,"theme:\/\/assets\/bosulif\/brand.css":1},"js":{"https:\/\/cdn.lift.acquia.com\/PFIZERSANDBOX\/tc.min.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_isi\/js\/pfizer_hcp2_isi.js":1,"sites\/default\/modules\/updated\/pfizer_hcp2_products\/js\/pfizer-hcp2-products-isi.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp\/js\/context.js":1,"sites\/all\/modules\/contrib\/personalize\/js\/personalize.storage.js":1,"sites\/all\/modules\/contrib\/personalize\/js\/promise-1.0.0.min.js":1,"sites\/all\/modules\/contrib\/personalize\/js\/personalize.js":1,"sites\/all\/modules\/contrib\/visitor_actions\/js\/visitor_actions.js":1,"sites\/all\/modules\/contrib\/acquia_lift\/js\/acquia_lift.page.js":1,"sites\/all\/modules\/contrib\/acquia_lift\/js\/acquia_lift.goals_queue.js":1,"sites\/all\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"sites\/all\/modules\/contrib\/picture\/picture.min.js":1,"sites\/all\/modules\/contrib\/extlink_extra\/extlink_extra.js":1,"sites\/all\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.js":1,"sites\/all\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets-spotlight.js":1,"sites\/all\/modules\/contrib\/addthis\/addthis.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_extlink\/js\/pfizer_hcp2_extlink.js":1,"sites\/all\/modules\/custom\/pfizer_lift\/js\/pfizer_lift_brightcove.js":1,"sites\/default\/modules\/contrib\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/visitor_actions\/modules\/visitor_actions_ui\/js\/jquery\/alias.js":1,"sites\/default\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/default\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/default\/modules\/contrib\/jquery_update\/replace\/jquery.form\/4\/jquery.form.min.js":1,"misc\/jquery.ba-bbq.js":1,"sites\/all\/modules\/contrib\/visitor_actions\/modules\/visitor_actions_ui\/js\/jquery\/ducktape.events.js":1,"misc\/ajax.js":1,"sites\/default\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/default\/modules\/custom\/pfizer_grv\/js\/ajax.js":1,"sites\/all\/modules\/panopoly\/panopoly_images\/panopoly-images.js":1,"sites\/all\/modules\/contrib\/marketo_ma\/js\/marketo_ma.js":1,"sites\/all\/modules\/panopoly\/panopoly_magic\/panopoly-magic.js":1,"sites\/all\/modules\/contrib\/caption_filter\/js\/caption-filter.js":1,"sites\/all\/modules\/contrib\/extlink\/extlink.js":1,"sites\/all\/modules\/contrib\/acquia_lift\/acquia_lift_profiles\/js\/acquia_lift_profiles.js":1,"sites\/all\/modules\/custom\/pfizer_webstandards\/modules\/pfizer_webstandards_hcp210\/js\/hcp210_plugin.js":1,"misc\/progress.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp\/js\/login.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp\/js\/login-janrain_capture.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/libraries\/jquery.imagesloaded\/jquery.imagesloaded.min.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp2_core\/js\/extlink.js":1,"sites\/default\/modules\/custom\/hcp2_core_override\/js\/hcp2_core_override.js":1,"sites\/all\/modules\/hcp_portal\/pfizer_hcp2\/modules\/pfizer_hcp\/js\/pfizer-hcp-quicklink.js":1,"sites\/all\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/default\/modules\/custom\/pfizer_grv\/js\/pfizer_grv.js":1,"sites\/default\/modules\/custom\/pfizer_grv\/markets\/us\/pfizer_grv.us.js":1,"sites\/default\/modules\/custom\/pfizer_grv\/modules\/pfizer_grv_sso\/js\/pfizer_grv_sso.js":1,"https:\/\/sadmin.brightcove.com\/js\/BrightcoveExperiences.js":1,"https:\/\/s3.amazonaws.com\/pfanalytics\/pfaLoader.js":1,"sites\/all\/modules\/custom\/pfizer_marketo\/js\/pfizer_marketo.js":1,"sites\/default\/modules\/custom\/pfizer_hcp2_products_subheader_popup\/js\/product-subheader-popup.js":1,"sites\/default\/modules\/custom\/pfizer_hcp_grv\/js\/pfizer_hcp_grv.js":1,"sites\/default\/modules\/custom\/pfizer_hcp_grv\/js\/pfizer_hcp_grv.modal.js":1,"sites\/default\/modules\/custom\/pfizer_hcp_grv\/js\/pfizer_hcp_grv_quicktabs.js":1,"sites\/default\/modules\/custom\/pfizer_hcp2_federation\/js\/federation.js":1,"public:\/\/pfizer_webstandards\/urlconfig.js":1,"public:\/\/pfizer_webstandards\/pfconfig.js":1,"sites\/all\/modules\/custom\/pfizer_webstandards\/resources\/javascript\/ws_plugin.js":1,"sites\/all\/modules\/custom\/pfizer_webstandards\/modules\/pfizer_webstandards_hcp2\/resources\/js\/hcp2_plugin.js":1,"sites\/all\/modules\/custom\/pfizer_webstandards\/modules\/pfizer_webstandards_hcp27\/js\/hcp27_plugin.js":1,"sites\/all\/modules\/custom\/pfizer_webstandards\/modules\/pfizer_webstandards_hcp29\/js\/hcp29_plugin.js":1,"https:\/\/netdna.bootstrapcdn.com\/bootstrap\/3.2.0\/js\/bootstrap.min.js":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/javascripts\/lib\/bootstrap-select.js":1,"sites\/all\/modules\/contrib\/entity_context\/js\/entity_context.js":1,"sites\/all\/modules\/contrib\/personalize\/modules\/personalize_elements\/js\/personalize_elements.js":1,"sites\/all\/modules\/contrib\/personalize\/modules\/personalize_taxonomy_context\/js\/personalize_taxonomy_context.js":1,"sites\/all\/modules\/contrib\/personalize\/modules\/personalize_url_context\/js\/personalize_url_context.js":1,"sites\/all\/modules\/custom\/pfizer_lift\/js\/pfizer_lift.js":1,"sites\/all\/themes\/radix\/assets\/javascripts\/radix-script.js":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/javascripts\/lib\/jquery.matchHeight-min.js":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/javascripts\/lib\/jquery.waitforimages.min.js":1,"sites\/all\/themes\/pfizer_hcp2_theme\/assets\/javascripts\/dist\/scripts.dist.js":1,"sites\/default\/themes\/pfizer_hcp_us\/js\/scripts.js":1,"sites\/all\/themes\/radix\/assets\/javascripts\/radix-progress.js":1,"theme:\/\/assets\/bosulif\/brand.js":1}},"languageCount":1,"loginPath":"sign-in-register","colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":false,"mobiledevicewidth":"480px"},"multiselect":{"widths":"400"},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber","loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/pfpfportaladvcmdev.prod.acquia-sites.com\/sites\/all\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/pfpfportaladvcmdev.prod.acquia-sites.com\/sites\/all\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"panopoly_magic":{"pane_add_preview_mode":"single"},"pfizer_ws":{"fields":[{"name":"prop28","value":"BOSULIF"},{"name":"eVar27","value":"222030"},{"name":"prop68","value":"hcp"},{"name":"prop67","value":"US"},{"name":"eVar65","value":"D=c67"},{"name":"eVar76","value":"20180801"}]},"pfizerWebstandardsHcp210":{"contentType":{"eVar28":"hcp_indications","prop29":"hcp_indications"}},"hcpUs":{"platformMenuPages":["pfizer-products"]},"better_exposed_filters":{"views":{"hcp_quick_lists":{"displays":{"ql_indication_node":{"filters":[]}}}}},"ctools-pfizer-grv-style":{"modalSize":{"type":"fixed","width":550,"height":140,"contentRight":30,"contentBottom":0},"modalOptions":{"opacity":0.8,"background-color":"#000000"},"closeText":"","animation":"fadeIn","animationSpeed":"fast","modalClass":"default grv-modal-top","modalTheme":"pfizerHcpGrvModalDialog"},"pfizerGrv":{"pfizerGrvSsoEnabled":true},"pfizer_lift":{"customer_id":false,"contexts":{"profession":null,"specialty":null,"platform":"HCP Portal Actinium","logged_in":"no","campaign_country":"us","brand_name":"BOSULIF","brand_id":"222030","featured":"no","build_number":"PP-BOS-USA-0382","content_source":"Pfizer","language":"en"},"serverSideActions":null},"extlink":{"extTarget":"_blank","extClass":0,"extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"(addthis.com)|(labeling.pfizer.com)|(packageinserts.bms.com)|(pfizer.com)|(www.pfizer.com)|(www.pfizerpro.com)|(www1.pfizerpro.com)|(www.pfizerrxpath.com)|(www.pfizerrxpathways.com)|(www.pfizermedicalinformation.com)|(www.pfizerpatientreportedoutcomes.com)|(www.pfizerprime.com)|(www.gethealthystayhealthy.com)|(aromasinhcp.com)|(arthrotechcp.com)|(avinzahcp.com)|(benefixhcp.com)|(besponsahcp.com)|(bicillinlahcp.com)|(bosulifhcp.com)|(caduethcp.com)|(caverjecthcp.com)|(celebrexhcp.com)|(depotestosteronehcp.com)|(detrollahcp.com)|(dilantinhcp.com)|(duaveehcp.com)|(dylojecthcp.com)|(elelysohcp.com)|(embedahcp.com)|(enbrelhcp.com)|(estringhcp.com)|(eucrisahcp.com)|(flectorpatchhcp.com)|(gelfoam.com)|(geodonhcp.com)|(hcp.nexium24hr.com)|(ibrancehcp.com)|(inflectrahcp.com)|(inlytahcp.com)|(levoxylhcp.com)|(lipitorhcp.com)|(lyricahcp.com)|(mylotarghcp.com)|(nexium24hcp.com)|(nicotrolpro.com)|(norvaschcp.com)|(norvaschcp.com)|(precedex.com)|(premarinhcp.com)|(premarinvaginalcreamhcp.com)|(preparationhhcp.com)|(prevnar13hcp.com)|(pristiqhcp.com)|(protonixhcp.com)|(quillichewerhcp.com)|(quillivantxrpro.com)|(relpaxpro.com)|(revatiohcp.com)|(somaverthcp.com)|(surgisealadhesive.com)|(surgisealstylus.com)|(surgisealtwist.com)|(sutenthcp.com)|(toriselhcp.com)|(toviazhcp.com)|(troxycaerhcp.com)|(trumenbahcp.com)|(tygacilhcp.com)|(viagrahcp.com)|(xalatanhcp.com)|(xalkorihcp.com)|(xanaxhcp.com)|(xeljanzhcp.com)|(xtandihcp.com)|(xynthahcp.com)|(zolofthcp.com)|(zyvox.com)|(s3.amazonaws.com)|(www.mypfizerbrands.com)|(www.premarin.com)|(www.PfizerPAP.com)|(www.pfizeroncologytogether.com)|(www.inlyta.com)|(www.torisel.com)|(pfizerrxpath.com)|(benefix.com)|(www.xyntha.com)|(www.pfizerformularypro.com)|(embeda.aspnprograms.com\/landing_pfizer.aspx)|(www.covermymeds.com\/main\/solutions\/provider)|(www.lyrica.com)|(www.caverject.com)|(www.caduet.com)|(www.hospira.com)|(www.adhd-rxhomedelivery.com)|(www.toviaz.com)|(www.pfizerinjectables.com)|(www.nicotrol.com)|(www.pristiq.com)|(www.protonix.com)","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":{"value":"\u003Cdiv class=\u0022extlink-extra-title\u0022\u003E\u003Ch2\u003EYou Are Now Leaving Pfizer\u003C\/h2\u003E\u003C\/div\u003E\r\n\u003Cdiv class=\u0022extlink-extra-content\u0022\u003E\u003Cp\u003EYou are now leaving a Pfizer-operated website. Links to all outside sites are provided as a resource to our visitors. Pfizer accepts no responsibility for the content of sites that are not owned and operated by Pfizer.\u003C\/p\u003E\u003C\/div\u003E","format":"hcp2_wysiwyg_plus_text"},"mailtoClass":0,"mailtoLabel":"(link sends e-mail)"},"extlink_extra":{"extlink_alert_type":"colorbox","extlink_alert_timer":"0","extlink_alert_url":"\/now-leaving?js=1","extlink_cache_fix":1,"extlink_exclude_warning":"","extlink_508_fix":0,"extlink_508_text":" [external link]","extlink_url_override":0,"extlink_url_params":{"external_url":null,"back_url":null},"extRedirect":{"ssl.adam.com":"sign-in-register","epocrates.com":"sign-in-register","5minuteconsult.com":"sign-in-register","esamplesweb.pfizer.com":"esamples-login","esamplesweb-stg.pfizer.com":"esamples-login","pfesampleswebstg.pfizer.com":"\/esamples-login","pfesampleswebdev.pfizer.com":"\/esamples-login","pfizer.pharmecology.com":"http:\/\/www.pfizerpro.com\/professional_resources\/responsible_disposal"},"extRedirectDomains":"(ssl\\.adam\\.com)|(epocrates\\.com)|(5minuteconsult\\.com)|(esamplesweb\\.pfizer\\.com)|(esamplesweb-stg\\.pfizer\\.com)|(pfesampleswebstg\\.pfizer\\.com)|(pfesampleswebdev\\.pfizer\\.com)|(pfizer\\.pharmecology\\.com)"},"currentPath":"node\/6736","currentPathIsAdmin":false,"hcp-federation-style":{"closeText":"Close Window","userId":0,"modalSize":{"type":"fixed","width":530,"height":250,"addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"animation":"show","modalTheme":"federation_modal","modalClass":"default portal-advanced-popup minnesota"},"pfizer_marketo":{"env":"dev"},"pfizer_webstandards":{"ws_section":null},"urlIsAjaxTrusted":{"\/search\/site":true},"pfizer_hcp2_isi":{"isi_size":"25","theme":"pfizer_hcp_us"},"pfizer_hcp2_products_subheader_popup":{"popup_content":"\u003Cp\u003EBOSULIF\u003Csup\u003E\u00ae\u003C\/sup\u003E (bosutinib) is indicated for the treatment of adult patients with chronic, accelerated, or blast phase Philadelphia chromosome\u2013positive (Ph+) chronic myelogenous leukemia (CML) with resistance or intolerance to prior therapy.\u003C\/p\u003E\n\n\u003Chr \/\u003E","popup_header":"Indication","link_id":"indication-popup","position":{"left":"default","top":"default"}},"federation_url":{"\/nexium-coupons":"\/sign-in-register?destination=product\/bosulif\/hcp","\/nexium-revtrax":"\/sign-in-register?destination=product\/bosulif\/hcp"},"brandPath":"sites\/default\/themes\/pfizer_hcp_us\/assets\/brand\/","pfizer_hcp2_theme_lang":"English","oldMenuPathes":["\/support-services","\/pfizer-products","\/sign-in-register","\/sitemap","\/esamples-login","\/hispanic-latino-learning-series","\/clinical-trials"],"oldMenuClasses":["front","not-front"],"acquia_lift_profiles":{"request_url":"https:\/\/pfpfportaladvcmdev.prod.acquia-sites.com\/product\/bosulif\/hcp","available_segments":["1","Test","ie8","test-utm-campaign","chromebrowser"],"apiUrl":"api-liftweb-eu1.lift.acquia.com","currentPath":"node\/6736","captureIdentity":true,"mappings":{"person":{"person_udf4":"pfizer_lift__customer_id","person_udf5":"pfizer_lift__guid","person_udf6":"pfizer_lift__auth_type","person_udf7":"pfizer_lift__profession","person_udf8":"pfizer_lift__specialty","person_udf9":"pfizer_lift__epermission"},"touch":{"touch_udf1":"pfizer_lift__platform","touch_udf2":"pfizer_lift__logged_in","touch_udf3":"querystring_context__mkto_segment","touch_udf4":"pfizer_lift__campaign_country","touch_udf7":"pfizer_lift__visitor_ip_address"},"event":{"event_udf4":"pfizer_lift__brand_name","event_udf5":"pfizer_lift__brand_id","event_udf6":"pfizer_lift__medical_conditions","event_udf7":"pfizer_lift__featured","event_udf8":"pfizer_lift__build_number","event_udf9":"entity_context__node--entity_context_catchall--field_indication_single--indication_name","event_udf11":"entity_context__node--entity_context_catchall--hcp_web_asset_type","event_udf12":"entity_context__node--entity_context_catchall--hcp_primary_message","event_udf13":"entity_context__node--entity_context_catchall--hcp_primary_message_category","event_udf16":"pfizer_lift__content_source","event_udf35":"pfizer_lift__language","event_udf37":"entity_context__node--entity_context_catchall--hcp_content_origin"},"field":{"content_section":"taxonomy_context__hcp_specialty","content_keywords":"taxonomy_context__hcp_med_cond","persona":"taxonomy_context__hcp_profession"}},"mappingContextSeparator":"__","pageContext":{"content_type":"hcp_indications","content_title":"BOSULIF","published_date":"1519384380","post_id":"6736","author":"raghav","page_type":"node page","thumbnail_url":""},"tracked_actions":["scroll_to_bottom","marketo_form_submission"],"engagement_scores":{"scroll_to_bottom":1,"marketo_form_submission":1},"global_values":{"scroll_to_bottom":1,"marketo_form_submission":1}},"entity_context":{"node--entity_context_catchall--field_indication_single--indication_name":"hcp"},"personalize":{"optionPreselectParam":"personalize-preselection","controlOptionName":"control-variation","controlOptionLabel":"Control variation","cacheExpiration":{"decisions":"session","visitor_context:querystring_context:mkto_segment":"session","lift":"session"}},"personalize_elements":[],"personalize_taxonomy_context":{"vocabularies":[]},"personalize_url_context":{"querystring_params":[],"base_url":"https:\/\/pfpfportaladvcmdev.prod.acquia-sites.com"},"visitor_actions":{"currentPath":"node\/6736","actions":{"scroll_to_bottom":{"event":"scrollToBottom","actionable_element":"page"},"marketo_form_submission":{"identifier":"marketo*","event":"submit_client","actionable_element":"form","options":[]}},"actionableElementTypes":[{"type":"page","selector":null},{"type":"form","selector":"form[action]"},{"type":"base_form","selector":"form[action]"},{"type":"link","selector":"a[href]"}],"pageContext":{"InternalPath":"node\/6736","RequestPath":"product\/bosulif\/hcp","Taxonomy":[],"ContentType":"hcp_indications"}},"acquia_lift":{"api_class":"acquiaLiftAPI","account_name":"PFIZERSANDBOX","customer_site":"pfportaladv"},"password":{"strengthTitle":"Password compliance:"},"type":"setting"});
+//--><!]]>
+</script>
+<!--[if lt IE 9]><script src="/sites/all/themes/pfizer_hcp2_theme/assets/javascripts/scripts.ie8.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-6736 node-type-hcp-indications brand region-content isi product-dc80993 product-path-bosulif indication-c24cf37 indication-path-hcp page-body-product-bosulif-hcp i18n-en path-product-bosulif-hcp product" >
+  <div id="skip-link">
+    <a href="#main" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page" class="page no-tabs">
+  <noscript>For full functionality of this page it is necessary to enable
+    JavaScript. Here are the <a href="http://www.enable-javascript.com" target="_blank">
+      instructions how to enable JavaScript in your web browser</a>
+  </noscript>
+  <div class="scroll-to-top">
+    <a class="fa fa-angle-up" href="#page" title="Back to top"></a>
+  </div>
+  <header role="banner">
+    <div id="header">
+      <div class="container">
+                    <div class="region region-pre-header">
+    <div id="block-pfizer-hcp2-isi-hcp-isi-block" class="block block-pfizer-hcp2-isi" data-personalize-entity-id="block/pfizer_hcp2_isi-hcp_isi_block">
+
+    
+  <div class="content">
+    
+<div class="hcp-isi-icon-wrapper">
+  <a href="#" class="hcp-isi-plus-icon expand"></a>
+</div>
+<div class="hcp-isi-back-to-top">
+  <a href="#page" title="Back to top">
+    Back to top  </a>
+</div>
+<div class="monographContent">
+  <h2 class="isi-title">Important Safety Information</h2>
+  <div class="monographContentPad">
+    <div class="isi-content-scroll">
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Contraindication:</strong></span> History of hypersensitivity to BOSULIF. Reactions have included anaphylaxis. Anaphylactic shock occurred in less than 0.2% of treated patients in clinical trials.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Gastrointestinal Toxicity:</strong></span> Diarrhea, nausea, vomiting, and abdominal pain can occur. In the clinical trial, median time to onset for diarrhea was 2 days, median duration was 2 days, and median number of episodes per patient was 3 (range 1-268). Monitor and manage patients using standards of care, including antidiarrheals, antiemetics, and/or fluid replacement. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Myelosuppression:</strong></span> Thrombocytopenia, anemia, and neutropenia can occur. Perform complete blood counts weekly for the first month and then monthly or as clinically indicated. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Hepatic Toxicity:</strong></span> Twenty percent of patients experienced an increase in either ALT or AST. Liver enzyme elevation usually occurs early in treatment. The median time to onset of increased ALT and AST was 35 and 33 days, respectively, and the median duration for each was 21 days. Perform hepatic enzyme tests at least monthly for the first 3 months and as clinically indicated. In patients with transaminase elevations, monitor liver enzymes more frequently. One case consistent with drug-induced liver injury occurred in a trial of BOSULIF in combination with letrozole. Withhold, dose reduce, or discontinue BOSULIF as necessary. In patients with mild, moderate, or severe hepatic impairment, the recommended starting dose is 200 mg daily.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Renal Toxicity:</strong></span> An on-treatment decline in estimated glomerular filtration rate has occurred in patients treated with BOSULIF. Monitor renal function at baseline and during therapy, with particular attention to patients with preexisting renal impairment or risk factors for renal dysfunction. Consider dose adjustment in patients with baseline and treatment emergent renal impairment. The recommended starting doses for patients with severe renal impairment (CrCL &lt;30 mL/min) or moderate renal impairment (CrCL 30-50 mL/min) are 300 mg and 400 mg daily, respectively.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Fluid Retention:</strong></span> Fluid retention can occur and may cause pericardial effusion, pleural effusion, pulmonary edema, and/or peripheral edema. In the clinical trial, Grade 3/4 fluid retention was reported in 26 patients (5%). Monitor and manage patients using standards of care. Interrupt, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Embryofetal Toxicity:</strong></span> BOSULIF can cause fetal harm when administered to a pregnant woman. Women of childbearing potential should be advised of potential hazard to the fetus. Advise females of reproductive potential to use effective contraceptive measures to prevent pregnancy while being treated with BOSULIF and for at least 30 days after the final dose.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Adverse Reactions:</strong></span> The most common adverse reactions observed in greater than or equal to 20% of patients in the Phase 1/2 safety population (N=546) were diarrhea, nausea, thrombocytopenia, rash, vomiting, abdominal pain, respiratory tract infection, anemia, pyrexia, liver test abnormalities, fatigue, cough, and headache. The most common Grade 3/4 adverse reactions and laboratory abnormalities observed in greater than 10% of patients were thrombocytopenia, neutropenia, and anemia.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>CYP3A Inhibitors and Inducers:</strong> </span>Avoid concurrent use with strong or moderate CYP3A inhibitors or inducers.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Proton Pump Inhibitors:</strong></span> Consider using short-acting antacids or H2 blockers instead of PPIs to avoid a reduction in BOSULIF exposure. Separate antacid or H2 blocker dosing and BOSULIF dosing by more than 2 hours.</div>
+
+<div class="margin-bottom-lg padding-bottom-xs"><span style="color:#008998"><strong>Nursing Mothers:</strong> </span>Given the potential for serious adverse reactions in nursing infants, a decision should be made whether to discontinue nursing or BOSULIF, taking into account the importance of the drug to the mother.</div>
+
+<div class="margin-bottom-lg padding-bottom-xs"><span style="color:#008998"><strong>INDICATION</strong></span><br />
+BOSULIF<sup>®</sup> (bosutinib) is indicated for the treatment of adult patients with chronic, accelerated, or blast phase Philadelphia chromosome–positive (Ph+) chronic myelogenous leukemia (CML) with resistance or intolerance to prior therapy.</div>
+
+<div class="footer-pi margin-bottom-lg padding-bottom-xs">Please see <a class="no-popup" href="http://labeling.pfizer.com/ShowLabeling.aspx?id=884" target="_blank"><span style="color:#008998">full Prescribing Information</span></a>.</div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+                                                    <a href="/" title="Home" id="header-logo">
+                <img src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/themes/pfizer_hcp_us/logo.png" />              </a>
+                                        <div class="region region-header">
+    <div id="block-pfizer-hcp-hcp-content-menu" class="block block-pfizer-hcp with-chevrons" data-personalize-entity-id="block/pfizer_hcp-hcp_content_menu">
+
+    
+  <div class="content">
+    
+<div id="hcp_content_menu">
+  <div class="desktop-hidden"><a href="/home">Pfizer Home</a><i class="toggle fa"></i></div><div><ul><li><a href="/product/bosulif">BOSULIF</a><i class="toggle fa"></i></li>
+</ul></div><div class="hcp-personalisation-sort" id="hcp_content_indications"><h2>Clinical Information</h2><ul><li><a href="/product/bosulif/hcp/mechanism-of-action" class="hcp-weight-active">Mechanism of action</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/efficacy" class="hcp-weight-active">Efficacy</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/safety-profile" class="hcp-weight-active">Safety profile</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/dosing-and-administration" class="hcp-weight-active">Dosing and administration</a><i class="toggle fa"></i></li>
+</ul></div><div id="support_services_heading"><h2>Support & Services</h2><ul><li><a href="/product/bosulif/hcp/support/helpful-downloadable-resources">Helpful downloadable resources</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/nccnr-guidelines-monitoring-tki-response">NCCN Guidelines®: Treatment recommendations and response monitoring</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/pfizer-oncology-together">Pfizer Oncology Together™</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/specialty-pharmacies">Specialty pharmacies</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/therapy-management">Therapy management</a><i class="toggle fa"></i></li>
+</ul></div></div>
+  </div>
+</div>
+<div id="block-system-main-menu" class="block block-system block-menu" data-personalize-entity-id="block/system-main-menu">
+
+    <h2 class="element-invisible">Main menu</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf menu-link-pfizer-products"><a href="/pfizer-products">Pfizer Products</a></li>
+<li class="last leaf menu-link-support--services"><a href="/support-services">Support &amp; Services</a></li>
+</ul>  </div>
+</div>
+<div id="block-system-user-menu" class="block block-system block-menu" data-personalize-entity-id="block/system-user-menu">
+
+    <h2 class="element-invisible">User menu</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf menu-link-sign-in"><a href="/sign-in-register?destination=product/bosulif/hcp" title="" class="pfizer-hcp2-login pfizer-hcp2-login login">Sign In</a></li>
+<li class="last leaf menu-link-register"><a href="/pfizer-grv/user/register/nojs?destination=&amp;CampaignID=1-3926007%3A1-3926022&amp;siteID=null" title="">Register</a></li>
+</ul>  </div>
+</div>
+<div id="block-bean-us-disclaimer" class="block block-bean" data-personalize-entity-id="block/bean-us-disclaimer">
+
+    
+  <div class="content">
+    <div class="entity entity-bean bean-hcp-simple-bean default clearfix" about="/block/us-disclaimer" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-hcp-bean-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p class="p1"><span>This site is intended for U.S. health care professionals.</span></p>
+</div></div></div>  </div>
+</div>
+  </div>
+</div>
+  </div>
+              </div>
+    </div>
+  </header>
+  <main role="main">
+    <div id="banner-wrapper">
+                <div class="region region-banner">
+    <div id="block-pfizer-hcp2-banner-hcp-banner-block" class="block block-pfizer-hcp2-banner" data-personalize-entity-id="block/pfizer_hcp2_banner-hcp_banner_block">
+        <div  id="pfizer_hcp_banner" class="pfizer-hcp-banner product-banner">
+  <div class="container-fluid">
+    <div class="background">
+      <div class="field field-name-field-hcp-hero field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><picture >
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source srcset="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_1365/public/bosulif-banner-bg.png?itok=_SigBPNA&amp;timestamp=1533111292 1x" media="only screen and (min-width: 1365px)" />
+<source srcset="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_960/public/bosulif-banner-bg.png?itok=1abXB8HG&amp;timestamp=1533111292 1x" media="(min-width: 960px)" />
+<source srcset="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_640/public/bosulif-banner-bg.png?itok=UlYo2_lg&amp;timestamp=1533111292 1x" media="(min-width: 640px)" />
+<source srcset="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_480/public/bosulif-banner-bg.png?itok=KqJt--9h&amp;timestamp=1533111292 1x" media="(min-width: 480px)" />
+<source srcset="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_320/public/bosulif-banner-bg.png?itok=uNW0h89Y&amp;timestamp=1533111292 1x" media="(min-width: 0px)" />
+<!--[if IE 9]></video><![endif]-->
+<img  src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_320/public/bosulif-banner-bg.png?itok=uNW0h89Y&amp;timestamp=1533111292" alt="" title="" />
+</picture></div></div></div>    </div>
+    <div class="foreground">
+      <div class="container">
+        <div class="row">
+          <div class="section col-xs-12">
+            <div class="content">
+              <div class="brand">
+                                  <div class="brand-logo">
+                    <div class="field field-name-field-hcp-brand-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img class="hcp-banner-logo" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/hcp_banner_logo/public/bosulif_logo_0.png?itok=GW9G3wsC" width="250" height="75" alt="" /></div></div></div>                  </div>
+                                              </div>
+                          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+</div>
+</div>
+<div id="block-pfizer-hcp2-products-subheader-product-subheader" class="block block-pfizer-hcp2-products-subheader" data-personalize-entity-id="block/pfizer_hcp2_products_subheader-product_subheader">
+        <div class="product-subheader-wrapper container">
+      <div class="section brand-wrapper hidden-xs">
+    <span class="description indication">
+      <div><span style="font-size:15px"><span style="color:#008998"><strong>Indication:</strong></span> BOSULIF<sup>®</sup> (bosutinib) is indicated for the treatment of adult patients with chronic, accelerated, or blast phase Philadelphia chromosome–positive (Ph+) chronic myelogenous leukemia (CML) with resistance or intolerance to prior therapy.</span></div>
+    </span>
+    </div>
+        <div class="section links-wrapper">
+      <ul class="sub-header-links">
+                  <li>
+            <a href="/product/bosulif/hcp" id="indication-popup">Indication</a>          </li>
+                  <li>
+            <a href="#block-pfizer-hcp2-isi-hcp-isi-footer-block" class="isi-link">Important Safety Information</a>          </li>
+                  <li>
+            <a href="https://www.bosulif.com/" class="additional-pi-url">Patient Site</a>          </li>
+                  <li>
+            <a href="http://labeling.pfizer.com/ShowLabeling.aspx?id=884" class="additional-pi-url">Prescribing Information</a>          </li>
+              </ul>
+    </div>
+  </div>
+</div>
+  </div>
+          </div>
+          <div id="messages">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 section">
+              <div class="alert alert-danger alert-dismissable">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><em class="placeholder">Notice</em>: Undefined index: type in <em class="placeholder">locale_js_alter()</em> (line <em class="placeholder">911</em> of <em class="placeholder">/mnt/www/html/pfpfportaladvcmdev/docroot/modules/locale/locale.module</em>).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+                <div id="main">
+      <div class="container">
+        <div class="row">
+          <div class="section col-xs-12">
+            <div class="row">
+              <div id="content" class="col col-xs-12">
+                <a id="main-content"></a>
+                                                  <h1 class="title" id="page-title">BOSULIF</h1>
+                                                                                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system" data-personalize-entity-id="block/2148">
+
+    
+  <div class="content">
+    
+<div class="panelizer-view-mode node node-full node-hcp-indications node-6736" data-quickedit-entity-id="node/6736">
+        <div class="panel-display hcp-landing">
+      <div class="panel">
+      <div class="cols-3 row">
+        <div class="col col-xs-6 col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+        <div class="col col-xs-6 col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+        <div class="col col-xs-12 col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-1 row">
+        <div class="col col-sm-12">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-fieldable-panels-pane pane-vuuid-235533e3-8e20-483e-8714-d99e9c40e044 pane-uuid-ef2a89c5-9063-4a3a-a623-f8d97d2bca48 pane-bundle-text"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    <div class="field field-name-field-basic-text-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><span style="font-size:30px">Consider BOSULIF for your patients with Ph+ CML with resistance or intolerance to prior therapy<sup>1</sup></span></p>
+</div></div></div></div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-2 row">
+        <div class="col col-sm-6">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-views-panes pane-hcp-quick-lists-ql-indication-node item quicklist-border"  >
+  
+        <h2 class="pane-title">
+      Clinical Information    </h2>
+    
+  
+  <div class="pane-content">
+    <div class="view view-hcp-quick-lists view-id-hcp_quick_lists view-display-id-ql_indication_node view-dom-id-6dc28231d099e7d084602adcbde30787">
+        
+  
+  
+      <div class="view-content">
+      <div class="quicklist wrapper top with-chevrons">    <ul class="qlist">          <li class="">  
+          <a href="/product/bosulif/hcp/mechanism-of-action">Mechanism of action</a>  </li>
+          <li class="">  
+          <a href="/product/bosulif/hcp/efficacy">Efficacy</a>  </li>
+          <li class="">  
+          <a href="/product/bosulif/hcp/safety-profile">Safety profile</a>  </li>
+          <li class="">  
+          <a href="/product/bosulif/hcp/dosing-and-administration">Dosing and administration</a>  </li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+        <div class="col col-sm-6">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-quicklink-list-support with-chevrons item quicklist-border"  >
+  
+        <h2 class="pane-title">
+      Support &amp; Services    </h2>
+    
+  
+  <div class="pane-content">
+    <div id="pfizer-hcp-quicklist-support" class="quicklist wrapper top with-chevrons support"><div class="item-list"><ul class="qlist"><li class="first"><a href="/product/bosulif/hcp/support/helpful-downloadable-resources">Helpful downloadable resources</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/nccnr-guidelines-monitoring-tki-response">NCCN Guidelines®: Treatment recommendations and response monitoring</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/pfizer-oncology-together">Pfizer Oncology Together™</a><i class="toggle fa"></i></li>
+<li><a href="/product/bosulif/hcp/support/specialty-pharmacies">Specialty pharmacies</a><i class="toggle fa"></i></li>
+<li class="last"><a href="/product/bosulif/hcp/support/therapy-management">Therapy management</a><i class="toggle fa"></i></li>
+</ul></div><div class="wrapper link"></div></div>  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-3 row">
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-1 row">
+        <div class="col col-sm-12">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bosulif-home-video item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-homepage-bean default quicklink no-link single no-image hcp-quicklink default clearfix" about="/block/bosulif-home-video" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="table-padding-none">
+<table border="0" style="width:100%" class="tablesaw tablesaw-stack" data-tablesaw-mode="stack"><tbody><tr>
+<td style="background-color:#000000; width:70%">
+<video id="1" data-account="1852113022001" data-player="BJepZDuZJ7" data-embed="default" data-video-id="5504026437001" width="480" height="270" class="video-js" controls=""></video><script src="//players.brightcove.net/1852113022001/BJepZDuZJ7_default/index.min.js"></script>
+</td>
+			<td style="background-color:#000000; text-align:center; vertical-align:middle; width:30%"><img style="width: 100%;" class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/panopoly_image_original/public/bosulif-mike-story.png?itok=Elyb1Hbo" alt=""></td>
+		</tr></tbody></table>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+          </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-3 row">
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bosulif-nccn-block item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-product-bean default quicklink single no-image hcp-quicklink default clearfix" about="/block/bosulif-nccn-block" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-block">
+<div class="block-title line-height-lg margin-bottom-lg"><span style="font-size:22px">Recommended in the National Comprehensive Cancer Network<sup>®</sup> (NCCN<sup>®</sup>) Clinical Practice Guidelines in Oncology (NCCN Guidelines<sup>®</sup>)<sup>2</sup></span></div>
+
+<div class="block-body">
+<div class="left-block">
+<p>As a treatment option for patients with CML in need of 2nd- or later-line TKI therapy</p>
+</div>
+
+<div class="right-block" style="text-align:right"><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/panopoly_image_original/public/bosulif-block-img-1.png?itok=_hM5Ue6P" alt="" /></div>
+</div>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+              <div class="actions single ">
+        <div class="actions-wrapper">
+          <a href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp/support/nccnr-guidelines-monitoring-tki-response?advert=advert">See NCCN recommendations</a>        </div>
+      </div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bosulif-long-term-block item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-product-bean default quicklink single no-image hcp-quicklink default clearfix" about="/block/bosulif-long-term-block" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-block">
+<div class="block-title line-height-lg margin-bottom-lg"><span style="font-size:22px">Long-term efficacy data available</span></div>
+
+<div class="block-body">
+<div class="left-block">
+<p>BOSULIF has been studied in patients who were treated with imatinib and imatinib followed by nilotinib and/or dasatinib<sup>1</sup></p>
+</div>
+
+<div class="right-block" style="text-align:right"><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/panopoly_image_original/public/bosulif-block-img-2.png?itok=tb39uA_E" alt="" /></div>
+</div>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+              <div class="actions single ">
+        <div class="actions-wrapper">
+          <a href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp/efficacy?advert=advert">Review long-term data</a>        </div>
+      </div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bosulif-safety-block item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-product-bean default quicklink single no-image hcp-quicklink default clearfix" about="/block/bosulif-safety-block" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-block">
+<div class="block-title line-height-lg margin-bottom-lg"><span style="font-size:22px">Distinct safety profile supported by long-term follow-up<sup>1</sup></span></div>
+
+<div class="block-body">
+<div class="left-block" style="display:table-cell; width:100%">
+<p>Learn more about the safety data from 5- and 4-year follow-up</p>
+</div>
+
+<div class="right-block" style="display:table-cell">
+<div style="width:100px"><img alt="" src="/sites/default/files/bosulif-block-img-3.png" style="width:100%" width="136" height="147" /></div>
+</div>
+</div>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+              <div class="actions single ">
+        <div class="actions-wrapper">
+          <a href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp/safety-profile?advert=advert">View safety profile</a>        </div>
+      </div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-2 row">
+        <div class="col col-sm-6">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bosulif-dosing-block item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-product-bean default quicklink single no-image hcp-quicklink default clearfix" about="/block/bosulif-dosing-block" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-block">
+<div class="block-title line-height-lg margin-bottom-lg"><span style="font-size:22px">Once-daily dosing<sup>1</sup></span></div>
+
+<div class="block-body">
+<div class="left-block" style="width:100%">
+<p>BOSULIF is dosed once daily (500 mg) with food—no fasting required</p>
+</div>
+
+<div class="right-block"><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/panopoly_image_original/public/bosulif-block-img-4.png?itok=OBZtk9nh" alt="" /></div>
+</div>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+              <div class="actions single ">
+        <div class="actions-wrapper">
+          <a href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp/dosing-and-administration?advert=advert">Learn about dosing options</a>        </div>
+      </div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+        <div class="col col-sm-6">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-block pane-bean-bodulif-pay-block item bean default"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="entity entity-bean bean-hcp-product-bean default quicklink single no-image hcp-quicklink default clearfix" about="/block/bodulif-pay-block" typeof="">
+  <div class="wrapper content">
+    <div class="wrapper inner">
+            <div class="field field-name-field-hcp-qlink-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-block">
+<div class="block-title line-height-lg margin-bottom-lg"><span style="font-size:22px">Pay as little as a $0 co-pay</span></div>
+
+<div class="block-body" style="display:table; position:relative; width:100%">
+<div class="left-block">
+<div style="padding-bottom:40px">
+<div>The Co-Pay One Savings Card is for eligible commercially insured patients*</div>
+</div>
+
+<div style="bottom:10px; left:0; padding-left:4px; position:absolute; text-indent:-4px">
+<div><span style="font-size:12px">*Limits, terms, and conditions apply.</span></div>
+</div>
+</div>
+
+<div class="right-block">
+<div><img class="media-element file-default panopoly-image-original" typeof="foaf:Image" src="https://pfpfportaladvcmdev.prod.acquia-sites.com/sites/default/files/styles/panopoly_image_original/public/bosulif-block-img-5.png?itok=eeRc58PM" alt="" /></div>
+</div>
+</div>
+</div>
+</div></div></div>    </div>
+
+    <div class="wrapper image invisible">
+      <!-- stealth image for height -->
+          </div>
+  </div>
+  <div class="wrapper image visible">
+              <div class="actions single ">
+        <div class="actions-wrapper">
+          <a href="https://pfpfportaladvcmdev.prod.acquia-sites.com/product/bosulif/hcp/support/pfizer-oncology-together?advert=advert">Additional support and services</a>        </div>
+      </div>
+      </div>
+</div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+        <div class="panel">
+      <div class="cols-3 row">
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-fieldable-panels-pane pane-uuid-b0abf69c-c390-4683-bbeb-40cd9943afcd pane-uuid-b0abf69c-c390-4683-bbeb-40cd9943afcd pane-bundle-text"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    <div class="field field-name-field-basic-text-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div class="bosulif-home-ref">
+<div><span style="color:#464646"><span style="font-size:11px">TKI=tyrosine kinase inhibitor.</span></span></div>
+
+<hr /><div style="padding-left:7px">
+<div><span style="color:#464646"><strong><span style="font-size:16px">References</span></strong></span></div>
+</div>
+
+<div style="color:#464646; font-weight:bold">
+<ol><li>
+	<div style="font-weight:normal; padding-bottom:4px">BOSULIF Prescribing Information. New York, NY: Pfizer Inc.</div>
+	</li>
+	<li>
+	<div style="font-weight:normal; padding-bottom:4px">Referenced with permission from the NCCN Clinical Practice Guidelines in Oncology (Guidelines<sup>®</sup>) for Chronic Myeloid Leukemia V.1.2018. © National Comprehensive Cancer Network, Inc. 2017. All rights reserved. Accessed August 8, 2017. To view the most recent and complete version of the guideline, go online to NCCN.org. NCCN makes no warranties of any kind whatsoever regarding their content or its use or application and disclaims any responsibility for its use or application in any way.</div>
+	</li>
+</ol></div>
+</div>
+</div></div></div></div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"></div>          </div>
+        </div>
+        <div class="col col-sm-4">
+          <div class="row">
+            <div class="hcp2-ui col col-xs-12 onecol"><div class="panel-pane pane-fieldable-panels-pane pane-current-ed4215d4-980d-415e-bdcd-6d96d5d81dbd pane-uuid-ed4215d4-980d-415e-bdcd-6d96d5d81dbd pane-bundle-text"  >
+  
+      
+  
+  <div class="pane-content">
+    <div class="fieldable-panels-pane">
+    <div class="field field-name-field-basic-text-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><div id="lightbox-con-trumenba" style="display:none">
+<div id="lbmain">
+<div class="topbar">
+<div><img alt="" src="/sites/default/files/bosulif-lightbox-logo.png" /></div>
+<a href="#" id="lb-btn-close"><img src="/sites/default/files/bosulif-ico-close.png" /></a></div>
+
+<div class="clearfix lightbox-wrapper-center">
+<div class="lightbox-bold-block"><span style="color:#00424a">BOSULIF<sup>®</sup> (bosutinib) is indicated for the treatment of adult patients with</span>
+
+<div class="lightbox-list">
+<ul><li><span style="color:#00424a">Newly diagnosed chronic phase Ph+ chronic myelogenous leukemia (CML). This indication is approved under accelerated approval based on molecular and cytogenetic response rates. Continued approval for this indication may be contingent upon verification and confirmation of clinical benefit in an ongoing long-term follow-up trial</span></li>
+</ul></div>
+</div>
+
+<div class="lightbox-h1-new">
+<div>
+<div class="lightbox-h1-47"><span style="color:#00424a"><strong>47%</strong></span></div>
+<span style="color:#00424a"><strong>of patients receiving BOSULIF achieved MMR at 12 months vs</strong></span>
+
+<div class="lightbox-h1-37"><span style="color:#00424a"><strong>37%</strong></span></div>
+<span style="color:#00424a"><strong> with imatinib (<em>P</em>=0.0200)<sup>1,a</sup></strong></span></div>
+</div>
+
+<div class="lightbox-h2-new"><span style="color:#00424a"><strong>BOSULIF significantly improved CCyR by 12 months vs imatinib<br />
+(77% vs 66%, respectively; <em>P</em>=0.0075)<sup>1,a</sup></strong></span></div>
+
+<div class="lightbox-text-2"><span style="color:#00424a"><strong>BFORE: A two-arm, open-label, randomized, multicenter trial conducted to investigate the efficacy and safety of BOSULIF 400 mg once daily compared with imatinib 400 mg once daily in adult patients with newly diagnosed chronic phase Ph+ CML (N=487)</strong></span></div>
+
+<div class="lightbox-text"><span style="color:#00424a">The most common adverse reactions reported in patients receiving BOSULIF (all grades vs imatinib) were diarrhea (70% vs 34%), nausea (35% vs 38%), thrombocytopenia (35% vs 20%), rash (34% vs 21%), increased ALT (31% vs 6%), abdominal pain (25% vs 15%), and increased AST (23% vs 6%)</span></div>
+
+<div class="clearfix" id="nccn-clinical-block"><img class="ico-checkedbox" src="/sites/default/files/bosulif-ico_checkedbox.png" /><div class="col-left">
+<div class="margin-bottom-xs padding-bottom-xs"><span style="color:#00424a"><strong>NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines<sup>®</sup>)<sup>2</sup>:</strong></span></div>
+
+<div class="margin-bottom-sm"><span style="color:#00424a">Bosutinib (BOSULIF) is recommended by the NCCN Guidelines<sup>®</sup> as a primary treatment option (category 1) for newly diagnosed patients with CML in need of TKI therapy.</span></div>
+</div>
+</div>
+
+<div class="indent lightbox-text-smallest margin-bottom-sm"><span style="color:#00424a"><sup>a</sup>Derived from Cochran-Mantel-Haenszel test stratified by geographical region and Sokal score at randomization; <em>P</em> values were 2-sided.<sup>1</sup><br />
+ALT=alanine aminotransferase; AST=aspartate aminotransferase; CCyR=complete cytogenetic response; MMR=major molecular response; Ph+=Philadelphia chromosome–positive; TKI=tyrosine kinase inhibitor.</span></div>
+
+<div id="two-btns"><a class="lightbox-btn lightbox-btn-1st" href="http://labeling.pfizer.com/ShowLabeling.aspx?id=884">Review Prescribing Information</a> <a class="lightbox-btn lightbox-btn-2nd" href="#">Continue to BOSULIFhcp.com</a></div>
+</div>
+
+<div class="clearfix" id="lightbox-footer-block">
+<div class="bluebold margin-bottom-sm"><span style="color:#008996"><strong>IMPORTANT SAFETY INFORMATION AND INDICATIONS</strong></span></div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Contraindication:</strong></span> History of hypersensitivity to BOSULIF. Reactions have included anaphylaxis. Anaphylactic shock occurred in less than 0.2% of treated patients in single-agent cancer studies with BOSULIF.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Gastrointestinal Toxicity:</strong></span> Diarrhea, nausea, vomiting, and abdominal pain can occur. In the randomized clinical trial of patients with newly diagnosed Ph+ CML, the median time to onset for diarrhea (all grades) among patients in the BOSULIF treatment group (n=268) was 3 days and the median duration per event was 3 days. Among 546 patients in a single-arm study of patients with CML who were resistant or intolerant to prior therapy, median time to onset of diarrhea (all grades) was 2 days, median duration was 2 days, and the median number of episodes per patient was 3 (range 1-268). Monitor and manage patients using standards of care, including antidiarrheals, antiemetics, and/or fluid replacement. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Myelosuppression:</strong></span> Thrombocytopenia, anemia, and neutropenia can occur. Perform complete blood counts weekly for the first month and monthly thereafter, or as clinically indicated. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Hepatic Toxicity:</strong></span> Elevations in serum transaminases (alanine aminotransferase [ALT] and aspartate aminotransferase [AST]) can occur. Perform hepatic enzyme tests at least monthly for the first 3 months and as clinically indicated. In patients with transaminase elevations, monitor liver enzymes more frequently. One case consistent with drug-induced liver injury occurred without alternative causes in a trial of BOSULIF in combination with letrozole. Withhold, dose reduce, or discontinue BOSULIF as necessary. In patients with mild, moderate, or severe hepatic impairment, the recommended starting dose is 200 mg daily.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Renal Toxicity:</strong></span> An on-treatment decline in estimated glomerular filtration rate has occurred in patients treated with BOSULIF. Monitor renal function at baseline and during therapy, with particular attention to patients with preexisting renal impairment or risk factors for renal dysfunction. Consider dose adjustment in patients with baseline and treatment-emergent renal impairment.</div>
+
+<div class="margin-bottom-sm">Reduce the BOSULIF starting dose in patients with moderate (creatinine clearance [CLcr] 30 to 50 mL/min) or severe (CLcr less than 30 mL/min) renal impairment at baseline. For patients who have declining renal function while on BOSULIF who cannot tolerate the starting dose, follow dose adjustment recommendations for toxicity.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Fluid Retention:</strong></span> Fluid retention can occur with BOSULIF and may cause pericardial effusion, pleural effusion, pulmonary edema, and/or peripheral edema. Among 546 patients in a single-arm study of patients with Ph+ CML who were resistant or intolerant to prior therapy, Grade 3/4 fluid retention was reported in 26 patients (5%). Monitor and manage patients using standards of care. Interrupt, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Embryofetal Toxicity:</strong></span> BOSULIF can cause fetal harm when administered to a pregnant woman. Women of childbearing potential should be advised of the potential hazard to the fetus. Advise females of reproductive potential to use effective contraceptive measures to prevent pregnancy while being treated with BOSULIF and for at least 1 month after the final dose.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Adverse Reactions:</strong></span> The most common adverse reactions observed in greater than or equal to 20% of patients with newly diagnosed CML were diarrhea, nausea, thrombocytopenia, rash, increased ALT, abdominal pain, and increased AST. The most common Grade 3/4 adverse reactions and laboratory abnormalities observed in greater than 10% of newly diagnosed CML patients were thrombocytopenia and increased ALT. The most common adverse reactions observed in greater than or equal to 20% of patients with CML who were resistant or intolerant to prior therapy were diarrhea, nausea, abdominal pain, rash, thrombocytopenia, vomiting, anemia, fatigue, pyrexia, cough, headache, ALT, and edema. The most common Grade 3/4 adverse reactions and laboratory abnormalities observed in greater than 10% of patients who were resistant or intolerant to prior therapy were thrombocytopenia, neutropenia, and anemia.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>CYP3A Inhibitors and Inducers:</strong></span> Avoid concurrent use with strong or moderate CYP3A inhibitors or strong CYP3A inducers.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Proton Pump Inhibitors (PPIs):</strong></span> Use short-acting antacids or H2 blockers instead of PPIs to avoid a reduction in BOSULIF exposure. Separate antacid or H2 blocker dosing and BOSULIF dosing by more than 2 hours.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Lactation:</strong></span> Because of the potential for serious adverse reactions in a nursing child, breastfeeding is not recommended during treatment with BOSULIF and for at least 1 month after the last dose.</div>
+
+<div class="bluebold margin-bottom-sm"><strong>INDICATIONS</strong></div>
+
+<div class="margin-bottom-sm">BOSULIF is indicated for the treatment of adult patients with</div>
+
+<div class="margin-bottom-sm primary-color-bullets">
+<ul><li>Newly diagnosed chronic phase Ph+ chronic myelogenous leukemia (CML). This indication is approved under accelerated approval based on molecular and cytogenetic response rates. Continued approval for this indication may be contingent upon verification and confirmation of clinical benefit in an ongoing long-term follow-up trial</li>
+	<li>Chronic phase, accelerated phase, or blast phase Ph+ CML with resistance or intolerance to prior therapy</li>
+</ul></div>
+
+<div class="margin-bottom-sm"><strong>Please see <a class="lb-link-full-pres" href="http://labeling.pfizer.com/ShowLabeling.aspx?id=884" style="color:#58595b; text-decoration:underline">full Prescribing Information</a>.</strong></div>
+
+<div class="lightbox-text-smallest margin-bottom-lg padding-bottom-md"><strong>References: 1.</strong> BOSULIF Prescribing Information. New York, NY: Pfizer Inc. <strong>2.</strong> Referenced with permission from the NCCN Clinical Practice Guidelines in Oncology (NCCN Guidelines<sup>®</sup>) for Chronic Myeloid Leukemia V.4.2018. © National Comprehensive Cancer Network, Inc. 2018. All rights reserved. Accessed February 9, 2018. To view the most recent and complete version of the guideline, go online to NCCN.org. NCCN makes no warranties of any kind whatsoever regarding their content or its use or application and disclaims any responsibility for its use or application in any way.</div>
+
+<ul id="lightbox-footer-list"><li>
+	<div><img alt="" src="/sites/default/files/bosulif-logo-pfizer.png" /></div>
+	</li>
+	<li>PP-BOS-USA-0452</li>
+	<li>© 2018 Pfizer Inc.</li>
+	<li>All rights reserved.</li>
+	<li>February 2018</li>
+</ul><div class="cb lb-footer-bottom-margin"> </div>
+</div>
+<br />
+ </div>
+</div>
+</div></div></div></div>
+  </div>
+
+  
+  </div>
+</div>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+            <script src="//munchkin.marketo.net/148/munchkin.js" type="text/javascript"></script>
+            <script>
+              Munchkin.init("195-ULC-200");
+            </script>
+          <div style="display:none;" id="signIn"></div><div style="display:none;" id="returnTraditional"></div><div style="display:none;" id="traditionalRegistration"></div>  </div>
+                              </div>
+                                        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer role="contentinfo">
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 section">
+                                        <div class="region region-footer">
+    <div id="block-pfizer-hcp2-isi-hcp-isi-footer-block" class="block block-pfizer-hcp2-isi" data-personalize-entity-id="block/pfizer_hcp2_isi-hcp_isi_footer_block">
+
+    
+  <div class="content">
+    <div class="monographContent">
+  <h2 class="isi-title">Important Safety Information</h2>
+  <div class="monographContentPad">
+    <div class="isi-content-scroll">
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Contraindication:</strong></span> History of hypersensitivity to BOSULIF. Reactions have included anaphylaxis. Anaphylactic shock occurred in less than 0.2% of treated patients in clinical trials.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Gastrointestinal Toxicity:</strong></span> Diarrhea, nausea, vomiting, and abdominal pain can occur. In the clinical trial, median time to onset for diarrhea was 2 days, median duration was 2 days, and median number of episodes per patient was 3 (range 1-268). Monitor and manage patients using standards of care, including antidiarrheals, antiemetics, and/or fluid replacement. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Myelosuppression:</strong></span> Thrombocytopenia, anemia, and neutropenia can occur. Perform complete blood counts weekly for the first month and then monthly or as clinically indicated. Withhold, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Hepatic Toxicity:</strong></span> Twenty percent of patients experienced an increase in either ALT or AST. Liver enzyme elevation usually occurs early in treatment. The median time to onset of increased ALT and AST was 35 and 33 days, respectively, and the median duration for each was 21 days. Perform hepatic enzyme tests at least monthly for the first 3 months and as clinically indicated. In patients with transaminase elevations, monitor liver enzymes more frequently. One case consistent with drug-induced liver injury occurred in a trial of BOSULIF in combination with letrozole. Withhold, dose reduce, or discontinue BOSULIF as necessary. In patients with mild, moderate, or severe hepatic impairment, the recommended starting dose is 200 mg daily.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Renal Toxicity:</strong></span> An on-treatment decline in estimated glomerular filtration rate has occurred in patients treated with BOSULIF. Monitor renal function at baseline and during therapy, with particular attention to patients with preexisting renal impairment or risk factors for renal dysfunction. Consider dose adjustment in patients with baseline and treatment emergent renal impairment. The recommended starting doses for patients with severe renal impairment (CrCL &lt;30 mL/min) or moderate renal impairment (CrCL 30-50 mL/min) are 300 mg and 400 mg daily, respectively.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Fluid Retention:</strong></span> Fluid retention can occur and may cause pericardial effusion, pleural effusion, pulmonary edema, and/or peripheral edema. In the clinical trial, Grade 3/4 fluid retention was reported in 26 patients (5%). Monitor and manage patients using standards of care. Interrupt, dose reduce, or discontinue BOSULIF as necessary.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Embryofetal Toxicity:</strong></span> BOSULIF can cause fetal harm when administered to a pregnant woman. Women of childbearing potential should be advised of potential hazard to the fetus. Advise females of reproductive potential to use effective contraceptive measures to prevent pregnancy while being treated with BOSULIF and for at least 30 days after the final dose.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Adverse Reactions:</strong></span> The most common adverse reactions observed in greater than or equal to 20% of patients in the Phase 1/2 safety population (N=546) were diarrhea, nausea, thrombocytopenia, rash, vomiting, abdominal pain, respiratory tract infection, anemia, pyrexia, liver test abnormalities, fatigue, cough, and headache. The most common Grade 3/4 adverse reactions and laboratory abnormalities observed in greater than 10% of patients were thrombocytopenia, neutropenia, and anemia.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>CYP3A Inhibitors and Inducers:</strong> </span>Avoid concurrent use with strong or moderate CYP3A inhibitors or inducers.</div>
+
+<div class="margin-bottom-sm"><span style="color:#008998"><strong>Proton Pump Inhibitors:</strong></span> Consider using short-acting antacids or H2 blockers instead of PPIs to avoid a reduction in BOSULIF exposure. Separate antacid or H2 blocker dosing and BOSULIF dosing by more than 2 hours.</div>
+
+<div class="margin-bottom-lg padding-bottom-xs"><span style="color:#008998"><strong>Nursing Mothers:</strong> </span>Given the potential for serious adverse reactions in nursing infants, a decision should be made whether to discontinue nursing or BOSULIF, taking into account the importance of the drug to the mother.</div>
+
+<div class="margin-bottom-lg padding-bottom-xs"><span style="color:#008998"><strong>INDICATION</strong></span><br />
+BOSULIF<sup>®</sup> (bosutinib) is indicated for the treatment of adult patients with chronic, accelerated, or blast phase Philadelphia chromosome–positive (Ph+) chronic myelogenous leukemia (CML) with resistance or intolerance to prior therapy.</div>
+
+<div class="footer-pi margin-bottom-lg padding-bottom-xs">Please see <a class="no-popup" href="http://labeling.pfizer.com/ShowLabeling.aspx?id=884" target="_blank"><span style="color:#008998">full Prescribing Information</span></a>.</div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<div id="block-bean-hcp-report-event" class="block block-bean" data-personalize-entity-id="block/bean-hcp-report-event">
+
+    
+  <div class="content">
+    <div class="entity entity-bean bean-hcp-simple-bean default clearfix" about="/block/hcp-report-event" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-hcp-bean-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p><strong><span style="color:#000000">To report an adverse event, please call </span><a href="tel:+18004381985"><span class="telephone-number">1-800-438-1985</span></a></strong></p>
+</div></div></div>  </div>
+</div>
+  </div>
+</div>
+<div id="block-hcp2-core-override-hcp-footer-logo" class="block block-hcp2-core-override" data-personalize-entity-id="block/hcp2_core_override-hcp_footer_logo">
+
+    
+  <div class="content">
+    <a href="http://pfizer.com" class="footer-logo link" target="_blank"><span class="footer-logo logo">Footer logo</span>
+</a>  </div>
+</div>
+<nav id="block-menu-menu-footer-links" class="block block-menu" data-personalize-entity-id="block/menu-menu-footer-links" role="navigation">
+
+    <h2>Footer links</h2>
+  
+  <div class="content">
+    <ul class="menu clearfix"><li class="first leaf menu-link-report-adverse-events"><a href="http://www.pfizer.com/health/medicine_safety/reporting_adverse_events" class="pi-link">Report Adverse Events</a></li>
+<li class="leaf menu-link-terms-of-use"><a href="http://www.pfizer.com/general/terms" class="pi-link">Terms of Use</a></li>
+<li class="leaf menu-link-cookies--privacy-policy"><a href="http://www.pfizer.com/general/privacy" class="pi-link">Cookies &amp; Privacy Policy</a></li>
+<li class="leaf menu-link-contact"><a href="http://www.pfizer.com/contact/contact_us_support" class="pi-link">Contact</a></li>
+<li class="leaf menu-link-pfizercom"><a href="http://www.pfizer.com" class="pi-link">Pfizer.com</a></li>
+<li class="last leaf menu-link-patient-assistance-programs"><a href="http://www.pfizerrxpath.com" title="">Patient Assistance Programs</a></li>
+</ul>  </div>
+</nav>
+<div id="block-bean-copyright-footer-block" class="block block-bean" data-personalize-entity-id="block/bean-copyright-footer-block">
+
+    <h2>Copyright footer block</h2>
+  
+  <div class="content">
+    <div class="entity entity-bean bean-hcp-simple-bean default clearfix" about="/block/copyright-footer-block" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-hcp-bean-text field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p class="p1"><span><strong>Pfizer for Professionals</strong> <a href="tel:18005054426" class="telephone-number">1-800-505-4426</a></span></p><p class="p1"></p><p class="p1"><span>The information provided in this site is intended only for health care professionals in the United States.</span><br /><span>The products discussed herein may have different product labeling in different countries.</span></p><p class="p2"></p><p class="p1"><span>© 2018 Pfizer Inc. All Rights Reserved.</span></p></div></div></div>  </div>
+</div>
+  </div>
+</div>
+<div id="block-pfizer-hcp-hcp-build-number" class="block block-pfizer-hcp" data-personalize-entity-id="block/pfizer_hcp-hcp_build_number">
+
+    
+  <div class="content">
+    PP-BOS-USA-0382  </div>
+</div>
+  </div>
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+    <div class="region region-page-bottom">
+    <!-- SiteCatalyst code version: JS-1.4.1
+Copyright 1996-2018 Adobe, Inc. -->
+<script type="text/javascript" src="https://s3.amazonaws.com/pfe_im/js/dev/s_code.js?pcw4c1"></script>
+<script type="text/javascript"><!--
+pfizerWebstandardsRegisterWebStandardPlugin("pfizerWS");pfizerWebstandardsRegisterWebStandardPlugin("pfizerWebstandardsHCP2");pfizerWebstandardsRegisterWebStandardPlugin("pfizerWebstandardsHcp210");
+s.prop36="2018-08-03\/PDT08:21:57";
+s.eVar45=null;
+s.eVar58=null;
+s.prop43="VISIT";
+s.prop58=null;
+s.prop59=null;
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script>
+<noscript><img src="http://pfizer.112.2o7.net/b/ss/pfizerdetailedimdev/1/JS-1.4.1--NS/0/915765" height="1" width="1" alt=""></noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: JS-1.4.1 -->
+  </div>
+<script type="text/javascript" src="https://cdn.lift.acquia.com/PFIZERSANDBOX/tc.min.js?v=7.59"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_isi/js/pfizer_hcp2_isi.js?v=1.0"></script>
+<script type="text/javascript" src="/sites/default/modules/updated/pfizer_hcp2_products/js/pfizer-hcp2-products-isi.js?v=1.0"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp/js/context.js?v=7.59"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/contrib/personalize/js/personalize.storage.js?v=7.59"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/contrib/personalize/js/promise-1.0.0.min.js?v=7.59"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/contrib/personalize/js/personalize.js?v=7.59"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/visitor_actions/js/visitor_actions.js?pcw4c1"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/contrib/acquia_lift/js/acquia_lift.page.js?v=7.59"></script>
+<script type="text/javascript" defer="defer" src="/sites/all/modules/contrib/acquia_lift/js/acquia_lift.goals_queue.js?v=7.59"></script>
+<script type="text/javascript" async="async" src="/sites/all/modules/contrib/picture/picturefill2/picturefill.min.js?v=2.3.1"></script>
+<script type="text/javascript" async="async" src="/sites/all/modules/contrib/picture/picture.min.js?v=7.59"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/extlink_extra/extlink_extra.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/panopoly/panopoly_widgets/panopoly-widgets.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/panopoly/panopoly_widgets/panopoly-widgets-spotlight.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/contrib/addthis/addthis.js?pcw4c1"></script>
+<script type="text/javascript" src="/sites/all/modules/hcp_portal/pfizer_hcp2/modules/pfizer_hcp2_extlink/js/pfizer_hcp2_extlink.js?pcw4c1"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+        (function() {
+          function pfa_init() {
+            pfaLoader.init('brightcove', 'v1', 'prod');
+          }
+
+          if (window.attachEvent) {
+            window.attachEvent('onload', pfa_init);
+          }
+          else {
+            window.addEventListener('load', pfa_init, false);
+          }
+        })();
+      
+//--><!]]>
+</script>
+<script type="text/javascript" src="/sites/all/modules/custom/pfizer_lift/js/pfizer_lift_brightcove.js?pcw4c1"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5f7dd2ba14","applicationID":"65522660","transactionName":"bgZQZkcHXENWARdZC1dMc1FBD11eGBICVwFmDlNcVAFXQmgMDFQBZhVbV0I5QlFQBw==","queueTime":0,"applicationTime":1898,"atts":"QkFTEA8dT00=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

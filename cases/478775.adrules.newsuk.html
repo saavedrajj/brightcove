@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>News UK</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5834814588001" 
+	data-account="5067014667001" 
+	data-player="default" 
+	data-embed="S1y1PkNFVc" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5067014667001/S1y1PkNFVc_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<script>
+		var myPlayer;
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			debug: true,
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sec_id=203&cont_type=video_feed&did_hash=B94965273E15645DD7D9224E9BE0FFFE297146EF&av=4.1.8&kw=null&aid=null&did=9bdc7039-ed58-4beb-b20f-f6c3d5e48d71&path=null&section=premier_league&gdfp_req=1&impl=s&unviewed_position_start=1&output=xml_vast3&iu=25436805/d.thesun/qa.thesun.app&sz=640x480&vpaid=true&hl=en&vpos=false&cmsid=6294&pos=pre&env=vp&pform=mobile%20device&correlator=1536930652065&vid=5834814588001&content_url=https://feeds-dev.uat-thesun.co.uk/tron/v1/thesun/collections/video',		
+			requestMode: 'onload', 
+			timeout: 6000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+		player.ready(function() {
+			myPlayer = this;
+
+		});
+	</script>
+</body>
+</html>

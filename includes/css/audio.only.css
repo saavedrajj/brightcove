@@ -1,0 +1,145 @@
+  /* Keep controls static*/
+  .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar,
+  .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive .vjs-control-bar,
+  .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active .vjs-control-bar,
+  .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar,
+  .video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  /* Show by default */
+  .video-js.video-js .vjs-control-bar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* Reduce player height */
+  .video-js {
+    height: 35px;
+    width: 100%;
+  }
+
+  .video-js .vjs-big-play-button {
+    left: 0;
+    margin-left: 0;
+    border-radius: 0;
+    font-size: 3em;
+    line-height: 2.1em;
+  }
+
+  /* Audio - timebar is 5px and does not shrink on inactive */
+  .video-js.vjs-has-started .vjs-progress-holder .vjs-play-progress,
+  .video-js.vjs-has-started .vjs-progress-holder .vjs-load-progress,
+  .video-js.vjs-has-started .vjs-progress-holder .vjs-tooltip-progress-bar,
+  .video-js.vjs-has-started .vjs-progress-holder .vjs-load-progress div {
+    height: .5em;
+  }
+  .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-active .vjs-progress-control,
+  .video-js.not-hover.vjs-has-started.vjs-paused.vjs-user-inactive .vjs-progress-control,
+  .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-active .vjs-progress-control,
+  .video-js.not-hover.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-progress-control,
+  .video-js.video-js .vjs-progress-control,
+  .video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-progress-control {
+    height: .5em;
+    transition: none;
+    top: -.5em;
+  }
+
+  /* Progress bar grow below on hover*/
+  .video-js.vjs-has-started .vjs-progress-control:hover,
+  .video-js.vjs-has-started .vjs-progress-control:hover .vjs-progress-holder,
+  .video-js.vjs-has-started .vjs-progress-control:hover .vjs-play-progress,
+  .video-js.vjs-has-started .vjs-progress-control:hover .vjs-load-progress,
+  .video-js.vjs-has-started .vjs-progress-control:hover .vjs-tooltip-progress-bar,
+  .video-js.vjs-has-started .vjs-progress-control:hover .vjs-load-progress div {
+    height: 4em;
+  }
+
+  /* Reposition tooltips */
+  .video-js .vjs-time-tooltip {
+    top: 2.5em;
+  }
+
+  .video-js.vjs-has-started .vjs-time-tooltip {
+    top: 3em;
+  }
+
+  .video-js .vjs-dock-text {
+    display: none;
+  }
+
+  /* Make sure the progress bar stays on top of the dock */
+  .video-js .vjs-progress-control {
+    z-index: 1;
+  }
+
+  /* Styles for the control bar title */
+  .video-js .vjs-control-dock {
+    width: auto;
+    display: flex;
+    line-height: 2.3em;
+    font-size: 130%;
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  .vjs-control-dock-title {
+    display:none;
+    font-weight: bold;
+  }
+
+
+
+
+  /***** NEW Trevini CSS code *********/
+
+.video-js.vjs-has-started.vjs-paused.vjs-user-active .vjs-control-bar,
+.video-js.vjs-has-started.vjs-paused.vjs-user-inactive .vjs-control-bar,
+.video-js.vjs-has-started.vjs-playing.vjs-user-active .vjs-control-bar,
+.video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar,
+.video-js.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-control-bar {
+-webkit-transform: none !important;
+-ms-transform: none !important;
+transform: none !important;
+}
+
+.vjs-has-started.vjs-paused.vjs-ad-playing.vjs-user-inactive .vjs-progress-control,
+.vjs-has-started.vjs-paused.vjs-user-active:not(:hover) .vjs-progress-control,
+.vjs-has-started.vjs-paused.vjs-user-inactive:not(:hover) .vjs-progress-control,
+.vjs-has-started.vjs-playing.vjs-user-active:not(:hover) .vjs-progress-control,
+.vjs-has-started.vjs-playing.vjs-user-inactive .vjs-progress-control,
+.vjs-has-started.vjs-playing.vjs-user-inactive:not(:hover) .vjs-progress-control {
+height: .5em !important;
+transition: none !important;
+top: -.5em !important;
+}
+
+.video-js {
+height: 49px;
+width: 100%;
+}
+
+.video-js.vjs-mouse {
+height: 35px;
+}
+
+.video-js .vjs-control:focus,
+.video-js .vjs-control:focus:before,
+.video-js .vjs-control:hover:before {
+outline: none;
+}
+
+.video-js .vjs-time-control {
+min-width: 5em;
+}
+
+.vjs-time-control.vjs-time-divider {
+min-width: auto;
+}
+
+.video-js .vjs-time-control.vjs-current-time {
+margin-left: 0;
+}

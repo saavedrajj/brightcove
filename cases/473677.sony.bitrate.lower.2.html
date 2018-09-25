@@ -11,22 +11,22 @@
 
     <style>
         .video-js {
-            width: 640px;
-            height: 360px;
+            width: 	960px;
+            height: 540px;
         }
     </style>
 </head>
 
 <body>
-    <video id="myPlayer" 
-    data-application-id="My Basic Template"
-    data-video-id="4902876982001" 
-    data-account="3981276734001" 
-    data-player="rJzJD34Gl" 
+    <video
+    id="myPlayer" 
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+    data-player="default" 
     data-embed="default" 
     class="video-js" 
     controls></video>
-    <script src="//players.brightcove.net/3981276734001/rJzJD34Gl_default/index.min.js"></script>
+    <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 
     <script type="text/javascript">
         var player;
@@ -37,11 +37,11 @@
             myPlayer.on("loadedmetadata", function() {
                 console.log(myPlayer.hls.representations());
 
-                enableLowestBitrate();
-//                displayReps(sortedArray);
+                enableBitrate();
+                displayReps(sortedArray);
             })
 
-            function enableLowestBitrate() {
+            function enableBitrate() {
                 sortedArray = myPlayer.hls.representations();
                 sortedArray.sort(function (a, b) {
                 if (a.bandwidth > b.bandwidth) {
@@ -53,11 +53,12 @@
                   return 0;
                 });
 
-                var lowestBitrate = sortedArray[0].bandwidth;
+                var newBitrate = sortedArray[0].bandwidth;
+                console.log('New bitrate: ' + newBitrate);
 
                 myPlayer.hls.representations().forEach(function (rep) {
                     console.log(rep.bandwidth);
-                    if(rep.bandwidth <= lowestBitrate) {
+                    if(rep.bandwidth <= newBitrate) {
                       rep.enabled(true);
                     } else {
                       rep.enabled(false);
@@ -68,6 +69,7 @@
 
 
         });
+
    function displayReps(repArray) {
       // dynamically build table and headers cells
       // and populate the header cells

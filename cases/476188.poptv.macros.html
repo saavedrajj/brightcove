@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 640px;
+		height: 360px;
+	}
+</style>
+</head>
+<body>
+	<h1>adMacroReplacement()</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="U6201W4Hm" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5458602755001/U6201W4Hm_default/index.min.js"></script>
+
+
+	<script>
+		videojs("myPlayerID").ready( function() {
+			myPlayer= this;
+			myPlayer.ima3.adMacroReplacement = function(url){
+				var parameters = {
+					'{_yourMacro}': '1000'
+				};
+				for (var i in parameters) {
+					url = url.split(i).join(encodeURIComponent(parameters[i]));
+				}
+				return url;
+			};
+		});
+	</script>
+</body>
+</html>
+

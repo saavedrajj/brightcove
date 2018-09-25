@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On demand</title>
+	<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+
+<body>
+	<h1>IMA3 - Request Ads: On demand</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="Skl4WdCvUZ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>				
+	<button type="button" class="btn btn-primary" onclick="doAdsRequest1();">Make Ad request 1</button>
+	<button type="button" class="btn btn-primary" onclick="doAdsRequest2();">Make Ad request 2</button>	
+	<script type="text/javascript">
+		bc('myPlayerID').ima3({
+			adTechOrder: ['html5'],
+			serverUrl: '',
+			requestMode: 'ondemand', 
+			timeout: 6000, 
+			debug: true,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+
+		var myPlayer = videojs("myPlayerID");
+
+		function doAdsRequest1() {
+			myPlayer.ima3.adrequest('http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}');
+		}
+		function doAdsRequest2() {
+			myPlayer.ima3.adrequest('https://solutions.brightcove.com/abroadstone/play2018/surfing-clientside-ad.xml');
+		}	
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pause / Resume / Stop Ads</title>
+
+</head>
+<body>
+
+	<h1>IMA3 - Pause / Resume / Stop Ads</h1>
+	<h2>video 1</h2>
+	<video 
+	id="myPlayerID1"
+	data-video-id="ref:promo01" 
+	data-account="5480141310001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+
+	<button type="button" class="btn btn-primary" onclick="pauseAdsPlayer1()">PAUSE ADS</button>
+	<button type="button" class="btn btn-primary" onclick="resumeAdsPlayer1()">RESUME ADS</button>
+	<button type="button" class="btn btn-primary" onclick="stopAdsPlayer1()">STOP ADS</button>
+
+	<hr>
+	<h2>video 2</h2>
+	<video 
+	id="myPlayerID2"
+	data-video-id="ref:promo02" 
+	data-account="5480141310001" 
+	data-player="BJxAdLhKDW" 
+	data-embed="Skl4WdCvUZ" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+
+	<script type="text/javascript">
+		var myPlayer1;
+		var myPlayer2;
+
+		var player1 = bc('myPlayerID1');	
+		var player2 = bc('myPlayerID2');	
+
+		player1.ready(function(){
+			myPlayer1 = this;
+			myPlayer1.on("play", function(){
+				console.log('player1');
+				pausePlayer2();
+			});
+		});
+
+		player2.ready(function(){
+			myPlayer2 = this;
+			myPlayer2.on("play", function(){
+				console.log('player2');
+				pausePlayer1();
+			});
+		});
+
+		function pausePlayer1() {
+			console.log("**** PAUSE PLAYER 1 ****");
+			player1.pause();			
+		}
+
+		function pausePlayer2() {
+			console.log("**** PAUSE PLAYER 2 ****");
+			player2.pause();			
+		}
+
+	</script>
+</div>
+</body>
+</html>

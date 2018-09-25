@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	.vjs-icon-play:before, .video-js .vjs-big-play-button:before
+	{
+		display:none;
+	}
+	.video-js.vjs-mouse .vjs-big-play-button {
+		border-radius:0 !important;
+		background: transparent url(http://www.telemadrid.es/sites/all/themes/telemadrid/img/player2017.png) no-repeat center;
+		background-size: 94% !important;
+	}
+	.video-js.vjs-mouse .vjs-big-play-button:hover {
+		background: transparent url(http://www.telemadrid.es/sites/all/themes/telemadrid/img/player2017_hover.png) no-repeat center;
+	}
+	.video-js .vjs-big-play-button {
+		border-radius:0 !important;		
+		background: transparent url(http://www.telemadrid.es/sites/all/themes/telemadrid/img/player2017.png) no-repeat center;
+		background-size: 94% !important;
+	}
+	.video-js .vjs-big-play-button:hover {
+		background: transparent url(http://www.telemadrid.es/sites/all/themes/telemadrid/img/player2017_hover.png) no-repeat center;
+	}
+</style>
+
+</head>
+<body>
+	<h1>Telemadrid Player</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5824486899001" 
+	data-account="104403117001" 
+	data-player="mxsy3eb5H" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<script src="//players.brightcove.net/104403117001/mxsy3eb5H_default/index.min.js"></script>
+</body>
+</html>

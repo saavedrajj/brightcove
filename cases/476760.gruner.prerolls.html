@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Plugin Code Example</title>
+	<style>
+	.video-js {
+		height: 344px;
+		width: 610px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<video id="myPlayerID"
+	data-video-id="5232020387001"
+	data-account="1379209438"
+	data-player="B1xDBoQ45Z"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<script src="//players.brightcove.net/1379209438/B1xDBoQ45Z_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script>
+		var myPlayer;
+		var player = bc('myPlayerID');
+
+		player.ima3({
+			adTechOrder: ['html5'],
+			debug: false,
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',		
+			requestMode: 'onload', 
+			timeout: 4000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+
+		player.ready(function() {
+			myPlayer = this;
+		});
+	</script>
+</body>
+</html>

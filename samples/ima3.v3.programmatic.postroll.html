@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>IMA3 Plugin Code Example</title>
+  <style>
+    .video-js {
+      height: 344px;
+      width: 610px;
+    }
+  </style>
+  <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <video id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+    data-player="default"
+    data-embed="default"
+    class="video-js"
+    controls></video>
+  <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+  <script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+<script>
+		var player = bc('myPlayerID');
+		adURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=";
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			debug: true,
+			serverUrl: adURL,		
+			requestMode: 'ondemand', 
+			timeout: 6000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+		player.on('ended', function(){
+				console.log("ended");
+				player.ima3.adrequest(adURL);
+				/*player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=";*/
+		
+		});		
+	</script>
+</body>
+</html>

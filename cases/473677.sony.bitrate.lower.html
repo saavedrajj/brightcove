@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <video id="myPlayer" 
-    data-application-id="My Basic Template"
+    <video
+    id="myPlayer" 
     data-video-id="4902876982001" 
     data-account="3981276734001" 
     data-player="rJzJD34Gl" 
@@ -38,7 +38,7 @@
                 console.log(myPlayer.hls.representations());
 
                 enableLowestBitrate();
-//                displayReps(sortedArray);
+                displayReps(sortedArray);
             })
 
             function enableLowestBitrate() {
@@ -53,7 +53,8 @@
                   return 0;
                 });
 
-                var lowestBitrate = sortedArray[0].bandwidth;
+                var lowestBitrate = sortedArray[5].bandwidth;
+                console.log('lowestBitrate:' + lowestBitrate);
 
                 myPlayer.hls.representations().forEach(function (rep) {
                     console.log(rep.bandwidth);
@@ -68,6 +69,7 @@
 
 
         });
+
    function displayReps(repArray) {
       // dynamically build table and headers cells
       // and populate the header cells

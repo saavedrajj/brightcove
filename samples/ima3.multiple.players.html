@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Plugin Code Example</title>
+	<style>
+	.video-js {
+		height: 344px;
+		width: 610px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<video id="player1"
+	data-video-id="5675801019001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player2"
+	data-video-id="5808361098001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player3"
+	data-video-id="5806130404001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player4"
+	data-video-id="5805243966001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player5"
+	data-video-id="5804777624001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player6"
+	data-video-id="5803451944001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player7"
+	data-video-id="5800639032001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+	<hr>
+	<video id="player8"
+	data-video-id="5799298721001"
+	data-account="2635130839001"
+	data-player="rkw0Koem7"
+	data-embed="default"
+	class="video-js"
+	controls></video>
+
+	<script src="//players.brightcove.net/2635130839001/rkw0Koem7_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<script>
+		var myPlayer1;
+		var myPlayer2;
+		var myPlayer3;
+		var myPlayer4;
+		var myPlayer5;
+		var myPlayer6;
+		var myPlayer7;
+		var myPlayer8;
+
+		var adTagUrl = 'https://tom.itv.com/itv/tserver/size=vmap/randomnum={timestamp}/fcid=79166/area=testareamadebymanynewsite/contentid=dr.hilary.teaches.us.how.to.check.our.breasts/bcvidid';
+
+		var player1 = bc('player1');
+		player1.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+		var player2 = bc('player2');
+		player2.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});    
+
+		var player3 = bc('player3');
+		player3.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});     
+		var player4 = bc('player4');
+		player4.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});  
+
+
+		var player5 = bc('player5');
+		player5.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});  
+
+		var player6 = bc('player6');
+		player6.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});  
+
+		var player7 = bc('player7');
+		player7.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});  
+
+		var player8 = bc('player8');
+		player8.ima3({
+			adTechOrder: ['html5'],
+			debug: true,
+			serverUrl: adTagUrl,		
+			requestMode: 'onplay', 
+			timeout: 5000, 
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});  
+
+		player1.ready(function() {
+			myPlayer1 = this;
+		});
+		player2.ready(function() {
+			myPlayer2 = this;
+		});    
+		player3.ready(function() {
+			myPlayer3 = this;
+		});   
+		player4.ready(function() {
+			myPlayer4 = this;
+		}); 	
+		player5.ready(function() {
+			myPlayer5 = this;
+		});
+		player6.ready(function() {
+			myPlayer6 = this;
+		});    
+		player7.ready(function() {
+			myPlayer7 = this;
+		});   
+		player8.ready(function() {
+			myPlayer8 = this;
+		}); 			
+	</script>
+</body>
+</html>

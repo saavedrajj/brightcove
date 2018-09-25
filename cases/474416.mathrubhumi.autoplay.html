@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Player v6 Promise</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">  
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	</style>	
+</head>
+<body>
+	<div class="container">
+		<h1>Player v6 Promise</h1>
+
+				<video 
+				id="myPlayerID"
+				data-video-id="5575865276001" 
+				data-account="5458602755001" 
+				data-player="default" 
+				data-embed="default" 
+				data-application-id 
+				class="video-js" 
+				controls autoplay muted></video>
+				<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+
+		<script type="text/JavaScript">
+		// Initialise player
+		var myPlayer;
+		// When the player's ready, let's get started
+		videojs("myPlayerID").ready(function(){
+			myPlayer = this;
+			myPlayer.one("loadedmetadata", function(){
+				// "Autoplay"
+				myPlayer.play().then(function() {
+						// play succeeded!
+						videojs.log("play() successful! Playback has started.");
+						
+					})
+				.catch(function(error) {
+						// play failed
+						console.error(error.message);
+						videojs.log("play() failed! Looks like autoplay was blocked.");
+						
+				
+					});
+			});
+		});
+	</script>
+
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+</div>
+
+
+</body>
+</html>
+

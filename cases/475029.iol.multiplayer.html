@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iol</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	</style>
+</head>
+<body>
+
+	<h1>iol</h1>
+	<h2>video 1</h2>
+	<video 
+	id="myPlayerID1"
+	data-video-id="ref:promo01" 
+	data-account="5480141310001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+
+	<h2>video 2</h2>
+	<video 
+	id="myPlayerID2"
+	data-video-id="ref:promo02" 
+	data-account="5480141310001" 
+	data-player="BJxAdLhKDW" 
+	data-embed="Skl4WdCvUZ" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+	<script type="text/javascript">
+		var myPlayer1;
+		var myPlayer2;
+
+		var player1 = bc('myPlayerID1');	
+		var player2 = bc('myPlayerID2');	
+
+		player1.ready(function(){
+			myPlayer1 = this;
+			myPlayer1.on("play", function(){
+				pausePlayer2();
+			});
+		});
+
+		player2.ready(function(){
+			myPlayer2 = this;
+			myPlayer2.on("play", function(){
+				pausePlayer1();
+			});
+		});
+
+		function pausePlayer1() {
+			console.log("**** PAUSE PLAYER 1 ****");
+			player1.pause();			
+		}
+
+		function pausePlayer2() {
+			console.log("**** PAUSE PLAYER 2 ****");
+			player2.pause();			
+		}
+
+		//createdPlayers=videojs.getAllPlayers();
+		//console.log(createdPlayers);
+		createdPlayers=videojs.getPlayer();
+		console.log(createdPlayers);
+
+	</script>
+</div>
+</body>
+</html>

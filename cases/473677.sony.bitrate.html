@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <title></title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -11,22 +9,22 @@
 
     <style>
         .video-js {
-            width: 640px;
-            height: 360px;
+            width: 	1280px;
+            height: 720px;
         }
     </style>
 </head>
 
 <body>
-    <video id="myPlayer" 
-    data-application-id="My Basic Template"
-    data-video-id="4902876982001" 
-    data-account="3981276734001" 
-    data-player="rJzJD34Gl" 
+    <video
+    id="myPlayer" 
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+    data-player="default" 
     data-embed="default" 
     class="video-js" 
     controls></video>
-    <script src="//players.brightcove.net/3981276734001/rJzJD34Gl_default/index.min.js"></script>
+    <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 
     <script type="text/javascript">
         var player;
@@ -35,14 +33,13 @@
             player = this;
 
             myPlayer.on("loadedmetadata", function() {
-                console.log(myPlayer.hls.representations());
-
-                enableLowestBitrate();
-//                displayReps(sortedArray);
+                console.log(myPlayer.tech_.hls.representations());
+                newBitrate();
+                displayBitrates(sortedArray);
             })
 
-            function enableLowestBitrate() {
-                sortedArray = myPlayer.hls.representations();
+            function newBitrate() {
+                sortedArray = myPlayer.tech_.hls.representations();
                 sortedArray.sort(function (a, b) {
                 if (a.bandwidth > b.bandwidth) {
                   return 1;
@@ -53,11 +50,12 @@
                   return 0;
                 });
 
-                var lowestBitrate = sortedArray[0].bandwidth;
+                var newBitrate = sortedArray[0].bandwidth;
+                console.log('New bitrate: ' + newBitrate);
 
-                myPlayer.hls.representations().forEach(function (rep) {
+                myPlayer.tech_.hls.representations().forEach(function (rep) {
                     console.log(rep.bandwidth);
-                    if(rep.bandwidth <= lowestBitrate) {
+                    if(rep.bandwidth <= newBitrate) {
                       rep.enabled(true);
                     } else {
                       rep.enabled(false);
@@ -65,10 +63,9 @@
                 });
             }
 
-
-
         });
-   function displayReps(repArray) {
+
+   function displayBitrates(repArray) {
       // dynamically build table and headers cells
       // and populate the header cells
       var table = document.createElement('table'),
@@ -93,7 +90,7 @@
       // add row to table
       table.appendChild(trHeaders);
       // loop over each rep, populate each cell, then add row to table
-      player.hls.representations().forEach(function (rep) {
+      player.tech_.hls.representations().forEach(function (rep) {
         var
         tr = document.createElement('tr'),
           checkbox = document.createElement('input'),
