@@ -13,7 +13,7 @@
     <form action="results.php" method="post" target="_blank">
       <div class="form-group">
         <label for="fromLabel">From</label>
-        <input type="text" class="form-control" id="from" name="from" placeholder="Initial date">
+        <input type="text" class="form-control" id="from" name="from" placeholder="Intial date">
         <small id="fromHelp" class="form-text text-muted">Date format: 2018-09-24T16:00:00Z</small>
       </div>
       <div class="form-group">
@@ -29,3 +29,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
+<!--
+case 477950
+BC-42287 - Uploading Module - video IDs not being created intermitently RESOLVED 
+BC-42286 - upload-module: multiple-videos created but no ingest requests made RESOLVED 
+-->
