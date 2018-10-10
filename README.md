@@ -1,2 +1,0 @@
-# brightcove
-Brightcove

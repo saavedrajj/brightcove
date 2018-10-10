@@ -31,144 +31,89 @@
         var myPlayer;
 
         videojs("myPlayerID").ready(function(){
-         /* get a reference to the player */
-         myPlayer= this;
-/*
-       myPlayer.FreeWheelPlugin({
-          "Flash": {
-            "networkId": 48747,
-            "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
-            "sdkurl": "http://adm.fwmrm.net/p/c4_brightcove_live/AdManager.swf",
-            "swfurl": "//players.brightcove.net/videojs-freewheel/2/videojs.freewheel.swf",           
-            "serverUrl": "https://5e529.v.fwmrm.net/",
-            "siteSectionCustomId": "TESTING_DMAX_GERMANY_2"
-            "temporalSlots": [
-            {
-                "adUnit": "preroll",
-                "id": "Preroll_1",
-                "timePosition": 0
-            }
-        },
-        "Html5": {
-            "keyValues": [
-            {
-                "feature": "simpleAds",
-                "module": "DemoPlayer"
-            },
-            {
-                "feature": "trackingURLs"
-            }
-            ],
-            "networkId": 96749,
-            "profile": "global-js",
-            "sdkurl": "http://adm.fwmrm.net/p/c4_brightcove_live/AdManager.js",
-            "serverUrl": "http://cue.v.fwmrm.net/ad/g/1",
-            "siteSectionCustomId": "DemoSiteGroup.01",
-            "temporalSlots": [
-            {
-                "adUnit": "preroll",
-                "id": "Preroll_1",
-                "timePosition": 0
-            },
-            {
-                "adUnit": "postroll",
-                "id": "Postroll_1",
-                "timePosition": 60
-            },
-            {
-                "adUnit": "midroll",
-                "id": "Midroll_1",
-                "timePosition": 5
-            }
-            ],
-            "videoAssetCustomId": "DemoVideoGroup.01",
-            "videoAssetDuration": 500
-        },
-        "adTechOrder": [
-        "html5",
-        "flash"
-        ],
-        "debug": true,
-        "prerollTimeout": 1000,
-        "timeout": 5000
-    });
-    */
+           /* get a reference to the player */
+           myPlayer= this;
 
-    myPlayer.FreeWheelPlugin({
-        "Flash": {
-            "networkId": 48747,
-            "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
-            "sdkurl": "http://adm.fwmrm.net/p/release/latest-AS3/adm/dbg/AdManager.swf",
-            "serverUrl": "http://be6b.v.fwmrm.net",
-            "siteSectionCustomId": "DPLAY_SPAIN",
-            "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
-            "temporalSlots": [
-            {
-                "adUnit": "preroll",
-                "id": "Preroll_1",
-                "timePosition": 0
-            }, 
-            {
-                "adUnit": "postroll",
-                "id": "Postroll_1",
-                "timePosition": 60
-            }, 
-            {
-                "adUnit": "midroll",
-                "id": "Midroll_1",
-                "timePosition": 5
-            }, 
-            {
-                "adUnit": "overlay",
-                "id": "Overlay_1",
-                "timePosition": 10
-            }
-            ],
-            "videoAssetCustomId": "DPLAYES_ES_EHD_157642F",
-            "videoAssetDuration": 5291
-        },
-        "Html5": {
-            "keyValues": [
-            {
-                "feature": "simpleAds",
-                "module": "DemoPlayer"
-            }, 
-            {
-                "feature": "trackingURLs"
-            }
-            ],
-            "networkId": 48747,
-            "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
-            "sdkurl": "http://adm.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
-            "serverUrl": "http://be6b.v.fwmrm.net",
-            "siteSectionCustomId": "DPLAY_SPAIN",
-            "temporalSlots": [{
-                "adUnit": "preroll",
-                "id": "Preroll_1",
-                "timePosition": 0
+           myPlayer.FreeWheelPlugin({
+            "Flash": {
+                "networkId": 48747,
+                "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
+                "sdkurl": "http://adm.fwmrm.net/p/release/latest-AS3/adm/dbg/AdManager.swf",
+                "serverUrl": "http://be6b.v.fwmrm.net",
+                "siteSectionCustomId": "DPLAY_SPAIN",
+                "siteSectionFallbackId": "7097865",                
+                "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
+                "temporalSlots": [
+                {
+                    "adUnit": "preroll",
+                    "id": "Preroll_1",
+                    "timePosition": 0
+                }, 
+                {
+                    "adUnit": "postroll",
+                    "id": "Postroll_1",
+                    "timePosition": 60
+                }, 
+                {
+                    "adUnit": "midroll",
+                    "id": "Midroll_1",
+                    "timePosition": 5
+                }, 
+                {
+                    "adUnit": "overlay",
+                    "id": "Overlay_1",
+                    "timePosition": 10
+                }
+                ],
+                "videoAssetCustomId": "DPLAYES_ES_EHD_157642F",
+                "videoAssetDuration": 5291
+            },
+            "Html5": {
+                "keyValues": [
+                {
+                    "feature": "simpleAds",
+                    "module": "DemoPlayer"
+                }, 
+                {
+                    "feature": "trackingURLs"
+                }
+                ],
+                "networkId": 48747,
+                "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
+                "sdkurl": "http://adm.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
+                "serverUrl": "http://be6b.v.fwmrm.net",
+                "siteSectionCustomId": "DPLAY_SPAIN",
+                "siteSectionFallbackId": "7097865",                  
+                "temporalSlots": [{
+                    "adUnit": "preroll",
+                    "id": "Preroll_1",
+                    "timePosition": 0
 
-            }, 
-            {
-                "adUnit": "postroll",
-                "id": "Postroll_1",
-                "timePosition": 60
-            }, 
-            {
-                "adUnit": "overlay",
-                "id": "Overlay_1",
-                "timePosition": 5
-            }],
-            "videoAssetCustomId": "DPLAYES_ES_EHD_157642F",
-            "videoAssetDuration": 5291 
-        },
-        "adTechOrder": [
-        "html5",
-        "flash"
-        ],
-        "debug": true,
-        "prerollTimeout": 1000,
-        "timeout": 5000
-    });
-</script>
+                }, 
+                {
+                    "adUnit": "postroll",
+                    "id": "Postroll_1",
+                    "timePosition": 60
+                }, 
+                {
+                    "adUnit": "overlay",
+                    "id": "Overlay_1",
+                    "timePosition": 5
+                }],
+                "videoAssetCustomId": "DPLAYES_ES_EHD_157642F",
+                "videoAssetDuration": 5291 
+            },
+            "adTechOrder": [
+            "html5",
+            "flash"
+            ],
+            "debug": true,
+            "prerollTimeout": 1000,
+            "timeout": 5000
+        });
+
+
+       });
+   </script>
 </body>
 </html>

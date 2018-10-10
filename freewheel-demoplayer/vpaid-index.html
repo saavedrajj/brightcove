@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+  <head>
+    <title>FreeWheel HTML5 Demo Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css"/>
+    <script type="text/javascript" src="./test/AdManager.js"></script>
+    <script type="text/javascript" src="./src/vpaid-player.js"></script>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #c8c8c8;
+            background-color: #272b30;
+        }
+        #standaloneContainer {
+            margin-top: 20px;
+        }
+    	#videoPlayer {
+    		height: 480px;
+    		width: 100%;
+    		background-color: #000;
+    	}
+        .navbar a{
+            margin: 5px;
+        }
+        footer{
+            padding: 10px;
+            text-align: right;
+        }
+        footer, footer a{
+            font-size: small;
+            color: #ccc;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top">
+        <a class="navbar-brand" href="http://www.freewheel.tv" style="padding-left: 173px; background: url(./FreeWheel__logo.png) 10px no-repeat">HTML5 Demo Player</a>
+    </div>
+    <div style="margin: 20px">
+        <div class="row">
+        	<div class="col-lg-6" id="leftPanel">
+        		<div id="displayBase">
+	        		<video id="videoPlayer">
+                        <source src="https://solutions.brightcove.com/marguin/sample-content/sintel-2048-surround.mp4"/>
+	        		</video>
+	        	</div>
+                <div>
+                </div>
+        		<div id="standaloneContainer">
+        			<p>Standalone 728x90</p>
+        			<span id="standaloneSlot" class="_fwph" >
+				        <form id="_fw_form_standaloneSlot" style="display:none">
+				            <input type="hidden" name="_fw_input_standaloneSlot" id="_fw_input_standaloneSlot" value="ptgt=p&amp;h=90&amp;w=728&amp;flag=+cmpn+fcai">
+				        </form>
+				        <span id="_fw_container_standaloneSlot"></span>
+			    	</span>
+        		</div>
+        	</div> <!-- col-lg-6 -->
+        	<div class="col-lg-6">
+        		<div id="companionContainer">
+        			<p>Companion 300x250</p>
+        			<span id="companionSlot" class="_fwph" >
+				        <form id="_fw_form_companionSlot" style="display:none">
+				            <input type="hidden" name="_fw_input_companionSlot" id="_fw_input_companionSlot" value="ptgt=p&amp;h=250&amp;w=300">
+				        </form>
+				        <span id="_fw_container_companionSlot"><!-- COMPANION_SLOT_1 --></span>
+			    	</span>
+        		</div>
+        	</div>
+        </div>
+    </div>
+    <footer>&copy; 2013 <a href="http://freewheel.tv" target="_blank">FreeWheel Media Inc.</a></footer>
+	<script type="text/javascript">
+    var player;
+    $(function() {
+    	player = new tv.freewheel.DemoPlayer();
+    	player.requestAds();
+    });
+    </script>
+  </body>
+</html>

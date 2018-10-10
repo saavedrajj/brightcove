@@ -1,0 +1,204 @@
+<!Doctype html>
+<html>
+  <head>
+    <title>FreeWheel HTML5 Demo Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css"/>
+    <script type="text/javascript" src="./test/AdManager.js"></script>
+    <script type="text/javascript" src="./src/form-player.js"></script>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #c8c8c8;
+            background-color: #272b30;
+        }
+        #standaloneContainer {
+            margin-top: 20px;
+        }
+    	#videoPlayer {
+    		height: 480px;
+    		width: 100%;
+    		background-color: #000;
+    	}
+        .navbar a{
+            margin: 5px;
+        }
+        footer{
+            padding: 10px;
+            text-align: right;
+        }
+        footer, footer a{
+            font-size: small;
+            color: #ccc;
+        }
+        #form_container
+        {
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:left;
+            width:640px;
+        }
+        form .guidelines
+        {
+            background:#f5f5f5;
+            border:1px solid #e6e6e6;
+            color:#444;
+            font-size:80%;
+            left:100%;
+            line-height:130%;
+            margin:0 0 0 8px;
+            padding:8px 10px 9px;
+            position:absolute;
+            top:0;
+            visibility:hidden;
+            width:42%;
+            z-index:1000;
+        }
+        .form_description
+        {
+            border-bottom:1px dotted #ccc;
+            clear:both;
+            float:left;
+            display:inline;
+            margin:0 0 1em;
+        }
+        input {
+            display:inline-block;
+        }
+        label.description
+        {
+            border:none;
+            display:block;
+            font-size:95%;
+            font-weight:normal;
+            line-height:150%;
+            padding:0 0 1px;
+        }
+        .small
+        {
+            width:4em;
+        }
+        .medium
+        {
+            width:15em;
+        }
+        .large
+        {
+            width:40em;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top">
+        <a class="navbar-brand" href="http://www.freewheel.tv" style="padding-left: 173px; background: url(./FreeWheel__logo.png) 10px no-repeat">HTML5 Demo Player</a>
+    </div>
+    <div style="margin: 20px">
+        <div class="row">
+        	<div class="col-lg-6" id="leftPanel">
+        		<div id="displayBase">
+	        		<video id="videoPlayer">
+                        <source src="https://solutions.brightcove.com/marguin/sample-content/sintel-2048-surround.mp4"/>
+	        		</video>
+	        	</div>
+                <div>
+                </div>
+        		<div id="standaloneContainer">
+        			<p>Standalone 728x90</p>
+        			<span id="standaloneSlot" class="_fwph" >
+				        <form id="_fw_form_standaloneSlot" style="display:none">
+				            <input type="hidden" name="_fw_input_standaloneSlot" id="_fw_input_standaloneSlot" value="ptgt=p&amp;h=90&amp;w=728&amp;flag=+cmpn+fcai">
+				        </form>
+				        <span id="_fw_container_standaloneSlot"></span>
+			    	</span>
+        		</div>
+        	</div> <!-- col-lg-6 -->
+        	<div class="col-lg-6">
+        		<div id="companionContainer">
+        			<p>Companion 300x250</p>
+        			<span id="companionSlot" class="_fwph" >
+				        <form id="_fw_form_companionSlot" style="display:none">
+				            <input type="hidden" name="_fw_input_companionSlot" id="_fw_input_companionSlot" value="ptgt=p&amp;h=250&amp;w=300">
+				        </form>
+				        <span id="_fw_container_companionSlot"><!-- COMPANION_SLOT_1 --></span>
+			    	</span>
+        		</div>
+        	</div>
+        </div>
+    </div>
+    <div id="form_container">
+        <form>
+            <h2>Freewheel Ad Settings</h2>
+        <label class="description" for="networkID">Network ID: </label>
+        <div>
+            <input id="networkID" name="networkID" class="element text small" type="text" maxlength="255" placeholder="96749"/>
+        </div>
+        <label class="description" for="siteSectionID">Site Section Id: </label>
+        <div>
+            <input id="siteSectionID" name="siteSectionID" class="element text medium" type="text" maxlength="255" placeholder="DemoSiteGroup.01"/>
+        </div>
+        <label class="description" for="siteSectionFallbackID">Site Section Fallback Id: </label>
+        <div>
+            <input id="siteSectionFallbackID" name="siteSectionFallbackID" class="element text medium" type="text" maxlength="255" placeholder=""/>
+        </div>
+
+        <label class="description" for="videoAssetID">Video Asset Id: </label>
+        <div>
+            <input id="videoAssetID" name="videoAssetID" class="element text medium" type="text" maxlength="255" placeholder="DemoVideoGroup.01"/>
+        </div>
+        <label class="description" for="profile">Profile: </label>
+        <div>
+            <input id="profile" name="profile" class="element text medium" type="text" maxlength="255" placeholder="global-js"/>
+        </div>
+        <label class="description" for="server">Server Url: </label>
+        <div>
+            <input id="server" name="server" class="element text large" type="text" maxlength="255" placeholder="http://demo.v.fwmrm.net/ad/g/1"/>
+        </div><p class="guidelines" id="guide_server"><small>Use the default or enter a URL for a FW Ad Server Response to use custom advertisements and settings.</small></p>
+        <label class="description" for="element_6">Number of Prerolls: </label>
+        <div>
+            <input id="prerollQty" name="prerollQty" class="element text small" type="text" maxlength="255" placeholder="1">
+        </div><p class="guidelines" id="guide_prerollQty"><small>All prerolls will be set with time position 0</small></p>
+        <label class="description" for="midrollQty">Number of Midrolls: </label>
+        <div>
+            <input id="midrollQty" name="midrollQty" class="element text small" type="text" maxlength="255" placeholder="3"/>
+        </div>
+        <label class="description" for="midrollTimePos">Midroll Time Position(s): </label>
+        <div>
+            <input id="midrollTimePos" name="midrollTimePos" class="element text medium" type="text" maxlength="255" placeholder="15,60,120" />
+        </div><p class="guidelines" id="guide_midrollTimePos"><small>Enter multiple time positions, separated by commas(,). The number of time positions must match the number of midrolls above.</small></p>
+        <label class="description" for="overlayQty">Number of Overlays: </label>
+        <div>
+            <input id="overlayQty" name="overlayQty" class="element text small" type="text" maxlength="255" placeholder="0"/>
+        </div>
+        <label class="description" for="overlayTimePos">Overlay Time Positions: </label>
+        <div>
+            <input id="overlayTimePos" name="overlayTimePos" class="element text medium" type="text" maxlength="255" placeholder=""/>
+        </div><p class="guidelines" id="guide_overlayTimePos"><small>Enter multiple time positions, separated by commas(,). The number of time positions must match the number of overlays above.</small></p>
+        <label class="description" for="postrollQty">Number of Postrolls: </label>
+        <div>
+            <input id="postrollQty" name="postrollQty" class="element text small" type="text" maxlength="255" placeholder="1"/>
+        </div><p class="guidelines" id="guide_postrollQty"><small>All postrolls will be set with time position -1</small></p>
+        <br>
+        <button id="saveForm" class="btn btn-info" type="button" name="requestAds" />Request Ads</button>
+        </form>
+    </div>
+    <footer>&copy; 2013 <a href="http://freewheel.tv" target="_blank">FreeWheel Media Inc.</a></footer>
+	<script type="text/javascript">
+    var player;
+    $(function() {
+        player = new tv.freewheel.DemoPlayer();
+        $("#saveForm").bind('click', function (evt) {
+            player.requestAds();
+        });
+    });
+    /*$(function() {
+    	player = new tv.freewheel.DemoPlayer();
+    	player.requestAds();
+    });*/
+    </script>
+  </body>
+</html>
