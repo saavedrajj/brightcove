@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script>
+        document.createElement('video')
+    </script>
+
+    <style>
+        .video-js {
+            width: 	1280px;
+            height: 720px;
+        }
+    </style>
+</head>
+
+<body>
+    <video
+    id="myPlayer" 
+	data-video-id="5794568924001" 
+	data-account="5783297043001" 
+    data-player="default" 
+    data-embed="default" 
+    class="video-js" 
+    controls muted></video>
+    <script src="//players.brightcove.net/5783297043001/default_default/index.min.js"></script>
+
+    <script type="text/javascript">
+        var player;
+        videojs("myPlayer").ready(function() {
+            var myPlayer = this;
+            player = this;
+
+            myPlayer.on("loadedmetadata", function() {
+                console.log(myPlayer.tech_.hls.representations());
+                newBitrate();
+                displayBitrates(sortedArray);
+            })
+
+            function newBitrate() {
+                sortedArray = myPlayer.tech_.hls.representations();
+                sortedArray.sort(function (a, b) {
+                if (a.bandwidth > b.bandwidth) {
+                  return 1;
+                }
+                if (a.bandwidth < b.bandwidth) {
+                  return -1;
+                }
+                  return 0;
+                });
+
+                var newBitrate = sortedArray[0].bandwidth;
+                console.log('New bitrate: ' + newBitrate);
+
+                myPlayer.tech_.hls.representations().forEach(function (rep) {
+                    console.log(rep.bandwidth);
+                    if(rep.bandwidth <= newBitrate) {
+                      rep.enabled(true);
+                    } else {
+                      rep.enabled(false);
+                    }
+                });
+            }
+
+        });
+
+   function displayBitrates(repArray) {
+      // dynamically build table and headers cells
+      // and populate the header cells
+      var table = document.createElement('table'),
+        paragraph = document.createElement('p')
+        trHeaders = document.createElement('tr'),
+        enabledHdr = document.createElement('th'),
+        idHdr = document.createElement('th'),
+        widthHdr = document.createElement('th'),
+        heightHdr = document.createElement('th'),
+        bandwidthHdr = document.createElement('th');
+      enabledHdr.innerHTML = 'Enabled',
+      idHdr.innerHTML = 'ID',
+      widthHdr.innerHTML = 'Width',
+      heightHdr.innerHTML = 'Height',
+      bandwidthHdr.innerHTML = 'Bandwidth';
+      // add header cells to header row
+      trHeaders.appendChild(enabledHdr);
+      trHeaders.appendChild(idHdr);
+      trHeaders.appendChild(widthHdr);
+      trHeaders.appendChild(heightHdr);
+      trHeaders.appendChild(bandwidthHdr);
+      // add row to table
+      table.appendChild(trHeaders);
+      // loop over each rep, populate each cell, then add row to table
+      player.tech_.hls.representations().forEach(function (rep) {
+        var
+        tr = document.createElement('tr'),
+          checkbox = document.createElement('input'),
+          checkboxTd = document.createElement('td'),
+          idTd = document.createElement('td'),
+          widthTd = document.createElement('td'),
+          heightTd = document.createElement('td'),
+          bandwidthTd = document.createElement('td');
+        checkbox.checked = rep.enabled();
+        checkbox.type = 'checkbox';
+        checkbox.onclick = function () {
+          if (checkbox.checked) {
+            rep.enabled(true);
+          } else {
+            rep.enabled(false);
+          }
+        };
+        checkboxTd.appendChild(checkbox);
+        idTd.innerHTML = rep.id;
+        widthTd.innerHTML = rep.width;
+        heightTd.innerHTML = rep.height;
+        bandwidthTd.innerHTML = rep.bandwidth;
+        tr.appendChild(checkboxTd);
+        tr.appendChild(idTd);
+        tr.appendChild(widthTd);
+        tr.appendChild(heightTd);
+        tr.appendChild(bandwidthTd);
+        table.setAttribute('style', 'border:1px solid black; border-collapse: collapse;');
+        tr.setAttribute('style', 'border:1px solid black');
+        table.appendChild(tr);
+      });
+      // add table to end of body
+      document.body.appendChild(table);
+      document.body.appendChild(paragraph);
+    }        
+    </script>
+</body>
+
+</html>

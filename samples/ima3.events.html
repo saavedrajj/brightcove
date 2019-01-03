@@ -2,170 +2,65 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>IMA3 - Request Ads: On play</title>
+	<title>IMA3 Events</title>
 	<style>
-		.video-js {
-			width: 640px;
-			height: 360px;
-		}
-	</style>
-	<link href="//players.brightcove.net/videojs-ima3/2.19.0/videojs.ima3.min.css" rel="stylesheet">
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<h1>IMA3 - Request Ads: On play</h1>
+	<h1>IMA3 - Events</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
 
-		<video 
-		id="myPlayerID"
-		data-video-id="5515555595001" 
-		data-account="5458602755001" 
-		data-player="Skl4WdCvUZ" 
-		data-embed="default" 
-		data-application-id 
-		class="video-js" 
-		controls></video>
-		<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
-	</div>
-	<div>
-		<p id="results">	</p>
-	</div>
-</div>
-<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js"></script>
-<script type="text/javascript">
+	<button onclick="clearConsole()">Clear Console</button>
+	<p class="console"><strong>Events log</strong></p>
+	<p class="console" id="message"></p>
 
-	/* https://sites.google.com/a/brightcove.com/cs/playbooks/the-brightcove-player/advertising */
-	var myPlayer;
-	var player = bc('myPlayerID');
-	var player = bc('myPlayerID');
-	var player = bc('myPlayerID');
-	player.ima3({
-		adTechOrder: ['html5', 'flash'],
-		serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
-		requestMode: 'onplay', 
-		timeout: 6000,
-		hardTimeouts: false,
-		loadingSpinner: false,
-		vpaidMode: 'ENABLED',
-		ima3SdkSettings: {
+	<script type="text/javascript">
+        function clearConsole(){
+          message.innerHTML = "";      
+      }
+      
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+			requestMode: 'onload', 
+			timeout: 6000,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
 			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
 			numRedirects: 10
 		} 
 	});
 
-	player.ready(function() {
-		myPlayer = this;
-	});
-
-	results.innerHTML += "BC IMA3: " + player.ima3.VERSION + "<br/>";	
-
-
-	/* videojs-contrib-ads */
-	player.on(['readyforpreroll','adsready','adstart','adend','contentupdate','cotentplayback','adtimeout','adscanceled','adserror','contentended'],function(event){
-		results.innerHTML += "BC IMA3 event: " + event.type + " (videojs-contrib-ads)<br/>";
-	});
-
-	player.on('play',function(event){
-		results.innerHTML += "BC IMA3 event: " + event.type + "<br/>";
-	});
-
-	Object.size = function(obj) {
-		var size = 0, key;
-		for (key in obj) {
-			if (obj.hasOwnProperty(key)) size++;
-		}
-		return size;
-	};
-
-	var eventMap = player.ima3.settings.eventMap;
-	var length = Object.size(eventMap);
-	var adEvent = Object.keys(eventMap);
-
-	for(x=0;x<length;x++){
-		player.on(eventMap[adEvent[x]],function(event){
-			results.innerHTML += "BC IMA3 event: " + event.type + "<br/>";
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+			myPlayer.on(["ima3error",  "adsready", "adstart", "adend", "contentupdate", "cotentplayback", "adtimeout", "adscanceled", "adserror", "readyforpreroll", "contentended"],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
+			myPlayer.on(["ima3-ready", "ima3error", "ima3-ad-error",  "ads-request", "ads-ad-ended", "ads-load", "ads-ad-started", "ads-play", "ads-pause", "ads-ad-skipped", "ads-first-quartile", "ads-midpoint", "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started", "ads-pod-ended", "ads-allpods-complete", ""],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
 		});
-	}
+	</script>
 
-
-
-/*
-['ima3-ready','ima3error','ima3-ad-error',]
-*/
-/*
-	player.on('ima3-ready', function() {
-		document.getElementById("message").innerHTML += "*** ima3-ready triggered<br>";	
-	});
-
-	player.on('ima3error', function() {
-		console.log('ima3error');
-	});
-
-	player.on('ima3-ad-error', function() {
-		console.log('ima3-ad-error');
-	});
-
-	player.on('ads-request', function() {
-		message.innerHTML += "*** ads-request triggered<br>";
-	});
-	player.on('ads-load', function() {
-		document.getElementById("message").innerHTML += "*** ads-load triggered<br>";
-	});
-
-	player.on('ads-ad-started', function() {
-		document.getElementById("message").innerHTML += "*** ads-ad-started triggered<br>";	
-	});
-
-	player.on('ads-ad-ended', function() {
-		console.log('ads-ad-ended');
-	});
-
-	player.on('ads-pause', function() {
-		console.log('ads-pause');
-	});
-	player.on('ads-play', function() {
-		console.log('ads-play');
-	});
-	player.on('ads-ad-skipped', function() {
-		document.getElementById("message").innerHTML += "*** ads-ad-skipped triggered<br>";	
-	});
-
-	player.on('ads-first-quartile', function() {
-		console.log('ads-first-quartile');
-	});
-
-	player.on('ads-midpoint', function() {
-		console.log('ads-midpoint');
-	});
-
-	player.on('ads-third-quartile', function() {
-		console.log('ads-third-quartile');
-	});
-
-	player.on('ads-click', function() {
-		console.log('ads-click');
-	});
-
-	player.on('ads-volumechange', function() {
-		console.log('ads-volumechange');
-	});
-
-	player.on('ads-pod-started', function() {
-		console.log('ads-pod-started');
-	});
-
-	player.on('ads-pod-ended', function() {
-		console.log('ads-pod-ended');
-	});
-
-	player.on('ads-allpods-completed', function() {
-		console.log('ads-allpods-completed');
-	});
-	*/
-</script>
-
-
-
-
-</div>
 </body>
 </html>
+
+

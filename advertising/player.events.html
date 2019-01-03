@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Player Events</title>
+  <style>
+  .video-js {
+    width: 480px;
+    height: 270px;
+  }
+</style>       
+</head>
+<body>
+ <h1>Player Events</h1>
+ <video 
+ id="myPlayerID"
+ data-video-id="5575865276001" 
+ data-account="5458602755001" 
+ data-player="default" 
+ data-embed="default" 
+ data-application-id 
+ class="video-js" 
+ controls muted>
+</video>
+<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+
+<ul>
+  <li><a href="https://support.brightcove.com/player-events" target="_blank">Player Events</a></li>
+</ul>
+
+<button onclick="clearConsole()">Clear Console</button>
+<p class="console"><strong>Events log</strong></p>
+<p class="console" id="message"></p>
+
+<script type="text/JavaScript">
+  var myPlayer;
+  function clearConsole(){
+    message.innerHTML = "";      
+  }
+
+  videojs('myPlayerID').on('loadstart',function(){
+    message.innerHTML += "loadstart<br>";
+  });
+
+  videojs("myPlayerID").ready(function() { 
+    var myPlayer = this;
+
+    myPlayer.on(["suspend", "abort", "error", "emptied", "stalled", "loadedmetadata", "loadeddata", "canplay", "canplaythrough", "playing", "waiting", "seeking", "seeked", "ended", "durationchange", "play", "pause", "ratechange", "resize", "volumechange", "modalclose"],function(event){
+      message.innerHTML += "" + event.type + "<br/>";    
+    });
+
+    myPlayer.on('fullscreenchange', function() {
+      if (myPlayer.isFullscreen()) {
+        message.innerHTML += "*** fullscreen triggered at " + myPlayer.currentTime() + ' seconds<br>';
+      } else {
+        message.innerHTML += "*** fullscreen off at " + myPlayer.currentTime() + ' seconds<br>';
+      }
+    });
+
+  });
+
+</script>  
+</body>
+</html>

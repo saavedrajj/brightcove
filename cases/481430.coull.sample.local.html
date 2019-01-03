@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - Request Ads: On demand</title>
+	<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+
+<body>
+	<h1>IMA3 - Request Ads: On demand</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="Skl4WdCvUZ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<script src="//players.brightcove.net/5458602755001/Skl4WdCvUZ_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>				
+	<script type="text/javascript">
+		bc('myPlayerID').ima3({
+			adTechOrder: ['html5'],
+			serverUrl: '',
+			requestMode: 'ondemand', 
+			timeout: 6000, 
+			debug: true,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+
+		var myPlayer = videojs("myPlayerID");
+
+		videojs('myPlayerID').ready(function(){
+			var myPlayer = this;
+
+			myPlayer.on("play", function() { 
+				setTimeout(function(){
+					myPlayer.ima3.adrequest('https://pubads.g.doubleclick.net/gampad/ads?sz=480x70&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dnonlinear&correlator=');
+				}, 3000);
+			});
+
+		});
+	</script>
+
+
+
+</body>
+</html>

@@ -22,19 +22,19 @@
     data-embed="default" 
     data-application-id 
     class="video-js" 
-    controls ></video>
+    controls muted></video>
     <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
 
 
     <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
     <script type="text/javascript">
-        var myPlayer;
+        var player;
 
         videojs("myPlayerID").ready(function(){
            /* get a reference to the player */
-           myPlayer= this;
+           player= this;
 
-           myPlayer.FreeWheelPlugin({
+           player.FreeWheelPlugin({
             "Flash": {
                 "networkId": 48747,
                 "profile": "48747:DiscoveryIntl_BrightcoveJS_secure",
@@ -111,6 +111,64 @@
             "prerollTimeout": 1000,
             "timeout": 5000
         });
+
+
+// Workaround for handling Freewheel VPAID ad resizing when:
+// - the player resizes responsively when the window dimensions change
+// - the player enters or exits fullscreen playback
+
+var player = videojs.players.vjs_video_3;
+var debounceWaitTime = 250;
+
+// Since the resize handler is triggered by window `resize` events that can occur in rapid
+// succession, it makes sense to debounce sequential function calls into a single one
+var debounce = function(fn, wait, immediate) {
+  var timeout;
+
+  return function() {
+    var self = this;
+    var args = arguments;
+
+    var later = function() {
+      timeout = null;
+      later = null;
+      if (!immediate) {
+        fn.apply(self, args);
+      }
+    };
+
+    var callNow = immediate && !timeout;
+
+    if (callNow) {
+      fn.apply(self, args);
+    }
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+var lastRecordedDimensions = player.currentDimensions();
+
+var playerDimensionsHaveChanged = function() {
+  var currentDimensions = player.currentDimensions();
+
+  return currentDimensions.width !== lastRecordedDimensions.width ||
+         currentDimensions.height !== lastRecordedDimensions.height;
+};
+
+var triggerAdResize = debounce(function() {
+  if (player.ads.state === 'ad-playback' && playerDimensionsHaveChanged()) {
+    player.trigger('fw-resizeplayer');
+    lastRecordedDimensions = player.currentDimensions();
+  }
+}, debounceWaitTime);
+
+videojs.on(window, 'resize', triggerAdResize);
+
+player.on('dispose', function() {
+  videojs.off(window, 'resize', triggerAdResize);
+});
 
 
        });

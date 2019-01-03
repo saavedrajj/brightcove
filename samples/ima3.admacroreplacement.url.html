@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3.1.0/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>adMacroReplacement() full adtag</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3.1.0/videojs.ima3.js"></script>
+	<script>
+		var myPlayer;
+		var player = bc('myPlayerID');
+		
+		player.ima3({
+			adTechOrder: ['html5'],
+			serverUrl: '',
+			debugContribAds: true,
+			debug: true	
+		});
+
+		var serverURL = "https://solutions.brightcove.com/abroadstone/play2018/surfing-clientside-ad.xml";
+		
+		player.ima3.adMacroReplacement = function(url){
+			return (serverURL);
+		};	
+	</script>
+	</html>

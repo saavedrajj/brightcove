@@ -55,7 +55,6 @@ function getClient()
     return $client;
 }
 
-
 // Get the API client and construct the service object.
 $client = getClient();
 $service = new Google_Service_Sheets($client);
@@ -65,29 +64,16 @@ $service = new Google_Service_Sheets($client);
 //$spreadsheetId = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms';
 $spreadsheetId = '1OzweleUQzKTogauzMeOT4fwxTi_4osuXnqiGJP5CJ3E';
 
-
-/*
-$range = 'Sheet1!A2:E';
-$response = $service->spreadsheets_values->get($spreadsheetId, $range);
-$values = $response->getValues();
-*/
-
-
-/*
-$range = "Sheet1";       //your worksheet name
-$valueRange= new Google_Service_Sheets_ValueRange();
-$valueRange->setValues(["values" => ["a", "b"]]); 
-$conf = ["valueInputOption" => "RAW"];
-$service->spreadsheets_values->update($spreadsheetId, $range, $valueRange, $conf);
-*/
-
 $values = [
     [
-        // Cell values ...
-        "1000", "2000"
+        "1001", "1002"
     ],
-    // Additional rows ...
+
+    [
+        "2001", "2002"
+    ],
 ];
+
 $body = new Google_Service_Sheets_ValueRange([
     'values' => $values
 ]);
@@ -97,15 +83,3 @@ $params = [
 
 $range = 'Sheet1!A1';
 $response = $service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
-//$values = $response->getValues();
-/*
-if (empty($values)) {
-    print "No data found.\n";
-} else {
-    print "Name, Major:\n";
-    foreach ($values as $row) {
-        // Print columns A and E, which correspond to indices 0 and 4.
-        printf("%s, %s\n", $row[0], $row[4]);
-    }
-}
-*/

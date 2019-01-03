@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - requestMode: onplay</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>IMA3 - requestMode: onplay</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+		/*var myPlayer;*/
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			serverUrl: 'https://bid.g.doubleclick.net/dbm/vast?dbm_c=AKAmf-A3hYeh4jVja5V4wNkuM4S5pwvjk_4QQ0nOMR_CUnPzEiKAkok03MbBkbztAu8BdsaD8WIZ&dbm_d=AKAmf-CMqyZPK9JaqgercgAuXB0r5iHz6tTFnHEgNH4QWjhVxKow0III_VrchciEFOxe1omXGIDIrRUxGIpYqsvUMzvVc4rRbnp452PZq953otCV8nVAK4EIdnVrPfLsMh7ZdJn1PHNLFdGnbJu-pOT6-eiLctKhmhwxRZYH5BshDY58i6FAtO1xTYsC_3jU-Cd6EuXhwVTV5vlYYes2wqA_OXR3Bmn6hUiseJusWf5e-TXv7ppkKxu3rf__Q1VybBYDKltzoIUwUOgJsfyoO4Kh-EIfdZ5vBfCGWYSQ2RQ6j6Xl-bhwbuAw6YOlu4v1haSLS1UMZnb4MNBAPHGkdDyozbDzYkqJbew4BDd2RqaDAsE3ZdEoKtD_Oqdeze-nPXzpksfv27TOPCnAQjCyTJYlYHnpFdJs-v_KWuYQaSWXFWEerEG0g-jrmglVx0VQAZkMKH1MjWnQdJHnWp3JHQoHjR3OBkOyUqcXEwzaMQRlatL-EmqhLGN8VFheJy1S3JkKxRCaTYe3FV3ZgD-fkBAQdMUATl7z68oojBZTdKkfYCJhABDr83YWQsbxuTQ29nS8uGm3WpKvjJDtnUuS4Glh9KoazhT0sNWAoDOsBbnJ6iU0zDdMO8aA9UMgxUWWPOU8R6ubAmLvEBpRxNr9EhyojHRoGAPhtG81ztOTyKcEJ1orNsSoMDNobjM9JwSyDsJszJ2VWuk_8MwSDiJdXmn5JBcJCL9cjwZT5MIY522KvNsah6w-0CVVNH6O03tZ1x0x0j0_eETkJ8n-1QWD_MbnVaKKNwEahjJf1uFqVpgN4MS-wIu15uSC-Ju0DcUZA8F2txo8GjhIopFEl6vxuXA4oBKWZXXw3Mho3bfc5zkiXBIDCVcupYcNe8bt7Ra8LHAyt3zSp6UUk6uB2ZNo1nBmID3oiHGzyn9NQr8fp_UP4oKvB0tCL-HuCMbelm66nl7_Z5fxzbx5OEzVUJsgcrUdgKJ3_8v_LmfywmCapMRVwZ_QQHiMDa_HMR5OQUlmqxJaDEj2NU5Lvb5l2P3qG1xLU7bRPKmUbDU9E4KujsVmcko0g08JmXPoAy5Sx1I5T4Q_-iaSJxGgTZD2-axDLX2ZyehpuvH6WySRtXqxDcbiWgWVGvSZej0QUBYkJoZZ5iCJY0VCduEetU9tMaYF6USgctkQcKBwGBMfNIzZn4wkKDxsdQeBII1DQaEk_Adj2YfPSAG78A9BfYcndwTJxrXW4vECnnju9nzVdT0lt0YouaHt3BmZhi1tBiJwDJb0NZ4Wyw1Mqc8H33Y22kfgMb6GZGUnd0Kpeg2ux2dz4U0HTWTbFRE3nb5JfuO0JCTqlAo6Fxa5yLDJKb-5DkHTdmfUIBSlTgwJPye7e7tulQTfP-vjjauNg57xiKeLKIhKw4wLJh7i20qEvy0czw9LseSGKMRDWS6wJukT16JxQaKdeGTD5cEnfakzjUOaKiHeDRe069DI9I4tqUZgGqSd5Y8bhsnYUklpxWVrHEnX43_fB4xW-Dn2XcJoLyhAvM9ms7GOUwyrWnHwj47kOVm4Lts4zIth4t4Dy35ndQjwdH-sJdtwsFcHUk6ZlqXbHzWO4DbHoSZ49bUqy1aHIvKBf8DsnA-e_b-YzrGvZWH3L9CD7cz9p7aWBU6yCX9HjE7yN68bXFSp7SAb4cz_Rf3EjT2KLtnEnmVm__AVFpkyp3JpmKjOsULslViYbf5xQqSxENl4BqIJVRO7ZPZCtYccEahcnM0en6q0zTqmfsb9pNheF0WpL6xwvKpIuRHCu9P9iUdvHih7mD92AHOUttXUf9EPCv-ZuUmIKxa8OHpdA5Xve6PN9RqMSltxH3R6RZKbj2o1s3IiYfU6Q_krzIQTnbVbWuiwAnmSjTXKNQKFYKGpoq4KGNZUBLggWQmhcuoJOxgQbHhjABZYMGRSleUs3e8XuL2Zaqwlk3RySEwdwN5WTnmqVxH0Bd8u0ppwca8Ll4bRZsxhCXlfqGSkADbSCDizsiXqGtf1SBz1oGvssRLEodBJLOnA3dkp32Zcbyc3vBLBBISlnPm2o0kbfPUsqTyV0LhjINkM3d5xPR1S29EOQXBPGKVmC0yVXNc8cRL_qW4tz6RYASQj4yLUqN7wPo9K8Bw1soqsKbe8H81m2MraRy8lABnqIOx4ktPg2SZ81jSioDtI82CzI1UHUR8eqdcygX4gponBZAo3JJ06IIai66D4dk7pUWidjf6w6ZtJlzYyo7dP5IXyQWI2VN6p-eQ-kH4UgwVlY5PbztXWwIGeyoTTepQUiNaVzBf5pIndlq8hg_vgFTToA10U-1HOa8ZJnE3j7N7KKuYAGVFnfj_lpTgXafsrpfZTmImsXpfvDJbiwlXHfYrxys1aJTA5Q8oyTvTU4DajQ6tkM5pF3RQWmZhMexOCb6-l3Kc0GHmr2w-R3ysq8Nt8sitXznFS7eF5B-WXKsN4_b51suxXuSx5reFpwTYPDaHJetcHGU_jqYDoABn_nIzFzOf7Ibm0Jcr9nac5YQXyaEQHp1yyhIRwdIG0jgGw7oroRyrfwitHq03eRVQdBYNfYwG1LPVb1pl8PlyiySufAY9HC6RCeBQg-V9NCnTJJuW5aAvNY3VFtkBkCBM115RtuFz_suVabF_WUOm34WU5U-Tk2cZsyC8wN3_RL3fKNIgwfm4doMvDpJ8GNk1ztg7X9NtwLtDzfFpdD32LvZY1MmQXodkfQvGHtczAKpokHJd45GJdSkh1cpchhysk4pBr9lT8vPZp16IecHbiRoEcobrF_itRfitFu2iPNq1-MZqpHLalBOVq7Orsa0pz_Pty9MXhMuqbgje2HC6RKA_YEUVq0ovm70BsUbnbvIPfINIvnanR61nXbuWx8Y8BThVFDoU2LK2PpOfg5mttOMrhOKX_Nsvgphe6WoXwtp0sFv_MRyOZHTxCbuxwe2P-uABgzNCEtYHFqnjltXVGc45NFpzEfqrrUNzvjlsv3m_LuSEG2v-QrJu3olR3jO5re1rpvBr9vy9z4dEJ0nrWJCS29jPNlL9YdDOvKAixtlPdWTTAt5P8-IROw3wCFHQoxTExnRfcNJY0jMvXYNQLbqhDt08FiLmbXvh2f11W8La10vGvq3-8YogVRo2MOaq5LDVz&cid=CAASEuRo0ufjBtIHPQPB1pxosaYtPA&xfc=https://googleads.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjsvlNWpzmjjfzHD_xa_LP6iVVTKZNhNsjXMfFkd3W-N9YGQ_ZUQH7vXSvfgywWshDIgiKa4baMf1rLZv79pBuYp2uF6B52Yy772YxU_fG_pPSQgcGI6RfIFdU93jkYAJ82mcvbKG_4G8_3d1eGy53hgF2QUf8AxD1zk2wxBW69obt0HWOFhehmUyUMjE85LNO0pAGfVGg7FCBnrjwMGKlFUmSJ2haQ5NH7gC3R_3RElfHyFDgkHYs2qm-eBvgHw1-VdXEO_yxs_9q7k%26sai%3DAMfl-YQyhqROOCVL6F_FWbZiFCizpaFMPznyhciwkuNy2z3nm_0EKIyk1SZhKGLyLZmedjcUKAQ-egR5EDVa8ld2azmus2zpKwmPXb9KrmJ11VntzAWfa3S33ABmurc9%26sig%3DCg0ArKJSzF9bRmKiTHDKEAE%26adurl%3D',
+			requestMode: 'onplay', 
+			debugContribAds: true,
+			showVpaidControls: true,
+			debug: true,
+			timeout: 6000,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>Title</h1>
+
+	<video 
+	id="player1"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="LzmUM47t5" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/LzmUM47t5_default/index.min.js"></script>
+
+	<video 
+	id="player2"
+	data-video-id="ref:promo02" 
+	data-account="5458602755001" 
+	data-player="LzmUM47t5" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted ></video>
+	<script src="//players.brightcove.net/5458602755001/LzmUM47t5_default/index.min.js"></script>
+
+
+	<script type="text/JavaScript">
+		var myPlayer;
+		videojs("player2").on('ready', function() {
+			myPlayer = this;
+			myPlayer.pause();
+			myPlayer.autoplay(false);
+		});
+	</script>  
+
+
+</body>
+</html>

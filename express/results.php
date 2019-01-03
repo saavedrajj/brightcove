@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +19,7 @@
 		$production = true;
 		switch ($production) {
 			case true:
+			/* Express Newspaper Credentials */
 			$account_id = "2540076170001"; 
 			$client_id     = "c3e5360f-e2b5-451d-ad0a-ea71bdd16ced";
 			$client_secret = "bTKusj-QyfGhNC0ILPmv2t4_nWOt2GtGJyCbekICzAC50tomjWnVaqCTOtqzaTtZJi6NF5EOe_sxZ7-_W_-q6A";
@@ -63,11 +67,15 @@
 			$access_token=$json1->access_token;
 		}
 
-		$curlTotalVideos = curl_init();
+
 
 		/* Total of videos **************************************************************************************/				
+		
+		/*
+		$curlTotalVideos = curl_init();
+
 		curl_setopt_array($curlTotalVideos, array(
-			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&sort=created_at",
+			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'],
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
 			CURLOPT_MAXREDIRS => 10,
@@ -83,6 +91,7 @@
 
 		$responseTotalVideos = curl_exec($curlTotalVideos);
 		$errTotalVideos = curl_error($curlTotalVideos);
+
 		curl_close($curlTotalVideos);
 		if ($errTotalVideos) {
 			echo "cURL Error #:" . $errTotalVideos;
@@ -90,12 +99,15 @@
 			$jsonTotalVideos = json_decode($responseTotalVideos, true);
 			$totalVideos = json_decode($jsonTotalVideos['count']);  
 		}
+
+		echo "total de videos:" . $responseTotalVideos . "<br/>";
+		*/
 		?>
 
 		<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
 		<hr>
 		<?php 
-		echo "<p>Total of new videos created: ". $totalVideos. "</p>";
+		//echo "<p>Total of new videos created: ". $totalVideos. "</p>";
 		echo "<p>Videos with no renditions:</p>";  
 		echo "<div class='alert alert-danger' role='alert'><span id='no_rendition'></span></div>";
 		echo "<p>Videos with wrong assets:</p>";  
@@ -113,6 +125,7 @@
 				$curl2 = curl_init();
 
 				curl_setopt_array($curl2, array(
+	
 					CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&offset=" . $currentOffset . "&limit=100&sort=created_at",
 					CURLOPT_RETURNTRANSFER => true,
 					CURLOPT_ENCODING => "",
@@ -128,6 +141,7 @@
 				));
 
 				$response2 = curl_exec($curl2);
+				//echo "<pre>".$response2."</pre>";
 				$err2 = curl_error($curl2);
 
 				curl_close($curl2);
@@ -136,7 +150,34 @@
 					echo "cURL Error #:" . $err2;
 				} else {
 					$json2 = json_decode($response2, true);
-					/*echo "<pre>"; print_r($json2); echo "</pre>";*/
+
+					
+     
+
+
+
+					//echo "<pre>"; print_r($json2); echo "</pre>";
+	
+					$contador = 0;
+					foreach ($json2 as $v) {
+						$dd_type = $json2[$contador]['delivery_type']; 
+
+						if ($dd_type=="dynamic_origin") {
+						//echo $contador . " : " . $dd_type. "<br>";
+						unset($json2[$contador]);
+						}
+
+						$contador++;
+
+					}
+
+					//$jsontemp2 = array_values($json2);	
+
+		            //echo "-------------------------------------------------------------------------------<br/>";
+					//echo "PREEEE<pre>"; print_r($json2); echo "</pre><br>";
+
+
+
 					$type_count2 = 0;
 
 					foreach($json2 as $v) {

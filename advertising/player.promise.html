@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+</head>
+<style>
+.video-js {
+    width: 480px;
+    height: 270px;
+}
+</style>
+<body>
+    <h1>Player promise</h1>
+    <video id="myPlayerID" 
+    data-video-id="5575865276001" 
+    data-account="5458602755001" 
+    data-player="default" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls
+    playsinline></video>
+    <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script></div></div>
+    <p id="playPromise"></p>
+    <script>
+        videojs('myPlayerID').ready(function(){
+            var player = this;
+            player.on('loadedmetadata',function(){
+                player.play().then(function() {
+                // play succeeded!
+                console.log('Play with audio succeeded!');
+            })
+                .catch(function(error) {
+                // play failed
+                console.log('Play with audio failed! Audio muted');
+                player.muted(true);
+                player.play();
+            });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detecting Prerolls</title>  
+    <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet"> <style>
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
+</style>       
+</head>
+<body>
+    <div class="container">
+        <h1>Detecting Prerolls and Postrolls </h1>
+
+        <video 
+        id="myPlayerID"
+        data-video-id="5575865276001" 
+        data-account="5458602755001" 
+        data-player="default" 
+        data-embed="default" 
+        data-application-id 
+        class="video-js" 
+        controls muted></video>
+        <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+        <script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>                
+    </div>
+</div>
+
+<p><strong>MESSAGE LOG:</strong></p>
+<p id="message"></p>
+
+<script type="text/JavaScript"> 
+  var myPlayer;
+
+  var player = bc('myPlayerID');
+  player.ima3({
+    adTechOrder: ['html5', 'flash'],
+    debug: false,
+    serverUrl: 'http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}',      
+    requestMode: 'onload', 
+    timeout: 6000, 
+    hardTimeouts: false,
+    loadingSpinner: false,
+    vpaidMode: 'ENABLED',
+    ima3SdkSettings: {
+        disableCustomPlaybackForIOS10Plus: true, 
+        numRedirects: 10
+    }
+});
+
+  videojs("myPlayerID").ready(function() { 
+    var myPlayer = this;
+
+    /* Detecting Preroll */
+    myPlayer.on("readyforpreroll", function() { 
+        message.innerHTML += "*** readyforpreroll<br>";
+        stopAds();
+    });
+
+    function stopAds() {
+        message.innerHTML += "*** ad stopped<br>";
+        myPlayer.ima3.adsManager.stop();            
+    }
+
+});
+</script>
+
+</body>
+</html>

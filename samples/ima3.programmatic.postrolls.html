@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Plugin Code Example</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1>Programmatic Post-rolls</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default"
+	data-embed="default"
+	class="video-js"
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<script>
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			debug: true,
+			serverUrl: "",		
+			requestMode: "ondemand", 
+			timeout: 6000, 
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true, 
+				numRedirects: 10
+			}
+		});
+
+		videojs("myPlayerID").ready( function() {
+			var myPlayer = this;
+			myPlayer.on('ended', function(){
+				console.log("**** video ended ****");
+
+				myPlayer.ima3.adrequest('http://cs1.brightcodes.net/simon/ads/VastResponse2.xml?correlator={timestamp}');
+			});
+		});
+	</script>
+</body>
+</html>
