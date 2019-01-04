@@ -14,10 +14,12 @@
 		<h1>Express Newspapers rendition checker</h1>
 		<?php
 		include_once "credentials.php";
-		$auth_string = "{$client_id}:{$client_secret}";
-		$bc_token = base64_encode($auth_string);
+		$authString = "{$clientId}:{$clientSecret}";
+		$bcToken = base64_encode($authString);
 		$sizeZero = 0;
-		/* OAuth API: Get access_token  ********************************************************************************/
+		
+		# OAuth API: Get access_token  ********************************************************************************
+
 		$cAccessToken = curl_init();
 		curl_setopt_array($cAccessToken, array(
 			CURLOPT_URL => "https://oauth.brightcove.com/v4/access_token",
@@ -29,7 +31,7 @@
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_POSTFIELDS => "grant_type=client_credentials",
 			CURLOPT_HTTPHEADER => array(
-				"Authorization: Basic " . $bc_token . "",
+				"Authorization: Basic " . $bcToken . "",
 				"Cache-Control: no-cache"
 			),
 		));
@@ -40,16 +42,16 @@
 			echo "cURL Error #:" . $eAccessToken; 
 		} 
 		else {
-			$json1 = json_decode($rAccessToken);
-			$access_token = $json1->access_token;
+			$jAccessToken = json_decode($rAccessToken);
+			$accessToken = $jAccessToken->access_token;
 		}
 
-		/* CMS API: Total of videos ************************************************************************************/				
+		# CMS API: Total of videos ************************************************************************************				
 		
 		$cTotalVideos = curl_init();
 
 		curl_setopt_array($cTotalVideos, array(
-			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'],
+			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'],
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
 			CURLOPT_MAXREDIRS => 10,
@@ -57,7 +59,7 @@
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "GET",
 			CURLOPT_HTTPHEADER => array(
-				"Authorization: Bearer " . $access_token . "",
+				"Authorization: Bearer " . $accessToken . "",
 				"Cache-Control: no-cache",
 				"Content-Type: application/json"
 			),
@@ -68,25 +70,28 @@
 
 		curl_close($cTotalVideos);
 		if ($eTotalVideos) {
-			echo "cURL Error #:" . $errTotalVideos;
+			echo "cURL Error #:" . $eTotalVideos;
 		} else {
-			$jsonTotalVideos = json_decode($rTotalVideos, true);
-			$totalVideos = json_decode($jsonTotalVideos['count']);  
+			$jTotalVideos = json_decode($rTotalVideos, true);
+			$totalVideos = $jTotalVideos["count"];  
 		}
 
-		echo "total de videos:" . $rTotalVideos . "<br/>";
-		
+		echo "total de videos:" . $totalVideos . "<br/>";
 
-if($rTotalVideos %100 != 0) {
-  //$number += 6 - ($number % 6);
-	echo "yes";
-} else {
-	echo "no";
-}
+		# Get Offset Iterations *******************************************************************************************
 
+		$offsetIterations = $totalVideos / 100;
+		if(is_int($offsetIterations)){}
+		else {
+			$offsetIterations = intval($offsetIterations) + 1;
+		}
 
-
+        echo "offsetIterations:". $offsetIterations . "<br>";
+		# *****************************************************************************************************************
 		?>
+
+
+
 
 		<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
 		<hr>
@@ -102,15 +107,16 @@ if($rTotalVideos %100 != 0) {
 		<?php
 		/* Get videos in data range *********************************************************************************/
 		$currentOffset = 0;
-		$numVideos=0;
+		#$numVideos=0;
 
-		/* for($i = 0; $i <= 100; $i++) { */
-			while($numVideos = 100) {
-				$curl2 = curl_init();
+		for($i = 0; $i <= $offsetIterations - 1; $i++) { 
+		 	echo "currentOffset: " . $currentOffset . "<br>";
+			#while($numVideos = 100) {
+				$cVideo = curl_init();
 
-				curl_setopt_array($curl2, array(
+				curl_setopt_array($cVideo, array(
 
-					CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&offset=" . $currentOffset . "&limit=100&sort=created_at",
+					CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&offset=" . $currentOffset . "&limit=100&sort=created_at",
 					CURLOPT_RETURNTRANSFER => true,
 					CURLOPT_ENCODING => "",
 					CURLOPT_MAXREDIRS => 10,
@@ -118,67 +124,75 @@ if($rTotalVideos %100 != 0) {
 					CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 					CURLOPT_CUSTOMREQUEST => "GET",
 					CURLOPT_HTTPHEADER => array(
-						"Authorization: Bearer " . $access_token . "",
+						"Authorization: Bearer " . $accessToken . "",
 						"Cache-Control: no-cache",
 						"Content-Type: application/json"
 					),
 				));
 
-				$response2 = curl_exec($curl2);
-				//echo "<pre>".$response2."</pre>";
-				$err2 = curl_error($curl2);
+				$rVideo = curl_exec($cVideo);
+				//echo "<pre>".$rVideo."</pre>";
+				$eVideo = curl_error($cVideo);
 
-				curl_close($curl2);
+				curl_close($cVideo);
 
-				if ($err2) {
-					echo "cURL Error #:" . $err2;
+				if ($eVideo) {
+					echo "cURL Error #:" . $eVideo;
 				} else {
 
 
 
+					$jVideo = json_decode($rVideo, true);
+
+				//$video = json_decode($jVideo[$type_count2]['id']);
+
+			#$video = $jVideo["video"];  
+
+
+				#echo "video: " . $video. "<br>";
+
+
+
+					#echo "<pre>"; print_r($jVideo); echo "</pre>";
 
 
 
 
-
-
-
-/*
-					$json2 = json_decode($response2, true);
-
-
-					//echo "<pre>"; print_r($json2); echo "</pre>";
+					/*$videoID = $jVideo[$cDeliveryType]['delivery_type']; 
 
 					$cDeliveryType = 0;
-					foreach ($json2 as $v) {
-						$dd_type = $json2[$cDeliveryType]['delivery_type']; 
+					foreach ($jVideo as $v) {
+						$dd_type = $jVideo[$cDeliveryType]['delivery_type']; 
 
 						if ($dd_type=="dynamic_origin") {
-							unset($json2[$cDeliveryType]);
+							unset($jVideo[$cDeliveryType]);
 						}
 						$cDeliveryType++;
 					}
-
+*/
 
 		            //echo "-------------------------------------------------------------------------------<br/>";
 
-
-
-
 					$type_count2 = 0;
 
-					foreach($json2 as $v) {
+					foreach($jVideo as $v) {
 						if(array_key_exists('id', $v)) {
-							$video = json_decode($json2[$type_count2]['id']);
-							$created_at = $json2[$type_count2]['created_at'];   
+							$videoId = json_decode($jVideo[$type_count2]['id']);
+							$deliveryType = $jVideo[$type_count2]['delivery_type'];   
 
-							//echo "<strong>video: ". $video    . " created at: " . $created_at.   "</strong><br/>";  
+							# 5985921440001 unknown
+						    # 5985907142001 static_origin 
+							# 5985238470001 dynamic_origin
+
+							$createdAt = $jVideo[$type_count2]['created_at'];   
+
+							echo $type_count2 . "video: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
 							# Get video assets  ***********************************************************************************
 
 							$curl3 = curl_init();
 
 							curl_setopt_array($curl3, array(
-								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/videos/" . $video . "/assets/",
+								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/",
 								CURLOPT_RETURNTRANSFER => true,
 								CURLOPT_ENCODING => "",
 								CURLOPT_MAXREDIRS => 10,
@@ -186,7 +200,7 @@ if($rTotalVideos %100 != 0) {
 								CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 								CURLOPT_CUSTOMREQUEST => "GET",
 								CURLOPT_HTTPHEADER => array(
-									"Authorization: Bearer " . $access_token . "",
+									"Authorization: Bearer " . $accessToken . "",
 									"Cache-Control: no-cache",
 									"Content-Type: application/json"
 								),
@@ -271,7 +285,7 @@ if($rTotalVideos %100 != 0) {
 						}
 
 
-*/
+
 
 
 
@@ -280,11 +294,11 @@ if($rTotalVideos %100 != 0) {
 
 
 					}
-					$numVideos = $type_count2;
-					if ($numVideos == 0) {break;}
+					#$numVideos = $type_count2;
+					#if ($numVideos == 0) {break;}
 					$currentOffset+=100;
 }
- //for or while
+
 
 ?>
 </div>
