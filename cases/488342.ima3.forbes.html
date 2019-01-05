@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>JavaScript Initialized Player with video-js tag</title>
+    </head>
+    <body>
+        <div class="placeholder"></div>
+
+        <script>
+            (function(){
+                function loadScript(src, cb) {
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.onload = cb;
+
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+
+                function loadStyle(href, cb) {
+                    var link = document.createElement('link');
+                    link.href = href;
+                    link.rel = 'stylesheet';
+                    link.onload = cb;
+
+                    document.getElementsByTagName('head')[0].appendChild(link);
+                }
+
+                function makePlayer() {
+                    const videoJs = document.createElement('video-js')
+
+                    videoJs.setAttribute('data-account', '2097119709001');
+                    videoJs.setAttribute('data-player', 'S1EBSbDn');
+                    videoJs.setAttribute('data-video-id', '5752836347001');
+
+                    return videoJs;
+                }
+
+                function initPlayer(videoJs) {
+                    const player = bc(videoJs);
+
+                    videojs(videoJs).ready(function() {
+                        player.on('loadedmetadata', function() {
+                            console.log('loadedmetadata');
+
+                            player.muted(true);
+
+                            player.play();
+                        });
+                    });
+                }
+
+                function instantiatePlayer() {
+                    const div = document.getElementsByClassName('placeholder')[0];
+                    div.innerHTML = '';
+
+                    const videoJs = makePlayer(div);
+
+                    div.appendChild(videoJs);
+
+                    initPlayer(videoJs);
+                }
+
+                function main() {
+                    loadScript('//players.brightcove.net/2097119709001/S1EBSbDn_default/index.min.js', function() {
+                        instantiatePlayer();
+                    });
+                }
+
+                main();
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+  
+<button onclick="addPlayer()" id="add_player">Add Player</button>
+<!-- <button onclick="destroyPlayer()" id="destroy_player">Destroy Player</button> -->
+
+<div id="placeHolder"></div>
+
+<script>
+ var myPlayer,
+  playerHTML,
+  // +++ Set the data for the player +++
+  playerData = {
+    accountId: "5458602755001",
+    playerId: "BYSyU0D7Y",
+    videoId: "5575865276001"
+  };
+
+// +++ Build the player and place in HTML DOM +++
+function addPlayer() {
+  // Dynamically build the player video element
+  playerHTML =
+    '<video-js id="myPlayerID" data-video-id="' +
+    playerData.videoId +
+    '"  data-account="' +
+    playerData.accountId +
+    '" data-player="' +
+    playerData.playerId +
+    '" data-embed="default" class="video-js" controls></video-js>';
+  // Inject the player code into the DOM
+  document.getElementById("placeHolder").innerHTML = playerHTML;
+
+  // Add and execute the player script tag
+  var s = document.createElement("script");
+  s.src =
+    "https://players.brightcove.net/" +
+    playerData.accountId +
+    "/" +
+    playerData.playerId +
+    "_default/index.min.js";
+  // Add the script tag to the document
+  document.body.appendChild(s);
+
+
+  // Add and execute the IMA3 css script
+  var s1 = document.createElement("script");
+  s1.src =
+    "https://players.brightcove.net/videojs-ima3/2/videojs.ima3.min.js";
+  // Add the script tag to the document
+  document.body.appendChild(s1);
+
+  // Call a function to play the video once player's JavaScropt loaded
+  s1.onload = callback;
+}
+
+// +++ Initialize the player and start the video +++
+function callback() {
+   //var myPlayer;
+        bc('myPlayerID').ima3({
+            adTechOrder: [
+            'html5'
+            ], 
+            serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+            requestMode: 'onload', 
+            timeout: 4000, 
+            debug: true,
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true,
+                numRedirects: 10
+            } 
+        });
+
+}
+
+</script>
+
+</body>
+</html>
