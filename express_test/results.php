@@ -1,6 +1,3 @@
-<?php
-//error_reporting(0);
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +13,7 @@
 		include_once "credentials.php";
 		$authString = "{$clientId}:{$clientSecret}";
 		$bcToken = base64_encode($authString);
-		$sizeZero = 0;
+		$sizeZero = 720;
 		
 		# OAuth API: Get access_token  ********************************************************************************
 
@@ -85,24 +82,16 @@
 		else {
 			$offsetIterations = intval($offsetIterations) + 1;
 		}
-
         # echo "offsetIterations:". $offsetIterations . "<br>";
 		# *****************************************************************************************************************
 		?>
 
-
-
-
 		<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
 		<hr>
-		<?php 
-		# echo "<p>Total of new videos created: ". $totalVideos. "</p>";
-		echo "<p>Videos with no renditions:</p>";  
-		echo "<div class='alert alert-danger' role='alert'><span id='no_rendition'></span></div>";
-		echo "<p>Videos with wrong assets:</p>";  
-		echo "<div class='alert alert-danger' role='alert'><span id='wrong_asset'></span></div>";
-
-		?>
+		<p>Videos with no renditions:</p>
+		<div class="alert alert-danger" role="alert"><span id="no_rendition"></span></div>
+		<p>Videos with wrong assets:</p>
+		<div class="alert alert-danger" role="alert"><span id="wrong_asset"></span></div>
 		<hr>
 		<?php
 		# Get videos in data range *********************************************************************************/
@@ -145,7 +134,7 @@
 					$videoTypeCount = 0;
 
 					foreach($jVideo as $v) {
-						 if(array_key_exists('id', $v)) {
+						#if(array_key_exists('id', $v)) {
 							$videoId = $jVideo[$videoTypeCount]['id'];							
 							$deliveryType = $jVideo[$videoTypeCount]['delivery_type'];   
 
@@ -163,86 +152,114 @@
 							# Get video assets  ***********************************************************************************
 
 							# Dynamic Ingest Videos	*******************************************************************************
-
-							if ($deliveryType=="static_origin") {  
+							if ($deliveryType=="static_origin" || $deliveryType=="unknown") { 
+								#if ($deliveryType=="static_origin") {  
 								# echo "legacy<br>";
 								# echo $videoTypeCount . " videoid: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
 
-							$cDIVideo = curl_init();
+								$cDIVideo = curl_init();
 
-							curl_setopt_array($cDIVideo, array(
-								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/",
-								CURLOPT_RETURNTRANSFER => true,
-								CURLOPT_ENCODING => "",
-								CURLOPT_MAXREDIRS => 10,
-								CURLOPT_TIMEOUT => 360,
-								CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-								CURLOPT_CUSTOMREQUEST => "GET",
-								CURLOPT_HTTPHEADER => array(
-									"Authorization: Bearer " . $accessToken . "",
-									"Cache-Control: no-cache",
-									"Content-Type: application/json"
-								),
-							));
+							    curl_setopt_array($cDIVideo, array(
+									CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/",
+									CURLOPT_RETURNTRANSFER => true,
+								    CURLOPT_ENCODING => "",
+								    CURLOPT_MAXREDIRS => 10,
+								    CURLOPT_TIMEOUT => 360,
+								    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+								    CURLOPT_CUSTOMREQUEST => "GET",
+								    CURLOPT_HTTPHEADER => array(
+									    "Authorization: Bearer " . $accessToken . "",
+									    "Cache-Control: no-cache",
+									    "Content-Type: application/json"
+									),
+								));
 
-							$rDIVideo = curl_exec($cDIVideo);
-							$eDIVideo = curl_error($cDIVideo);
+							    $rDIVideo = curl_exec($cDIVideo);
+							    $eDIVideo = curl_error($cDIVideo);
 
-							curl_close($cDIVideo);
+							    curl_close($cDIVideo);
 
-							if ($eDIVideo) {  
-								echo "cURL Error #:" . $eDIVideo; 
-							} 
-							else {
-								$jDIVideo = json_decode($rDIVideo, true);
-								echo "<pre>"; print_r($jDIVideo); echo "</pre>";
-							}
+								if ($eDIVideo) {  
+									echo "cURL Error #:" . $eDIVideo; 
+								} 
+							    else {
+									$jDIVideo = json_decode($rDIVideo, true);
+
+									if (empty($jDIVideo)) {
+										echo $videoId . " vacio</br>";
+									    ?>
+									    <script>
+										    var videoFailed = "<?php echo $videoId ?>";
+										    var videoFailedCreatedAt = "<?php echo $createdAt ?>";                  
+										    no_rendition.innerHTML += videoFailed + " created at "+ videoFailedCreatedAt +"<br/>";
+									    </script>
+									    <?php
+								    } else {
+								    	#echo "<pre>"; print_r($jDIVideo); echo "</pre>";
+
+								    	echo $videoId . " no vacio</br>";
+								    	$type_count3 = 0;
+								    	foreach($jDIVideo as $v) {
+								    	    $assetId = json_decode($jDIVideo[$type_count3]['id']);	
+								    	    $type= $jDIVideo[$type_count3]['type'];  	
+
+										if(array_key_exists('video_container', $v)) {
+										$videoContainer = $videoContainer = $jDIVideo[$type_count3]['video_container']; 
+										} else {
+											$videoContainer = "no existe";	
+										}
+
+										if(array_key_exists('encoding_rate', $v)) {
+										$encodingRate = $videoContainer = $jDIVideo[$type_count3]['encoding_rate']; 
+										} else {
+											$encodingRate = "no existe";	
+										}
+								    
+
+
+										    $frameHeight= $jDIVideo[$type_count3]['frame_height'];  
+										    $frameWidth= $jDIVideo[$type_count3]['frame_width'];  
+
+
+
+ 
+											echo "asset_id: " . $assetId . " | " . "video_container: ". $videoContainer . " | "	. "type: " . $type . " | " . "encoding_rate: " . $encodingRate . " | size(" . $frameWidth .", " . $frameHeight . ")<br/>";
+
+
+			    							$type_count3++;									    
+			    						}
+								    }
+
 /*
-							else {
-								$json3 = json_decode($response3,true);
-								# echo "<pre>"; print_r($json3); echo "</pre>";
-								if (empty($json3)) {
-									//echo "<div class='alert alert-danger' role='alert'>no renditions</div>";
-									?>
-									<script>
-										var videoFailed = "<?php echo $video ?>";
-										var videoFailedCreatedAt = "<?php echo $created_at ?>";                  
-										no_rendition.innerHTML += videoFailed + " created_at "+ videoFailedCreatedAt +"<br/>";
-									</script>
-									<?php
-								}
-								$type_count3 = 0;
-								foreach($json3 as $v) {
-									if(array_key_exists('id', $v)) {
-										$asset_id = json_decode($json3[$type_count3]['id']);
 
-										if (isset($json3[$type_count3]['video_container'])) {
-											$video_container = $json3[$type_count3]['video_container'];
+
+										if (isset($jDIVideo[$type_count3]['video_container'])) {
+											$video_container = $jDIVideo[$type_count3]['video_container'];
 											$text_video_container = "video_container: " . $video_container;
 										} else {$text_video_container="";}
 
-										if (isset($json3[$type_count3]['encoding_rate'])) {
-											$encoding_rate = $json3[$type_count3]['encoding_rate'];
+										if (isset($jDIVideo[$type_count3]['encoding_rate'])) {
+											$encoding_rate = $jDIVideo[$type_count3]['encoding_rate'];
 											$text_encoding_rate = "encoding_rate: " . $encoding_rate;
 										} else {
 											$text_encoding_rate="";
 										}	
 
-										$type= $json3[$type_count3]['type'];  
-										$frame_height= $json3[$type_count3]['frame_height'];  
-										$frame_width= $json3[$type_count3]['frame_width'];  
+										$type=$jDIVideo[$type_count3]['type'];  
+										$frame_height= $jDIVideo[$type_count3]['frame_height'];  
+										$frame_width= $jDIVideo[$type_count3]['frame_width'];  
 
 										if ($frame_width==$sizeZero  OR $frame_height==$sizeZero) {
 											//echo "<div class='alert alert-danger' role='alert'>";
 										}
 										else { }
-										# echo "asset_id: " . $asset_id . " | " . $text_video_container . " | "	. "type: " . $type . " | " . $text_encoding_rate . " | size(" . $frame_width .", " . $frame_height . ")<br/>";                         
+										# echo "assetiD: " . $assetiD . " | " . $text_video_container . " | "	. "type: " . $type . " | " . $text_encoding_rate . " | size(" . $frame_width .", " . $frame_height . ")<br/>";                         
 											if ($frame_width==$sizeZero OR $frame_height==$sizeZero) {
 												echo "</div>";
 												?>
 												<script>
-													var videoFailed = "<?php echo $video ?>";              
-													var assetFailed = "<?php echo $asset_id ?>";                  
+													var videoFailed = "<?php echo $videoId ?>";              
+													var assetFailed = "<?php echo $assetiD ?>";                  
 													var videoContainer = "<?php echo $video_container ?>";
 													var assetType = "<?php echo $type ?>";  
 													if (assetType=="VIDEO_STILL" || assetType=="THUMBNAIL") {
@@ -253,46 +270,33 @@
 													}
 													var widthFailed = "<?php echo $frame_width ?>";
 													var heightFailed = "<?php echo $frame_height ?>";                                      
-													wrong_asset.innerHTML += "video: " + videoFailed + " | asset_id: " + assetFailed + "  " + textVideoContainer + " | type: " + assetType + " | size: (" + widthFailed + ", " + heightFailed + ")<br/>";
+													wrong_asset.innerHTML += "video: " + videoFailed + " | assetiD: " + assetFailed + "  " + textVideoContainer + " | type: " + assetType + " | size: (" + widthFailed + ", " + heightFailed + ")<br/>";
 												</script>
 												<?php
 											}
 											else { 
 											}
 											$type_count3++;            
-										}
-									}
-								}
-							# echo "<hr>";
 
 */
 
 
 
 
-
+							}
 							
 							} 
 							# Dynamic Delivery Videos *****************************************************************************
-							
-							/*if ($deliveryType=="dynamic_origin") {  
-								echo "dd<br>";
-								echo $videoTypeCount . " videoid: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
-							} */
 
 
-
-
-
-
-
-
-
+								if ($deliveryType=="dynami_origin") { 
+								    echo "<br/>";
+								}
 
 
 								$videoTypeCount++; 
 							}
-						}
+						#}
 
 
 
