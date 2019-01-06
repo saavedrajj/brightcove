@@ -76,7 +76,7 @@
 			$totalVideos = $jTotalVideos["count"];  
 		}
 
-		echo "total de videos:" . $totalVideos . "<br/>";
+		# echo "total de videos:" . $totalVideos . "<br/>";
 
 		# Get Offset Iterations *******************************************************************************************
 
@@ -86,7 +86,7 @@
 			$offsetIterations = intval($offsetIterations) + 1;
 		}
 
-        echo "offsetIterations:". $offsetIterations . "<br>";
+        # echo "offsetIterations:". $offsetIterations . "<br>";
 		# *****************************************************************************************************************
 		?>
 
@@ -96,7 +96,7 @@
 		<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
 		<hr>
 		<?php 
-		//echo "<p>Total of new videos created: ". $totalVideos. "</p>";
+		# echo "<p>Total of new videos created: ". $totalVideos. "</p>";
 		echo "<p>Videos with no renditions:</p>";  
 		echo "<div class='alert alert-danger' role='alert'><span id='no_rendition'></span></div>";
 		echo "<p>Videos with wrong assets:</p>";  
@@ -105,13 +105,13 @@
 		?>
 		<hr>
 		<?php
-		/* Get videos in data range *********************************************************************************/
+		# Get videos in data range *********************************************************************************/
 		$currentOffset = 0;
-		#$numVideos=0;
+		# $numVideos=0;
 
 		for($i = 0; $i <= $offsetIterations - 1; $i++) { 
 		 	echo "currentOffset: " . $currentOffset . "<br>";
-			#while($numVideos = 100) {
+
 				$cVideo = curl_init();
 
 				curl_setopt_array($cVideo, array(
@@ -131,7 +131,7 @@
 				));
 
 				$rVideo = curl_exec($cVideo);
-				//echo "<pre>".$rVideo."</pre>";
+				# echo "<pre>".$rVideo."</pre>";
 				$eVideo = curl_error($cVideo);
 
 				curl_close($cVideo);
@@ -140,58 +140,37 @@
 					echo "cURL Error #:" . $eVideo;
 				} else {
 
-
-
 					$jVideo = json_decode($rVideo, true);
 
-				//$video = json_decode($jVideo[$type_count2]['id']);
-
-			#$video = $jVideo["video"];  
-
-
-				#echo "video: " . $video. "<br>";
-
-
-
-					#echo "<pre>"; print_r($jVideo); echo "</pre>";
-
-
-
-
-					/*$videoID = $jVideo[$cDeliveryType]['delivery_type']; 
-
-					$cDeliveryType = 0;
-					foreach ($jVideo as $v) {
-						$dd_type = $jVideo[$cDeliveryType]['delivery_type']; 
-
-						if ($dd_type=="dynamic_origin") {
-							unset($jVideo[$cDeliveryType]);
-						}
-						$cDeliveryType++;
-					}
-*/
-
-		            //echo "-------------------------------------------------------------------------------<br/>";
-
-					$type_count2 = 0;
+					$videoTypeCount = 0;
 
 					foreach($jVideo as $v) {
-						if(array_key_exists('id', $v)) {
-							$videoId = json_decode($jVideo[$type_count2]['id']);
-							$deliveryType = $jVideo[$type_count2]['delivery_type'];   
+						 if(array_key_exists('id', $v)) {
+							$videoId = $jVideo[$videoTypeCount]['id'];							
+							$deliveryType = $jVideo[$videoTypeCount]['delivery_type'];   
 
 							# 5985921440001 unknown
 						    # 5985907142001 static_origin 
 							# 5985238470001 dynamic_origin
 
-							$createdAt = $jVideo[$type_count2]['created_at'];   
+							# no renditions
+							# 5839351931001 created_at 2018-09-24T16:13:54.521Z
+							# 5839351936001 created_at 2018-09-24T16:15:51.251Z
 
-							echo $type_count2 . "video: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
+							$createdAt = $jVideo[$videoTypeCount]['created_at'];   
+
+							#echo $videoTypeCount . " videoid: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
 							# Get video assets  ***********************************************************************************
 
-							$curl3 = curl_init();
+							# Dynamic Ingest Videos	*******************************************************************************
 
-							curl_setopt_array($curl3, array(
+							if ($deliveryType=="static_origin") {  
+								# echo "legacy<br>";
+								# echo $videoTypeCount . " videoid: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
+
+							$cDIVideo = curl_init();
+
+							curl_setopt_array($cDIVideo, array(
 								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/",
 								CURLOPT_RETURNTRANSFER => true,
 								CURLOPT_ENCODING => "",
@@ -206,14 +185,19 @@
 								),
 							));
 
-							$response3 = curl_exec($curl3);
-							$err3 = curl_error($curl3);
+							$rDIVideo = curl_exec($cDIVideo);
+							$eDIVideo = curl_error($cDIVideo);
 
-							curl_close($curl3);
+							curl_close($cDIVideo);
 
-							if ($err3) {  
-								echo "cURL Error #:" . $err3; 
+							if ($eDIVideo) {  
+								echo "cURL Error #:" . $eDIVideo; 
 							} 
+							else {
+								$jDIVideo = json_decode($rDIVideo, true);
+								echo "<pre>"; print_r($jDIVideo); echo "</pre>";
+							}
+/*
 							else {
 								$json3 = json_decode($response3,true);
 								# echo "<pre>"; print_r($json3); echo "</pre>";
@@ -252,7 +236,7 @@
 											//echo "<div class='alert alert-danger' role='alert'>";
 										}
 										else { }
-										//echo "asset_id: " . $asset_id . " | " . $text_video_container . " | "	. "type: " . $type . " | " . $text_encoding_rate . " | size(" . $frame_width .", " . $frame_height . ")<br/>";                         
+										# echo "asset_id: " . $asset_id . " | " . $text_video_container . " | "	. "type: " . $type . " | " . $text_encoding_rate . " | size(" . $frame_width .", " . $frame_height . ")<br/>";                         
 											if ($frame_width==$sizeZero OR $frame_height==$sizeZero) {
 												echo "</div>";
 												?>
@@ -279,8 +263,34 @@
 										}
 									}
 								}
-							//echo "<hr>";
-								$type_count2++; 
+							# echo "<hr>";
+
+*/
+
+
+
+
+
+							
+							} 
+							# Dynamic Delivery Videos *****************************************************************************
+							
+							/*if ($deliveryType=="dynamic_origin") {  
+								echo "dd<br>";
+								echo $videoTypeCount . " videoid: " . $videoId . " delivery_type: " . $deliveryType . " created at: " . $createdAt . "<br/>";  
+							} */
+
+
+
+
+
+
+
+
+
+
+
+								$videoTypeCount++; 
 							}
 						}
 
@@ -294,8 +304,8 @@
 
 
 					}
-					#$numVideos = $type_count2;
-					#if ($numVideos == 0) {break;}
+
+
 					$currentOffset+=100;
 }
 
