@@ -131,7 +131,7 @@
 
 
 						# Dynamic Ingest Videos	*******************************************************************************
-						# Videos from 2019-01-02T10:00:00Z to 2019-01-02T12:00:00Z
+
 						if ($deliveryType=="static_origin" || $deliveryType=="unknown") { 
 							$cDIVideo = curl_init();
 							curl_setopt_array($cDIVideo, array(
@@ -158,6 +158,7 @@
 								$jDIVideo = json_decode($rDIVideo, true);
 
 								if (empty($jDIVideo)) {
+									#$assetId = "";
 									?>
 									<script>
 										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
@@ -165,7 +166,7 @@
 									</script>
 									<?php
 								} else {
-
+									#$createdAt = "";
 									$DeliveryTypeCount = 0;
 									foreach($jDIVideo as $v) {
 										$assetId = $jDIVideo[$DeliveryTypeCount]['id'];												
@@ -177,7 +178,7 @@
 											?>
 											<script>
 												wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
-												<?php $cronjob[] = array($videoId, "", $assetid); ?>	
+												<?php $cronjob[] = array($videoId, "", $assetId); ?>	
 											</script>
 											<?php	
 										}
@@ -188,6 +189,7 @@
 						} 
 
 						# Dynamic Delivery Videos *****************************************************************************
+						# Videos from 2019-01-02T10:00:00Z to 2019-01-02T12:00:00Z
 						if ($deliveryType=="dynamic_origin") { 
 							$cDDVideo = curl_init();
 							curl_setopt_array($cDDVideo, array(
@@ -232,13 +234,7 @@
 										$frameWidth= $jDDVideo[$DeliveryTypeCount]['frame_width'];
 										$frameHeight= $jDDVideo[$DeliveryTypeCount]['frame_height'];		
 										$mediaType= $jDDVideo[$DeliveryTypeCount]['media_type'];
-										$size= $jDDVideo[$DeliveryTypeCount]['size'];		
-
-										# echo "rendition_id: " . $renditionId . "<br>";
-										# echo "created_at: " . $createdAt . "<br>";		
-										# echo "frame_width: " . $frameWidth . "<br>";	
-										# echo "frame_height: " . $frameHeight . "<br>";	
-										# echo "size: " . $size . "<br>";
+										$size= $jDDVideo[$DeliveryTypeCount]['size'];
 
 										if ($mediaType=="video") {
 											if ($frameWidth==$sizeFrames || $frameHeight==$sizeFrames) {
@@ -270,8 +266,8 @@
 				}
 				$currentOffset+=100;
 			}
-			#echo "<pre>" . $cronjob . "</pre>";
-			echo "<pre>" . print_r($cronjob). "</pre>";
+
+			print("<pre>".print_r($cronjob,true)."</pre>");
 			?>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
