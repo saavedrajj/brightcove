@@ -15,7 +15,7 @@
 		$authString = "{$clientId}:{$clientSecret}";
 		$bcToken = base64_encode($authString);
 		$sizeFrames = 720;
-		$sizeAudio = 480;
+		$sizeAudio = 516077;
 
 		$cronjob = array();
 
@@ -131,6 +131,7 @@
 
 
 						# Dynamic Ingest Videos	*******************************************************************************
+						# Videos from 2019-01-02T10:00:00Z to 2019-01-02T12:00:00Z
 						if ($deliveryType=="static_origin" || $deliveryType=="unknown") { 
 							$cDIVideo = curl_init();
 							curl_setopt_array($cDIVideo, array(
@@ -213,6 +214,9 @@
 							} 
 							else {
 								$jDDVideo = json_decode($rDDVideo, true);
+
+								#echo "<pre>" . $jDDVideo . "</pre>";
+
 								if (empty($jDDVideo)) {
 									?>
 									<script>
@@ -228,12 +232,13 @@
 										$frameWidth= $jDDVideo[$DeliveryTypeCount]['frame_width'];
 										$frameHeight= $jDDVideo[$DeliveryTypeCount]['frame_height'];		
 										$mediaType= $jDDVideo[$DeliveryTypeCount]['media_type'];
-										$size= $jDDVideo[$DeliveryTypeCount]['size'];																							
-										echo "rendition_id: " . $renditionId . "<br>";
-										echo "created_at: " . $createdAt . "<br>";		
-										echo "frame_width: " . $frameWidth . "<br>";	
-										echo "frame_height: " . $frameHeight . "<br>";	
-										echo "size: " . $size . "<br>";
+										$size= $jDDVideo[$DeliveryTypeCount]['size'];		
+
+										# echo "rendition_id: " . $renditionId . "<br>";
+										# echo "created_at: " . $createdAt . "<br>";		
+										# echo "frame_width: " . $frameWidth . "<br>";	
+										# echo "frame_height: " . $frameHeight . "<br>";	
+										# echo "size: " . $size . "<br>";
 
 										if ($mediaType=="video") {
 											if ($frameWidth==$sizeFrames || $frameHeight==$sizeFrames) {
