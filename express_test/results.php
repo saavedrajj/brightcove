@@ -1,3 +1,14 @@
+<?php
+if(empty($_POST['from']) && empty($_POST['to'])) {
+    $_POST['to'] = gmdate("Y-m-d\TH:i:s\Z");
+    $_POST['from']= gmdate("Y-m-d\TH:i:s\Z",strtotime('-150 minutes'));  
+} else {
+}
+    $_POST['from'] = "2018-09-24T16:00:00Z";
+    $_POST['to']= "2018-09-24T16:30:00Z";
+    #$_POST['from'] = "2019-01-02T10:00:00Z";
+    #$_POST['to'] = "2019-01-02T12:00:00Z";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,11 +22,13 @@
 	<div class="container">
 		<h1>Express Newspapers rendition checker</h1>
 		<?php
-		include_once "credentials.php";
+		require __DIR__ . "/credentials.php";
 		$authString = "{$clientId}:{$clientSecret}";
 		$bcToken = base64_encode($authString);
-		$sizeFrames = 720;
-		$sizeAudio = 516077;
+		$sizeFrames = 0;
+		$sizeAudio = 0;
+		#$sizeFrames = 720;
+		#$sizeAudio = 516077;
 
 		$cronjob = array();
 
@@ -124,11 +137,7 @@
 					foreach($jVideo as $v) {
 						$videoId = $jVideo[$videoTypeCount]['id'];							
 						$deliveryType = $jVideo[$videoTypeCount]['delivery_type'];   
-						$createdAt = $jVideo[$videoTypeCount]['created_at'];   
-
-
-
-
+						$createdAt = $jVideo[$videoTypeCount]['created_at'];
 
 						# Dynamic Ingest Videos	*******************************************************************************
 
@@ -156,20 +165,22 @@
 							} 
 							else {
 								$jDIVideo = json_decode($rDIVideo, true);
+						        #$createdAt = $jDIVideo[$videoTypeCount]['created_at'];
 
 								if (empty($jDIVideo)) {
 									#$assetId = "";
 									?>
 									<script>
-										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
-										<?php $cronjob[] = array($videoId, $createdAt, ""); ?>	
+										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at " + "<?php echo $createdAt ?>" +"<br/>";
+										<?php $cronjob[] = array($videoId, $createdAt, "-"); ?>	
 									</script>
 									<?php
 								} else {
 									#$createdAt = "";
 									$DeliveryTypeCount = 0;
 									foreach($jDIVideo as $v) {
-										$assetId = $jDIVideo[$DeliveryTypeCount]['id'];												
+										$assetId = $jDIVideo[$DeliveryTypeCount]['id'];		
+										#$createdAt = $jDIVideo[$DeliveryTypeCount]['created_at'];												
 										$frameHeight = $jDIVideo[$DeliveryTypeCount]['frame_height'];
 										$frameWidth = $jDIVideo[$DeliveryTypeCount]['frame_width'];
 
@@ -177,8 +188,8 @@
 
 											?>
 											<script>
-												wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
-												<?php $cronjob[] = array($videoId, "", $assetId); ?>	
+												wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " +  "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
+												<?php $cronjob[] = array($videoId, "-", $assetId); ?>	
 											</script>
 											<?php	
 										}
@@ -223,7 +234,7 @@
 									?>
 									<script>
 										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
-										<?php $cronjob[] = array($videoId, $createdAt, ""); ?>								    
+										<?php $cronjob[] = array($videoId, $createdAt, "-"); ?>								    
 									</script>
 									<?php
 								} else {
@@ -241,7 +252,7 @@
 												?>
 												<script>
 													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
-													<?php $cronjob[] = array($videoId, "", $renditionId); ?>	
+													<?php $cronjob[] = array($videoId, "-", $renditionId); ?>	
 												</script>
 												<?php	
 											}
@@ -251,7 +262,7 @@
 												?>
 												<script>
 													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
-													<?php $cronjob[] = array($videoId, "", $renditionId); ?>		
+													<?php $cronjob[] = array($videoId, "-", $renditionId); ?>		
 												</script>
 												<?php	
 											}
@@ -266,12 +277,12 @@
 				}
 				$currentOffset+=100;
 			}
-
 			print("<pre>".print_r($cronjob,true)."</pre>");
 			?>
 		</div>
+
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	</body>
-	</html>
+</html>

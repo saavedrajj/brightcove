@@ -63,19 +63,10 @@ $service = new Google_Service_Sheets($client);
 // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
 //$spreadsheetId = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms';
 $spreadsheetId = '1OzweleUQzKTogauzMeOT4fwxTi_4osuXnqiGJP5CJ3E';
-
-$values = [
-    [
-        "1001", "1002"
-    ],
-
-    [
-        "2001", "2002"
-    ],
-];
+require __DIR__ . '/results.php';
 
 $body = new Google_Service_Sheets_ValueRange([
-    'values' => $values
+    'values' => $cronjob
 ]);
 $params = [
     'valueInputOption' => "RAW"

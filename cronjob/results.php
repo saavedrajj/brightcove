@@ -1,47 +1,39 @@
+<?php
+if(empty($_POST['from']) && empty($_POST['to'])) {
+    $_POST['to'] = gmdate("Y-m-d\TH:i:s\Z");
+    $_POST['from']= gmdate("Y-m-d\TH:i:s\Z",strtotime('-150 minutes'));  
+} else {}
+    #$_POST['from'] = "2018-09-24T16:00:00Z";
+    #$_POST['to']= "2018-09-24T16:30:00Z";  
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Express Newspapers rendition checker</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<title>Express Newspapers rendition checker</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
+
 <body>
 	<div class="container">
 		<h1>Express Newspapers rendition checker</h1>
 		<?php
+		include_once "credentials.php";
+		$authString = "{$clientId}:{$clientSecret}";
+		$bcToken = base64_encode($authString);
+		$sizeFrames = 0;
+		$sizeAudio = 0;
+		#$sizeFrames = 720;
+		#$sizeAudio = 516077;
 
-		$_POST['from'] = gmdate("Y-m-d\TH:i:s\Z",strtotime('-60 minutes'));  
-		$_POST['to'] = gmdate("Y-m-d\TH:i:s\Z");
+		$cronjob = array();
 
-		$_POST['from'] = "2018-09-24T16:00:00Z";
-		$_POST['to'] = "2018-09-24T16:30:00Z";
-
-		/*** script settings *************************************************************************************/
-		$production = true;
-		switch ($production) {
-			case true:
-			$account_id = "2540076170001"; 
-			$client_id     = "c3e5360f-e2b5-451d-ad0a-ea71bdd16ced";
-			$client_secret = "bTKusj-QyfGhNC0ILPmv2t4_nWOt2GtGJyCbekICzAC50tomjWnVaqCTOtqzaTtZJi6NF5EOe_sxZ7-_W_-q6A";
-			break;
-			case false:
-			$account_id = "5458602755001"; 
-			$client_id     = "39e632c6-3419-40f1-a373-36ea579cce5a";
-			$client_secret = "wT9-dw2XyGl1yG_e5UdsTDfK8ELGrAdRzr8WFeRqltDztf3b_PewibmnMR_EcE3FuYV3D8HQU32w1z2QyLJ9Dw";
-			break;
-		}
-
-		$auth_string   = "{$client_id}:{$client_secret}";
-		$bc_token = base64_encode($auth_string);
-		$sizeZero = 160;
-
-		/* Get access_token *************************************************************************************/
-
-		$curl1 = curl_init();
-
-		curl_setopt_array($curl1, array(
+		# OAuth API: Get access_token  ********************************************************************************
+		$cAccessToken = curl_init();
+		curl_setopt_array($cAccessToken, array(
 			CURLOPT_URL => "https://oauth.brightcove.com/v4/access_token",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
@@ -51,29 +43,26 @@
 			CURLOPT_CUSTOMREQUEST => "POST",
 			CURLOPT_POSTFIELDS => "grant_type=client_credentials",
 			CURLOPT_HTTPHEADER => array(
-				"Authorization: Basic " . $bc_token . "",
+				"Authorization: Basic " . $bcToken . "",
 				"Cache-Control: no-cache"
 			),
 		));
-
-		$response1 = curl_exec($curl1);
-		$err1 = curl_error($curl1);
-
-		curl_close($curl1);
-
-		if ($err1) {  
-			echo "cURL Error #:" . $err1; 
+		$rAccessToken = curl_exec($cAccessToken);
+		$eAccessToken = curl_error($cAccessToken);
+		curl_close($cAccessToken);
+		if ($eAccessToken) {  
+			echo "cURL Error #:" . $eAccessToken; 
 		} 
 		else {
-			$json1 = json_decode($response1);
-			$access_token=$json1->access_token;
+			$jAccessToken = json_decode($rAccessToken);
+			$accessToken = $jAccessToken->access_token;
 		}
 
-		$curlTotalVideos = curl_init();
+		# CMS API: Total of videos ************************************************************************************				
+		$cTotalVideos = curl_init();
 
-		/* Total of videos **************************************************************************************/				
-		curl_setopt_array($curlTotalVideos, array(
-			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&sort=created_at",
+		curl_setopt_array($cTotalVideos, array(
+			CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/counts/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'],
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
 			CURLOPT_MAXREDIRS => 10,
@@ -81,44 +70,47 @@
 			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 			CURLOPT_CUSTOMREQUEST => "GET",
 			CURLOPT_HTTPHEADER => array(
-				"Authorization: Bearer " . $access_token . "",
+				"Authorization: Bearer " . $accessToken . "",
 				"Cache-Control: no-cache",
 				"Content-Type: application/json"
 			),
 		));
 
-		$responseTotalVideos = curl_exec($curlTotalVideos);
-		$errTotalVideos = curl_error($curlTotalVideos);
-		curl_close($curlTotalVideos);
-		if ($errTotalVideos) {
-			echo "cURL Error #:" . $errTotalVideos;
+		$rTotalVideos = curl_exec($cTotalVideos);
+		$eTotalVideos = curl_error($cTotalVideos);
+
+		curl_close($cTotalVideos);
+		if ($eTotalVideos) {
+			echo "cURL Error #:" . $eTotalVideos;
 		} else {
-			$jsonTotalVideos = json_decode($responseTotalVideos, true);
-			$totalVideos = json_decode($jsonTotalVideos['count']);  
-		} 
-		?>
+			$jTotalVideos = json_decode($rTotalVideos, true);
+			$totalVideos = $jTotalVideos["count"];  
+		}
 
-		<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
-		
-		<?php 
-		//echo "<p>Total of new videos created: ". $totalVideos. "</p>";
-		//echo "<p>Videos with no renditions:</p>";  
-		//echo "<div class='alert alert-danger' role='alert'><span id='no_rendition'></span></div>";
-		//echo "<p>Videos with wrong assets:</p>";  
-		//echo "<div class='alert alert-danger' role='alert'><span id='wrong_asset'></span></div>";
-		?>
-		
-		<?php
-		/* Get videos in data range *********************************************************************************/
-		$currentOffset = 0;
-		$numVideos=0;
+		# Get Offset Iterations *******************************************************************************************
+		$offsetIterations = $totalVideos / 100;
+		if(is_int($offsetIterations)){}
+			else {
+				$offsetIterations = intval($offsetIterations) + 1;
+			}
+			?>
 
-		/* for($i = 0; $i <= 100; $i++) { */
-			while($numVideos = 100) {
-				$curl2 = curl_init();
+			<h2>Videos from <?php echo $_POST["from"];?> to <?php echo $_POST["to"];?></h2>
+			<hr>
+			<p>Videos with no renditions:</p>
+			<div class="alert alert-danger" role="alert"><span id="no_rendition"></span></div>
+			<p>Videos with wrong assets:</p>
+			<div class="alert alert-danger" role="alert"><span id="wrong_asset"></span></div>
+			<hr>
+			<?php
+			# Get videos in data range *********************************************************************************/
+			$currentOffset = 0;
 
-				curl_setopt_array($curl2, array(
-					CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&offset=" . $currentOffset . "&limit=100&sort=created_at",
+			for($i = 0; $i <= $offsetIterations - 1; $i++) { 
+				$cVideo = curl_init();
+
+				curl_setopt_array($cVideo, array(
+					CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/?q=created_at:" . $_POST['from'] . ".." . $_POST['to'] . "&offset=" . $currentOffset . "&limit=100&sort=created_at",
 					CURLOPT_RETURNTRANSFER => true,
 					CURLOPT_ENCODING => "",
 					CURLOPT_MAXREDIRS => 10,
@@ -126,38 +118,32 @@
 					CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 					CURLOPT_CUSTOMREQUEST => "GET",
 					CURLOPT_HTTPHEADER => array(
-						"Authorization: Bearer " . $access_token . "",
+						"Authorization: Bearer " . $accessToken . "",
 						"Cache-Control: no-cache",
 						"Content-Type: application/json"
 					),
 				));
 
-				$response2 = curl_exec($curl2);
-				$err2 = curl_error($curl2);
+				$rVideo = curl_exec($cVideo);
+				$eVideo = curl_error($cVideo);
+				curl_close($cVideo);
 
-				curl_close($curl2);
-
-				if ($err2) {
-					echo "cURL Error #:" . $err2;
+				if ($eVideo) {
+					echo "cURL Error #:" . $eVideo;
 				} else {
-					$json2 = json_decode($response2, true);
-					/*echo "<pre>"; print_r($json2); echo "</pre>";*/
-					$type_count2 = 0;
-					$key=0;	
-					foreach($json2 as $v) {
+					$jVideo = json_decode($rVideo, true);
+					$videoTypeCount = 0;
+					foreach($jVideo as $v) {
+						$videoId = $jVideo[$videoTypeCount]['id'];							
+						$deliveryType = $jVideo[$videoTypeCount]['delivery_type'];   
+						$createdAt = $jVideo[$videoTypeCount]['created_at'];
 
-						if(array_key_exists('id', $v)) {
-							$video = json_decode($json2[$type_count2]['id']);
-							$created_at = $json2[$type_count2]['created_at'];   
+						# Dynamic Ingest Videos	*******************************************************************************
 
-							echo "<strong>video: ". $video    . " created at: " . $created_at.   "</strong><br/>"; 
-
-							/* Get video assets  ***********************************************************************************/
-
-							$curl3 = curl_init();
-
-							curl_setopt_array($curl3, array(
-								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $account_id . "/videos/" . $video . "/assets/",
+						if ($deliveryType=="static_origin" || $deliveryType=="unknown") { 
+							$cDIVideo = curl_init();
+							curl_setopt_array($cDIVideo, array(
+								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/",
 								CURLOPT_RETURNTRANSFER => true,
 								CURLOPT_ENCODING => "",
 								CURLOPT_MAXREDIRS => 10,
@@ -165,124 +151,135 @@
 								CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 								CURLOPT_CUSTOMREQUEST => "GET",
 								CURLOPT_HTTPHEADER => array(
-									"Authorization: Bearer " . $access_token . "",
+									"Authorization: Bearer " . $accessToken . "",
+									"Cache-Control: no-cache",
+									"Content-Type: application/json"
+								),
+							));
+							$rDIVideo = curl_exec($cDIVideo);
+							$eDIVideo = curl_error($cDIVideo);
+							curl_close($cDIVideo);
+							if ($eDIVideo) {  
+								echo "cURL Error #:" . $eDIVideo; 
+							} 
+							else {
+								$jDIVideo = json_decode($rDIVideo, true);
+
+								if (empty($jDIVideo)) {
+									#$assetId = "";
+									?>
+									<script>
+										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
+										<?php $cronjob[] = array($videoId, $createdAt, ""); ?>	
+									</script>
+									<?php
+								} else {
+									#$createdAt = "";
+									$DeliveryTypeCount = 0;
+									foreach($jDIVideo as $v) {
+										$assetId = $jDIVideo[$DeliveryTypeCount]['id'];												
+										$frameHeight = $jDIVideo[$DeliveryTypeCount]['frame_height'];
+										$frameWidth = $jDIVideo[$DeliveryTypeCount]['frame_width'];
+
+										if ($frameWidth == $sizeFrames || $frameHeight == $sizeFrames) {
+
+											?>
+											<script>
+												wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
+												<?php $cronjob[] = array($videoId, "", $assetId); ?>	
+											</script>
+											<?php	
+										}
+										$DeliveryTypeCount++;									    
+									}
+								}
+							}
+						} 
+
+						# Dynamic Delivery Videos *****************************************************************************
+						# Videos from 2019-01-02T10:00:00Z to 2019-01-02T12:00:00Z
+						if ($deliveryType=="dynamic_origin") { 
+							$cDDVideo = curl_init();
+							curl_setopt_array($cDDVideo, array(
+								CURLOPT_URL => "https://cms.api.brightcove.com/v1/accounts/" . $accountId . "/videos/" . $videoId . "/assets/dynamic_renditions/",
+								CURLOPT_RETURNTRANSFER => true,
+								CURLOPT_ENCODING => "",
+								CURLOPT_MAXREDIRS => 10,
+								CURLOPT_TIMEOUT => 360,
+								CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+								CURLOPT_CUSTOMREQUEST => "GET",
+								CURLOPT_HTTPHEADER => array(
+									"Authorization: Bearer " . $accessToken . "",
 									"Cache-Control: no-cache",
 									"Content-Type: application/json"
 								),
 							));
 
-							$response3 = curl_exec($curl3);
-							$err3 = curl_error($curl3);
+							$rDDVideo = curl_exec($cDDVideo);
+							$eDDVideo = curl_error($cDDVideo);
+							curl_close($cDDVideo);
 
-							curl_close($curl3);
-
-							if ($err3) {  
-								echo "cURL Error #:" . $err3; 
+							if ($eDDVideo) {  
+								echo "cURL Error #:" . $eDDVideo; 
 							} 
 							else {
-								$json3 = json_decode($response3,true);
-								//echo "<pre>"; print_r($json3); echo "</pre>";
-								//$i=0;
+								$jDDVideo = json_decode($rDDVideo, true);
 
+								#echo "<pre>" . $jDDVideo . "</pre>";
 
-	
+								if (empty($jDDVideo)) {
+									?>
+									<script>
+										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
+										<?php $cronjob[] = array($videoId, $createdAt, ""); ?>								    
+									</script>
+									<?php
+								} else {
+									$DeliveryTypeCount = 0;
+									foreach($jDDVideo as $v) {
+										$renditionId = $jDDVideo[$DeliveryTypeCount]['rendition_id'];	
+										$createdAt= $jDDVideo[$DeliveryTypeCount]['created_at'];	
+										$frameWidth= $jDDVideo[$DeliveryTypeCount]['frame_width'];
+										$frameHeight= $jDDVideo[$DeliveryTypeCount]['frame_height'];		
+										$mediaType= $jDDVideo[$DeliveryTypeCount]['media_type'];
+										$size= $jDDVideo[$DeliveryTypeCount]['size'];
 
-								if (empty($json3)) {
-									echo "<div class='alert alert-danger' role='alert'>no renditions</div>";
-									
-									$video_array[$key] = array( "videoid" => $video, "asset_id" => "-", "created_at" => $created_at);
-									$key++;	
-
-	
-								}
-
-									
-								$type_count3 = 0;
-								foreach($json3 as $v) {
-									if(array_key_exists('id', $v)) {
-										$asset_id = json_decode($json3[$type_count3]['id']);
-
-										if (isset($json3[$type_count3]['video_container'])) {
-											$video_container = $json3[$type_count3]['video_container'];
-											$text_video_container = "video_container: " . $video_container;
-										} else {$text_video_container="";}
-
-										if (isset($json3[$type_count3]['encoding_rate'])) {
-											$encoding_rate = $json3[$type_count3]['encoding_rate'];
-											$text_encoding_rate = "encoding_rate: " . $encoding_rate;
-										} else {
-											$text_encoding_rate="";
-										}	
-
-										$type= $json3[$type_count3]['type'];  
-										$frame_height= $json3[$type_count3]['frame_height'];  
-										$frame_width= $json3[$type_count3]['frame_width'];  
-
-										if ($frame_width==$sizeZero  OR $frame_height==$sizeZero) {
-											echo "<div class='alert alert-danger' role='alert'>";
-										}
-										else { }
-
-
-									//$video_array[$key] = array( "videoid" => $video, "assetid" => $asset_id, "created_at" => $created_at);
-									//$key++;	
-
-
-										echo "asset_id: " . $asset_id . " | " . $text_video_container . " | "	. "type: " . $type . " | " . $text_encoding_rate . " | size(" . $frame_width .", " . $frame_height . ")<br/>";                         
-											if ($frame_width==$sizeZero OR $frame_height==$sizeZero) {
-
- 
-
-
-					                         echo "error >>> " .$asset_id."<br>";
-									         $video_array[$key] = array( "videoid" => $video, "asset_id" => $asset_id, "created_at" => $created_at);
-
-
-
-												echo "</div>";
+										if ($mediaType=="video") {
+											if ($frameWidth==$sizeFrames || $frameHeight==$sizeFrames) {
 												?>
 												<script>
-													var videoFailed = "<?php echo $video ?>";              
-													var assetFailed = "<?php echo $asset_id ?>";                  
-													var videoContainer = "<?php echo $video_container ?>";
-													var assetType = "<?php echo $type ?>";  
-													if (assetType=="VIDEO_STILL" || assetType=="THUMBNAIL") {
-														textVideoContainer = "";
-													}
-													else {
-														textVideoContainer = " | video_container: " + videoContainer;
-													}
-													var widthFailed = "<?php echo $frame_width ?>";
-													var heightFailed = "<?php echo $frame_height ?>";                                      
-													wrong_asset.innerHTML += "video: " + videoFailed + " | asset_id: " + assetFailed + "  " + textVideoContainer + " | type: " + assetType + " | size: (" + widthFailed + ", " + heightFailed + ")<br/>";
+													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
+													<?php $cronjob[] = array($videoId, "", $renditionId); ?>	
 												</script>
-												<?php
+												<?php	
 											}
-											else { 
-											}
-											$type_count3++;   
-											$key++;         
 										}
+										if ($mediaType=="audio") {
+											if ($size==$sizeAudio) {
+												?>
+												<script>
+													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
+													<?php $cronjob[] = array($videoId, "", $renditionId); ?>		
+												</script>
+												<?php	
+											}
+										}
+										$DeliveryTypeCount++;									    
 									}
-								
-
 								}
-							
-								$type_count2++; 
 							}
 						}
-					}  
-					$numVideos = $type_count2;
-					if ($numVideos == 0) {break;}
-					$currentOffset+=100;
-} //for or while
+						$videoTypeCount++; 
+					}
+				}
+				$currentOffset+=100;
+			}
+			print("<pre>".print_r($cronjob,true)."</pre>");
+			?>
+		</div>
 
-echo "<pre>"; print_r($video_array); echo "</pre>";
-
-?>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	</body>
 </html>
