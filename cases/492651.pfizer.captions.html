@@ -29,6 +29,10 @@
 	controls playsinline></video>
 	<script src="http://players.brightcove.net/1852113022001/HJFyDH5Te_default/index.min.js"></script>
 	<div class="vjs-playlist"></div>
+<track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs.vtt" srclang="en" label="English" default>
+<track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-jp.vtt" srclang="ja" label="Japanese">
+<track kind="captions" src="https://solutions.brightcove.com/bcls/assets/captions/intro-vcs-fr.vtt" srclang="fr" label="French">
+
 
 <script type="text/JavaScript">
   var myPlayer;
@@ -40,6 +44,7 @@
     myPlayer.on(["playlistitem"],function(event){
       /*message.innerHTML += "" + event.type + "<br/>"; */   
       console.log("playlistitem other");
+      myPlayer.textTracks()[1].mode = "showing"
     });
    
 
@@ -49,3 +54,7 @@
 
 </body>
 </html>
+
+<!--
+	https://support.brightcove.com/adding-captions-videos-programmatically
+-->
