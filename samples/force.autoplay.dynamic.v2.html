@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  .video-js {
+    width: 480px;
+    height: 270px;
+  }
+</style>
+</head>
+<body>
+ <p><button  onclick="addPlayer()">Add Player</button></p>
+ <div id="placeHolder"></div>
+ <script type="text/JavaScript">
+  var myPlayer,
+  playerHTML,
+  playerScript,
+  options = {};
+
+  // Build the player and place in HTML DOM
+  function addPlayer() {
+    options.accountID = "5458602755001";
+    options.videoID = "5575865276001";
+    options.playerID = "default";
+
+    //console.log('options', options);
+    // Dynamically build the player video element
+    playerHTML = '<video-js id=\"myPlayerID\" data-video-id=\"' + options.videoID + '\"  data-account=\"' + options.accountID + '\" data-player=\"' + options.playerID + '\"  data-embed=\"default\" class=\"video-js\" muted controls></video-js>';
+    // Inject the player code into the DOM
+    document.getElementById('placeHolder').innerHTML = playerHTML;
+    // Add and execute the player script tag
+    playerScript = document.createElement('script');
+    playerScript.src = "//players.brightcove.net/" + options.accountID + "/default_default/index.min.js";
+    document.body.appendChild(playerScript);
+    playerScript.onload = callback;
+  }
+
+
+
+  // Initialize the player and autoplays the video programmatically
+  function callback() {
+    var ima = document.createElement('script');
+    myPlayer = bc('myPlayerID');
+      myPlayer.on('loadedmetadata',function() {
+        var promise = myPlayer.play();
+        if (promise !== undefined) {
+            promise.then(function() {
+                // Autoplay started!
+                console.log('Autoplay started!');
+            }).catch(function(error) {       
+                // Autoplay was prevented.
+                console.log('Autoplay was prevented');
+                myPlayer.muted(true);
+                myPlayer.play();     
+            });
+        }
+    });
+
+  }
+</script>
+
+</body>
+</html>

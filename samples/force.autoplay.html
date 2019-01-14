@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Autoplay</title>
-    <link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <style>
 .video-js {
@@ -13,39 +12,34 @@
 }
 </style>
 <body>
-    <video id="myPlayerID" 
+    <video 
+    id="myPlayerID" 
     data-video-id="ref:promo01" 
     data-account="5458602755001" 
-    data-player="SJQWk133M" 
+    data-player="default" 
     data-embed="default" 
     data-application-id 
     class="video-js" 
     controls
     playsinline></video>
-    <script src="//players.brightcove.net/5458602755001/SJQWk133M_default/index.min.js"></script></div></div>
+    <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script></div></div>
     <p id="playPromise"></p>
-<script>
-
-    videojs('myPlayerID').ready(function(){
-        var player = this;
-        /*player.muted(true);*/
-        player.on('loadedmetadata',function(){
-            
-            player.play().then(function() {
-                // play succeeded!
-
-                console.log('Play with audio succeeded!');
-            })
-            .catch(function(error) {
-                // play failed
-                console.log('Play with audio failed! Audio muted');
-                player.muted(true);
-                player.play();
+    <script>
+    var myPlayer = videojs.getPlayer('myPlayerID');
+    myPlayer.on('loadedmetadata',function() {
+        var promise = myPlayer.play();
+        if (promise !== undefined) {
+            promise.then(function() {
+                // Autoplay started!
+                console.log('Autoplay started!');
+            }).catch(function(error) {       
+                // Autoplay was prevented.
+                console.log('Autoplay was prevented');
+                myPlayer.muted(true);
+                myPlayer.play();     
             });
-
-            });
-            
+        }
     });
-     </script>
+</script>
 </body>
 </html>

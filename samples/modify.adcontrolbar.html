@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IMA3 Plugin Code Example</title>
+    <style type="text/css">
+        .video-js {
+            /*width: 512px;
+            height: 288px;
+            width: 100%;
+            height: 100%;*/
+            width: 768px;
+            height: 432px;
+        }
+
+        .video-js .vjs-ad-icon {
+            flex: none;
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 3em;
+            min-width: 2em;
+            width: auto;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        .vjs-ad-playing .video-js .vjs-ad-icon　{
+            display: block;
+        }
+    </style>
+    <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+
+<body>
+<video id="myPlayerID"
+       data-video-id="5462744233001"
+       data-account="5425749943001"
+       data-player="default"
+       data-embed="default"
+       class="video-js"
+       playsinline
+       controls
+autoplay></video>
+<script src="//players.brightcove.net/5425749943001/default_default/index.min.js"></script>
+
+<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+<script>
+    var myPlayer;
+
+    var player = bc('myPlayerID');
+    player.ima3({
+        adTechOrder: ['html5', 'flash'],
+        vpaidMode: 'ENABLED',
+        /*ima3SdkSettings: {
+            "disableCustomPlaybackForIOS10Plus": true
+        },*/
+        serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
+    });
+
+
+
+    /*var controlBar,
+            newElement = document.createElement('div'),
+            newText = document.createTextNode('［広告］');
+
+    // Assign id and classes to div for icon
+    newElement.id = 'adIcon';
+    newElement.className = 'vjs-ad-icon vjs-control';
+
+    // Assign properties to elements and assign to parents
+    newElement.appendChild(newText);
+
+    // Get controlbar and insert before elements
+    // Remember that getElementsByClassName() returns an array
+    //controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+    controlBar = player.ima3.adControlBar;
+
+    // Change the class name here to move the icon in the controlBar
+    insertBeforeNode = document.getElementsByClassName('vjs-play-control')[1];
+
+    // Insert the icon div in proper location
+    controlBar.insertBefore(newElement,insertBeforeNode);*/
+
+
+    player.ready(function() {
+        myPlayer = this;
+
+        myPlayer.on('ima3-ready',function(){
+            //myPlayer.ima3.adControlBar.hide();
+
+            var controlBar,
+                    newElement = document.createElement('div'),
+                    newText = document.createTextNode('［広告］');
+
+            // Assign id and classes to div for icon
+            newElement.id = 'adIcon';
+            newElement.className = 'vjs-ad-icon vjs-control';
+
+            // Assign properties to elements and assign to parents
+            newElement.appendChild(newText);
+
+            // Get controlbar and insert before elements
+            // Remember that getElementsByClassName() returns an array
+            //controlBar = document.getElementsByClassName('vjs-ad-control-bar')[0];
+            controlBar = myPlayer.ima3.adControlBar.el();
+
+
+            // Change the class name here to move the icon in the controlBar
+            insertBeforeNode = document.getElementsByClassName('vjs-play-control')[1];
+
+            // Insert the icon div in proper location
+            controlBar.insertBefore(newElement,insertBeforeNode);
+        });
+
+
+
+
+    });
+</script>
+</body>
+</html>
