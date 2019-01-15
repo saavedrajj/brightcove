@@ -4,8 +4,11 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
     $_POST['from']= gmdate("Y-m-d\TH:i:s\Z",strtotime('-150 minutes'));  
 } else {
 }
-    $_POST['from'] = "2018-09-24T16:00:00Z";
-    $_POST['to']= "2018-09-24T16:30:00Z";
+	# videos without renditions
+    #$_POST['from'] = "2018-09-24T16:00:00Z";
+    #$_POST['to']= "2018-09-24T16:30:00Z";
+    
+  	# videos with wrong renditions  
     #$_POST['from'] = "2019-01-02T10:00:00Z";
     #$_POST['to'] = "2019-01-02T12:00:00Z";
 ?>
@@ -172,7 +175,7 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 									?>
 									<script>
 										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at " + "<?php echo $createdAt ?>" +"<br/>";
-										<?php $cronjob[] = array($videoId, $createdAt, "-"); ?>	
+										<?php $cronjob[] = array($videoId, $createdAt, "n/a"); ?>	
 									</script>
 									<?php
 								} else {
@@ -188,8 +191,8 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 
 											?>
 											<script>
-												wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " +  "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
-												<?php $cronjob[] = array($videoId, "-", $assetId); ?>	
+												wrong_asset.innerHTML += "videoid: " + "<?php echo $videoId ?>" + " | " + "assetid: " + "<?php echo $assetId ?>" +"<br/>";	
+												<?php $cronjob[] = array($videoId, "n/a", $assetId); ?>	
 											</script>
 											<?php	
 										}
@@ -234,7 +237,7 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 									?>
 									<script>
 										no_rendition.innerHTML += "<?php echo $videoId ?>" + " created at "+ "<?php echo $createdAt ?>" +"<br/>";
-										<?php $cronjob[] = array($videoId, $createdAt, "-"); ?>								    
+										<?php $cronjob[] = array($videoId, $createdAt, "n/a"); ?>								    
 									</script>
 									<?php
 								} else {
@@ -252,7 +255,7 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 												?>
 												<script>
 													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
-													<?php $cronjob[] = array($videoId, "-", $renditionId); ?>	
+													<?php $cronjob[] = array($videoId, "n/a", $renditionId); ?>	
 												</script>
 												<?php	
 											}
@@ -262,7 +265,7 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 												?>
 												<script>
 													wrong_asset.innerHTML += "videoid: " +"<?php echo $videoId ?>" + " | " + "renditionId: " + "<?php echo $renditionId ?>" +"<br/>";
-													<?php $cronjob[] = array($videoId, "-", $renditionId); ?>		
+													<?php $cronjob[] = array($videoId, "n/a", $renditionId); ?>		
 												</script>
 												<?php	
 											}
@@ -277,7 +280,8 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 				}
 				$currentOffset+=100;
 			}
-			print("<pre>".print_r($cronjob,true)."</pre>");
+			# Show $cronjob array
+			#print("<pre>".print_r($cronjob,true)."</pre>");
 			?>
 		</div>
 
