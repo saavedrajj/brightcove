@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFMTV - Freewheel VOD</title>
+    <style>
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
+</style> 
+<link href="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet">
+</head>
+<!-- 
+vod: 5988693398001
+live: 5615950982001
+!-->	
+<body> 
+    <h1>BFMTV - Freewheel VOD</h1>
+    <video 
+    id="myPlayerID"
+    data-video-id="5615950982001" 
+    data-account="876450610001" 
+    data-player="2vHMYUaWLS" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls playsinline></video>
+    <script src="//players.brightcove.net/876450610001/2vHMYUaWLS_default/index.min.js"></script>
+    <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
+    <script type="text/javascript">
+       videojs("myPlayerID").ready(function(){
+         myPlayer= this;
+         myPlayer.FreeWheelPlugin({
+          "timeout": 5000,
+          "prerollTimeout": 1000,
+          "debug": true,
+          "adTechOrder": [
+          "html5",
+          "flash"
+          ],
+          "Html5": {
+            "videoAssetDuration": 500,
+            "temporalSlots": [
+            {
+                "timePosition": 0,
+                "id": "Preroll_1",
+                "adUnit": "preroll"
+            }
+            ],
+            "sdkurl": "//mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
+            "siteSectionCustomId": "brightCove_scenario_site_section",
+            "videoAssetCustomId": "brightcove_scenario_1_video",
+            "profile": "global-js",
+            "networkId": 96749,
+            "serverUrl": "//demo.v.fwmrm.net/ad/g/1",
+            "keyValues": [
+            {
+                "module": "DemoPlayer",
+                "feature": "simpleAds"
+            },
+            {
+                "feature": "trackingURLs"
+            }
+            ]
+        },
+        "Flash": {
+            "videoAssetDuration": 500,
+            "videoAssetCustomId": "as3_demo_video_asset",
+            "temporalSlots": [
+            {
+                "timePosition": 0,
+                "id": "Preroll_1",
+                "adUnit": "preroll"
+            }
+            ],
+            "siteSectionCustomId": "as3_demo_site_section",
+            "serverUrl": "//cue.v.fwmrm.net/ad/g/1",
+            "sdkurl": "//mssl.fwmrm.net/p/release/latest-AS3/adm/dbg/AdManager.swf",
+            "profile": "3pqa_profile",
+            "networkId": 90750,
+            "swfurl": "//players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf"
+        }
+    });
+     });
+   </script>
+</body>
+</html>

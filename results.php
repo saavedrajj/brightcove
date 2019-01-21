@@ -1,7 +1,7 @@
 <?php
 if(empty($_POST['from']) && empty($_POST['to'])) {
     $_POST['to'] = gmdate("Y-m-d\TH:i:s\Z");
-    $_POST['from']= gmdate("Y-m-d\TH:i:s\Z",strtotime('-30 minutes'));  
+    $_POST['from']= gmdate("Y-m-d\TH:i:s\Z",strtotime('-150 minutes'));  
 } else {
 }
 	# videos without renditions
@@ -30,8 +30,8 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 		$bcToken = base64_encode($authString);
 		$sizeFrames = 0;
 		$sizeAudio = 0;
-		#$sizeFrames = 720;
-		#$sizeAudio = 516077;
+		$sizeFrames = 720;
+		$sizeAudio = 516077;
 
 		$cronjob = array();
 
@@ -281,7 +281,7 @@ if(empty($_POST['from']) && empty($_POST['to'])) {
 				$currentOffset+=100;
 			}
 			# Show $cronjob array
-			#print("<pre>".print_r($cronjob,true)."</pre>");
+			print("<pre>".print_r($cronjob,true)."</pre>");
 			?>
 		</div>
 
