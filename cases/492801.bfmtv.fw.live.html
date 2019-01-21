@@ -25,7 +25,7 @@ live: 5615950982001
     data-embed="default" 
     data-application-id 
     class="video-js" 
-    controls playsinline></video>
+    controls playsinline muted></video>
     <script src="//players.brightcove.net/876450610001/2vHMYUaWLS_default/index.min.js"></script>
     <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
     <script type="text/javascript">
@@ -82,7 +82,26 @@ live: 5615950982001
             "swfurl": "//players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf"
         }
     });
+
+
+myPlayer.on(myPlayer.events.adsPodEnded, function () {
+if (self._.config.isLive()) {
+console.log('setupFreewheel LiveAutoPlay');
+window.setTimeout(function () {
+var seekable = myPlayer.seekable();
+if (seekable != null && seekable.end != null) {
+myPlayer.currentTime(seekable.end(0));
+}
+myPlayer.play();
+}, 500);
+}
+});
+
+
      });
+
+
+
    </script>
 </body>
 </html>
