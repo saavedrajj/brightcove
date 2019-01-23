@@ -22,6 +22,9 @@
 	class="video-js" 
 	controls muted playsinline></video>
 	<script src="http://players.brightcove.net/5458602755001/0JrWDqfJc_default/index.min.js"></script>
-	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+    <script>
+    var myPlayer = videojs.getPlayer('myPlayerID');
+    myPlayer.autoplay("any");
+ </script>
 </body>
 </html>

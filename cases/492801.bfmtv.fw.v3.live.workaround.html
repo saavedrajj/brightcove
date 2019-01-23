@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFMTV - Freewheel VOD</title>
+    <style>
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
+</style> 
+<link href="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet">
+</head>
+<!-- 
+vod: 5988693398001
+live: 5615950982001
+!-->	
+<body> 
+    <h1>BFMTV - Freewheel v3 - Live</h1>
+    <video 
+    id="myPlayerID"
+    data-video-id="5615950982001" 
+    data-account="876450610001" 
+    data-player="2vHMYUaWLS" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls playsinline></video>
+    <script src="//players.brightcove.net/876450610001/2vHMYUaWLS_default/index.min.js"></script>
+    <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
+    <script type="text/javascript">
+       videojs("myPlayerID").ready(function(){
+         myPlayer= this;
+      myPlayer.FreeWheelPlugin({
+          "Flash": {
+            "networkId": 90750,
+            "profile": "3pqa_profile",
+            "sdkurl": "//mssl.fwmrm.net/p/release/latest-AS3/adm/dbg/AdManager.swf",
+            "serverUrl": "//cue.v.fwmrm.net/ad/g/1",
+            "siteSectionCustomId": "your value here",
+            "swfurl": "https://players.brightcove.net/videojs-freewheel/3/videojs.freewheel.swf",
+            "temporalSlots": [{
+              "adUnit": "preroll",
+              "id": "Preroll_1",
+              "timePosition": 0
+          }],
+          "videoAssetCustomId": "your value here",
+          "videoAssetDuration": 500
+      },
+      "Html5": {
+        "keyValues": [{
+          "feature": "simpleAds",
+          "module": "DemoPlayer"
+      }, {
+          "feature": "trackingURLs"
+      }],
+      "networkId": 96749,
+      "profile": "global-js",
+      "sdkurl": "//mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
+      "serverUrl": "//demo.v.fwmrm.net/ad/g/1",
+      "siteSectionCustomId": "your value here",
+      "temporalSlots": [{
+          "adUnit": "preroll",
+          "id": "Preroll_1",
+          "timePosition": 0
+      }],
+      "videoAssetCustomId": "your value here",
+      "videoAssetDuration": 500
+  },
+  "adTechOrder": [
+  "html5",
+  "flash"
+  ],
+  "debug": true,
+  "prerollTimeout": 1000,
+  "timeout": 5000
+})
+
+         /* p is the reference variable to the player */
+         //myPlayer=videojs('myPlayer'); 
+         /* on an adends or error set the currentime to the beginning of the seekable range */
+         myPlayer.on(['ads-ad-ended', 'adserror' ],function(){ 
+            myPlayer.currentTime(myPlayer.seekable().end(0)); 
+            myPlayer.play();
+        }
+        )
+
+     });
+ </script>
+</body>
+</html>
