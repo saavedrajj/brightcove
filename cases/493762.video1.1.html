@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	.videoContainer {
+		display: block;
+		position: relative;
+		max-width: 640px;
+	}
+
+	.videoExperience {
+		padding-top: 56.25%;
+	}
+</style>
+</head>
+
+<body>
+	<div class="videoContainer">
+		<div class="videoExperience">
+			<video 
+			id="bcovePlayer" 
+			data-video-id="5332423347001" 
+			data-account="3871979174001" 
+			data-player="default" 
+			data-embed="default" 
+			data-application-id 
+			class="video-js" 
+			controls 
+			style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+			<script src="//players.brightcove.net/3871979174001/default_default/index.min.js"></script>
+		</div>
+	</div>
+	<button id="btnSquare">Load square format</button>
+	<button id="btnVertical">Load vertical format</button>
+	<button id="btn169">Load 16:9 format</button>
+	<script>
+		var btnSquare = document.getElementById('btnSquare'),
+		btnVertical = document.getElementById('btnVertical'),
+		btn169 = document.getElementById('btn169'),
+		player = bc("bcovePlayer"),
+		videoExperience = document.getElementsByClassName('videoExperience')[0];
+
+		btnSquare.addEventListener('click', function(){ load('square'); });
+		btnVertical.addEventListener('click', function(){ load('vertical'); });
+		btn169.addEventListener('click', function(){ load('169'); }); 
+
+		player.ready(function() {
+			var bcovePlayer = this;
+			bcovePlayer.on('loadedmetadata', function(){
+				console.log('loadedmetadata');
+
+    //Look for any width & height in the MP4 sources, as soon as we get one we assume that'll be the ratio for all renditions
+    var sources = bcovePlayer.mediainfo.sources,
+    vdWidth = false, 
+    vdHeight = false;
+
+    sources.forEach(function(source, i, a) {
+    	if (source.width && source.height) {
+    		videojs.log('found width & height');
+    		vdWidth = source.width;
+    		vdHeight = source.height;
+    	}
+
+    	if(vdWidth && vdHeight) { return; }
+    });
+
+    //If width is equal or smaller than height, then player size will match asset width x height
+    if(vdWidth == vdHeight || vdWidth < vdHeight){
+    	var ratio = (vdHeight / vdWidth) * 100;
+    	console.log('ratio 1: ', vdHeight / vdWidth);
+    	console.log('ratio: ',ratio);
+    	videoExperience.style['padding-top'] = ratio + '%';
+    	console.log(vdWidth, ' x ', vdHeight);
+    }
+});
+		});
+
+		function load(format){
+			console.log('test')
+			/*format = "square";*/
+			switch(format) {
+				case 'square':
+				player.catalog.getVideo('5332423347001', function(error, video) {
+					player.catalog.load(video);
+				});
+				break;
+				case 'vertical':
+				player.catalog.getVideo('5530178883001', function(error, video) {
+					player.catalog.load(video);
+				});
+				break;
+				case '169':
+				videoExperience.style['padding-top'] = '56.25%';
+				player.catalog.getVideo('5472339575001', function(error, video) {
+					player.catalog.load(video);
+				});
+				break;
+				default:
+				player.catalog.getVideo('5530178883001', function(error, video) {
+					player.catalog.load(video);
+				}); 
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>

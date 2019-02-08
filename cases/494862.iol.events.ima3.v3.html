@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Events</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>IMA3 - Events</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<button onclick="clearConsole()">Clear Console</button>
+	<p class="console"><strong>Events log</strong></p>
+	<p class="console" id="message"></p>
+
+	<script type="text/javascript">
+	
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			serverUrl: '', 
+			timeout: 6000,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true,
+			numRedirects: 10
+		} 
+	});
+
+		var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F5180%2Ftestiol%2Fvideo%2Famelie&gdfp_req=1&env=vp&output=xml_vast4&unviewed_position_start=1&url=http%3A%2F%2Fi.plug.it%2Fst%2Fiplug%2Fjs%2Flib%2Fiol%2Fvideo%2Ftest%2Fplayer_walia.html&correlator=3311135002073436&description_url=http%3A%2F%2Fi.plug.it%2Fst%2Fiplug%2Fjs%2Flib%2Fiol%2Fvideo%2Ftest%2Fplayer_walia.html&npa=0&co=0&cust_params=onetag_key%3Dvalue1080%26onetag_invocation%3DNy42MzQ0OTk3OTMyNTQ5MjZFMTA6LTEyMzQ5Njk5MjM%26adv_sso1%3D0%26adv_sso2%3D0%26laud%3D104981%2C123951%2C123600%2C306469%2C93078%26trueview%3Dyes";
+		
+		player.ima3.adMacroReplacement = function(url){
+			return (serverURL);
+		};	
+
+		function clearConsole(){
+			message.innerHTML = "";      
+		}
+
+		var myPlayer = videojs.getPlayer('myPlayerID')
+
+		myPlayer.on('loadedmetadata',function() {
+			var promise = myPlayer.play();
+			if (promise !== undefined) {
+				promise.then(function() {
+					document.getElementById("message").innerText = "Autoplay started!\n";
+				}).catch(function(error) {
+					document.getElementById("message").innerText = "Autoplay was prevented\n";
+				});
+			}
+		});
+
+		videojs("myPlayerID").ready(function() {
+			myPlayer.on(["timeupdate", "playing", "pause"],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
+		});
+	</script>
+
+</body>
+</html>

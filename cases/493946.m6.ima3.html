@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - requestMode: onload</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>M6 - IMA3 plugin</h1>
+	<video 
+	id="myPlayerID"
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+		var player = bc('myPlayerID');
+
+		// Build serverUrl dynamically
+		adTagURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
+
+		player.ima3({
+			adTechOrder: ['html5', 'flash'],
+			serverUrl: adTagURL,
+			requestMode: 'onload', 
+			debugContribAds: true,
+			debug: true,
+			timeout: 6000,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true,
+				numRedirects: 10
+			}
+		});
+
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+			myPlayer.catalog.getVideo('5575865276001', function(error, video){
+				myPlayer.catalog.load(video);
+			});
+		});
+
+	</script>
+</body>
+</html>

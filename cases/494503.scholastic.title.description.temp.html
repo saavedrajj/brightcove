@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	/*
+	.vjs-dock-title { 
+		visibility: hidden;
+	} 
+	.vjs-dock-description { 
+		visibility: hidden;
+		} */
+	</style>
+</head>
+<body>
+	<h1>Scholastic Corporation</h1>
+	<h3>Player v6.29.2 (Latest version)</h3>
+	<video 
+	id="myPlayerID1"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="ij09Tz4IU" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="http://players.brightcove.net/5458602755001/ij09Tz4IU_default/index.min.js"></script>
+	<h3>Player v6.27.0</h3>
+	<video 
+	id="myPlayerID2"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="e63NtGns5" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="http://players.brightcove.net/5458602755001/e63NtGns5_default/index.min.js"></script>
+	<h3>Player v6.29.2 (CSS)</h3>
+	<video 
+	id="myPlayerID3"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="ij09Tz4IU" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js test" 
+	controls muted playsinline></video>
+	<script src="http://players.brightcove.net/5458602755001/ij09Tz4IU_default/index.min.js"></script>
+	<script>
+
+		var myPlayer;
+		videojs("myPlayerID3").ready(function() { 
+			var myPlayer = this; 
+
+			myPlayer.on("mouseout", function() { 
+				console.log("mouseout");
+				var cols =  document.getElementsByClassName('test');
+				for(i=0; i<cols.length; i++) {
+					cols[i].style.backgroundColor
+				});
+
+			myPlayer.on("mouseover", function() { 
+				console.log("mouseover");
+			}); 
+		});
+
+
+	</script>
+
+</body>
+</html>

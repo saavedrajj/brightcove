@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	<link rel="stylesheet" type="text/css" href="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.css"> 
+
+</style>
+</head>
+<body>
+	<h1>Draft</h1>
+	<div style="position: relative; display: block; max-width: 300px;"><div style="padding-top: 50%;">
+		<video id="myPlayerID"
+		data-video-id="5993708902001" 
+		data-account="1852113022001" 
+		data-player="ByA9Xavig" 
+		data-embed="default" 
+		data-application-id 
+		class="video-js" 
+		controls 
+		style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+		<script src="//players.brightcove.net/1852113022001/ByA9Xavig_default/index.min.js"></script></div></div>
+		<script type="text/javascript" src="https://players.brightcove.net/videojs-custom-endscreen/2/videojs-custom-endscreen.min.js"></script> 
+
+		<script type="text/javascript"> 
+			videojs("myPlayerID").ready(function(){
+				var myPlayer = this; 
+				myPlayer.customEndscreen({ 
+					"content": "<strong>Content</strong> for <em>custom</em> end screen" 
+				}) 
+			}); 
+		</script> 
+
+	</body>
+	</html>
+
+

@@ -81,10 +81,11 @@ live: 5615950982001
          /* p is the reference variable to the player */
          //myPlayer=videojs('myPlayer'); 
          /* on an adends or error set the currentime to the beginning of the seekable range */
-         myPlayer.on(['ads-ad-ended', 'adserror' ],function(){ 
-            //myPlayer.currentTime(myPlayer.seekable().end(0)); 
-            myPlayer.currentTime(0);             
-            myPlayer.pause();
+         myPlayer.on(['ads-ad-ended', 'adserror' ],function(){
+          console.log("myPlayer.seekable().length: " + myPlayer.seekable().length);
+            myPlayer.currentTime(myPlayer.seekable().end(0)); 
+            //myPlayer.currentTime(0);             
+            //myPlayer.pause();
             myPlayer.play();
         }
         )
