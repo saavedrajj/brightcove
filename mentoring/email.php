@@ -1,4 +1,6 @@
 <?php
+// http://php.net/manual/en/function.mail.php
+
 // The message
 $message = "Line 1\r\nLine 2\r\nLine 3";
 
