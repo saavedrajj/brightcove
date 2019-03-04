@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autoplay</title>
+    <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<style>
+.video-js {
+    width: 480px;
+    height: 270px;
+}
+</style>
+
+<body>
+    <video 
+    id="myPlayerID" 
+    data-video-id="5575865276001" 
+    data-account="5458602755001" 
+    data-player="BYSyU0D7Y" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls muted
+    playsinline></video>
+    <script src="//players.brightcove.net/5458602755001/BYSyU0D7Y_default/index.min.js"></script></div></div>
+    <script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>
+    <p id="playPromise"></p>
+    <script>
+        
+        var myPlayer;
+        bc('myPlayerID').ima3({
+            adTechOrder: [
+            'html5'
+            ], 
+            serverUrl: 'https://cs1.brightcodes.net/jsaavedra/includes/xml/empty.vast.xml',
+            requestMode: 'onload', 
+            timeout: 4000, 
+            debug: true,
+            hardTimeouts: false,
+            loadingSpinner: false,
+            vpaidMode: 'ENABLED',
+            ima3SdkSettings: {
+                disableCustomPlaybackForIOS10Plus: true,
+                numRedirects: 10
+            } 
+        });
+
+
+  var myPlayer = videojs.getPlayer('myPlayerID');
+  myPlayer.on('loadedmetadata',function() {
+      var promise = myPlayer.play();
+      if (promise !== undefined) {
+        promise.then(function() {
+          console.log("Autoplay started!.");    
+      }).catch(function(error) {
+        console.log("Autoplay was prevented.");
+    });
+  }
+});
+
+
+</script>
+</body>
+</html>
+

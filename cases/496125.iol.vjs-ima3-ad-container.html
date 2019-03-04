@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>IMA3 Events</title>
+	<title>IMA3 - requestMode: onload</title>
 	<style>
 	.video-js {
 		width: 480px;
@@ -12,7 +12,7 @@
 <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <body>
-	<h1>IMA3 - Events</h1>
+	<h1>iOL</h1>
 	<video 
 	id="myPlayerID"
 	data-video-id="5575865276001" 
@@ -25,17 +25,18 @@
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
 
-	<button onclick="clearConsole()">Clear Console</button>
 	<p class="console"><strong>Events log</strong></p>
 	<p class="console" id="message"></p>
 
 	<script type="text/javascript">
-		/*var myPlayer;*/
+
 		var player = bc('myPlayerID');
 		player.ima3({
 			adTechOrder: ['html5', 'flash'],
-			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+			serverUrl: 'http://cs1.brightcodes.net/jsaavedra/includes/xml/iol.xml',
 			requestMode: 'onload', 
+			debugContribAds: true,
+			debug: true,
 			timeout: 6000,
 			hardTimeouts: false,
 			loadingSpinner: false,
@@ -44,22 +45,21 @@
 			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
 			numRedirects: 10
 		} 
+
 	});
 
 		videojs("myPlayerID").ready(function() { 
 			var myPlayer = this;
-			myPlayer.on(["ima3error",  "adsready", "adstart", "adend", "contentupdate", "cotentplayback", "adtimeout", "adscanceled", "adserror", "readyforpreroll", "contentended"],function(event){
+			myPlayer.on(["adend"],function(event){
 				message.innerHTML += "" + event.type + "<br/>";    
-			});
-			myPlayer.on(["ima3-ready", "ima3error", "ima3-ad-error",  "ads-request", "ads-ad-ended", "ads-load", "ads-ad-started", "ads-play", "ads-pause", "ads-ad-skipped", "ads-first-quartile", "ads-midpoint", "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started", "ads-pod-ended", "ads-allpods-complete", ""],function(event){
-				message.innerHTML += "" + event.type + "<br/>";    
-			});
-		});
-	</script>
 
+			});
+
+
+
+		});
+
+
+	</script>
 </body>
 </html>
-
-<!--
-	vjs-ima3-ad-container
--->

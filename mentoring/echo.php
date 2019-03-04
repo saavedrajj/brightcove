@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Title</h1>
+	<h1>echo</h1>
 
 	<!-- http://php.net/manual/en/function.echo.php -->
 	<?php echo "<h2>Echo Subtitle</h2>"; ?>
@@ -25,7 +25,9 @@
 	<?php
 	for ($i = 1; $i <= 10; $i++) {
 		?>
+
 		i: <?php echo $i ?><br/>
+		
 		<?php
 	}
 	?>

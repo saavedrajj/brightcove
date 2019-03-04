@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+	<link href="https://players.brightcove.net/videojs-drm/5/videojs-drm.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>DRM - Dash example</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="6004412696001" 
+	data-account="5470155820001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls playsinline></video>
+	<script src="//players.brightcove.net/5470155820001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-drm/5/videojs-drm.min.js"></script>
+	<script type="text/javascript">
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+			myPlayer.eme();
+		});
+	</script>
+</body>
+</html>

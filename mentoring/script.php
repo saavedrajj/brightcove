@@ -50,7 +50,7 @@ $to = gmdate("Y-m-d\TH:i:s\Z");
 			$jcurl1 = json_decode($response1);
 			# http://php.net/manual/en/function.json-decode.php
 			$accessToken = $jcurl1->access_token;
-			#echo "access token: " . $accessToken;
+			//echo "access token: " . $accessToken;
 		}
 
 		# CMS API: Total of videos ************************************************************************************	

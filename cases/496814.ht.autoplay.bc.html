@@ -1,0 +1,693 @@
+
+<!DOCTYPE HTML><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<script src="https://players.brightcove.net/5857818229001/default_default/index.min.js"></script>
+<style>
+body{margin:0; padding:0;}
+.video-js{margin:20px 20px 0; width:510px; height:287px;}
+@media (max-width: 767px){.video-js{margin:16px 16px 0; width:92%; height:191px;}}
+@media  (min-width: 600px) and (max-width: 610px) {.video-js{height:287px;}}
+</style>
+</head>
+
+<body><section class="mainSec"> 
+   <section id="box_1550559460878" data-vars-storyid = "1550559460878" data-vars-storytype = "video" data-vars-pos = "vertical" class="cardHolder videoSec inView brightcove open marZero page-view-candidate" data-weburl = "/companies/start-ups/brightcove-video-2-1550559460878.html" data-url = "https://players.brightcove.net/5857818229001/default_default/index.html?videoId=5966738460001"> 
+        <article>
+
+		        	<video  id="myBCplayer-5966738460001"
+						    data-video-id="5966738460001"
+						    data-account="5857818229001"
+						    data-player="default"
+						    data-embed="default"
+						    class="video-js" playsinline
+						    controls="" mute=""></video>
+          <h1 class = "headline">Brightcove video -2</h1>
+          <span class="articleInfo pubtime">  Updated: 19 Feb 2019, 05:00 PM IST</span>
+<span  class="articleInfo author">
+<a href="/Search/Link/Author/Navjot Kaur Alang"><strong>Navjot Kaur Alang</strong></a>
+</span>
+<p class="summary">summary</p>        </article>
+        <div class="clearfix socialHolder">
+        <aside class="fl"> <aside class="fl"> 
+ <a  id = "bookmark_1550559460878" data-vars-storyid = "1550559460878" class="icoBookmark3 iconSprite marZero  bookmark-candidate bookmark_1550559460878" onClick="bookmarkFunc(this)"></a> 
+<a href="javascript:void(0)" data-vars-storyid = "1550559460878" data-vars-icontype = "facebook"  onClick="sharePage('http://www.facebook.com/sharer/sharer.php?u=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html');"  title="Facebook Share"  class="icoFB iconSprite share-candidate"></a> 
+<a href="https://wa.me/?text=Brightcove video -2 - https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html" data-vars-icontype = "whatsapp" data-vars-storyid = "1550559460878" target="_blank"   class="icowhatsapp iconSprite  share-candidate"></a>                   
+<a href="javascript:void(0)" data-vars-icontype = "linkedin" data-vars-storyid = "1550559460878"  onClick="sharePage('https://www.linkedin.com/cws/share?url=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html&amp;title=Brightcove video -2');" title="Linkedin Share" target="_blank" class="icolinkedin iconSprite  share-candidate"></a> 
+<a href="javascript:void(0)" data-vars-icontype = "twitter" data-vars-storyid = "1550559460878" data-vars-icontype = "twitter"  onClick="sharePage('https://twitter.com/share?url=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html&amp;text=Brightcove video -2');" title="Tweet"  class="icoTwit iconSprite  share-candidate"></a>
+               <div class="icoShare iconSprite" onclick="share(this)" style="display:none;">
+                    <div class="icoSec">
+                        <span></span>
+                        <div>Share Via</div>
+						<a href="javascript:void(0)"  data-vars-storyid = "1550559460878" data-vars-icontype = "facebook" onClick="sharePage('http://www.facebook.com/sharer/sharer.php?u=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html');"  title="Facebook Share"  class="icoFB2 iconSprite  share-candidate"></a> 
+						<a href="whatsapp://send?text=Brightcove video -2 - https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html" data-vars-icontype = "whatsapp" data-vars-storyid = "1550559460878"  target="_blank"   class="icowhatsapp2 iconSprite  share-candidate"></a>  
+						<a href="javascript:void(0)" data-vars-storyid = "1550559460878" data-vars-icontype = "linkedin" data-vars-storyid = "1550559460878"  onClick="sharePage('https://www.linkedin.com/cws/share?url=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html&amp;title=Brightcove video -2');" title="Linkedin Share" target="_blank" class="icolinkedin2 iconSprite  share-candidate"></a> 
+						<a href="javascript:void(0)" data-vars-storyid = "1550559460878" data-vars-icontype = "twitter"  onClick="sharePage('https://twitter.com/share?url=https://www.livemint.com/companies/start-ups/brightcove-video-2-1550559460878.html&amp;text=Brightcove video -2');" title="Tweet"  class="icoTwit2 iconSprite  share-candidate"></a>
+                   </div>
+                </div> 
+</aside>       </aside>
+      </div>
+      </section>&nbsp;<div id="mylistView" class = "listView"></div>
+    </section>
+      
+
+<script>
+var tempLoad = 0;
+var isScrolling;
+var YT;
+var playersArr= [];
+var ytPlayerIDs = [];
+var dmcIds = [];
+var dmcPlayer = [];
+var ytVideosClickedOnce = [];
+var dmVideosClickedOnce = [];
+var fbVideosClickedOnce = [];
+var checkVideoCounter=0;
+var vBoxID;
+var videoPlaying = null;
+var trackVideoRendered = [];
+
+//createVideo();
+
+
+document.onreadystatechange = function() {
+  if (tempLoad == 0) { var readyState = document.readyState; }
+  if (readyState === 'complete') {
+      tempLoad++; 
+      checkVideo();
+      getDataJS();
+  }
+ } 
+
+ window.addEventListener('scroll', function ( event ) {
+                //changePaginationURL();
+                window.clearTimeout( isScrolling );
+                isScrolling = setTimeout(function() {
+                  // Run the callback
+                 // console.log( 'Scrolling has stopped......' );
+                  //var ex = document.querySelectorAll('*[id^="ad-"]');   
+                  //console.log(ex);
+                  checkVideo();
+                  
+                }, 66);
+
+              }, false);
+
+
+
+
+
+
+ 
+  function isOnScreenVideo(element) {
+	  var elementOffsetTop = element.offsetTop;
+	  var elementHeight = element.offsetHeight;
+	  var screenScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+	  var screenHeight = window.innerHeight;
+	  var scrollIsAboveElement = elementOffsetTop + (0.25*elementHeight) - screenScrollTop >= 0;
+	  var adHeightToMinus = screen.width<=599 ? 100 : 300;
+	  var elementIsVisibleOnScreen = ((screenScrollTop + (0.55*screenHeight) - elementOffsetTop - adHeightToMinus) >= 0);
+	  return scrollIsAboveElement && elementIsVisibleOnScreen;
+ }
+
+  function checkVideo() {
+	  //console.log("checkVideo");
+	createVideo();
+	var thisBrowser = browser();
+	var el = document.getElementsByClassName('inView');
+	if(el.length != 0) {
+		var videosInView = 0;
+		for(var i=0; i<el.length; i++) {
+			var elemClassList = el[i].classList;
+			var storyID = el[i].id.split("_");
+			if(isOnScreenVideo(el[i])) {
+				//console.log("video in view : " + storyID[1]);
+				videosInView++;
+				if(videoPlaying) {
+					if(videoPlaying.type == "youtube") {
+						//pauseYTVideo(videoPlaying.id);
+					}else if(videoPlaying.type == "dailymotion") {
+						//pauseDMVideo(videoPlaying.id);
+					}
+					videoPlaying = null;
+				}
+				if(!elemClassList.contains("youtube") && !elemClassList.contains("dailymotion")) {
+					if(document.getElementById("vPlayerImage_"+storyID[1])){
+						document.getElementById("vPlayerImage_"+storyID[1]).style.display = "none";
+					}
+					if(document.getElementById("vIframe_"+storyID[1])){
+						document.getElementById("vIframe_"+storyID[1]).style.display = "block";
+					}
+				}
+				
+				var preLoadVideo = false;
+				if(thisBrowser == 'Safari'){
+					preLoadVideo = true;
+				}else{
+					if(navigator.connection.effectiveType=="4g" || navigator.connection.effectiveType=="Wifi") {
+						preLoadVideo = true;
+						console.log("Client Connection" + navigator.connection.effectiveType);
+					}
+				}
+				
+				
+				//var connection
+				//console.log("Client Connection" + navigator.connection.effectiveType);
+				if(preLoadVideo) {
+					//console.log("in connection test");
+					if(elemClassList.contains("brightcove")) {
+						if(el[i].getAttribute("data-url")!=undefined && el[i].getAttribute("data-url")!=null){
+							changeVideoURL(el[i].getAttribute("data-weburl"));
+							var videoId = el[i].getAttribute("data-url");
+							videoId = videoId.split("?");
+					    	videoId = videoId[videoId.length - 1];
+					    	videoId = videoId.split("videoId=");
+					    	videoId = videoId[videoId.length - 1];
+					    	videoId = videoId.split("&");
+					    	videoId = videoId[0];
+					    	//console.log("vd :" + videoId);
+					    	var bcPlayerId = "myBCplayer-"+videoId;
+					    	bc(document.getElementById(bcPlayerId));
+					    	videojs.getPlayer(bcPlayerId).ready(function() {
+					    		var myPlayer = this;
+					    		var promise = myPlayer.play();
+					    		if (promise !== undefined) {
+					    			promise.then(function() {
+					    				myPlayer.muted(true);
+					    			}).catch(function(error){
+					    				myPlayer.muted(true);
+					    	            myPlayer.play();
+					    			});
+					    		}
+					    		
+					    	});
+					    	
+					    	
+					    	try{
+					    		//if(!document.getElementByid())
+					    		bc(document.getElementById(bcPlayerId));
+					    		videojs.getPlayer(bcPlayerId).ready(function() {
+					    		var myPlayer = this;
+					    		//myPlayer.muted(true);
+					    		//myPlayer.play();
+					            var promise = myPlayer.play();
+					            if (promise !== undefined) {
+					                promise.then(function() {
+					                  myPlayer.muted(true);
+					                  //myPlayer.volume(volumeLevel);
+					                }).catch(function(error) {
+					                  myPlayer.muted(true);
+					                  myPlayer.play();
+					                });
+					              }
+					    	});
+					    	}catch(err){
+					    		console.log("brightCovemsg : "+ err.message);
+					    	}
+					    	
+						}
+					}
+					else if(elemClassList.contains("dailymotion")) {
+						if(el[i].getAttribute("data-url")!=undefined && el[i].getAttribute("data-url")!=null){
+							/* Change Video URL*/
+				 			changeVideoURL(el[i].getAttribute("data-weburl"));
+				 			
+							 var videoId = el[i].getAttribute("data-url");
+					    	 videoId = videoId.split("/");
+					    	 videoId = videoId[videoId.length - 1];
+					    	 var playerDiv = document.getElementById("vPlayerImage_"+storyID[1]);
+					    	 if(playerDiv.tagName.toLowerCase() != 'iframe'){
+					    		 playerDiv.classList.add("animated-background");
+					    		 playerDiv.classList.add("animatedHeight");
+					    		 playDmVideo(playerDiv, videoId, storyID[1]);
+					    	 }else{
+					    		 playerDiv.play();
+					    	 }
+							
+						}
+						//console.log("dailymotion");
+						videoPlaying = {id : "vIframe_"+storyID[1], type: "dailymotion"};
+						/*playDMVideo("vIframe_"+storyID[1]);*/
+					}else if(elemClassList.contains("facebook")) {
+						//console.log("facebook");
+						videoPlaying = {id : "vIframe_"+storyID[1], type: "facebook"};
+						callFBAutoPlayVideo(storyID[1],document.getElementById(el[i].id).getAttribute("data-url"),document.getElementById(el[i].id).getAttribute("data-weburl"));
+					}else if(elemClassList.contains("youtube")){
+						//console.log("youtube");
+						
+				    	 if(el[i].getAttribute("data-url")!=undefined && el[i].getAttribute("data-url")!=null){
+				    		 
+				    		/* Change Video URL*/
+				 			changeVideoURL(el[i].getAttribute("data-weburl"));
+				    		 
+				    		 var videoId = el[i].getAttribute("data-url");
+					    	 videoId = videoId.split("/");
+					    	 videoId = videoId[videoId.length - 1];
+					    	 videoPlaying = {id : "vIframe_"+storyID[1], type: "youtube", videoID : videoId};
+				    		 var playerDiv = document.getElementById("vPlayerImage_"+storyID[1]);
+					    	 if(playerDiv.tagName.toLowerCase() != 'iframe'){
+					    	 	 playerDiv.parentNode.classList.add("animated-background");
+					    	 	 playerDiv.parentNode.classList.add("animatedHeight");
+					    	 	 var newPlayer = createPlayers(playerDiv, videoId);
+					    	 	 ytPlayerIDs.push(videoId+'_'+storyID[1]);
+					    	 	 playersArr.push(newPlayer);
+					    	 	 playersArr = playersArr.filter(Boolean);
+					    	 }else{
+					    		 if(ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!=null && ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!==undefined && ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!==-1){
+						    		 playerYtIntance = ytPlayerIDs.indexOf(videoId+'_'+storyID[1]);
+						        	 playersArr = playersArr.filter(Boolean);
+							    	 if(playersArr[playerYtIntance]!=null && playersArr[playerYtIntance]!==undefined && playersArr[playerYtIntance]!='undefined'){
+							    		 try{
+							    			 playersArr[playerYtIntance].playVideo();
+							    		 }catch(e){
+							    			 console.log("iframe video created but not playing: "+e.message);
+							    		 }
+							    		 
+							    	 }
+					    		 }
+					    	 }
+				    		 
+				    	 }
+					}
+					
+				}
+				vBoxID = el[i].id;
+			}
+			else {
+				if(elemClassList.contains("brightcove")) {
+					if(el[i].getAttribute("data-url")!=undefined && el[i].getAttribute("data-url")!=null){
+						var videoId = el[i].getAttribute("data-url");
+						videoId = videoId.split("?");
+				    	videoId = videoId[videoId.length - 1];
+				    	videoId = videoId.split("videoId=");
+				    	videoId = videoId[videoId.length - 1];
+				    	videoId = videoId.split("&");
+				    	videoId = videoId[0];
+				    	//console.log("vd :" + videoId);
+				    	var bcPlayerId = "myBCplayer-"+videoId;
+				    	try{
+				    		videojs.getPlayer(bcPlayerId).ready(function() {
+				    		var myPlayer = this;
+				    		myPlayer.pause();
+				           
+				    	});
+				    	}catch(err){
+				    		//console.log("te :"+err.message);
+				    	}
+						
+					}
+				}
+				else if(elemClassList.contains("youtube")){
+					if(el[i].getAttribute("data-url")!=undefined && el[i].getAttribute("data-url")!=null){ 
+						var videoId = el[i].getAttribute("data-url");
+				    	 videoId = videoId.split("/");
+				    	 videoId = videoId[videoId.length - 1];
+				    	 //console.log(videoId);
+				    	 if(ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!=null && ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!==undefined && ytPlayerIDs.indexOf(videoId+'_'+storyID[1])!== -1){
+							 playerYtIntance = ytPlayerIDs.indexOf(videoId+'_'+storyID[1]);
+							 if(playersArr[playerYtIntance]!=null && playersArr[playerYtIntance]!==undefined && playersArr[playerYtIntance]!='undefined'){
+								 try{
+									 playersArr[playerYtIntance].pauseVideo();
+								 }
+								 catch(err){
+									 console.log("try Catch err : "+ err.message);
+								 }
+							 }
+						}
+					}
+				}else if(elemClassList.contains("dailymotion")){
+					//console.log("In daily motion"+"vPlayerImage_"+storyID[1]);
+					if(document.getElementById("vPlayerImage_"+storyID[1])){
+						playerDiv = document.getElementById("vPlayerImage_"+storyID[1]);
+						if(playerDiv.tagName.toLowerCase() == 'iframe'){
+							playerDiv.pause();
+		                }
+					}
+				}
+				else{
+					console.log("no");
+					checkVideoCounter = 0;
+				}
+			}
+		}
+	   
+		
+		if(videosInView == 0 && videoPlaying != null) {
+			
+			
+			
+			/*if(videoPlaying.type == "youtube") {
+				var videoId = videoPlaying.videoID;
+				if(ytPlayerIDs.indexOf(videoId)!=null && ytPlayerIDs.indexOf(videoId)!=undefined && ytPlayerIDs.indexOf(videoId)!= -1){
+					 playerYtIntance = ytPlayerIDs.indexOf(videoId);
+					 playersArr[playerYtIntance].pauseVideo();
+				}
+				//pauseYTVideo(videoPlaying.id);
+			}else if(videoPlaying.type == "dailymotion") {
+				pauseDMVideo(videoPlaying.id);
+			}*/
+			videoPlaying = null;
+			vBoxID = "";
+		}
+	}
+}
+
+
+
+
+/** Facebook Start **/
+function prepareFBFrame(id,url,temp) {
+    var ifrm = document.createElement("iframe");
+    if(temp == 1) {
+    ifrm.setAttribute("src", url+"&"+autoPlayFBParameters());
+    } else {
+    	ifrm.setAttribute("src", url+"&"+onClickFBParameters());
+    }
+    ifrm.style.width = "100%";
+    ifrm.style.height = "310px";
+    ifrm.id = "vIframe_"+id;
+    ifrm.style.pointerEvents = "none";
+    ifrm.frameBorder= 0;
+    ifrm.allowfullscreen = true;
+    return ifrm;
+}
+
+function unMuteFBVideo(vContainer) {
+	vContainerID = "vIframe_"+vContainer;
+	playFBVideo(vContainerID);
+	if(fbVideosClickedOnce.indexOf(vContainerID) != -1) {
+		location.href = document.getElementById("box_"+vContainer).getAttribute("data-weburl");
+		return;
+	}
+	
+	if(document.getElementById("box_"+vContainer).getAttribute("data-vplay")=="1") {
+	   document.getElementById(vContainerID).contentWindow.postMessage('{"command":"toggle-muted","parameters":[]}','*');
+	} else {
+		   document.getElementById(vContainerID).contentWindow.postMessage('play','*');
+	}
+	fbVideosClickedOnce.push(vContainerID);
+}
+
+function playFBVideo(vContainer) {
+	videoPlayStatus = "pause";
+	//document.getElementById(vContainer).contentWindow.postMessage();
+}
+
+function autoPlayFBParameters() {
+	return "autoplay=true";
+}
+
+function onClickFBParameters() {
+	return "autoplay=false";
+}
+
+function callFBAutoPlayVideo(container,url,weburl) {
+	  var player = prepareFBFrame(container,url,1);
+	  document.getElementById("vPlayer_"+container).innerHTML = '<div onClick = \"unMuteDMVideo('+container+');\" data-vplay = "1" data-weburl = "'+weburl+'" id = "v_'+container+'"></div>';
+	  document.getElementById("v_"+container).appendChild(player);
+	  if(document.getElementById("vPlayerImage_"+storyID[1])){
+		  document.getElementById("vPlayerImage_"+container).style.display = "none";
+	  }
+}
+function callFBOnClickVideo(container,url,weburl) {
+	  var player = prepareFBFrame(container,url,0);
+	  document.getElementById("vPlayer_"+container).innerHTML = '<div onClick = \"unMuteDMVideo('+container+');\" data-vplay = "0" data-weburl = "'+weburl+'" id = "v_'+container+'"></div>';
+	  document.getElementById("v_"+container).appendChild(player);
+	  if(document.getElementById("vPlayerImage_"+storyID[1])){
+		  document.getElementById("vPlayerImage_"+container).style.display = "none";
+	  }
+}
+/** Facebook End **/
+/** DM Start **/
+
+function unMuteDMVideo(vContainer) {
+	vContainerID = "vIframe_"+vContainer;
+	playDMVideo(vContainerID);
+	if(dmVideosClickedOnce.indexOf(vContainerID) != -1) {
+		//console.log(document.getElementById("v_"+vContainer).getAttribute("data-weburl"));
+		location.href = document.getElementById("v_"+vContainer).getAttribute("data-weburl");
+		return;
+	}
+	document.getElementById(vContainerID).contentWindow.postMessage('{"command":"toggle-muted","parameters":[]}','*');
+	dmVideosClickedOnce.push(vContainerID);
+}
+
+function playDMVideo(videoId) {
+	console.log("DailyMotion : "+ videoId);
+	videoPlayStatus = "play";
+	document.getElementById(videoId).contentWindow.postMessage('{"command":"'+videoPlayStatus+'","parameters":[]}', '*');
+}
+
+function pauseDMVideo(videoId) {
+	videoPlayStatus = "pause";
+	document.getElementById(videoId).contentWindow.postMessage(
+            '{"command":"'+videoPlayStatus+'","parameters":[]}', '*');
+}
+/** DM End **/
+/** YT Start **/
+
+function unMuteYTVideo(vContainer) {
+	vContainerID = "vIframe_"+vContainer;
+	playYTVideo(vContainerID);
+	//playYTVideo(vContainerID);
+	if(ytVideosClickedOnce.indexOf(vContainerID) != -1) {
+		location.href = document.getElementById("box_"+vContainer).getAttribute("data-weburl");
+		return;
+	}
+	
+//	alert(document.getElementById("box_"+vContainer).getAttribute("data-vplay"))
+	document.getElementById(vContainerID).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}','*');
+	ytVideosClickedOnce.push(vContainerID);
+}
+
+function unMuteYTVideoOnWall(vContainer) {
+	vContainerID = "vIframe_"+vContainer;
+	playYTVideo(vContainerID);
+	if(ytVideosClickedOnce.indexOf(vContainerID) != -1) {
+		return;
+	}
+	
+	document.getElementById(vContainerID).contentWindow.postMessage('{"event":"command","func":"unMute","args":""}','*');
+	ytVideosClickedOnce.push(vContainerID);
+}
+
+function playYTVideo(videoId) {
+	console.log("Play: "+videoId);
+	var videoPlayStatus = "playVideo";
+	console.log(videoId)
+	document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}','*');
+}
+
+function pauseYTVideo(videoId) {
+	console.log("Pause: "+videoId);
+	var videoPlayStatus = "pauseVideo";
+	document.getElementById(videoId).contentWindow.postMessage('{"event":"command","func":"'+videoPlayStatus+'","args":""}', '*');
+}
+
+/*function showAndUnmutePlayer(storyId, videoType) {
+	if(document.getElementById("vPlayerImage_"+storyID[1])){
+		document.getElementById("vPlayerImage_"+storyId).style.display = "none";
+	}
+	document.getElementById("vIframe_"+storyId).style.display = "block";
+	if(videoType == "youtube") {
+		unMuteYTVideo(storyId);
+	}else if(videoType == "dailymotion") {
+		unMuteDMVideo(storyId);
+	}
+}*/
+
+
+function showAndUnmutePlayer(storyId, videoType){
+	if(videoType == 'dailymotion'){
+		if(document.getElementById("box_"+storyId).getAttribute("data-url") && document.getElementById("box_"+storyId).getAttribute("data-url")!=null && document.getElementById("box_"+storyId).getAttribute("data-url")!=undefined){
+			/* Change Video URL*/
+			 changeVideoURL(document.getElementById("box_"+storyId).getAttribute("data-weburl"));
+			 
+			 var videoId = document.getElementById("box_"+storyId).getAttribute("data-url");
+			 videoId = videoId.split("/");
+		   	 videoId = videoId[videoId.length - 1];
+		   	 var playerDiv = document.getElementById("vPlayerImage_"+storyId);
+		   	 if(playerDiv.tagName.toLowerCase() != 'iframe'){
+		   		 playerDiv.classList.add("animated-background");
+		   		 playerDiv.classList.add("animatedHeight");
+		   		 playDmVideo(playerDiv, videoId, storyId);
+		   	 }else{
+		   		 playerDiv.play();
+		   	 }
+		 }
+	}else if(videoType == 'youtube'){
+		if(document.getElementById("box_"+storyId).getAttribute("data-url") && document.getElementById("box_"+storyId).getAttribute("data-url")!=null && document.getElementById("box_"+storyId).getAttribute("data-url")!=undefined){
+			/* Change Video URL*/
+			changeVideoURL(document.getElementById("box_"+storyId).getAttribute("data-weburl"));
+			
+			var videoId = document.getElementById("box_"+storyId).getAttribute("data-url");
+			 videoId = videoId.split("/");
+		   	 videoId = videoId[videoId.length - 1];
+		   	 var playerDiv = document.getElementById("vPlayerImage_"+storyId);
+	    	 if(playerDiv.tagName.toLowerCase() != 'iframe'){
+	    	 	 playerDiv.parentNode.classList.add("animated-background");
+	    	 	 playerDiv.parentNode.classList.add("animatedHeight");
+	    	 	 var newPlayer = createPlayers(playerDiv, videoId);
+	    	 	 //console.log("Parmendra "+ newPlayer);
+	    	 	 ytPlayerIDs.push(videoId+'_'+storyId);
+	    	 	 playersArr.push(newPlayer);
+	    	 	 playersArr = playersArr.filter(Boolean);
+	    	 }else{
+	    		 if(ytPlayerIDs.indexOf(videoId+'_'+storyId)!=null && ytPlayerIDs.indexOf(videoId+'_'+storyId)!==undefined && ytPlayerIDs.indexOf(videoId+'_'+storyId)!==-1){
+		    		 playerYtIntance = ytPlayerIDs.indexOf(videoId+'_'+storyId);
+		        	 playersArr = playersArr.filter(Boolean);
+		        	 playersArr = playersArr.filter(Boolean);
+			    	 if(playersArr[playerYtIntance]!=null && playersArr[playerYtIntance]!==undefined && playersArr[playerYtIntance]!='undefined'){
+			    		 try{
+			    			 playersArr[playerYtIntance].playVideo();
+						 }
+						 catch(err){
+							 console.log("try Catch err : "+ err.message);
+						 }
+			    		 
+			    	 }
+	    		 }
+	        	 
+	    	 }
+		 }
+	}else{
+		if(document.getElementById("vPlayerImage_"+storyId)){
+			document.getElementById("vPlayerImage_"+storyId).style.display = "none";
+		}
+		document.getElementById("vIframe_"+storyId).style.display = "block";
+	}
+	
+	
+	
+	
+}
+
+
+function getDataJS(pageNo) {
+        apiURL = "http://origin-alpha.livemint.com/Fragment/PortalConfig/LiveMint/template/jpp/demo/ajacall.jpp";
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", apiURL,  true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                if(xhttp.response != ""){
+                  document.getElementById('mylistView').insertAdjacentHTML('beforeend', xhttp.response);
+                }
+            }
+        }
+
+
+}
+
+
+/** YT End **/
+
+function createVideo(){
+	var youtubeScriptId = "youtube-api";
+  	var youtubeScript = document.getElementById(youtubeScriptId);
+	if (youtubeScript === null) {
+	    var tag = document.createElement("script");
+	    var firstScript = document.getElementsByTagName("script")[0];
+
+	    tag.src = "https://www.youtube.com/iframe_api";
+	    tag.id = youtubeScriptId;
+	    firstScript.parentNode.insertBefore(tag, firstScript);
+	}
+} 
+
+
+function createPlayers(playerId, videoId) { 
+	 var _player = new YT.Player(playerId, { 
+	  height: '287', 
+	  width: '100%', 
+	  videoId: videoId,
+	  mute:true,
+	  events: { 
+	   'onReady': onPlayerReady,
+	   'onStateChange': onPlayerStateChange
+	  }
+	 });
+	 playersArr.push(_player);
+	}
+
+function onPlayerReady(event) {
+	console.log(event);
+	event.target.playVideo();
+}
+function onPlayerStateChange(el) {
+    console.log(el.data);
+    if(el.data === 1) {
+        el.target.a.parentNode.classList.remove("animated-background");
+        el.target.a.parentNode.classList.remove("animatedHeight");
+    }
+}
+
+
+function playDmVideo(domId, videoId, id){
+	 var divId = domId;
+    var player = DM.player(divId, {
+	    video: videoId,
+	    width: "100%",
+	    height: "287",
+	    params: {
+	        autoplay: true,
+	        mute: true
+	    }
+	});
+	 player.addEventListener('apiready', function (e)
+	 {
+	     e.target.classList.remove("animated-background");
+	     e.target.classList.remove("animatedHeight");
+	     player.play();
+	     if(!document.getElementById("box_"+id).getAttribute("data-weburl") && document.getElementById("box_"+id).getAttribute("data-weburl")!=null && document.getElementById("box_"+id).getAttribute("data-weburl")!=undefined){
+	    	 window.history.replaceState(null,"",document.getElementById("box_"+id).getAttribute("data-weburl"));
+	     }
+	 });
+    //player.play();
+    dmcIds.push(videoId);
+    dmcPlayer.push(player);
+}
+
+function changeVideoURL(newUrl){
+	
+	/*window.history.replaceState(null,"",newUrl);
+	//console.log("parmendra : "+ trackVideoRendered.includes(newUrl));
+	if(!trackVideoRendered.includes(newUrl)){
+		trackVideoRendered.push(newUrl);
+		comScore();
+	}*/
+}
+
+function browser() {
+    if (browser.prototype._cachedResult)
+        return browser.prototype._cachedResult;
+
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    var isEdge = !isIE && !!window.StyleMedia;
+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+    return browser.prototype._cachedResult =
+        isOpera ? 'Opera' :
+        isFirefox ? 'Firefox' :
+        isSafari ? 'Safari' :
+        isChrome ? 'Chrome' :
+        isIE ? 'IE' :
+        isEdge ? 'Edge' :
+        isBlink ? 'Blink' :
+        "Don't know";
+}	
+
+</script>
+</body></html>

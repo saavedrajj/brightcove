@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style type="text/css">
+	.video-js {
+		height: 333px;
+		width: 300px;
+		float: left;
+	}
+	.vjs-playlist {
+		width: 280px;
+		height: 333px;
+	}
+
+</style>
+<style> 
+.vjs-social-embed-code { 
+	display: none	
+} 
+</style>
+<link href="https://pfredirect.pfizersite.io/files/bc/socialsharing.css" rel="stylesheet"> 
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-playlist-id="6002428305001"
+	data-account="1852113022001"
+	data-player="rJ8p7Is3A"
+	data-embed="default"
+	data-application-id
+	class="video-js"
+	controls
+	></video>
+	<ol class="vjs-playlist"></ol>
+	<script src="//players.brightcove.net/1852113022001/rJ8p7Is3A_default/index.min.js"></script>
+	<script src="https://pfredirect.pfizersite.io/files/bc/socialsharing.js"></script>
+
+	<script type="text/javascript">
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this,
+			options = {
+				"title": "Tiger",
+				"description": "Video of two tigers",
+				"url": "Sharing the URL of Tiger",				
+				"deeplinking": true,				
+				"services": {
+					"facebook": true,
+					"google": true,
+					"twitter": true,
+					"tumblr": false,
+					"pinterest": false,
+					"linkedin": true
+				}
+			};
+			myPlayer.social(options);
+		});
+	</script>
+
+</body>
+</html>

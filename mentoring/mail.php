@@ -1,12 +1,12 @@
 <?php
-// http://php.net/manual/en/function.mail.php
+# http://php.net/manual/en/function.mail.php
 
-// The message
+# The message
 $message = "Line 1\r\nLine 2\r\nLine 3";
 
-// In case any of our lines are larger than 70 characters, we should use wordwrap()
+# In case any of our lines are larger than 70 characters, we should use wordwrap()
 $message = wordwrap($message, 70, "\r\n");
 
-// Send
+# Send
 mail('jsaavedra@brightcove.com', 'My Subject', $message);
 ?>
