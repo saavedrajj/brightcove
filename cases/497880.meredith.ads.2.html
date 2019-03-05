@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>IOL Playlist</title>
+
+	<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	ol {
+		width: 480px;
+	}
+</style>
+</head>
+<body>
+	<h2>IOL Playlist</h2>   
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+
+	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<p>logs:</p>
+	<div id="log"></div>
+
+	<script>
+
+		var myPlayer;
+		var player = bc('myPlayerID');
+
+		function initIMA() {	
+			player.ima3({
+				adTechOrder: ['html5'],
+				requestMode: "onload", 
+				serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=', 
+				hardTimeouts: true,
+				timeout: 5000,
+				debug: false
+			});
+		}
+
+		initIMA();	
+
+		player.ready(function() {
+			myPlayer = this;
+
+			myPlayer.on("ended", function (event) {		
+				console.log("ended");
+				nextVideo();
+
+			});
+
+		});
+
+		function nextVideo() {
+		initIMA();	
+			myPlayer.catalog.getVideo('5575865276001', function(error, video){
+				myPlayer.catalog.load(video);
+			});		
+
+
+			var serverURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
+
+			myPlayer.ima3.adMacroReplacement = function(url){
+				myPlayer.ima3.adsManager.destroy();			
+				myPlayer.ima3.adsLoader.contentComplete(); 		
+
+
+				log.innerHTML += "adMacroReplacement(): " + serverURL;	
+				log.innerHTML += "<hr>";	
+				return (serverURL);
+			};	
+
+		};	
+
+
+	</script>
+
+
+</body>
+</html>

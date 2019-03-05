@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 Plugin Code Example</title>
+	<style>
+	.video-js {
+		height: 344px;
+		width: 610px;
+	}
+</style>
+<link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<video-js id="myPlayerID"
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default"
+	data-embed="default"
+	class="video-js"
+	controls muted></video-js>
+	<script src="https://players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script>
+		var myPlayer;
+		var player = bc('myPlayerID');
+		player.ima3({
+			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+			requestMode: 'onplay'
+		});
+		player.ready(function() {
+			myPlayer = this;
+			myPlayer.on("ended", function (event) {		
+				console.log("ended");
+				playNext();
+			});
+			myPlayer.on("contentupdate", function (event) {		
+				console.log("contentupdate");
+			});		
+			myPlayer.on("contentended", function (event) {		
+				console.log("contentended");
+			});		
+
+
+
+
+			function playNext() {
+
+				myPlayer.catalog.getVideo('5993743252001', function(error, video){
+				myPlayer.trigger("contentupdate");
+				myPlayer.trigger("contentended");				
+					myPlayer.catalog.load(video);
+				});			
+
+			};
+
+
+		});
+	</script>
+</body>
+</html>
