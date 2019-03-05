@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+</head>
+<body>
+	<h1>Player dimensions</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted
+	style=""></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<p>	
+		<button onclick="changeVideoSize(1)">640 x 360</button>						
+		<button onclick="changeVideoSize(2)">960 x 540</button>
+		<button onclick="changeVideoSize(3)">1280 x 720</button>
+	</p>
+
+	<script>
+		var myPlayer;
+		var player = bc('myPlayerID');
+		
+		player.ready(function() {
+			myPlayer = this;
+			currentSize();
+		});
+
+		function currentSize() {
+			var currDim = myPlayer.currentDimensions();
+			console.log(currDim);
+		}
+
+		function changeVideoSize(i) {
+			var i;
+			if (i==1) {
+				myPlayer.width(640);
+				myPlayer.height(360);	
+				currentSize();
+			}
+			if (i==2) { 
+				myPlayer.width(960);
+				myPlayer.height(540);	
+				currentSize();
+			}
+			if (i==3) { 
+				myPlayer.width(1280);
+				myPlayer.height(720);
+				currentSize();	
+			}
+		}
+	</script>	
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>IMA3 - requestMode: onload</title>
+	<title></title>
 	<style>
 	.video-js {
 		width: 480px;
@@ -12,7 +12,7 @@
 <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <body>
-	<h1>IMA3 - requestMode: onload</h1>
+	<h1></h1>
 	<video 
 	id="myPlayerID"
 	data-video-id="5575865276001" 
@@ -28,9 +28,9 @@
 		/*var myPlayer;*/
 		var player = bc('myPlayerID');
 		player.ima3({
-			adTechOrder: ['html5', 'flash'],
+			adTechOrder: ['html5'],
 			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
-			requestMode: 'onload', 
+			requestMode: 'onplay', 
 			debugContribAds: true,
 			debug: true,
 			timeout: 6000,
@@ -43,16 +43,29 @@
 		} 
 	});
 
+		var myPlayer;
+
 		videojs("myPlayerID").ready(function() { 
 			var myPlayer = this;
-			myPlayer.on(["ended"],function(event){
-				 
-				if(typeof myPlayer.ima3.adsManager != 'undefined'){
-					myPlayer.ima3.adsManager.destroy();
-					myPlayer.ima3.adsLoader.contentComplete(); 
-				}
-				myPlayer.play();  
+			myPlayer.on("ended", function (event) {
+				console.log("ended")
+				playNext();
 			});
+
+			/*function initIMA(){
+				myPlayer.ima3()
+			}*/
+
+			function playNext() {
+				myPlayer.ima3.adsManager.destroy(); 
+				myPlayer.ima3.adsLoader.contentComplete(); 
+
+				//initIMA();
+				myPlayer.catalog.getVideo('5993743252001', function(error, video){
+					myPlayer.catalog.load(video);
+				});			
+
+			};
 		});
 	</script>
 </body>
