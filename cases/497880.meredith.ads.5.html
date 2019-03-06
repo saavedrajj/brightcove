@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IMA3 - requestMode: ondemand</title>
+	<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+
+<body>
+	<h1>IMA3 - requestMode: ondemand</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>				
+	<button type="button" class="btn btn-primary" onclick="doAdsRequest();">Make Ad request 1</button>
+	<script type="text/javascript">
+		bc('myPlayerID').ima3({
+			adTechOrder: ['html5'],
+			serverUrl: '',
+			requestMode: 'ondemand', 
+			timeout: 6000, 
+			debug: true,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+			disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+			numRedirects: 10
+		} 
+	});
+
+		var myPlayer = videojs("myPlayerID");
+			/*
+			myPlayer.off("contentupdate");
+			myPlayer.off("contentupdate");	
+			myPlayer.trigger("contentupdate");
+			myPlayer.trigger("contentupdate");	
+			*/
+				myPlayer.on("ended", function (event) {		
+					console.log("ended");
+					nextVideo();
+
+				});
+
+
+				function nextVideo() {
+
+					myPlayer.currentTime(0);
+
+			/*myPlayer.catalog.getVideo('5575865276001', function(error, video){	
+				myPlayer.catalog.load(video);
+			});	*/		
+
+		};
+
+
+
+		function doAdsRequest() {
+			//
+			myPlayer.ima3.adsLoader.contentComplete(); 		
+			//myPlayer.ima3.adsManager.destroy();	
+			myPlayer.ima3.adrequest('https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=');
+		}
+
+	</script>
+
+
+
+</body>
+</html>

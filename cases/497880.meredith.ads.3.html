@@ -35,6 +35,10 @@
 				console.log("ended");
 				playNext();
 			});
+/*
+			myPlayer.off("contentupdate");
+				myPlayer.off("contentupdate");		
+*/
 			myPlayer.on("contentupdate", function (event) {		
 				console.log("contentupdate");
 			});		
@@ -48,8 +52,13 @@
 			function playNext() {
 
 				myPlayer.catalog.getVideo('5993743252001', function(error, video){
-				myPlayer.trigger("contentupdate");
-				myPlayer.trigger("contentended");				
+					myPlayer.catalog.load(video);
+				});	
+
+
+				myPlayer.catalog.getVideo('5575865276001', function(error, video){
+				/*myPlayer.trigger("contentupdate");
+				myPlayer.trigger("contentended");	*/			
 					myPlayer.catalog.load(video);
 				});			
 
