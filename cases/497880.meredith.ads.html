@@ -25,7 +25,6 @@
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
 	<script type="text/javascript">
-		/*var myPlayer;*/
 		var player = bc('myPlayerID');
 		player.ima3({
 			adTechOrder: ['html5'],
@@ -42,56 +41,24 @@
 			numRedirects: 10
 		} 
 	});
-
 		var myPlayer;
-
 		videojs("myPlayerID").ready(function() { 
 			var myPlayer = this;
-
-myPlayer.on('contentchanged', function(){ 
-//myPlayer.ima3.adsLoader.contentComplete();
-//console.log("ey"); 
-console.log(">>>>>>>>>>>>>>>>>>>>>>>>> contentchanged");
-});
 
 			myPlayer.on(["ended"], function (event) {
 				console.log("ended");
 				playNext();
 			});
 
-
 			myPlayer.on(["contentchanged", "contentended"],function(event){
 				console.log(event.type);    
 			});
 
-
 			function playNext() {
-				//var videoID1 = myPlayer.mediainfo.id;
-
-/*5993743252001*/
-myPlayer.ima3.adsLoader.contentComplete();
+				myPlayer.ima3.adsLoader.contentComplete();
 				myPlayer.catalog.getVideo('5575865276001', function(error, video){
 					myPlayer.catalog.load(video);	
-
-					//console.log(">>> videoID1: " + videoID1);
-					//var videoID2 = myPlayer.mediainfo.id;
-					//console.log(">> videoID2: " + videoID2);
-
-
-					//if (videoID1==videoID2) {
-						//console.log("SON iguales");
-						myPlayer.off("adstart");					
-						//myPlayer.off("ads-request");
-						//myPlayer.trigger("contentended");
-						myPlayer.trigger("contentchanged");
-						myPlayer.off("adstart");	
-						myPlayer.off("ads-request");
-						myPlayer.off("ads-load");
-
-					//} else {
-					//	console.log("NO son iguales");
-					//}
-
+					myPlayer.trigger("contentchanged");
 				});	
 			};
 
