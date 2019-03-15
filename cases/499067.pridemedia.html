@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+PLAYLIST WITH ADS PLUGIN (WITH SERVER URL TOO):
+<link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">  
+<div style="position: relative; display: block;"><div style="padding-top: 100%;"><video id="brightcoveRightRail1" data-playlist-id="6008027428001" data-account="6001673517001" data-player="wGC05d5pG" data-embed="default" data-application-id class="video-js" controls style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video>
+  <script src="//players.brightcove.net/6001673517001/wGC05d5pG_default/index.min.js"></script></div></div>
+ <script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+<script>
+  var myPlayer;
+  var player = bc('brightcoveRightRail1');
+  player.ima3({
+    serverUrl: 'https://solutions.brightcove.com/bcls/brightcove-player/vmap/simple-vmap.xml',
+		//debug: true
+  });
+  player.ready(function () {
+    myPlayer = this;
+    //Do something
+  });
+</script>
+
+</body>
+</html>

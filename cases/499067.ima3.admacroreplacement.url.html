@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>ima3.adMacroReplacement()</h1>
+	<video 
+	id="brightcoveRightRail1"
+	data-playlist-id="6008027428001"
+	data-account="6001673517001" 
+	data-player="wGC05d5pG" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/6001673517001/wGC05d5pG_default/index.min.js"></script>
+	<script>
+		videojs.getPlayer('brightcoveRightRail1').ready(function() {
+			var myPlayer = this;
+			var serverURL = "https://solutions.brightcove.com/abroadstone/play2018/surfing-clientside-ad.xml";
+			myPlayer.ima3.adMacroReplacement = function(url){
+				return (serverURL);
+			};	 
+		});
+	</script>
+	</html>

@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
 	<title></title>
-
 	<style>
 	.video-js {
 		width: 480px;
@@ -13,22 +11,19 @@
 </style>
 </head>
 <body>
-	<h1>Title</h1>
-	<video 
+	<video-js 
 	id="myPlayerID"
-	data-video-id="5584726865001" 
-	data-account="5182475815001" 
-	data-player="O6LqrVSWpB" 
-	data-embed="default" 
-	data-application-id 
-	class="video-js" 
-	controls muted playsinline></video>
-	<script src="http://players.brightcove.net/5182475815001/O6LqrVSWpB_default/index.min.js"></script>
-	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
-	<script>
-		videojs("myPlayerID").ready(function() { 
-			var myPlayer = this;
-		});
+	data-embed="default"
+	data-application-id
+	class="video-js"
+	controls></video-js>
+	<script src="https://players.brightcove.net/5182475815001/O6LqrVSWpB_default/index.min.js"></script>
+	<script type="text/javascript">
+		var myPlayerEl = document.getElementById("myPlayerID");
+		myPlayerEl.setAttribute('data-account', 5182475815001);
+		myPlayerEl.setAttribute('data-player', 'O6LqrVSWpB');
+		myPlayerEl.setAttribute('data-video-id', 5584726865001);
+		bc(myPlayerEl);
 	</script>
 </body>
 </html>

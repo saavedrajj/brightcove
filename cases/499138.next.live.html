@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .video-js {
+      width: 480px;
+      height: 270px;
+    }
+  </style> 
+
+</head>
+<!-- 
+vod: 5988693398001
+live: 5615950982001
+!-->	
+<body> 
+  <h1>Next - Live</h1>
+  <video 
+  id="myPlayerID"
+  data-video-id="5615950982001" 
+  data-account="876450610001" 
+  data-player="2vHMYUaWLS" 
+  data-embed="default" 
+  data-application-id 
+  class="video-js" 
+  controls playsinline></video>
+  <script src="//players.brightcove.net/876450610001/2vHMYUaWLS_default/index.min.js"></script>
+  <p id="message"></p>
+  <script type="text/javascript">
+   videojs("myPlayerID").ready(function(){
+     myPlayer= this;
+     myPlayer.on(["suspend", "abort", "error", "emptied", "stalled", "loadedmetadata", "loadeddata", "canplay", "canplaythrough", "playing", "waiting", "seeking", "seeked", "ended", "durationchange", "play", "pause", "ratechange", "resize", "volumechange", "modalclose"],function(event){
+      message.innerHTML += "" + event.type + "<br/>";    
+    });
+   });
+ </script>
+</body>
+</html>
