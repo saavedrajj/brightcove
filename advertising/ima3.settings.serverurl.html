@@ -16,26 +16,17 @@
 	id="myPlayerID"
 	data-video-id="5575865276001" 
 	data-account="5480141310001" 
-	data-player="20oDl12Lz" 
+	data-player="default" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
 	controls muted></video>
-	<script src="//players.brightcove.net/5458602755001/20oDl12Lz_default/index.min.js"></script>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
 	<script>
-
 		var player = bc('myPlayerID');
 		player.on('ready', function(){
-			player.ima3.settings.serverUrl = "https://solutions.brightcove.com/abroadstone/play2018/surfing-clientside-ad.xml";
+			player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
 		});
-/*
-		videojs.getPlayer('myPlayerID').ready(function() {
-			var player = this;
-			player.on('ready', function(){
-				player.ima3.settings.serverUrl = "https://solutions.brightcove.com/abroadstone/play2018/surfing-clientside-ad.xml";
-			}); 
-		});	
-*/		
 	</script>
 
 

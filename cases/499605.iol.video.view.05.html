@@ -2,35 +2,35 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>IMA3 - requestMode: onload</title>
+	<title>IMA3 + No autoplay + Player v6.29.2</title>
 	<style>
 	.video-js {
 		width: 480px;
 		height: 270px;
 	}
 </style>
-<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+<link href="//players.brightcove.net/videojs-ima3/2/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <body>
-	<h1>IMA3 - requestMode: onload</h1>
+	<h1>IMA3 + No autoplay + Player v6.29.2</h1>
 	<video 
 	id="myPlayerID"
 	data-video-id="5575865276001" 
 	data-account="5458602755001" 
-	data-player="default" 
+	data-player="PJZHVf8nu" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
 	controls muted></video>
-	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
-	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script src="//players.brightcove.net/5458602755001/PJZHVf8nu_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/2/videojs.ima3.js"></script>
 	<script type="text/javascript">
-		var myPlayer;
+		/*var myPlayer;*/
 		var player = bc('myPlayerID');
 		player.ima3({
 			adTechOrder: ['html5'],
 			serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
-			requestMode: 'onplay', 
+			requestMode: 'onload', 
 			debugContribAds: true,
 			debug: true,
 			timeout: 6000,
@@ -42,10 +42,6 @@
 			numRedirects: 10
 		} 
 	});
-    player.ready(function() {
-      myPlayer = this;
-      //Do something
-    });		
 </script>
 </body>
 </html>

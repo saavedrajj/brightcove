@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Autoplay</title>
-    <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+    <link href="//players.brightcove.net/videojs-ima3/3.2.5/videojs.ima3.min.css" rel="stylesheet">
 </head>
 <style>
-.video-js {
-    width: 480px;
-    height: 270px;
-}
+    .video-js {
+        width: 480px;
+        height: 270px;
+    }
 </style>
 
 <body>
@@ -25,8 +25,7 @@
     controls
     playsinline></video>
     <script src="//players.brightcove.net/5458602755001/BYSyU0D7Y_default/index.min.js"></script></div></div>
-    <script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>
-    <p id="playPromise"></p>
+    <script src="//players.brightcove.net/videojs-ima3/3.2.5/videojs.ima3.js"></script>
     <script>
         
         var myPlayer;
@@ -48,17 +47,17 @@
         });
 
 
-  var myPlayer = videojs.getPlayer('myPlayerID');
-  myPlayer.on('loadedmetadata',function() {
-      var promise = myPlayer.play();
-      if (promise !== undefined) {
-        promise.then(function() {
-          console.log("Autoplay started!.");    
-      }).catch(function(error) {
-        console.log("Autoplay was prevented.");
-    });
-  }
-});
+        var myPlayer = videojs.getPlayer('myPlayerID');
+        myPlayer.on('loadedmetadata',function() {
+          var promise = myPlayer.play();
+          if (promise !== undefined) {
+            promise.then(function() {
+              console.log("Autoplay started!.");    
+          }).catch(function(error) {
+            console.log("Autoplay was prevented.");
+        });
+      }
+  });
 
 
 </script>
