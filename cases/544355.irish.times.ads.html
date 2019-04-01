@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Newsday LLC - Preroll</title>
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+<link href="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Newsday LLC - Preroll</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6019387952001" 
+	data-account="1795463433001" 
+	data-player="EJZ88sbdtx" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="//players.brightcove.net/1795463433001/EJZ88sbdtx_default/index.min.js"></script>
+
+
+<script src="https://players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+  <script>
+    var myPlayer;
+    var player = bc('myPlayerID');
+    player.ima3({
+      serverUrl: "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/2695176/The_Irish_Times/News_Video&kvsubsection='News_Ireland'&kvreferral&kvpeople=&kvcategory=&kvtopic=&kvarticlecount=&kvloc=&kvlen=1&kvpagetype='videoarticle'&kvusertype=&kvcompany=&kvcontentid=1.3842183&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1"
+    });
+    player.ready(function() {
+      myPlayer = this;
+      //Do something
+    });
+  </script>
+
+</body>
+</html>

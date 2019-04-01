@@ -13,30 +13,21 @@
 </head>
 <body>
 	<h1>Newsday LLC - Preroll</h1>
-	<video 
-	id="adsonlyplayer"
+	<video-js 
+	id="myPlayerID"
 	data-video-id="5575865276001" 
 	data-account="5458602755001" 
 	data-player="Z2ncyd9r5" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
-	controls playsinline></video>
+	controls muted playsinline></video-js>
 	<script src="//players.brightcove.net/5458602755001/Z2ncyd9r5_default/index.min.js"></script>
 	<script>
-		/*
-		var player = bc('adsonlyplayer');
-		     player.autoplay("any");
-		player.on('ready', function(){
-			player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
-		});*/
-		var player = bc('adsonlyplayer');
-		player.on('ready', function(){
-			player.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
+		var myPlayer = bc('myPlayerID');
+		myPlayer.on('ima3-ready', function(){
+			myPlayer.ima3.settings.serverUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
 		});
-
-
-		
 	</script>
 </body>
 </html>

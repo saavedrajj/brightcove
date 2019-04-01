@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+		.vjs-playlist {
+			width: 480px;
+
+		}
+	</style>
+</head>
+<body>
+	<h2>playlist 1</h2>
+	<video-js 
+	id="playlist1"
+	data-account="5728959027001" 
+	video data-playlist-id="5976462638001" 
+	data-player="IH7rGEJ6v" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<div class="vjs-playlist" data-for="playlist1"></div>	
+	<script src="https://players.brightcove.net/5728959027001/IH7rGEJ6v_default/index.min.js"></script>
+
+	<h2>video 1</h2>
+	<video-js 
+	id="video1"
+	data-account="5728959027001" 
+	data-video-id="5775194310001" 
+	data-player="HJUdFfTmQ" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<script src="https://players.brightcove.net/5728959027001/HJUdFfTmQ_default/index.min.js"></script>
+
+	<h2>Audio download plugin 1</h2>
+	<video id="myPlayerID1"
+	data-video-id="6010362248001"
+	data-account="1752604059001"
+	data-player="default"
+	data-embed="default"
+	data-application-id
+	class="video-js"
+	controls></video>
+	<script src="//players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+
+	<h2>Audio download plugin 2</h2>
+	<video-js 
+	id="myPlayerID2"
+	data-video-id="5806132568001"
+	data-account="5728959027001"
+	data-player="default"
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+
+	<script src="http://players.brightcove.net/5728959027001/default_default/index.min.js"></script>
+	<script src="http://cs1.brightcodes.net/jsaavedra/includes/js/download-audio.js"></script>
+
+	<script>videojs.getPlayer('myPlayerID1').downloadAudio();</script>
+	<script>videojs.getPlayer('myPlayerID2').downloadAudio();</script>
+
+
+</body>
+</html>

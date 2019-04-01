@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Player dqozUSNKY</h1>
+	<video-js 
+	id="myPlayerID"
+	data-playlist-id="5479927530001" 
+	data-account="5458602755001" 
+	data-player="dqozUSNKY" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/5458602755001/dqozUSNKY_default/index.min.js"></script>
+    <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>	
+ <script type="text/javascript">
+        var myPlayer;
+
+        videojs("myPlayerID").ready(function(){
+           myPlayer= this;
+           myPlayer.FreeWheelPlugin(
+{
+  "timeout": 5000,
+  "prerollTimeout": 1000,
+  "debug": true,
+  "adTechOrder": [
+    "html5"
+  ],
+  "Html5": {
+    "videoAssetDuration": "{player.duration}",
+    "videoAssetCustomId": "{mediainfo.id}",
+    "siteSectionCustomId": "BFMTV_all-desktop-VOD-undefined",
+    "serverUrl": "https://7dcde.v.fwmrm.net/ad/g/1",
+    "sdkurl": "//mssl.fwmrm.net/p/release/latest-JS/adm/prd/AdManager.js",
+    "profile": "515294:nextregie_html5_test",
+    "networkId": 515294,
+    "keyValues": [
+      {
+        "module": "DemoPlayer",
+        "feature": "simpleAds"
+      },
+      {
+        "feature": "trackingURLs"
+      }
+    ]
+  }
+}
+
+
+           );
+       });
+   </script>
+</body>
+</html>
