@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Overlay Plugin</title>
+	<meta charset="utf-8">
+	<link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">		
+	<style>
+		.video-js {
+			width: 640px;
+			height: 360px;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Overlay Plugin</h1>
+
+	<video-js 
+	id="myPlayerID"
+	data-video-id="5460105416001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+	<script type="text/javascript">
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.overlay({
+				overlays: [
+				{
+					"start": 1,
+					"content": "<a href='http://www.brightcove.com'><img src='http://solutions.brightcove.com/bcls/assets/images/brightcove-logo.png'></a>",
+					"align": "bottom"
+				}
+				]
+			});
+		});
+	</script>		
+
+
+
+</body>
+</html>

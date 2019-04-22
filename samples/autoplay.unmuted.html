@@ -6,13 +6,12 @@
     <title>Autoplay</title>
 </head>
 <style>
-.video-js {
-    width: 640px;
-    height: 360px;
-}
+    .video-js {
+        width: 640px;
+        height: 360px;
+    }
 </style>
 <body>
-    <h1>Autoplay</h1>
     <video 
     id="myPlayerID" 
     data-video-id="5575865276001" 
@@ -25,18 +24,25 @@
     playsinline></video>
     <script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
     <script>
-    var myPlayer = videojs.getPlayer('myPlayerID');
-    myPlayer.on('loadedmetadata',function() {
-        var promise = myPlayer.play();
-        if (promise !== undefined) {
-            promise.then(function() {
+        var myPlayer = videojs.getPlayer('myPlayerID');
+        myPlayer.on('loadedmetadata',function() {
+            var promise = myPlayer.play();
+            if (promise !== undefined) {
+                promise.then(function() {
                 // Autoplay started!
                 console.log('Autoplay started!');
             }).catch(function(error) {       
                 // Autoplay was prevented.
                 console.log('Autoplay was prevented');
                 myPlayer.muted(true);
-                myPlayer.play();     
+                myPlayer.play();  
+
+                setTimeout(function(){
+                  myPlayer.muted(false);
+                  myPlayer.play(); 
+              }, 500);
+
+
             });
         }
     });

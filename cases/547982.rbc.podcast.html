@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Podcast</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6010785098001" 
+	data-account="3650909074001" 
+	data-player="uMlRxQ7k0" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/3650909074001/uMlRxQ7k0_default/index.min.js"></script>
+
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+            myPlayer.on(["suspend", "abort", "error", "emptied", "stalled", "loadedmetadata", "loadeddata", "canplay", "canplaythrough", "playing", "waiting", "seeking", "seeked", "ended", "durationchange", "play", "pause", "ratechange", "resize", "volumechange", "modalclose"],function(event){
+                console.log("event: " + event.type);    
+            });
+
+		});
+	</script>
+</body>
+</html>
