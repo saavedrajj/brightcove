@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>DRM</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6028652816001" 
+	data-account="5308289312001" 
+	data-player="RRd1uf3fh" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="//players.brightcove.net/5308289312001/RRd1uf3fh_default/index.js"></script>
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+		});
+	</script>
+</body>
+</html>

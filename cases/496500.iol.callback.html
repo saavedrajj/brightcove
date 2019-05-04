@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1></h1>
+	<video-js
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="VNO7kwg8qw" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video-js>
+	<script src="//players.brightcove.net/5458602755001/VNO7kwg8qw_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<script type="text/javascript">
+		var player = bc('myPlayerID');
+		player.ima3({
+			adTechOrder: ['html5'],
+			serverUrl: function(callback) {
+				if (myPlayer.mediainfo.id === '5575865276001') {
+					callback('https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=');
+					console.log(">>> IMA3 callback = Single Inline Linear");
+				} else {
+					callback('https://pubads.g.doubleclick.net/gampad/ads?sz=480x70&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dnonlinear&correlator=');
+					console.log(">>> IMA3 callback done = Single Non-linear Inline");					
+				}
+			},
+			requestMode: 'onload', 
+			debugContribAds: true,
+			debug: true,
+			timeout: 6000,
+			hardTimeouts: false,
+			loadingSpinner: false,
+			vpaidMode: 'ENABLED',
+			ima3SdkSettings: {
+				disableCustomPlaybackForIOS10Plus: true,
+				numRedirects: 10
+			} 
+		});
+
+		var myPlayer = videojs.getPlayer('myPlayerID');
+		myPlayer.on('loadedmetadata',function() {
+
+			var promise = myPlayer.play();
+			if (promise !== undefined) {
+				promise.then(function() {
+
+				}).catch(function(error) {
+
+					myPlayer.muted(true);
+					myPlayer.play();
+				});
+			}
+
+		});
+	</script>
+</body>
+</html>
