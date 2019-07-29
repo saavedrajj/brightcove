@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BT player</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+
+</style>
+</head>
+<body>
+	<h1>IMA3 - Events</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="80OUUWuPK" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/80OUUWuPK_default/index.min.js"></script>
+	<button onclick="clearConsole()">Clear Console</button>
+	<p class="console"><strong>Events log</strong></p>
+	<p class="console" id="message"></p>
+<script type="text/javascript">
+	  function clearConsole(){
+    message.innerHTML = "";      
+  }
+</script>
+
+	<script type="text/javascript">
+
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+
+			myPlayer.on(["ima3error",  "adsready", "adstart", "adend", "contentupdate", "contentplayback", "adtimeout", "adscanceled", "adserror", "readyforpreroll", "contentended"],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
+			myPlayer.on(["ima3-ready", "ima3error", "ima3-ad-error",  "ads-request", "ads-ad-ended", "ads-load", "ads-ad-started", "ads-play", "ads-pause", "ads-ad-skipped", "ads-first-quartile", "ads-midpoint", "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started", "ads-pod-ended", "ads-allpods-complete", ""],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
+
+		});
+
+	</script>
+
+</body>
+</html>
+
+<!--
+	vjs-ima3-ad-container
+-->

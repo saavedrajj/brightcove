@@ -23,10 +23,11 @@
 
   // Build the player and place in HTML DOM
   function addPlayer() {
+    /*options.ID = "myPlayer" + Math.random();   */   
     options.accountID = "5458602755001";
     options.videoID = "5575865276001";
     options.playerID = "default";
-    options.adServerURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="  
+    options.adServerURL = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="  
     console.log('options', options);
     // Dynamically build the player video element
     playerHTML = '<video-js id=\"myPlayerID\" data-video-id=\"' + options.videoID + '\"  data-account=\"' + options.accountID + '\" data-player=\"' + options.playerID + '\"  data-embed=\"default\" class=\"video-js\" controls playsinline></video-js>';
@@ -55,7 +56,7 @@
         requestMode: "onload",
         serverUrl: options.adServerURL
       });
-      myPlayer.autoplay("muted");
+      /*myPlayer.autoplay("muted");*/
     }
 
   }

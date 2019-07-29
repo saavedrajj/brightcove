@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BT player</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+</head>
+<body>
+	<h1>BT - Autoplay + IMA3 v3.x + Social v3.x</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="sg7K6EvNR" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<script src="//players.brightcove.net/5458602755001/sg7K6EvNR_default/index.min.js"></script>
+	<button onclick="clearEvents()">Clear Events log</button>
+	<p class="console"><strong>Events log:</strong></p>
+	<p class="console" id="message"></p>
+	<script type="text/javascript">
+    function clearEvents(){
+        message.innerHTML = ""; 
+    }
+
+	videojs("myPlayerID").ready(function() { 
+		var myPlayer = this;
+
+		/* Player events 
+		https://support.brightcove.com/player-events */
+    	myPlayer.on([ "loadedmetadata", "loadeddata","loadstart", "play", "pause", "abort", "error", "emptied","canplay", "playing", "waiting", "seeking", "seeked", "ended", "volumechange"],function(event){
+      		message.innerHTML += "Player event: " + event.type + "<br/>";    
+    	});
+
+		/* IMA3 plugin events 
+		https://support.brightcove.com/player-events#adevents*/
+		myPlayer.on([,"ima3-ready", "ima3-ad-error", "ads-request", "ads-load", "ads-ad-started", "ads-ad-ended", "ads-play", "ads-pause", "ads-ad-skipped", "ads-first-quartile", "ads-midpoint", "ads-third-quartile", "ads-click", "ads-volumechange", "ads-pod-started", "ads-pod-ended", "ads-allpods-complete"],function(event){
+			message.innerHTML += "> IMA3 event: " + event.type + "<br/>";    
+		});		
+	});
+	</script>
+
+</body>
+</html>
+
+<!--
+
+BT sports:	
+accountid: 2503979514001
+playerid: SkkEyZmN
+videoid: 6034035192001
+http://players.brightcove.net/2503979514001/SkkEyZmN_default/index.min.js
+Brighcove Player v6.34.3
+IMA3 plugin v3 (latest)
+Auto-play: Do Not Auto-play
+
+<div class="module-featured-title">Top Football Videos</div> <div class="rhr_player sport"> <div class="rhr_player_content"> <video id="videojsplayer" data-account="2503979514001" data-player="SJeWMavdq" data-embed="default" class="video-js rhr_player_content_video vjs-mouse" data-playlist-id="4564724677001" controls data-setup='{"techOrder": ["html5", "flash", "hls"], "autoplay": false, "preload": "none" }'></video> </div> <div class="playlist-wrapper"> <ol class="vjs-playlist vjs-mouse"></ol> </div> </div> <script src="//players.brightcove.net/2503979514001/SJeWMavdq_default/index.min.js"></script>
+
+
+BT:
+accountid: 2045965034001
+playerid: 4ec9a888-ca6a-46b0-bd86-8c4445cad627 
+videoid: 6034163770001
+http://players.brightcove.net/2045965034001/4ec9a888-ca6a-46b0-bd86-8c4445cad627_default/index.min.js
+Brighcove Player v6.34.3
+IMA3 plugin v2 (latest)
+Auto-play: True
+
+<video id="videojsplayer" data-account="2045965034001" data-player="4ec9a888-ca6a-46b0-bd86-8c4445cad627" data-embed="default" class="video-js bts_video_content vjs-mouse" style="width:100%;height:100%" controls></video>
+<script src="//players.brightcove.net/2045965034001/4ec9a888-ca6a-46b0-bd86-8c4445cad627_default/index.min.js"></script>
+
+-->

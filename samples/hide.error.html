@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	.vjs-loading-spinner {
+/*display: none!important;*/
+}
+</style>
+</head>
+<body>
+	<h1>Sony - Error message</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="6010721887001" 
+	data-account="5182475815001" 
+	data-player="g0z9H4jClu" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="http://players.brightcove.net/5182475815001/g0z9H4jClu_default/index.min.js"></script>
+	<script>
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+			myPlayer.on('error', function(e){ 
+				myPlayer.getChild('errorDisplay').hide(); 
+				myPlayer.loadingSpinner.hide();
+			}); 
+		});
+	</script>	
+</body>
+</html>

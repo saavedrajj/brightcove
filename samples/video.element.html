@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<video id="myPlayerID" width="640" height="360" autoplay playsinline muted controls>
+		<source src="https://cs1.brightcodes.net/jsaavedra/videos/bunny.960x540.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+
+		<script type="text/javascript">
+			var player = document.getElementById("myPlayerID");
+
+			player.onwaiting = function() {
+				message.innerHTML += "*** waiting triggered<br>";
+			};
+			player.onplaying = function() {
+				message.innerHTML += "*** playing triggered<br>";
+			};
+			player.onseeking = function() {
+				message.innerHTML += "*** seeking triggered<br>";
+			};
+			player.onseeked = function() {
+				message.innerHTML += "*** seeked triggered<br>";
+			};			
+			function clearLogs(){
+				console.log("clear log");
+				message.innerHTML = "";			
+			};
+		</script>
+		<p><button onclick="clearLogs()">Clear logs</button></p>
+		<p id="message"></p>	
+
+
+</body>
+</html>

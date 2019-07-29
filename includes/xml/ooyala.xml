@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:fh="http://purl.org/syndication/history/1.0"
+  xmlns:ooyala="http://www.ooyala.com/mrss/">
+  <channel>
+    <item>
+      <media:content url="test.mp4" ></media:content>
+      <media:title>Test XML</media:title>
+      <media:description>This is an example</media:description>
+      <ooyala:labels>/test,/example,/xml</ooyala:labels>
+      <dcterms:valid>start=2016-01-01T15:15:00-07:00;
+        end=2022-01-01T16:00:00-07:00</dcterms:valid>
+      <guid isPermaLink="false">my_test_guid_xml</guid>
+      <ooyala:profileguid>57d5a5a10f654fe79ef954dc8d29a108</ooyala:profileguid>
+    </item>
+  </channel>
+</rss>

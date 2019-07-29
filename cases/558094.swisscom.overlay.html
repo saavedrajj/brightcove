@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Overlay Plugin</title>
+	<meta charset="utf-8">
+	<link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">	
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>	
+</head>
+<body>
+
+	<h1>Overlay Plugin</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6039763562001" 
+	data-account="2048251700001" 
+	data-player="Syk7L9dKl" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="//players.brightcove.net/2048251700001/Syk7L9dKl_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>				
+
+	<script type="text/javascript">
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.overlay({
+				overlays: [
+				{
+					"start": 1,
+					"end": 3,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 1</a>",
+					"align": "bottom-right"
+				},
+				{
+					"start": 3,
+					"end": 5,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 2</a>",
+					"align": "top-left"
+				},
+				{
+					"start": 5,
+					"end": 7,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 3</a>",
+					"align": "top"
+				},
+				{
+					"start": 7,
+					"end": 9,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 4</a>",
+					"align": "top-right"
+				},
+				{
+					"start": 9,
+					"end": 11,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 5</a>",
+					"align": "right"
+				},
+				{
+					"start": 11,
+					"end": 13,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 6</a>",
+					"align": "bottom-right"
+				},
+				{
+					"start": 13,
+					"end": 15,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 7</a>",
+					"align": "bottom"
+				},
+				{
+					"start": 15,
+					"end": 17,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 8</a>",
+					"align": "bottom-left"
+				},
+				{
+					"start": 17,
+					"end": 19,
+					"content": "<a href='https://www.google.com' target='_blank'>Link 9</a>",
+					"align": "left"
+				}
+				]
+			});
+		});
+	</script>		
+</body>
+</html>

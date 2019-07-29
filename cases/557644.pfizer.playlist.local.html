@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video
+	id="myPlayerID"
+	data-playlist-id="5479927530001" 
+	data-account="5458602755001" 
+	data-player="GLHvHyQjv" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	<script src="http://players.brightcove.net/5458602755001/GLHvHyQjv_default/index.min.js"></script>
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+<!--
+Playlist1: 6036102439001 
+Playlist2: 6036148980001 
+
+Playlist code: 
+
+<div style="position: relative; display: block; max-width: 300px;"><div style="padding-top: 50%;"><video data-playlist-id="XXXXXXXXXXXXX" 
+data-account="1852113022001" 
+data-player="r1VBxfGoM" 
+data-embed="default" 
+data-application-id 
+class="video-js" 
+controls 
+style="position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%;"></video> 
+<script src="//players.brightcove.net/1852113022001/r1VBxfGoM_default/index.min.js"></script></div></div> 
+-->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Metadata example</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6039763562001" 
+	data-account="2048251700001" 
+	data-player="Syk7L9dKl" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<p id="mediainfo"></p>
+	<script src="http://players.brightcove.net/2048251700001/Syk7L9dKl_default/index.min.js"></script>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+			myPlayer.on('loadstart',function(){
+				console.log(myPlayer.mediainfo);				
+				mediainfo.innerHTML = myPlayer.mediainfo.custom_fields.once_data;
+			})
+		});
+	</script>
+</body>
+</html>

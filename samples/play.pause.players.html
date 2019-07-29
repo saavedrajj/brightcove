@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		.video-js {
+			width:610px;
+			height:344px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Multiple videos</h1>
+	<video-js
+	id="myPlayerID1"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<hr>
+	<video-js
+	id="myPlayerID2"
+	data-video-id="ref:promo02" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>	
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script type="text/javascript">
+		var myPlayer1;
+		var myPlayer2;
+
+		videojs.getPlayer('myPlayerID1').ready(function() {
+			myPlayer1 = this;
+			myPlayer1.on("play", function(){
+				console.log('player1');
+				pausePlayer2();
+			});
+		});
+
+		videojs.getPlayer('myPlayerID2').ready(function() {
+			myPlayer2 = this;
+			myPlayer2.on("play", function(){
+				console.log('player2');
+				pausePlayer1();
+			});
+		});
+
+		function pausePlayer1() {
+			console.log("**** PAUSE PLAYER 1 ****");
+			myPlayer1.pause();			
+		}
+
+		function pausePlayer2() {
+			console.log("**** PAUSE PLAYER 2 ****");
+			myPlayer2.pause();			
+		}
+
+	</script>
+</body>	
+</body>
+</html>

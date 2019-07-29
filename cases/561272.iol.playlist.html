@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled Document</title>
+  <style type="text/css">
+    .video-js {
+      height: 350px;
+      width: 640px;
+    }
+    .vjs-playlist {
+      width: 640px;
+    }
+  </style>
+  <link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+  <video-js 
+  id="myPlayerID"
+  data-playlist-id="5485017876001"
+  data-account="5458602755001"
+  data-player="9zkhK1mAi"
+  data-embed="default"
+  data-application-id
+  class="video-js"
+  controls></video-js>
+  <div class="vjs-playlist"></div>
+  <script src="https://players.brightcove.net/5458602755001/9zkhK1mAi_default/index.min.js"></script>
+  <script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.js"></script>
+  <script type="text/javascript">
+
+    var myPlayer = bc('myPlayerID');
+    
+    myPlayer.ima3({
+      adTechOrder: ['html5'],
+      serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=',
+      requestMode: 'onload',
+      timeout: 5000,
+      debug: true,
+      hardTimeouts: true,
+      loadingSpinner: true,
+      ima3SdkSettings: {
+      disableCustomPlaybackForIOS10Plus: true, // enables skippable ads on iOS
+      autoPlayAdBreaks: false,
+      numRedirects: 10
+    }
+  });
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title></title>
+
+    <!-- STEP 1 - Including the gigya.js script: -->
+    <script type="text/javascript" src="https://cdns.gigya.com/js/gigya.js?apiKey=3_mK2cmEzLkzhqe4MUrtPncxbv4wKsYAhsew0iVwhVUls3c_Jx_HLX434jAVpq5M_W">
+
+
+
+https://cdns.gigya.com/JS/socialize.js?apikey=">
+
+    // STEP 2 - Defining a global configuration object:    
+    { 
+        enabledProviders: "facebook"
+    }
+    </script>
+</head>
+
+<body >
+<script type="text/javascript" >
+    function Login()
+    {
+        var params = {
+           "callback": onLogin,
+           "provider": "facebook",
+		   context:'testLogin'
+        };   
+        gigya.socialize.login(params);
+    }
+
+    //declare the callback function in your code
+    function onLogin(response)
+    {
+        if (response.errorCode == 0) {
+
+            // this will inject the user name and nickname
+            document.getElementById('divUserName').innerHTML = response.user.nickname;
+
+            ///set the photo to image src attribute.
+            document.getElementById('imgUserPhoto').src = response.user.photoURL;
+        }
+        else {
+
+            //handle errors
+            alert("An error has occured!" + '\n' +
+                "Error details: " + response.errorMessage + '\n' +
+                "In method: " + response.operation);
+        }
+    }
+</script>
+ 
+<div id="runningCodeExample" style="border: 1px solid skyblue; padding: 15px; width: 400px; display: block; height: auto;">
+<center>
+    <input type="button" onclick="Login()" value="Connect to Facebook"  />
+    <div id="UserInfo">
+       <div id="divUserName"></div>
+       <div id="divUserPhoto"><img id="imgUserPhoto" src="https://s3.amazonaws.com/wikifiles.gigya.com/transparent.GIF" onerror="this.src='transparent.GIF'"/></div>
+    </div>
+</center>
+</div>
+</body>
+</html>

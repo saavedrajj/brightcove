@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">
+</head>
+<body>
+
+	<h1>Overlay Plugin</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>	
+
+	<script type="text/javascript">
+		var myPlayer;
+		videojs('myPlayerID').ready(function(){
+			myPlayer = this;
+			myPlayer.overlay({
+				overlays: 
+				[
+				{
+					"start": 20,
+					"end": 90,
+					"content": "Suscription expired",
+					"align": "bottom"
+				}
+				
+				]
+			});
+		});
+	</script>		
+</div>
+
+</body>
+</html>

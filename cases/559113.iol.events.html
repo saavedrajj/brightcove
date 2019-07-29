@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="5520581834001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script type="text/javascript">
+		var player = videojs.getPlayer('myPlayerID');
+		player.ready(function(){
+			var myPlayer = this;
+			
+			myPlayer.on("loadedmetadata", function() { 
+				message.innerHTML += "*** loadedmetadata triggered<br>";
+				myPlayer.muted(true);
+				myPlayer.play();
+			});
+			
+			myPlayer.on("waiting", function() { 
+				message.innerHTML += "*** waiting triggered<br>";
+			});
+			
+			myPlayer.on("playing", function() { 
+				message.innerHTML += "*** playing triggered<br>";
+			});
+			
+			myPlayer.on("seeked", function() { 
+				message.innerHTML += "*** seeked triggered<br>";
+			});
+			myPlayer.on("seeking", function() { 
+				message.innerHTML += "------------------------<br>";
+				message.innerHTML += "*** seeking triggered<br>";
+			});
+			
+		});
+
+		function clearLogs(){
+			console.log("clear log");
+				message.innerHTML = "";			
+		};
+	</script>
+	<button onclick="clearLogs()">Clear logs</button>
+	<p id="message"></p>	
+</body>
+</html>

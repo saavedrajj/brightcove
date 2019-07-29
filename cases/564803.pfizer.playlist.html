@@ -9,20 +9,30 @@
 			width: 480px;
 			height: 270px;
 		}
+		.vjs-playlist {
+			width: 480px;		
+		}
+
+
+.vjs-playlist-item {
+	opacity: 0.5;
+}
+
 	</style>
 </head>
 <body>
 	<h1>Title</h1>
 	<video-js 
 	id="myPlayerID"
-	data-video-id="5575865276001" 
-	data-account="5458602755001" 
-	data-player="default" 
+	data-playlist-id="6045170030001"
+	data-account="1852113022001" 
+	data-player="r1VBxfGoM" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
 	controls muted playsinline></video-js>
-	<script src="http://players.brightcove.net/5575865276001/default_default/index.min.js"></script>
+	<div class="vjs-playlist"></div>	
+	<script src="http://players.brightcove.net/1852113022001/r1VBxfGoM_default/index.min.js"></script>
 	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
 	<script>
 		videojs.getPlayer('myPlayerID').ready(function() {
@@ -33,3 +43,4 @@
 	</script>
 </body>
 </html>
+

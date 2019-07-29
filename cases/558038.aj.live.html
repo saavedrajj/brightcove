@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
 	<title></title>
 
 	<style>
@@ -12,24 +13,26 @@
 	</style>
 </head>
 <body>
-	<h1>Title</h1>
+	<h1>Al Jazeera</h1>
 	<video-js 
 	id="myPlayerID"
-	data-video-id="5575865276001" 
-	data-account="5458602755001" 
-	data-player="default" 
+	data-video-id="5467349513001" 
+	data-account="665003303001" 
+	data-player="d27wrf4yy" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
 	controls muted playsinline></video-js>
-	<script src="http://players.brightcove.net/5575865276001/default_default/index.min.js"></script>
+	<script src="http://players.brightcove.net/665003303001/d27wrf4yy_default/index.min.js"></script>
 	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
 	<script>
-		videojs.getPlayer('myPlayerID').ready(function() {
+		videojs("myPlayerID").ready(function() { 
 			var myPlayer = this;
-
-			
+			myPlayer.on('error', function(e){ 
+				myPlayer.getChild('errorDisplay').hide(); 
+				myPlayer.loadingSpinner.hide();
+			}); 
 		});
-	</script>
+	</script>	
 </body>
 </html>
