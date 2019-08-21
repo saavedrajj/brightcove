@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Title</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6057858547001" 
+	data-account="6012566821001" 
+	data-player="bO8cRz0p5" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/6012566821001/bO8cRz0p5_default/index.min.js"></script>
+	<p>videojs("myPlayerID").player().duration(); </p>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+		});
+	</script>
+</body>
+</html>

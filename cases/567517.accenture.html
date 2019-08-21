@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Accenture</h1>
+	<video-js 
+	id="myPlayerID1"
+	data-video-id="5185377111001" 
+	data-account="1892432924001" 
+	data-player="Vb3fzOzMF" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls  playsinline></video-js>
+	<hr/>
+	<video-js 
+	id="myPlayerID2"
+	data-video-id="5185357263001" 
+	data-account="1892432924001" 
+	data-player="Vb3fzOzMF" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls  playsinline></video-js>
+	<hr/>
+	<video-js 
+	id="myPlayerID3"
+	data-video-id="5185356765001" 
+	data-account="1892432924001" 
+	data-player="Vb3fzOzMF" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls  playsinline></video-js>
+
+
+
+
+	<script src="http://players.brightcove.net/1892432924001/Vb3fzOzMF_default/index.min.js"></script>
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+
+			
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+	<link href="//players.brightcove.net/videojs-ssai/1/videojs-ssai.css" rel="stylesheet">
+
+</head>
+<body>
+	<h1>Next Interactive - Live - SSAI </h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6071482493001"
+	data-account="5470155820001" 
+	data-player="veU0LWKdz" 
+	data-embed="default" 
+	data-ad-config-id="d6190656-2095-4ff3-8afe-1a0b60d67ed2"
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/5470155820001/veU0LWKdz_default/index.min.js"></script>
+	<p>videojs("myPlayerID").player().duration(); </p>
+	<script src="//players.brightcove.net/videojs-ssai/1/videojs-ssai.js"></script>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+			var myPlayer = videojs.getPlayer('myPlayerID');
+			myPlayer.ssai();
+		});
+	</script>
+</body>
+</html>
+
+
+<

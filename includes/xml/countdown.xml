@@ -1,0 +1,31 @@
+<VAST version="2.0">
+	<Ad id="DogTime">
+		<InLine>
+			<AdSystem version="7.1">Open AdStream</AdSystem>
+			<AdTitle>Dog Time!</AdTitle>
+			<Description>Brightcove Player Test Campaign</Description>
+			<Impression></Impression>
+			<Creatives>
+				<Creative sequence="1" id="221">
+					<Linear>
+						<Duration>00:00:05</Duration>
+						<TrackingEvents>
+							<Tracking event="firstQuartile">https://cs1.brightcodes.net/simon/ads/dummy.php?first</Tracking>
+							<Tracking event="midpoint">https://cs1.brightcodes.net/simon/ads/dummy.php?mid</Tracking>
+							<Tracking event="thirdQuartile">https://cs1.brightcodes.net/simon/ads/dummy.php?third</Tracking>
+							<Tracking event="complete">https://cs1.brightcodes.net/simon/ads/dummy.php?complete</Tracking>
+						</TrackingEvents>
+						<VideoClicks>
+							<ClickThrough>https://www.brightcove.com</ClickThrough>
+						</VideoClicks>
+						<MediaFiles>
+							<MediaFile delivery="progressive" width="640" height="360" type="video/mp4">https://code.saavedrajj.com/videos/countdown.mp4</MediaFile>
+						</MediaFiles>
+						<TrackingEvents> 
+						</TrackingEvents>
+					</Linear>
+				</Creative>
+			</Creatives>
+		</InLine>
+	</Ad>
+</VAST>

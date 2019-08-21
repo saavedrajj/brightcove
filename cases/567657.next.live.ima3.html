@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Next Interactive: Live + IMA3</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="6057858547001" 
+	data-account="6012566821001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video-js>
+	<script src="http://players.brightcove.net/6012566821001/default_default/index.min.js"></script>
+<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+	<p>Copy in the Javascript Console:
+		<br>> videojs("myPlayerID").player().duration(); </p>
+
+<script>
+    var myPlayer;
+    var player = bc('myPlayerID');
+    player.ima3({
+      serverUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
+    });
+    player.ready(function() {
+      myPlayer = this;
+      //Do something
+    });
+  </script>
+</body>
+</html>
