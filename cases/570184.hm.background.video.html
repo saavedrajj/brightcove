@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.vjs-loading-spinner 
+		{ 
+			display: none !important; 
+			visibility: hidden !important; 
+		} 
+	</style>
+</head>
+<body>
+	<h1>H&M</h1>
+	<div style="max-width: 100%;">
+		<video-js 
+		id="myPlayerID"
+		data-account="5844457511001" 
+		data-player="oFr7f8E8K" 
+		data-embed="default" 
+		data-video-id="5848004139001" 
+		data-playlist-id="" 
+		data-application-id="" 
+		muted 
+		class="vjs-fluid">
+	</video-js>
+</div>
+<script src="https://players.brightcove.net/5844457511001/oFr7f8E8K_default/index.min.js"></script>
+<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+<script>
+	videojs.getPlayer('myPlayerID').ready(function() {
+		var myPlayer = this;
+		myPlayer.on("ended", function () {
+			playVideo();
+		});
+		playVideo();
+
+		function playVideo () {
+			myPlayer.play();
+		}
+	});
+</script>
+</body>
+</html>

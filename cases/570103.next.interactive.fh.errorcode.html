@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-
-  <style>
+    <meta charset="UTF-8">
+    <title>Freewheel</title>
+    <style>
     .video-js {
-      width: 480px;
-      height: 270px;
+        width: 480px;
+        height: 270px;
     }
-  </style>
-  <link href="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet">
+</style> 
+<link href="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>Next Interactive: Live + FreeWheel</h1>
-  <video-js 
-  id="myPlayerID"
-  data-video-id="6057858547001" 
-  data-account="6012566821001" 
-  data-player="default" 
-  data-embed="default" 
-  data-application-id 
-  class="video-js" 
-  controls muted playsinline></video-js>
-  <script src="http://players.brightcove.net/6012566821001/default_default/index.min.js"></script>
-      <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
-  <p>Copy in the Javascript Console:
-    <br>> videojs("myPlayerID").player().duration(); </p>
-   <script type="text/javascript">
+<body> 
+    <h1>Freewheel</h1>
+    <video 
+    id="myPlayerID"
+    data-video-id="5575865276001" 
+    data-account="5458602755001" 
+    data-player="BJxAdLhKDW" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js" 
+    controls></video>
+    <script src="//players.brightcove.net/5458602755001/BJxAdLhKDW_default/index.min.js"></script>
+    <script src="//players.brightcove.net/videojs-freewheel/3/videojs-freewheel.min.js"></script>
+    <script type="text/javascript">
         var myPlayer;
 
         videojs("myPlayerID").ready(function(){
@@ -54,7 +51,7 @@
                 "videoAssetCustomId": "brightcove_scenario_1_video",
                 "profile": "global-js",
                 "networkId": 96749,
-                "serverUrl": "//demo.v.fwmrm.net/ad/g/1?duration={mediainfo.duration}",
+                "serverUrl": "//demo.v.fwmrm.net/ad/g/1?duration={mediainfo.duration}&errorCode=[ERRORCODE]",
                 "keyValues": [
                 {
                     "module": "DemoPlayer",

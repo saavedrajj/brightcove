@@ -12,7 +12,7 @@
 	</style>
 </head>
 <body>
-	<h1>Title</h1>
+	<h1>Autoplay - autoplay('any')</h1>
 	<video-js 
 	id="myPlayerID"
 	data-video-id="5575865276001" 
@@ -27,8 +27,7 @@
 	<script>
 		videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
-			
-			
+	        myPlayer.autoplay('any');		
 		});
 	</script>
 </body>

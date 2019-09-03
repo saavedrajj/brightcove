@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Autoplay - Multiple iframes - autoplay('any')</h1>
+
+    <h2>Player with autoplay</h2>
+	<iframe src="//players.brightcove.net/5458602755001/xbbh006uk_default/index.html?videoId=5575865276001" 
+	allowfullscreen 
+	webkitallowfullscreen 
+	mozallowfullscreen 
+	allow="encrypted-media"></iframe>
+	<hr>
+
+    <h2>Player without autoplay</h2>
+	<iframe src="//players.brightcove.net/5458602755001/default_default/index.html?videoId=5681745327001" 
+	allowfullscreen 
+	webkitallowfullscreen 
+	mozallowfullscreen 
+	allow="encrypted-media"></iframe>
+
+	<script src="http://players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+		videojs.getPlayer('myPlayerID1').ready(function() {
+			var myPlayer = this;
+	        myPlayer.autoplay('any');	
+		});
+	</script>
+</body>
+</html>
