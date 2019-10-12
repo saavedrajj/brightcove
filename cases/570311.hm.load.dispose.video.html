@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+	</style>
+</head>
+<body>
+	<h1>H&M dispose player</h1>
+	<button onclick="addPlayer()">Add Player</button>
+	<button onclick="disposePlayer()">Dispose Player</button>
+
+	<div id="placeHolder"></div>
+	<script>
+		var myPlayer,
+		playerHTML,
+
+		playerData = {
+			accountId: "5844457511001",
+			playerId: "sYv39HSoxW",
+			videoId: "6036404871001"
+		};
+
+
+/*
+      const account = "5844457511001";    
+      const player = "sYv39HSoxW";
+      const videoid = "6036404871001";
+
+*/
+
+		function disposePlayer() {
+			myPlayer.dispose();
+		}
+
+		function addPlayer() {
+			playerHTML =
+			'<video-js id="myPlayerID" data-video-id="' +
+			playerData.videoId +
+			'"  data-account="' +
+			playerData.accountId +
+			'" data-player="' +
+			playerData.playerId +
+			'" data-embed="default" class="video-js" controls></video-js>';
+
+			document.getElementById("placeHolder").innerHTML = playerHTML;
+
+			var s = document.createElement("script");
+			s.src =
+			"https://players.brightcove.net/" +
+			playerData.accountId +
+			"/" +
+			playerData.playerId +
+			"_default/index.min.js";
+
+			document.body.appendChild(s);
+
+			s.onload = callback;
+		}
+
+
+// +++ Initialize the player and start the video +++
+function callback() {
+	myPlayer = bc("myPlayerID");
+  // Can also use the following to assign a player instance to the variable if you choose not to use IDs for elements directly
+  // myPlayer = bc(document.getElementById('myPlayerID'));
+//  myPlayer.on("loadedmetadata", function() {
+    // Mute the audio track, if there is one, so video will autoplay on button click
+    //myPlayer.muted(true);
+   // myPlayer.play();
+  //});
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

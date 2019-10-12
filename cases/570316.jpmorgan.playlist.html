@@ -12,24 +12,42 @@
 	</style>
 </head>
 <body>
-	<h1>Title</h1>
+	<h1>JP Morgan</h1>
 	<video-js 
 	id="myPlayerID"
-	data-video-id="6094364236001" 
-	data-account="5458602755001" 
-	data-player="default" 
+	data-playlist-video-id="6080075884001"
+	data-account="899458537001" 
+	data-playlist-id="6010707610001"
+	data-player="OQgif8zrN" 
 	data-embed="default" 
 	data-application-id 
 	class="video-js" 
 	controls></video-js>
-	<script src="http://players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="http://players.brightcove.net/899458537001/OQgif8zrN_default/index.min.js"></script>
 	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+
+	<button onclick="clearConsole()">Clear Console</button>
+
+	<p style="font-family: courier;font-size:11px;"><b><u>MESSAGE LOG:</u></b></p>
+	<p style="font-family: courier;font-size:11px;" id="message"></p>
+
+
 	<script>
+
 		videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
-			
+			myPlayer.on("playlistitem", function() { 
+				message.innerHTML += "*** playlistitem triggered<br>";
+			});
+
 			
 		});
+
+		function clearConsole(){
+			message.innerHTML = "";      
+		}
+
 	</script>
 </body>
 </html>
+

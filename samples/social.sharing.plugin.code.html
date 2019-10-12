@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	<title></title>
+
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+		width: 640px;
+		height: 360px		
+	}
+</style>
+	<link href="//players.brightcove.net/videojs-social/3/videojs-social.css" rel="stylesheet">
+</head>
+
+<body>
+	<video 
+	id="myPlayerID"
+    data-video-id="5575865276001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted playsinline></video>
+	</video>
+	<script src="https://players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="https://players.brightcove.net/videojs-social/3/videojs-social.min.js"></script>
+	<script type="text/javascript">
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this,
+			options = {
+				"title": "Tiger",
+				"description": "Video of two tigers",
+				"url": "https://yourdomain.com/var1/var2/var3",
+				"embedCode": "<iframe src='http://bcove.me/niqx01er'>",
+				"deeplinking": true,
+				"offset": "00:00:05",
+				"services": {
+					"facebook": true,
+					"google": true,
+					"twitter": true,
+					"tumblr": true,
+					"pinterest": true,
+					"linkedin": true
+				}
+			};
+			myPlayer.social(options);
+		});
+		</script>
+	</body>
+	</html>
