@@ -166,6 +166,11 @@
                 message.innerHTML += "*** volumechange triggered<br>";
             });   
 
+            myPlayer.on("contentplayback", function() { 
+                message.innerHTML += "*** contentplayback triggered<br>";
+            });  
+
+
             myPlayer.on('fullscreenchange', function() {
                 if (myPlayer.isFullscreen()) {
                     message.innerHTML += "*** fullscreen triggered at " + myPlayer.currentTime() + ' seconds<br>';

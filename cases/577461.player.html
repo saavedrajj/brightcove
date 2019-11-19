@@ -9,20 +9,39 @@
 			width: 480px;
 			height: 270px;
 		}
+
+		.vjs-poster {
+			display:none!important;
+		}
 	</style>
 </head>
 <body>
-	<h1>Title</h1>
+	<h2>No poster</h2>
 	<video-js 
-	id="myPlayerID"
-	data-video-id="6094364236001" 
-	data-account="5458602755001" 
-	data-player="default" 
+	id="myPlayerID1"
+	data-video-id="6093148544001" 
+	data-account="6057955899001" 
+	data-player="Ic019mnmEX" 
 	data-embed="default" 
+	poster=""
 	data-application-id 
 	class="video-js" 
 	controls></video-js>
-	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/6057955899001/Ic019mnmEX_default/index.min.js"></script>
+	<h2>Custom poster</h2>
+	<video-js 
+	id="myPlayerID2"
+	data-video-id="6093148544001" 
+	data-account="6057955899001" 
+	data-player="Ic019mnmEX" 
+	data-embed="default" 
+	poster="//picsum.photos/id/78/640/360"
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<script src="//players.brightcove.net/6057955899001/Ic019mnmEX_default/index.min.js"></script>
+
+
 	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
 	<script>
 		videojs.getPlayer('myPlayerID').ready(function() {

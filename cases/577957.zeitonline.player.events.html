@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zeit - Events</title>
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+</style>
+<link href="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Zeit - Events</h1>
+	<video 
+	id="myPlayerID"
+	data-video-id="6094364236001" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls muted></video>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-ima3/3/videojs.ima3.min.js"></script>
+
+	<button onclick="clearConsole()">Clear Console</button>
+	<p class="console"><strong>Events log</strong></p>
+	<p class="console" id="message"></p>
+
+	<script type="text/javascript">
+
+		videojs("myPlayerID").ready(function() { 
+			var myPlayer = this;
+		
+			myPlayer.one(["play", "contentplayback", "contentupdate"],function(event){
+				message.innerHTML += "" + event.type + "<br/>";    
+			});
+		});
+	</script>
+
+</body>
+</html>

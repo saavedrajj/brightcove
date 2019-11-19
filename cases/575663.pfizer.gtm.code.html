@@ -12,7 +12,7 @@
 	</style>
 </head>
 <body>
-	<h1>Title</h1>
+	<h1>Google Tag Manager Plugin</h1>
 	<video-js 
 	id="myPlayerID"
 	data-video-id="6094364236001" 
@@ -23,12 +23,17 @@
 	class="video-js" 
 	controls></video-js>
 	<script src="//players.brightcove.net/5458602755001/default_default/index.min.js"></script>
+	<script src="//players.brightcove.net/videojs-bc-gtm/1/videojs-bc-gtm.js"></script>	
 	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
 	<script>
 		videojs.getPlayer('myPlayerID').ready(function() {
 			var myPlayer = this;
-			
-			
+
+			myPlayer.bcGtm({
+			// Set your Options (JSON) file here
+			});
+
+
 		});
 	</script>
 </body>

@@ -1,0 +1,7 @@
+.vjs-dock-title {
+	white-space: unset!important;
+}
+
+.vjs-dock-description {
+	display: none;
+}
