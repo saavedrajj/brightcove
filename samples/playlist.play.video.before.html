@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>/*
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}*/
+	</style>
+</head>
+<body>
+	<h1>Play Video Before Playlist</h1>
+
+
+<div style="max-width: 100%;">
+	<video-js 
+	id="myPlayerID"
+    data-account="5458602755001"
+    data-player="BLcLdKY2a"
+	data-embed="default" 
+	controls="" 
+	data-playlist-id="" 
+	data-application-id="" 
+	class="vjs-fluid"></video-js>
+</div>
+<script src="https://players.brightcove.net/5458602755001/BLcLdKY2a_default/index.min.js"></script>
+
+
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+videojs.getPlayer('myPlayerID').ready(function() {
+  var myPlayer = this;
+  // +++ Define playlist and video to be played before playlist +++
+  var beforePlaylistVideo = "6094364236001",
+    playlistID = "5479927530001";
+
+  // +++ Retrieve playlist +++
+  myPlayer.catalog.getPlaylist(playlistID, function(error, myPlaylist) {
+    // deal with error
+    // +++ Place playlist in player, but -1 parameter does not load playlist video in player +++
+    myPlayer.playlist(myPlaylist, -1);
+  });
+
+  // +++ Retrieve video to play before playlist and load it +++
+  myPlayer.catalog.getVideo(beforePlaylistVideo, function(error, video) {
+    //deal with error
+    myPlayer.catalog.load(video);
+
+    // +++ Set event  handler so after first video plays playlist plays +++
+    myPlayer.one("ended", function() {
+      myPlayer.playlist.currentItem(0);
+    });
+  });
+});
+	</script>
+</body>
+</html>
