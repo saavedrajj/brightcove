@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		.video-js {
+			width: 480px;
+			height: 270px;
+		}
+
+		.vjs-big-play-button {
+    		display:none !important;
+  		}
+	</style>
+</head>
+<body>
+	<h1>Hide Play button</h1>
+	<video-js 
+	id="myPlayerID"
+	data-video-id="ref:promo01" 
+	data-account="5458602755001" 
+	data-player="default" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<script src="//players.brightcove.net/5458602755001/default_default/index.js"></script>
+	<div>These are examples to demonstrate certain features and functionality of Brightcove products and services and are provided for demonstration purposes only. These examples are not to be used in production and are not supported by Brightcove or the Brightcove support team.</div>
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+			
+			
+		});
+	</script>
+</body>
+</html>
