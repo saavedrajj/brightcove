@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Playlist </title>	
+	<style>
+	.video-js {
+		width: 480px;
+		height: 270px;
+	}
+	ol {
+		width: 480px;
+	}
+
+.vjs-playlist .vjs-playlist-title-container {
+text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000;
+}
+
+
+</style>
+</head>
+<body>
+	
+
+	<video-js 
+	id="myPlayerID"
+    data-playlist-id="5108167645001" 
+	data-account="2503979514001" 
+	data-player="SJeWMavdq" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video-js>
+	<script src="//players.brightcove.net/2503979514001/SJeWMavdq_default/index.js"></script>
+
+	<script>
+		videojs.getPlayer('myPlayerID').ready(function() {
+			var myPlayer = this;
+			
+			
+		});
+	</script>
+
+
+                <ol class="vjs-playlist vjs-mouse"></ol>
+           
+  
+
+
+
+</body>
+</html>
